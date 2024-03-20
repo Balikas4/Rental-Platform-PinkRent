@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}{% get_available_languages as LANGUAGES %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Rented{% endblock title %}</title>
+    <link rel="icon" href="{% static 'icon.png' %}" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="{% url 'main_page' %}">
+            <img src="{% static 'rented_logo.png' %}" alt="Rented Logo">
+        </a>        
+        <ul class="nav">
+            <li><a href="{% url 'shop_page' %}">{% trans "shop"|capfirst %}</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'my_listings' %}">{% trans "my listings"|capfirst %}</a></li>
+            {% comment %} <li><a href="{% url 'offers:my_offers' %}">{% trans "my offers"|capfirst %}</a></li> {% endcomment %}
+                {% if  user.is_superuser%}
+            <li><a href="{% url 'listing_list' %}">{% trans "listings"|capfirst %}</a></li>
+                {% endif %}
+            {% endif %}
+        </ul>
+        <ul class="nav nav-user">
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'user_detail_current' %}">{{ user }}</a></li>
+                {% if user.is_superuser or user.is_staff %}
+                    <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
+                {% endif %}
+                <li><form method="post" action="{% url "logout" %}">{% csrf_token %}<button type="submit">{% trans "log out"|capfirst %}</button></form></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">{% trans "log in"|capfirst %}</a></li>
+                <li><a href="{% url 'signup' %}">{% trans "sign up"|capfirst %}</a></li>
+            {% endif %}
+        </ul>
+    </header>
+    <section class="messages">
+        {% for message in messages %}
+            <p class="message message-{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </section>
+    <main>{% block content %}{% endblock content %}</main>
+    <footer>
+        {% block footer %}{% endblock footer %}
+        <p>&copy; 2023-2024 <a href="https://www.google.com/" target="_blank">{% trans "Do your own research" %}</a></p>
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ redirect_to }}">
+            <select class="language" name="language" onchange="this.form.submit();">
+                {% for lang in LANGUAGES %}
+                    <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
+                        {{ lang.1 }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+    </footer>
+</body>
+</html>

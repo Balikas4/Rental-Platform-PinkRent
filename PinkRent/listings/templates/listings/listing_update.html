@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "editing"|capfirst %} {{ listing.name }} | {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+  <h1>{% trans "editing listing"|capfirst %} {{ listing.name }}</h1>
+  {% if listing.picture %}
+  <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
+{% else %}
+  <p>No picture available</p>
+{% endif %}
+  <form method="post" action="{{ request.path }}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit">{% trans "confirm"|capfirst %}</button></p>
+  </form>
+{% endblock content %}

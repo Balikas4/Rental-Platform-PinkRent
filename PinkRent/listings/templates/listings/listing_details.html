@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ block.super }} | {{ listing.name }}{% endblock title %}
+{% block content %}
+  <h1>
+      {% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}
+    {{ listing.name }}
+  </h1>
+  {% if listing.picture %}
+  <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
+{% else %}
+  <p>{% trans "No picture available" %}</p>
+{% endif %}
+  <p><a href="{% url 'user_detail' username=listing.owner.username %}">
+  {% trans "Listing Owner" %}: {{ listing.owner.username }}
+  </a></p>
+  <p>{% trans "Price" %}: {{ listing.price }} {% trans "per day" %}</p>
+  <p>{{ listing.description }}</p>
+  <p>
+    {% trans "Created" %}: {{ listing.created_at }},
+    {% if listing.created_at != listing.updated_at %}
+      <p>{% trans "Updated" %}: {{ listing.updated_at }}</p>
+    {% endif %}
+  </p>
+  <p>
+    <a class="button" href="{% url 'my_listings' %}">
+      {% trans "Back"|capfirst %}
+    </a>
+    <a class="button" href="{% url 'listing_create' %}">
+      {% trans "Create listing"|capfirst %}
+    </a>
+    {% comment %} <a class="button" href="{% url 'offers:send_offer' %}"> {% endcomment %}
+      {% trans "Send offer"|capfirst %}
+    </a>
+  {% if listing.owner == request.user %}
+      <a class="button" href="{% url 'listing_update' listing.pk %}">
+        {% trans "Edit"|capfirst %}
+      </a>
+      <a class="button" href="{% url 'listing_delete' listing.pk %}">
+        {% trans "Delete"|capfirst %}
+      </a>
+    </p>
+  {% endif %}
+  </p>
+{% endblock content %}
