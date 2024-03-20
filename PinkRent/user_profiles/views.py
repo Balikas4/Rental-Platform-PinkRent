@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from . import forms
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Profile
+from .models import UserProfile
 
 def signup(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
@@ -17,7 +17,7 @@ def signup(request: HttpRequest) -> HttpResponse:
             return redirect("main_page")
     else:
         form = forms.CreateUserForm()
-    return render(request, 'user_profile/signup.html', {
+    return render(request, 'user_profiles/signup.html', {
         'form': form,
     })
 
@@ -43,12 +43,12 @@ def user_update(request: HttpRequest) -> HttpResponse:
         profile = request.user.profile
     except ObjectDoesNotExist:
         # If the profile doesn't exist, create a new one
-        profile = Profile(user=request.user)
+        profile = UserProfile(user=request.user)
         profile.save()
 
     if request.method == "POST":
         form_user = forms.UserForm(request.POST, instance=request.user)
-        form_profile = forms.ProfileForm(request.POST, request.FILES, instance=profile)
+        form_profile = forms.UserProfileForm(request.POST, request.FILES, instance=profile)
         if form_user.is_valid() and form_profile.is_valid():
             form_user.save()
             form_profile.save()
@@ -57,7 +57,7 @@ def user_update(request: HttpRequest) -> HttpResponse:
 
     else:
         form_user = forms.UserForm(instance=request.user)
-        form_profile = forms.ProfileForm(instance=profile)
+        form_profile = forms.UserProfileForm(instance=profile)
 
     return render(request, 'user_profile/user_update.html', {
         'form_user': form_user,

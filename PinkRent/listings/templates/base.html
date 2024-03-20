@@ -11,16 +11,15 @@
 </head>
 <body>
     <header>
-        <a href="{% url 'main_page' %}">
+        <a href="{% url 'listings:main_page' %}">
             <img src="{% static 'rented_logo.png' %}" alt="Rented Logo">
         </a>        
         <ul class="nav">
-            <li><a href="{% url 'shop_page' %}">{% trans "shop"|capfirst %}</a></li>
+            <li><a href="{% url 'listings:shop_page' %}">{% trans "shop"|capfirst %}</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'my_listings' %}">{% trans "my listings"|capfirst %}</a></li>
-            {% comment %} <li><a href="{% url 'offers:my_offers' %}">{% trans "my offers"|capfirst %}</a></li> {% endcomment %}
+            <li><a href="{% url 'listings:my_listings' %}">{% trans "my listings"|capfirst %}</a></li>
                 {% if  user.is_superuser%}
-            <li><a href="{% url 'listing_list' %}">{% trans "listings"|capfirst %}</a></li>
+            <li><a href="{% url 'listings:listing_list' %}">{% trans "listings"|capfirst %}</a></li>
                 {% endif %}
             {% endif %}
         </ul>

@@ -12,7 +12,7 @@ class Listing(models.Model):
     updated_at = models.DateTimeField(_("updated at"), auto_now=True, db_index = True)
     is_available = models.BooleanField(_("is available"), db_index = True, default = False)
     brand = models.CharField(_("brand"), max_length=100, db_index = True)
-    listing_picture = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
+    picture = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
     owner = models.ForeignKey(
         get_user_model(), 
         verbose_name=_("owner"), 
@@ -33,9 +33,9 @@ class Listing(models.Model):
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        if self.listing_picture:
+        if self.picture:
             image = Image.open(self.picture.path)
             max_size = (400, 300)
             if image.size[0] > max_size[0] or image.size[1] > max_size[1]:
                 image.thumbnail(max_size)
-                image.save(self.listing_picture.path)
+                image.save(self.picture.path)

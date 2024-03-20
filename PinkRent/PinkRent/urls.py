@@ -1,5 +1,5 @@
 """
-URL configuration for Rented project.
+URL configuration for PinkRent project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -21,8 +21,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('listings.urls')),
-    # path('offers/', include('offers.urls')),
-    path('user_profile/', include('user_profile.urls')),
+    path('user_profile/', include('user_profiles.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('i18n/', include('django.conf.urls.i18n')),    
     path('admin/', admin.site.urls),

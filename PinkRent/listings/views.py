@@ -10,13 +10,11 @@ from django.views import generic
 from django.contrib.auth import get_user_model
 from .forms import ListingForm
 from .models import Listing
-# from offers.models import Offer
 
 def main_page(request: HttpRequest) -> HttpResponse:
     context = {
         'listing_count': models.Listing.objects.count(),
         'users_count': models.get_user_model().objects.count(),
-        # 'offers_count': Offer.objects.count(),
     }
     return render(request, 'main.html', context)
 

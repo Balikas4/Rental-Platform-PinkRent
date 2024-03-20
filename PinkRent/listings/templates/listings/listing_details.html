@@ -29,7 +29,7 @@
     <a class="button" href="{% url 'listing_create' %}">
       {% trans "Create listing"|capfirst %}
     </a>
-    {% comment %} <a class="button" href="{% url 'offers:send_offer' %}"> {% endcomment %}
+    <a class="button" href="{% url 'offers:send_offer' %}">
       {% trans "Send offer"|capfirst %}
     </a>
   {% if listing.owner == request.user %}

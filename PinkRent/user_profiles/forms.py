@@ -7,7 +7,7 @@ from . import models
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = get_user_model()
-        fields = ('username', 'first_name', 'last_name', 'email')
+        fields = ('username', 'email')
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
@@ -22,7 +22,7 @@ class UserForm(forms.ModelForm):
         fields = ("first_name", "last_name", "email", )
 
 
-class ProfileForm(forms.ModelForm):
+class UserProfileForm(forms.ModelForm):
     class Meta:
-        model = models.Profile
-        fields = ("profile_picture", )
+        model = models.UserProfile
+        fields = ('picture',)
