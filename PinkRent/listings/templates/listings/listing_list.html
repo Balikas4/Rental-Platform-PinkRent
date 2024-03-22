@@ -5,16 +5,16 @@
   <h1>{% trans "Listings" %}</h1>
   <ul>
     {% for listing in listing_list %}
-    <li><a href="{% url "listing_available" listing.pk %}">
+    <li><a href="{% url "listings:listing_available" listing.pk %}">
         {% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}</a>
-        <a href="{% url "listing_detail" listing.pk %}">{{ listing.name }}</a>
+        <a href="{% url "listings:listing_detail" listing.pk %}">{{ listing.name }}</a>
         <span style="float:right;">{{ listing.price }}</span>
     </li>
     {% empty %}
       <li>{% trans "No listings found" %}</li>
     {% endfor %}
   </ul>
-  <a class="button" href="{% url 'listing_create' %}">
+  <a class="button" href="{% url 'listings:listing_create' %}">
     {% trans "Create new"|capfirst %}
   </a>
 {% endblock content %}

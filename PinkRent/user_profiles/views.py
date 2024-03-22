@@ -14,10 +14,10 @@ def signup(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             form.save()
             messages.success(request, _("Thank you! You can log in now with your credentials."))
-            return redirect("main_page")
+            return redirect("login")
     else:
         form = forms.CreateUserForm()
-    return render(request, 'user_profiles/signup.html', {
+    return render(request, 'user_profile/signup.html', {
         'form': form,
     })
 
@@ -40,7 +40,7 @@ def user_detail(request: HttpRequest, username: str | None = None)  -> HttpRespo
 def user_update(request: HttpRequest) -> HttpResponse:
     try:
         # Try to get the user's profile
-        profile = request.user.profile
+        profile = request.user.userprofile
     except ObjectDoesNotExist:
         # If the profile doesn't exist, create a new one
         profile = UserProfile(user=request.user)

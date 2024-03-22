@@ -76,7 +76,7 @@ class ListingCreateView(LoginRequiredMixin, generic.CreateView):
 
     def get_success_url(self) -> str:
         messages.success(self.request, _('listing created successfully').capitalize())
-        return reverse('listing_list')
+        return reverse('listings:my_listings')
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
@@ -93,7 +93,7 @@ class ListingUpdateView(
 
     def get_success_url(self) -> str:
         messages.success(self.request, _('listing updated successfully').capitalize())
-        return reverse('my_listings')
+        return reverse('listings:my_listings')
 
     def test_func(self) -> bool | None:
         return self.get_object().owner == self.request.user
@@ -108,7 +108,7 @@ class ListingDeleteView(
 
     def get_success_url(self) -> str:
         messages.success(self.request, _('listing deleted successfully').capitalize())
-        return reverse('listing_list')
+        return reverse('listings:my_listings')
 
     def test_func(self) -> bool | None:
         return self.get_object().owner == self.request.user

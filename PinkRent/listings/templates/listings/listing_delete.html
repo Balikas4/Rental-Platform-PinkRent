@@ -12,7 +12,7 @@
     </p>
     <p>
         <button type="submit">{% trans "confirm"|capfirst %}</button>
-        <a class="button" href="{% url "listing_detail" listing.pk %}">{% trans "cancel"|capfirst %}</a>
+        <a class="button" href="{% url "listings:listing_detail" listing.pk %}">{% trans "cancel"|capfirst %}</a>
     </p>
 </form>
 {% endblock content %}

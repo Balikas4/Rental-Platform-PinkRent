@@ -4,6 +4,16 @@ from django.urls import reverse
 from django.utils.translation import gettext as _
 from PIL import Image
 
+class Category(models.Model):
+    name = models.CharField(_("name"), max_length=100, db_index=True)
+
+    class Meta:
+        verbose_name = _("category")
+        verbose_name_plural = _("categories")
+
+    def __str__(self):
+        return self.name
+
 class Listing(models.Model):
     name = models.CharField(_("name"), max_length=100, db_index = True)
     description = models.TextField(_("description"), blank=True, max_length = 100000)
@@ -19,6 +29,14 @@ class Listing(models.Model):
         on_delete=models.CASCADE,
         related_name = 'listings',
         )
+    category = models.ForeignKey(
+        Category,
+        verbose_name=_("category"),
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='listing',
+    )
 
     class Meta:
         verbose_name = _("listing")
@@ -39,3 +57,4 @@ class Listing(models.Model):
             if image.size[0] > max_size[0] or image.size[1] > max_size[1]:
                 image.thumbnail(max_size)
                 image.save(self.picture.path)
+

@@ -11,6 +11,7 @@
 {% else %}
   <p>{% trans "No picture available" %}</p>
 {% endif %}
+  <p>{{ listing.category }}</p>
   <p><a href="{% url 'user_detail' username=listing.owner.username %}">
   {% trans "Listing Owner" %}: {{ listing.owner.username }}
   </a></p>
@@ -23,20 +24,20 @@
     {% endif %}
   </p>
   <p>
-    <a class="button" href="{% url 'my_listings' %}">
+    <a class="button" href="{% url 'listings:my_listings' %}">
       {% trans "Back"|capfirst %}
     </a>
-    <a class="button" href="{% url 'listing_create' %}">
+    <a class="button" href="{% url 'listings:listing_create' %}">
       {% trans "Create listing"|capfirst %}
     </a>
-    <a class="button" href="{% url 'offers:send_offer' %}">
+    {% comment %} <a class="button" href="{% url 'offers:send_offer' %}">
       {% trans "Send offer"|capfirst %}
-    </a>
+    </a> {% endcomment %}
   {% if listing.owner == request.user %}
-      <a class="button" href="{% url 'listing_update' listing.pk %}">
+      <a class="button" href="{% url 'listings:listing_update' listing.pk %}">
         {% trans "Edit"|capfirst %}
       </a>
-      <a class="button" href="{% url 'listing_delete' listing.pk %}">
+      <a class="button" href="{% url 'listings:listing_delete' listing.pk %}">
         {% trans "Delete"|capfirst %}
       </a>
     </p>
