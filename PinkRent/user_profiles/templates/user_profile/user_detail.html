@@ -18,4 +18,10 @@
 {% with unavailable_listings_count=unavailable_listings_count %}
     <p>{% trans "Number of Unavailable Listings" %}: {{ unavailable_listings_count }}</p>
 {% endwith %}
+{% if request.user != object %}
+    <form action="{% url 'favorite_user' object.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">{% trans "Like"|capfirst %}</button>
+    </form>
+{% endif %}
 {% endblock content %}

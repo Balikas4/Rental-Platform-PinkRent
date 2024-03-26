@@ -27,3 +27,17 @@ class UserProfile(models.Model):
             if image.size[0] > 400 or image.size[1] > 300:
                 image.resize((400, 300))
                 image.save(self.picture.path)
+
+class FavoriteUser(models.Model):
+    user = models.ForeignKey(get_user_model(), verbose_name=_("favorited_by"), on_delete=models.CASCADE, related_name='favorited_by')
+    favorite_user = models.ForeignKey(get_user_model(), verbose_name=_("favorite user"), on_delete=models.CASCADE, related_name='favorite_user')
+
+    class Meta:
+        verbose_name = _("favorite")
+        verbose_name_plural = _("favorites")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("favorite_detail", kwargs={"pk": self.pk})

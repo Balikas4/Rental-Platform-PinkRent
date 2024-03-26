@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}{% load i18n %}
+{% block title %}{{ block.super }} my favorites list{% endblock title %}
+{% block content %}
+  <h1>{% trans "My favorites" %}</h1>
+  <ul>
+    {% for favorite in user_favorites %}
+    <li>
+        <p>{{ favorite.user }} likes {{ favorite.favorite_user }}</p>
+        <form action="{% url 'remove_favorite' favorite.favorite_user.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit">{% trans "Remove"|capfirst %}</button>
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+  {% if request.user != object %}
+    <form action="{% url 'favorite_user' request.user.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">{% trans "Like"|capfirst %}</button>
+    </form>
+{% endif %}
+{% if request.user != object %}
+<form action="{% url 'favorite_user' request.user.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">{% trans "Like"|capfirst %}</button>
+</form>
+{% endif %}
+{% endblock content %}

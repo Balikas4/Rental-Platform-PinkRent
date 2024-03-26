@@ -24,9 +24,9 @@
     {% endif %}
   </p>
   <p>
-    <a class="button" href="{% url 'listings:my_listings' %}">
+    {% comment %} <a class="button" href="{% url 'listings:my_listings' %}">
       {% trans "Back"|capfirst %}
-    </a>
+    </a> {% endcomment %}
     <a class="button" href="{% url 'listings:listing_create' %}">
       {% trans "Create listing"|capfirst %}
     </a>

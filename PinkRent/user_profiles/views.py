@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from . import forms
 from django.core.exceptions import ObjectDoesNotExist
-from .models import UserProfile
+from .models import UserProfile , FavoriteUser
 
 def signup(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
@@ -63,3 +63,37 @@ def user_update(request: HttpRequest) -> HttpResponse:
         'form_user': form_user,
         'form_profile': form_profile,
     })
+
+@login_required
+def favorite_user(request, user_id):
+    # Get the user object to be added as a favorite
+    favorite_user = get_object_or_404(get_user_model(), pk=user_id)
+
+    # Check if the favorite already exists for the current user
+    existing_favorite = FavoriteUser.objects.filter(user=request.user, favorite_user=favorite_user).exists()
+    if not existing_favorite:
+        # Create a new favorite entry for the current user
+        FavoriteUser.objects.create(user=request.user, favorite_user=favorite_user)
+        messages.success(request, 'User added as favorite successfully.')
+    else:
+        messages.info(request, 'User is already a favorite.')
+
+    # Redirect back to the page where the form was submitted
+    return redirect('my_favorites')
+
+@login_required
+def my_favorites(request):
+    user_favorites = FavoriteUser.objects.filter(user=request.user)
+    return render(request, 'favorite/my_favorites.html', {'user_favorites': user_favorites})
+
+@login_required
+def remove_favorite(request, user_id):
+    if request.method == 'POST':
+        user_to_remove = get_object_or_404(get_user_model(), id=user_id)
+        favorite_to_remove = get_object_or_404(FavoriteUser, user=request.user, favorite_user=user_to_remove)
+        favorite_to_remove.delete()
+        # Optionally, you can redirect the user to a different page after removal
+        return redirect('my_favorites')
+    else:
+        # Handle GET requests or other cases as needed
+        return HttpResponse('Method not allowed', status=405)
