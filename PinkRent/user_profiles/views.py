@@ -65,7 +65,7 @@ def user_update(request: HttpRequest) -> HttpResponse:
     })
 
 @login_required
-def favorite_user(request, user_id):
+def add_favorite_user(request, user_id):
     # Get the user object to be added as a favorite
     favorite_user = get_object_or_404(get_user_model(), pk=user_id)
 
@@ -79,21 +79,21 @@ def favorite_user(request, user_id):
         messages.info(request, 'User is already a favorite.')
 
     # Redirect back to the page where the form was submitted
-    return redirect('my_favorites')
+    return redirect('my_favorite_users')
 
 @login_required
-def my_favorites(request):
+def my_favorite_users(request):
     user_favorites = FavoriteUser.objects.filter(user=request.user)
-    return render(request, 'favorite/my_favorites.html', {'user_favorites': user_favorites})
+    return render(request, 'favorite/my_favorite_users.html', {'user_favorites': user_favorites})
 
 @login_required
-def remove_favorite(request, user_id):
+def remove_favorite_user(request, user_id):
     if request.method == 'POST':
         user_to_remove = get_object_or_404(get_user_model(), id=user_id)
         favorite_to_remove = get_object_or_404(FavoriteUser, user=request.user, favorite_user=user_to_remove)
         favorite_to_remove.delete()
         # Optionally, you can redirect the user to a different page after removal
-        return redirect('my_favorites')
+        return redirect('my_favorite_users')
     else:
         # Handle GET requests or other cases as needed
         return HttpResponse('Method not allowed', status=405)

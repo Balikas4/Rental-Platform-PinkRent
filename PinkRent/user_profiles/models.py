@@ -29,12 +29,13 @@ class UserProfile(models.Model):
                 image.save(self.picture.path)
 
 class FavoriteUser(models.Model):
-    user = models.ForeignKey(get_user_model(), verbose_name=_("favorited_by"), on_delete=models.CASCADE, related_name='favorited_by')
-    favorite_user = models.ForeignKey(get_user_model(), verbose_name=_("favorite user"), on_delete=models.CASCADE, related_name='favorite_user')
+    user = models.ForeignKey(get_user_model(), verbose_name=_("favorited by"), on_delete=models.CASCADE, related_name='favorited_users')
+    favorite_user = models.ForeignKey(get_user_model(), verbose_name=_("favorite user"), on_delete=models.CASCADE, related_name='favorited_by_users')
+
 
     class Meta:
-        verbose_name = _("favorite")
-        verbose_name_plural = _("favorites")
+        verbose_name = _("favorite user")
+        verbose_name_plural = _("favorite users")
 
     def __str__(self):
         return self.name

@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.contrib.auth import get_user_model
 from .forms import ListingForm
-from .models import Listing
+from .models import Listing , FavoriteListing
 
 def main_page(request: HttpRequest) -> HttpResponse:
     context = {
@@ -112,3 +112,34 @@ class ListingDeleteView(
 
     def test_func(self) -> bool | None:
         return self.get_object().owner == self.request.user
+
+def add_favorite_listing(request, pk):
+    # Get the listing object to be added as a favorite
+    favorite_listing = get_object_or_404(Listing, pk=pk)
+
+    # Check if the favorite already exists for the current user
+    existing_favorite = FavoriteListing.objects.filter(user=request.user, favorite_listing=favorite_listing).exists()
+    if not existing_favorite:
+        # Create a new favorite entry for the current user
+        FavoriteListing.objects.create(user=request.user, favorite_listing=favorite_listing)
+        messages.success(request, 'Listing added as favorite successfully.')
+    else:
+        messages.info(request, 'Listing is already a favorite.')
+
+    # Redirect back to the page where the form was submitted
+    return redirect('listings:my_favorites')
+
+def my_favorites(request):
+    listing_favorites = FavoriteListing.objects.filter(user=request.user)
+    return render(request, 'favorite/my_favorite_listings.html', {'listing_favorites': listing_favorites})
+
+def remove_favorite_listing(request, listing_id):
+    if request.method == 'POST':
+        listing_to_remove = get_object_or_404(Listing, id=listing_id)
+        favorite_to_remove = get_object_or_404(FavoriteListing, user=request.user, favorite_listing=listing_to_remove)
+        favorite_to_remove.delete()
+        # Optionally, you can redirect the user to a different page after removal
+        return redirect('my_favorites')
+    else:
+        # Handle GET requests or other cases as needed
+        return HttpResponse('Method not allowed', status=405)

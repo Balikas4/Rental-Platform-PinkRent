@@ -58,3 +58,17 @@ class Listing(models.Model):
                 image.thumbnail(max_size)
                 image.save(self.picture.path)
 
+class FavoriteListing(models.Model):
+    user = models.ForeignKey(get_user_model(), verbose_name=_("favorited_by"), on_delete=models.CASCADE, related_name='favorite_listings')
+    favorite_listing = models.ForeignKey(Listing, verbose_name=_("favorite listing"), on_delete=models.CASCADE, related_name='favorite_listings')
+    
+
+    class Meta:
+        verbose_name = _("favorite listing")
+        verbose_name_plural = _("favorite listings")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("favorite_listing_detail", kwargs={"pk": self.pk})

@@ -13,5 +13,8 @@ urlpatterns = [
     path('listing/<int:pk>/delete/', views.ListingDeleteView.as_view(), name='listing_delete'),
     path('my_listings/', views.my_listings, name="my_listings"),
     path('shop/', views.shop_page, name='shop_page'),
+    # URLs for adding and removing favorite listings
+    path('listing/<int:pk>/favorite/', views.add_favorite_listing, name='add_favorite_listing'),
+    path('listing/<int:pk>/unfavorite/', views.remove_favorite_listing, name='remove_favorite_listing'),
+    path('listing/my_favorites/', views.my_favorites, name="my_favorites"),
 ]
-
