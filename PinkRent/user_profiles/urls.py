@@ -9,5 +9,4 @@ urlpatterns = [
     path('favorite/<int:user_id>/', views.add_favorite_user, name='favorite_user'),
     path('remove_favorite/<int:user_id>/', views.remove_favorite_user, name='remove_favorite'),
     path('my_favorites/', views.my_favorite_users, name='my_favorite_users'),
-
 ]

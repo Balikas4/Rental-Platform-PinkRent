@@ -30,9 +30,11 @@ def user_detail(request: HttpRequest, username: str | None = None)  -> HttpRespo
     else:
         user = request.user
     unavailable_listings_count = user.listings.filter(is_available=False).count()
+    user_favorites = FavoriteUser.objects.filter(user=request.user, favorite_user=user)
     context = {
-        'object': user,
+        'user': user,
         'unavailable_listings_count': unavailable_listings_count,
+        'user_favorites':user_favorites,
     }
     return render(request, 'user_profile/user_detail.html', context)
 
@@ -79,6 +81,8 @@ def add_favorite_user(request, user_id):
         messages.info(request, 'User is already a favorite.')
 
     # Redirect back to the page where the form was submitted
+    if request.GET.get("next"):
+        return redirect(request.GET.get("next"))
     return redirect('my_favorite_users')
 
 @login_required
@@ -92,7 +96,9 @@ def remove_favorite_user(request, user_id):
         user_to_remove = get_object_or_404(get_user_model(), id=user_id)
         favorite_to_remove = get_object_or_404(FavoriteUser, user=request.user, favorite_user=user_to_remove)
         favorite_to_remove.delete()
-        # Optionally, you can redirect the user to a different page after removal
+        messages.success(request, 'User removed from favorites successfully.')
+        if request.GET.get("next"):
+            return redirect(request.GET.get("next"))
         return redirect('my_favorite_users')
     else:
         # Handle GET requests or other cases as needed

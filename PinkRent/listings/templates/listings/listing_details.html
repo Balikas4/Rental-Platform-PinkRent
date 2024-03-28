@@ -17,16 +17,18 @@
   </a></p>
   <p>{% trans "Price" %}: {{ listing.price }} {% trans "per day" %}</p>
   <p>{{ listing.description }}</p>
-  <p>
-    {% trans "Created" %}: {{ listing.created_at }},
-    {% if listing.created_at != listing.updated_at %}
-      <p>{% trans "Updated" %}: {{ listing.updated_at }}</p>
+{% if user.is_authenticated %}
+    {% if user_favorites %}
+    <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+      {% csrf_token %}
+      <button type="submit">{% trans "Unlike"|capfirst %}</button>
+    </form>
+    {% else %}
+        <a class="button" href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+          {% trans "Like"|capfirst %}
+        </a>
     {% endif %}
-  </p>
-  <p>
-    <a class="button" href="{% url 'listings:add_favorite_listing' listing.pk %}">
-      {% trans "Like"|capfirst %}
-    </a>
+{% endif %}
     <a class="button" href="{% url 'listings:my_listings' %}">
       {% trans "My Listings"|capfirst %}
     </a>

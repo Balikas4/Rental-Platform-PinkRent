@@ -42,8 +42,12 @@ def listing_list(request: HttpRequest) -> HttpResponse:
     return render(request, 'listings/listing_list.html', context)
 
 def listing_detail(request: HttpRequest, pk:int) -> HttpResponse:
+    listing = get_object_or_404(Listing, pk=pk)
+    user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing=listing)
     return render(request, 'listings/listing_details.html', {
-        'listing': get_object_or_404(models.Listing, pk=pk)
+        'listing': get_object_or_404(models.Listing, pk=pk),
+        'user_favorites': user_favorites,
+        'listing': listing,
     })
 
 def listing_available(request: HttpRequest, pk:int) -> HttpResponse:
@@ -127,18 +131,23 @@ def add_favorite_listing(request, pk):
         messages.info(request, 'Listing is already a favorite.')
 
     # Redirect back to the page where the form was submitted
+    if request.GET.get("next"):
+        return redirect(request.GET.get("next"))
     return redirect('listings:my_favorites')
 
 def my_favorites(request):
     listing_favorites = FavoriteListing.objects.filter(user=request.user)
     return render(request, 'favorite/my_favorite_listings.html', {'listing_favorites': listing_favorites})
 
-def remove_favorite_listing(request, listing_id):
+def remove_favorite_listing(request, pk):
     if request.method == 'POST':
-        listing_to_remove = get_object_or_404(Listing, id=listing_id)
+        listing_to_remove = get_object_or_404(Listing, pk=pk)
         favorite_to_remove = get_object_or_404(FavoriteListing, user=request.user, favorite_listing=listing_to_remove)
         favorite_to_remove.delete()
+        messages.success(request, 'Listing removed from favorites successfully.')
         # Optionally, you can redirect the user to a different page after removal
+        if request.GET.get("next"):
+            return redirect(request.GET.get("next"))
         return redirect('my_favorites')
     else:
         # Handle GET requests or other cases as needed
