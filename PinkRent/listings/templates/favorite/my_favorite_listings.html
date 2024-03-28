@@ -6,8 +6,12 @@
   <ul>
     {% for favorite in listing_favorites %}
     <li>
-        <p>{{ favorite.user }} likes {{ favorite.favorite_listing.name }}</p>
-      <form action="{% url 'listings:remove_favorite_listing' favorite.favorite_listing.id %}" method="post">
+        <p>{{ favorite.user }} likes 
+          <a href="{% url 'listings:listing_detail' favorite.favorite_listing.pk %}">
+            {{ favorite.favorite_listing.name }}
+          </a>
+        </p>
+      <form action="{% url 'listings:remove_favorite_listing' favorite.favorite_listing.pk %}" method="post">
           {% csrf_token %}
           <button type="submit">{% trans "Remove"|capfirst %}</button>
       </form>

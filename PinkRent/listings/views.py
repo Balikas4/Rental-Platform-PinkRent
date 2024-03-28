@@ -148,7 +148,7 @@ def remove_favorite_listing(request, pk):
         # Optionally, you can redirect the user to a different page after removal
         if request.GET.get("next"):
             return redirect(request.GET.get("next"))
-        return redirect('my_favorites')
+        return redirect('listings:my_favorites')
     else:
         # Handle GET requests or other cases as needed
         return HttpResponse('Method not allowed', status=405)

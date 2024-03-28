@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ block.super }} | {% trans "Offer Details" %}{% endblock title %}
+{% block content %}
+  <h1>{% trans "Offer Details" %}</h1>
+  <p>{% trans "Created at" %}: {{ offer.created_at }}</p>
+  <p>{% trans "Sender" %}: {{ offer.sender.username }}</p>
+  <p>{% trans "Receiver" %}: {{ offer.receiver.username }}</p>
+  <p>{% trans "Listing" %}: <a href="{% url 'listing_detail' pk=offer.listing.pk %}">{{ offer.listing.name }}</a></p>
+  <p>{% trans "Price" %}: {{ offer.listing.price }}</p>
+  <p>{% trans "Duration (Days)" %}: {{ offer.duration_days }}</p>
+  <p>{% trans "Message" %}: {{ offer.message }}</p>
+  <p>{% trans "Start at" %}: {{ offer.start_date }}</p>
+  <p>{% trans "Status" %}: {{ offer.status }}</p>
+  <a class="button" href="{% url 'offers:my_offers' %}">
+    {% trans "Back"|capfirst %}
+  </a>
+  
+  <a class="button" href="{% url 'offers:send_offer' %}">
+    {% trans "Create new"|capfirst %}
+  </a>
+
+  {% if offer.status == 'pending' and offer.receiver == request.user %}
+    <a class="button" href="{% url 'offers:accept_offer' pk=offer.pk %}">
+      {% trans "Accept"|capfirst %}
+    </a>
+    <a class="button" href="{% url 'offers:reject_offer' pk=offer.pk %}">
+      {% trans "Reject"|capfirst %}
+    </a>
+  {% endif %}
+  
+{% endblock content %}

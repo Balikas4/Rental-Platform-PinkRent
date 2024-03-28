@@ -1,0 +1,11 @@
+<!-- offers/templates/offers/send_offer.html -->
+{% extends "base.html" %}
+{% block title %}Send Offer{% endblock %}
+{% block content %}
+  <h1>Send Offer</h1>
+  <form method="post" action="{% url 'offers:send_offer' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send Offer</button>
+  </form>
+{% endblock %}

@@ -9,7 +9,6 @@
 {% endif %}
 </div>
 {% if user == request.user %}
-    <p><a class="button" href="{% url "user_update" %}">{% trans "edit profile data" %}</a></p>
     <p>{% trans "e-mail"|capfirst %}: {{ user.email }}</p>
 {% endif %}
 {% with listing_count=user.listings.count %}
@@ -19,6 +18,12 @@
     <p>{% trans "Number of Unavailable Listings" %}: {{ unavailable_listings_count }}</p>
 {% endwith %}
 {% if user.is_authenticated %}
+<p>
+<a class="button" href="{% url "user_update" %}">{% trans "edit profile data" %}</a>
+<a class="button" href="{% url "offers:my_offers" %}">{% trans "my offers"%}</a>
+<a class="button" href="{% url "listings:my_favorites" %}">{% trans "my favorite listings"%}</a>
+<a class="button" href="{% url "my_favorite_users" %}">{% trans "my favorite users"%}</a>
+</p>
     {% if user_favorites %}
     <form action="{% url 'remove_favorite' user.pk %}?next={{ request.path }}" method="post">
       {% csrf_token %}
@@ -29,6 +34,7 @@
             {% csrf_token %}
             <button type="submit">{% trans "Like"|capfirst %}</button>
         </form>
+    
     {% endif %}
 {% endif %}
 {% endblock content %}
