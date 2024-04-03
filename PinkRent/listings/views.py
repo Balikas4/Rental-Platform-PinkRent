@@ -21,6 +21,7 @@ def main_page(request: HttpRequest) -> HttpResponse:
 def shop_page(request: HttpRequest) -> HttpResponse:
     context = {
         'listings' : Listing.objects.all(),
+        'user_favorites': FavoriteListing.objects.filter(user=request.user),
     }
     return render(request, 'shop.html', context)
 

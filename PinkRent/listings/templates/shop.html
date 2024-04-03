@@ -19,6 +19,18 @@
             <p>{% trans "Uploaded by" %}: <a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
             <p>{% trans "Brand" %}: {{ listing.brand }}</p>
             <p>{% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}</p>
+            {% if user.is_authenticated %}
+                {% if listing.pk in user_favorites %}
+                <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+                {% csrf_token %}
+                <button type="submit">{% trans "Unlike"|capfirst %}</button>
+                </form>
+                {% else %}
+                    <a class="button" href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+                    {% trans "Like"|capfirst %}
+                    </a>
+                {% endif %}
+             {% endif %}
         </div>
     {% endfor %}
 {% endblock content %}

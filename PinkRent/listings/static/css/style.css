@@ -8,6 +8,14 @@ body {
     min-height: 100vh;
 }
 
+.promo-line {
+    background-color: #3bb36d;
+    text-align: center;
+    font-weight: bold;
+    height: auto;
+    padding: 2px 0px;
+}
+
 header {
     background-color: #cccccc;
     display: flex;

@@ -9,7 +9,7 @@
       <li>
         <a href="{% url 'offers:offer_details' pk=offer.pk %}">{{ offer.created_at }}</a>
         {% trans "From" %}: {{ offer.sender.username }}
-        {% trans "Listing" %}: <a href="{% url 'listing_detail' pk=offer.listing.pk %}">{{ offer.listing.name }}</a>
+        {% trans "Listing" %}: <a href="{% url 'listings:listing_detail' pk=offer.listing.pk %}">{{ offer.listing.name }}</a>
         {% trans "Price" %}: {{ offer.listing.price }}
         <a href="{% url 'offers:accept_offer' pk=offer.pk %}">{% trans "Accept" %}</a>
         <a href="{% url 'offers:reject_offer' pk=offer.pk %}">{% trans "Reject" %}</a>
@@ -26,7 +26,7 @@
       <li>
         <a href="{% url 'offers:offer_details' pk=offer.pk %}">{{ offer.created_at }}</a>
         {% trans "To" %}: {{ offer.receiver.username }}
-        {% trans "Listing" %}: <a href="{% url 'listing_detail' pk=offer.listing.pk %}">{{ offer.listing.name }}</a>
+        {% trans "Listing" %}: <a href="{% url 'listings:listing_detail' pk=offer.listing.pk %}">{{ offer.listing.name }}</a>
         {% trans "Price" %}: {{ offer.listing.price }}
         {% trans "Status" %}: {{ offer.get_status_display }}
       </li>
