@@ -10,6 +10,7 @@ from django.views import generic
 from django.contrib.auth import get_user_model
 from .forms import ListingForm
 from .models import Listing , FavoriteListing
+from django.contrib.auth.decorators import login_required
 
 def main_page(request: HttpRequest) -> HttpResponse:
     context = {
@@ -19,10 +20,9 @@ def main_page(request: HttpRequest) -> HttpResponse:
     return render(request, 'main.html', context)
 
 def shop_page(request: HttpRequest) -> HttpResponse:
-    context = {
-        'listings' : Listing.objects.all(),
-        'user_favorites': FavoriteListing.objects.filter(user=request.user),
-    }
+    context = {'listings' : Listing.objects.all(),}
+    if request.user.is_authenticated:
+        context['user_favorites'] = FavoriteListing.objects.filter(user=request.user)
     return render(request, 'shop.html', context)
 
 def listing_list(request: HttpRequest) -> HttpResponse:

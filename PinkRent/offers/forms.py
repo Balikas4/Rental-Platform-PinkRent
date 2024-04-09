@@ -11,10 +11,15 @@ class OfferForm(forms.ModelForm):
             'start_date': forms.DateInput(attrs={'type': 'date'}),
         }
 
-    def __init__(self, user, *args, **kwargs):
+    def __init__(self, user, listing, *args, **kwargs):
         super(OfferForm, self).__init__(*args, **kwargs)
 
-        self.fields['receiver'].queryset = get_user_model().objects.exclude(id=user.id)
+        # Set the receiver field to the owner of the listing
+        self.fields['receiver'].initial = listing.owner
+        self.fields['receiver'].widget = forms.HiddenInput()
 
-        self.fields['listing'].queryset = Listing.objects.all()
+        self.fields['listing'].initial = listing
+        self.fields['listing'].widget = forms.HiddenInput()  # Hide the listing field in the form
 
+        # Exclude the current user from the receiver queryset (if necessary)
+        # self.fields['receiver'].queryset = get_user_model().objects.exclude(id=user.id)

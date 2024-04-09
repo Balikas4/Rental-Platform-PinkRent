@@ -35,7 +35,7 @@
     <a class="button" href="{% url 'listings:listing_create' %}">
       {% trans "Create listing"|capfirst %}
     </a>
-        <a class="button" href="{% url 'offers:send_offer' %}">
+        <a class="button" href="{% url 'offers:send_offer_with_listing' listing_id=listing.pk %}">
       {% trans "Send offer"|capfirst %}
     </a>
   {% if listing.owner == request.user %}

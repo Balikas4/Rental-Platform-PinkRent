@@ -1,23 +1,30 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Offer
+from .models import Offer, Listing
 from .forms import OfferForm
 
 @login_required
-def send_offer(request):
+def send_offer(request, listing_id=None):
+    listing = None
+    if listing_id is not None:
+        listing = get_object_or_404(Listing, pk=listing_id)
+    
     if request.method == 'POST':
-        form = OfferForm(request.user, request.POST)
+        form = OfferForm(request.user, listing, request.POST)
         if form.is_valid():
             offer = form.save(commit=False)
             offer.sender = request.user
+            offer.listing = listing
             offer.save()
             messages.success(request, 'Offer sent successfully.')
             return redirect('offers:offer_sent')
     else:
-        form = OfferForm(request.user)
+        form = OfferForm(request.user, listing)
 
-    return render(request, 'send_offer.html', {'form': form})
+    return render(request, 'send_offer.html', {'form': form, 'listing': listing})
+
+
 
 @login_required
 def offer_sent(request):
