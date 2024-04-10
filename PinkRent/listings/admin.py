@@ -9,5 +9,10 @@ class ListingAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'listing', 'rate', 'created_at']
+    list_editable = ['rate']
+
+admin.site.register(models.ListingReview, ReviewAdmin)
 admin.site.register(models.Listing, ListingAdmin)
 admin.site.register(models.Category, CategoryAdmin)

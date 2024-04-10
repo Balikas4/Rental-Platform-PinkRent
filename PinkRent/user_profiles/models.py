@@ -28,6 +28,7 @@ class UserProfile(models.Model):
                 image.resize((400, 300))
                 image.save(self.picture.path)
 
+
 class FavoriteUser(models.Model):
     user = models.ForeignKey(get_user_model(), verbose_name=_("favorited by"), on_delete=models.CASCADE, related_name='favorited_users')
     favorite_user = models.ForeignKey(get_user_model(), verbose_name=_("favorite user"), on_delete=models.CASCADE, related_name='favorited_by_users')

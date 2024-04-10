@@ -17,6 +17,15 @@
   </a></p>
   <p>{% trans "Price" %}: {{ listing.price }} {% trans "per day" %}</p>
   <p>{{ listing.description }}</p>
+  <div class='review-div'>
+    <h5>Reviews</h5>
+    {% for r in reviews %}
+    <p> {{ r.rate }}⭐
+        "{{ r.comment }}"
+        {{ r.user }}
+        {{ r.created_at }}</p>
+    {% endfor %}
+  </div>
 {% if user.is_authenticated %}
     {% if user_favorites %}
     <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">

@@ -25,9 +25,9 @@
             {% endif %}
         </ul>
         <ul class="nav nav-user">
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'user_detail_current' %}">{{ user }}</a></li>
-                {% if user.is_superuser or user.is_staff %}
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'user_detail_current' %}">{{ request.user.get_full_name|default:request.user.username }}</a></li>
+                {% if request.user.is_superuser or request.user.is_staff %}
                     <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
                 {% endif %}
                 <li><form method="post" action="{% url "logout" %}">{% csrf_token %}<button type="submit">{% trans "log out"|capfirst %}</button></form></li>

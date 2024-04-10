@@ -31,10 +31,12 @@ def user_detail(request: HttpRequest, username: str | None = None)  -> HttpRespo
         user = request.user
     unavailable_listings_count = user.listings.filter(is_available=False).count()
     user_favorites = FavoriteUser.objects.filter(user=request.user, favorite_user=user)
+    current_profile = get_object_or_404(UserProfile, user=user)
     context = {
         'user': user,
         'unavailable_listings_count': unavailable_listings_count,
         'user_favorites':user_favorites,
+        'current_profile':current_profile,
     }
     return render(request, 'user_profile/user_detail.html', context)
 

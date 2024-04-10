@@ -72,3 +72,20 @@ class FavoriteListing(models.Model):
 
     def get_absolute_url(self):
         return reverse("favorite_listing_detail", kwargs={"pk": self.pk})
+
+class ListingReview(models.Model):
+    user = models.ForeignKey(get_user_model(), verbose_name=_("review_by"), on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, verbose_name=_("reviewed_listing"), on_delete=models.CASCADE)
+    comment = models.TextField(max_length=250)
+    rate = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = _("listing_review")
+        verbose_name_plural = _("listing_reviews")
+
+    def __str__(self):
+        return str(self.id)
+
+    def get_absolute_url(self):
+        return reverse("listing_review_detail", kwargs={"pk": self.pk})

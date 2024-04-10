@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.contrib.auth import get_user_model
 from .forms import ListingForm
-from .models import Listing , FavoriteListing
+from .models import Listing , FavoriteListing, ListingReview
 from django.contrib.auth.decorators import login_required
 
 def main_page(request: HttpRequest) -> HttpResponse:
@@ -45,10 +45,12 @@ def listing_list(request: HttpRequest) -> HttpResponse:
 def listing_detail(request: HttpRequest, pk:int) -> HttpResponse:
     listing = get_object_or_404(Listing, pk=pk)
     user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing=listing)
+    reviews = ListingReview.objects.filter(listing=listing)
     return render(request, 'listings/listing_details.html', {
         'listing': get_object_or_404(models.Listing, pk=pk),
         'user_favorites': user_favorites,
         'listing': listing,
+        'reviews': reviews,
     })
 
 def listing_available(request: HttpRequest, pk:int) -> HttpResponse:

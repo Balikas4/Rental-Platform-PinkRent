@@ -4,9 +4,11 @@
 <h1>{% trans "user"|title %} {{ user.username }}</h1>
 <p>{{ user.first_name }} {{ user.last_name }}</p>
 <div>
-    {% if user.profile.picture %}
-    <img src="{{ user.profile.picture.url }}" alt={% trans "profile Picture"|title %} width="300">
-{% endif %}
+    {% if current_profile.picture %}
+        <img src="{{ current_profile.picture.url }}" alt="{% trans "Profile Picture"|title %}" width="300">
+    {% else %}
+        <p>{% trans "No profile picture available" %}</p>
+    {% endif %}
 </div>
 {% if user == request.user %}
     <p>{% trans "e-mail"|capfirst %}: {{ user.email }}</p>
@@ -17,12 +19,13 @@
 {% with unavailable_listings_count=unavailable_listings_count %}
     <p>{% trans "Number of Unavailable Listings" %}: {{ unavailable_listings_count }}</p>
 {% endwith %}
-{% if user.is_authenticated %}
+{% if request.user == user%}
 <p>
 <a class="button" href="{% url "user_update" %}">{% trans "edit profile data" %}</a>
 <a class="button" href="{% url "offers:my_offers" %}">{% trans "my offers"%}</a>
 <a class="button" href="{% url "listings:my_favorites" %}">{% trans "my favorite listings"%}</a>
 <a class="button" href="{% url "my_favorite_users" %}">{% trans "my favorite users"%}</a>
+{% endif %}
 </p>
     {% if user_favorites %}
     <form action="{% url 'remove_favorite' user.pk %}?next={{ request.path }}" method="post">
@@ -34,7 +37,5 @@
             {% csrf_token %}
             <button type="submit">{% trans "Like"|capfirst %}</button>
         </form>
-    
-    {% endif %}
 {% endif %}
 {% endblock content %}
