@@ -16,6 +16,7 @@ def main_page(request: HttpRequest) -> HttpResponse:
     context = {
         'listing_count': models.Listing.objects.count(),
         'users_count': models.get_user_model().objects.count(),
+        'listings': models.Listing.objects.all(),
     }
     return render(request, 'main.html', context)
 

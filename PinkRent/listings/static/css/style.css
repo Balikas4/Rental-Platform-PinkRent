@@ -231,4 +231,21 @@ ul.dashboard li .stat {
 .main-page-content{
     padding: 10px;
     text-align: center;
+    min-width: 760px;
 }
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto; /* Two rows */
+    grid-gap: 1rem;
+  }
+  
+  .grid-item {
+    background: rgb(233, 233, 233);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
