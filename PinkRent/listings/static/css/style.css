@@ -9,15 +9,26 @@ body {
 }
 
 .promo-line {
-    background-color: #3bb36d;
-    text-align: center;
-    font-weight: bold;
-    height: auto;
-    padding: 2px 0px;
+    background-color: #3E3E3E;
+    color: white; /* Adding white font color */
+    font-family: 'Montserrat', sans-serif; /* Adding Montserrat Regular font */
+    font-size: 12px;
+    font-weight: normal; /* Using normal font weight for Regular */
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
-header {
-    background-color: #cccccc;
+.promo-line a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header .main-line {
+    min-height: 80px;
+    text-decoration: none;
+    background-color: #ffffff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,14 +44,60 @@ header ul.nav {
     gap: 10px;
 }
 
+header h1 {
+    background-color: #ffffff;
+    border-bottom: 0;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Playfair dispair', serif;
+    color: #000000;
+    font-size: 40px;
+    font-weight:300;
+}
+
+header .category-navbar {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding-inline: 0;
+    gap: 2rem;
+    background-color: #ECECEC;
+    padding: 4px 30px;
+}
+
+header .category-navbar a{
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.small-bar {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    height: 50px;
+    padding: 10px;
+    align-items: center;
+    background-color: #FFECC6;
+}
+
+.small-bar a {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #3E3E3E;
+    padding: 4px 20px;
+    text-transform: uppercase;
+    font-size: 15px;
+}   
+
 main {
     flex-grow: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-    border-radius: 10px;
-    margin: 20px auto;
-    min-width: 40%;
-    max-width: 80%;
+    padding: 0px 10px;
 }
 
 footer {
@@ -105,11 +162,10 @@ a {
 }
 
 a:hover {
-    color: #04a81f;
     text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
     background-color: #cccccc;
     border-bottom: 2px solid #888888;
     padding: 2%;
@@ -121,12 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 h1:first-child, h2:first-child, h3:first-child, 
 h4:first-child, h5:first-child, h6:first-child {
     margin-top: 0;
-}
-
-p, main ul {
-    padding: 0 0.5rem;
-    margin: 1rem 0;
-}
+} */
 
 ul li {
     border-bottom: 1px solid #cccccc;
@@ -236,16 +287,89 @@ ul.dashboard li .stat {
 
 .grid-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto; /* Two rows */
-    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 0fr);
+    gap: 20px;
+    justify-content: center;
   }
   
-  .grid-item {
-    background: rgb(233, 233, 233);
+.grid-item {
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    max-width: 200px;
+  }
+
+.grid-item img {
+    min-height: 300px;
+}
+
+.popular-dresses {
+    padding: 0px 90px;
+}
+
+.grid-item p {
+    margin: 0px;
+}
+
+.hero-picture img{
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.hero-picture h2, h3 {
+    border-bottom: 0;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Playfair dispair', serif;
+    color: #000000;
+    font-size: 24px;
+    font-weight:300;
+}
+
+.text-overlay {
+    position: absolute; /* Position the overlay absolutely */
+    top: 50%; /* Position it 50% from the top */
+    left: 50%; /* Position it 50% from the left */
+    transform: translate(-20%, -60%); /* Center the overlay */
+    text-align: center; /* Center-align the text */
+    color: white; /* Text color */
+    min-width: 690px;
+  }
+
+  .text-overlay h2,
+  .text-overlay h3,
+  .text-overlay button {
+    margin: 0; /* Remove default margin */
+    padding: 10px 0px;
+    background-color: transparent;
+  }
+  
+.text-overlay button {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #3E3E3E;
+    padding: 4px 40px;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+
+.brands-line h6{
+    font-size: 30px;
+    padding: 0px;
+    margin: 0px;
+  }
+
+.brands-line img {
+    width: 200px;
+    height: 100px;
+  }
+
+  .brands-line {
+    background-color: #ECECEC;
   }

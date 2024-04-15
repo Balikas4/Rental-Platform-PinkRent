@@ -10,32 +10,42 @@
     <link rel="icon" href="{% static 'icon.png' %}" type="image/x-icon">
 </head>
 <body>
-    <div class="promo-line">DISCOUNT</div>
+    <div class="promo-line"><a href="{% url 'signup' %}">DISCOUNT FOR NEW PLATFORM USERS - NO FEES</a></div>
     <header>
-        <a href="{% url 'listings:main_page' %}">
-            <img src="{% static 'rented_logo.png' %}" alt="Rented Logo">
-        </a>        
-        <ul class="nav">
-            <li><a href="{% url 'listings:shop_page' %}">{% trans "shop"|capfirst %}</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'listings:my_listings' %}">{% trans "my listings"|capfirst %}</a></li>
-                {% if  user.is_superuser%}
-            <li><a href="{% url 'listings:listing_list' %}">{% trans "listings"|capfirst %}</a></li>
+        <div class="main-line">
+            <a href="{% url 'listings:main_page' %}">
+                <p>Tapk partneriu</p>
+            </a>        
+            {% comment %} <ul class="nav">
+                <li><a href="{% url 'listings:shop_page' %}">{% trans "shop"|capfirst %}</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'listings:my_listings' %}">{% trans "my listings"|capfirst %}</a></li>
+                    {% if  user.is_superuser%}
+                <li><a href="{% url 'listings:listing_list' %}">{% trans "listings"|capfirst %}</a></li>
+                    {% endif %}
                 {% endif %}
-            {% endif %}
-        </ul>
-        <ul class="nav nav-user">
-            {% if request.user.is_authenticated %}
-                <li><a href="{% url 'user_detail_current' %}">{{ request.user.get_full_name|default:request.user.username }}</a></li>
-                {% if request.user.is_superuser or request.user.is_staff %}
-                    <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
+            </ul> {% endcomment %}
+            <a href="{% url 'listings:main_page' %}">
+                <h1>PINKPINK</h1>
+            </a>
+            <ul class="nav nav-user">
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'user_detail_current' %}">{{ request.user.get_full_name|default:request.user.username }}</a></li>
+                    {% if request.user.is_superuser or request.user.is_staff %}
+                        <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
+                    {% endif %}
+                    <li><form method="post" action="{% url "logout" %}">{% csrf_token %}<button type="submit">{% trans "log out"|capfirst %}</button></form></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">{% trans "log in"|capfirst %}</a></li>
+                    <li><a href="{% url 'signup' %}">{% trans "sign up"|capfirst %}</a></li>
                 {% endif %}
-                <li><form method="post" action="{% url "logout" %}">{% csrf_token %}<button type="submit">{% trans "log out"|capfirst %}</button></form></li>
-            {% else %}
-                <li><a href="{% url 'login' %}">{% trans "log in"|capfirst %}</a></li>
-                <li><a href="{% url 'signup' %}">{% trans "sign up"|capfirst %}</a></li>
-            {% endif %}
-        </ul>
+            </ul>
+            </div>
+        <div class="category-navbar">
+            <a href="{% url 'listings:main_page' %}"> LOL</a>
+            <a href="{% url 'listings:main_page' %}"> IKS F</a>
+            <a href="{% url 'listings:main_page' %}"> ALELIUJA</a>
+        <div>
     </header>
     <section class="messages">
         {% for message in messages %}
