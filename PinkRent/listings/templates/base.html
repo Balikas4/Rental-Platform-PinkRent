@@ -42,9 +42,11 @@
             </ul>
             </div>
         <div class="category-navbar">
-            <a href="{% url 'listings:main_page' %}"> LOL</a>
-            <a href="{% url 'listings:main_page' %}"> IKS F</a>
-            <a href="{% url 'listings:main_page' %}"> ALELIUJA</a>
+            <a href="{% url 'listings:main_page' %}"> PROGINĖS SUKNELĖS</a>
+            <a href="{% url 'listings:main_page' %}"> VESTUVINĖS SUKNELĖS</a>
+            <a href="{% url 'listings:main_page' %}"> BATELIAI</a>
+            <a href="{% url 'listings:main_page' %}"> RANKINĖS</a>
+            <a href="{% url 'listings:main_page' %}"> AKSESUARAI</a>
         <div>
     </header>
     <section class="messages">
@@ -55,9 +57,30 @@
     <main>{% block content %}{% endblock content %}</main>
     <footer>
         {% block footer %}{% endblock footer %}
-        <p>&copy; 2023-2024 <a href="https://www.google.com/" target="_blank">{% trans "Do your own research" %}</a></p>
+    <div class="footer-content">
+        <div class="footer-collumn">
+            <h6>PLATFORMA</h6>
+            <p>Kaip veikia nuoma?</p>
+            <p>Dažniausiai užduodami klausimai</p>
+            <p>Susikurti profilį</p>
+            <p>Mano mėgstamiausi</p>
+        </div>
+        <div class="footer-collumn">
+            <h6>PINKPINK</h6>
+            <p>Apie mus</p>
+            <p>Mados tvarumo iniciatyvos</p>
+            <p>Karjera</p>
+        </div>
+        <div class="footer-collumn">
+            <h6>TAISYKLĖS</h6>
+            <p>Naudojimosi platforma taisyklės</p>
+            <p>Privatumo politika</p>
+        </div>
+    </div>
+    <div class="footer-extra-bar">
+    <p>Copyright &copy; 2023-2024 Visos teisės saugomos</p>
         <form action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
+        {% csrf_token %}
             <input type="hidden" name="next" value="{{ redirect_to }}">
             <select class="language" name="language" onchange="this.form.submit();">
                 {% for lang in LANGUAGES %}
@@ -67,6 +90,7 @@
                 {% endfor %}
             </select>
         </form>
+    </div>
     </footer>
 </body>
 </html>

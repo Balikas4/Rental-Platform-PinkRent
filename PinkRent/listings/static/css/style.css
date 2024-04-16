@@ -61,6 +61,7 @@ header .category-navbar {
     display: flex;
     flex-direction: row;
     list-style-type: none;
+    justify-content: center;
     padding-inline: 0;
     gap: 2rem;
     background-color: #ECECEC;
@@ -72,6 +73,7 @@ header .category-navbar a{
     display: flex;
     justify-content: center;
     align-items: center; 
+    color: #000000;
 }
 
 .small-bar {
@@ -101,12 +103,26 @@ main {
 }
 
 footer {
-    background-color: #cccccc;
+    background-color: #ECECEC;
+}
+
+.footer-content {
+    background-color: #ECECEC;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.footer-extra-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 20px;
 }
 
 .language-form {
@@ -114,15 +130,20 @@ footer {
 }
 
 footer p {
-    color: #ffffff;
+    color: #000000;
 }
 
 footer a {
-    color: #66aaff;
+    color: #000000;
 }
 
 footer a:hover {
-    color: #77bbff;
+    color: #222222;
+}
+
+footer h6 {
+    font-size: large;
+    font-weight: 200;
 }
 
 section.messages {
@@ -208,7 +229,7 @@ header form select {
     font-size: 100%;
 }
 
-button, .button {
+/* button, .button {
     background-color: #d8d8d8;
     border: 1px solid #666666;
     border-bottom: 2px solid #004488;
@@ -220,7 +241,7 @@ button, .button {
 button:hover, .button:hover {
     background-color: #dfdfdf;
     border-bottom: 2px solid #0055cc;
-}
+} */
 
 ul.dashboard {
     display: flex;
@@ -339,7 +360,7 @@ ul.dashboard li .stat {
     text-align: center; /* Center-align the text */
     color: white; /* Text color */
     min-width: 690px;
-  }
+}
 
   .text-overlay h2,
   .text-overlay h3,
@@ -347,7 +368,7 @@ ul.dashboard li .stat {
     margin: 0; /* Remove default margin */
     padding: 10px 0px;
     background-color: transparent;
-  }
+}
   
 .text-overlay button {
     display: inline-block;
@@ -357,19 +378,55 @@ ul.dashboard li .stat {
     padding: 4px 40px;
     text-transform: uppercase;
     font-size: 15px;
-  }
+}
 
 .brands-line h6{
     font-size: 30px;
     padding: 0px;
     margin: 0px;
-  }
+}
 
 .brands-line img {
     width: 200px;
     height: 100px;
-  }
+}
 
-  .brands-line {
+.brands-line {
     background-color: #ECECEC;
-  }
+}
+
+.perk-bar {
+    background-color: #FFECC6;
+}
+
+.perk-cards {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.perk-card {
+    justify-content: left;
+    padding-right: 1.5rem;
+    max-width: 400px;
+}
+
+.perk-card p {
+    font-weight: bold;
+}
+
+.reviews-container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reviews-card {
+    max-width: 300px;
+}
+
+.choice-container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
