@@ -430,3 +430,52 @@ ul.dashboard li .stat {
     display: flex;
     flex-wrap: wrap;
 }
+
+.listing-create {
+    padding: 10px 200px;
+}
+
+.listing-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.listing-form label {
+    font-weight: bold;
+}
+
+.listing-form input,
+.listing-form select,
+.listing-form textarea {
+    width: 100%;
+    /* Adjust width as needed */
+}
+
+.menu {
+    display: none;
+}
+
+.menu.visible {
+    display: block;
+    position: absolute;
+    background-color: #6e6e6e;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    backdrop-filter: blur(15px);
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+}

@@ -1,10 +1,12 @@
 {% extends "base.html" %}{% load i18n %}
 {% block title %}{% trans "create a listing at"|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>{% trans "create a listings"|capfirst %}</h1>
-<form method="post" enctype="multipart/form-data" action="{{ request.path }}">
+<h1>{% trans "create a listing"|capfirst %}</h1>
+<div class="listing-create">
+<form method="post" enctype="multipart/form-data" action="{{ request.path }}" class="listing-form">
     {% csrf_token %}
     {{ form.as_p }}
     <p><button type="submit">{% trans "create"|capfirst %}</button></p>
 </form>
+</div>
 {% endblock content %}

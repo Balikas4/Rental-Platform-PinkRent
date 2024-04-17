@@ -15,6 +15,15 @@ class Category(models.Model):
         return self.name
 
 class Listing(models.Model):
+    GOOD = 'good'
+    LIKENEW = 'likenew'
+    NEW = 'new'
+
+    QUALITY_CHOICES = [
+        (GOOD, 'Good'),
+        (LIKENEW, 'Like new'),
+        (NEW, 'New'),
+    ]
     name = models.CharField(_("name"), max_length=100, db_index = True)
     description = models.TextField(_("description"), blank=True, max_length = 100000)
     price = models.DecimalField(_("price"), max_digits=10, decimal_places=2)
@@ -23,6 +32,10 @@ class Listing(models.Model):
     is_available = models.BooleanField(_("is available"), db_index = True, default = False)
     brand = models.CharField(_("brand"), max_length=100, db_index = True)
     picture = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
+    size = models.DecimalField(_("size"), max_digits=10, decimal_places=2)
+    quality = models.CharField(max_length=10, choices=QUALITY_CHOICES, default=GOOD)
+    color = models.CharField(_("color"), max_length=100, db_index = True)
+    value = models.DecimalField(_("value"), max_digits=10, decimal_places=2)
     owner = models.ForeignKey(
         get_user_model(), 
         verbose_name=_("owner"), 

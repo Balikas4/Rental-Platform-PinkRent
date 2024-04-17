@@ -4,7 +4,7 @@ from .models import Listing
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = ['category', 'name', 'picture', 'price', 'brand', 'description', 'is_available']
+        fields = ['category', 'picture', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'description']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

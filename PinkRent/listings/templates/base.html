@@ -28,9 +28,15 @@
             <a href="{% url 'listings:main_page' %}">
                 <h1>PINKPINK</h1>
             </a>
-            <ul class="nav nav-user">
-                {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'user_detail_current' %}">{{ request.user.get_full_name|default:request.user.username }}</a></li>
+            <button id="menu-toggle" class="menu-icon">&#128100;</button>
+            <nav id="menu" class="menu">
+                <ul>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'user_detail_current' %}">My Profile</a></li>
+                    <li><a href="{% url "offers:my_offers" %}">My Orders</a></li>
+                    <li><a href="{% url "my_favorite_users" %}">My Favorite users</a></li>
+                    <li><a href="{% url "listings:my_favorites" %}">My Favorite listings</a></li>
+                    <li><a href="#">Messages</a></li>
                     {% if request.user.is_superuser or request.user.is_staff %}
                         <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
                     {% endif %}
@@ -39,7 +45,8 @@
                     <li><a href="{% url 'login' %}">{% trans "log in"|capfirst %}</a></li>
                     <li><a href="{% url 'signup' %}">{% trans "sign up"|capfirst %}</a></li>
                 {% endif %}
-            </ul>
+                </ul>
+            </nav>
             </div>
         <div class="category-navbar">
             <a href="{% url 'listings:main_page' %}"> PROGINĖS SUKNELĖS</a>
@@ -92,5 +99,15 @@
         </form>
     </div>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.getElementById("menu-toggle");
+            const menu = document.querySelector(".menu");
+    
+            menuToggle.addEventListener('click', function() {
+                menu.classList.toggle('visible');
+            });
+        });
+    </script>
 </body>
 </html>
