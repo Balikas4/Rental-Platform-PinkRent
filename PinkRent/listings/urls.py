@@ -17,4 +17,6 @@ urlpatterns = [
     path('listing/<int:pk>/favorite/', views.add_favorite_listing, name='add_favorite_listing'),
     path('listing/<int:pk>/unfavorite/', views.remove_favorite_listing, name='remove_favorite_listing'),
     path('listing/my_favorites/', views.my_favorites, name="my_favorites"),
+    # URLs for listing filtering
+    path('<slug:category_slug>/', views.category_page, name='category_page'),
 ]

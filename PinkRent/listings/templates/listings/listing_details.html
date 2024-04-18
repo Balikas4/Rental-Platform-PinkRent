@@ -2,56 +2,64 @@
 {% load i18n %}
 {% block title %}{{ block.super }} | {{ listing.name }}{% endblock title %}
 {% block content %}
-  <h1>
-      {% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}
-    {{ listing.name }}
-  </h1>
-  {% if listing.picture %}
-  <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
-{% else %}
-  <p>{% trans "No picture available" %}</p>
-{% endif %}
-  <p>{{ listing.category }}</p>
-  <p><a href="{% url 'user_detail' username=listing.owner.username %}">
-  {% trans "Listing Owner" %}: {{ listing.owner.username }}
-  </a></p>
-  <p>{% trans "Price" %}: {{ listing.price }} {% trans "per day" %}</p>
-  <p>{{ listing.description }}</p>
-  <div class='review-div'>
-    <h5>Reviews ({{ reviews.count }})</h5>
-    {% if reviews %} 
-    {% for r in reviews %}
-    <p> {{ r.rate }}⭐
-        "{{ r.comment }}"
-        {{ r.user }}
-        {{ r.created_at }}</p>
-        {% endfor %}
-    {% else %}
-    <p>No reviews</p>
-    {% endif %}
-    
+<div clas="listing-container">
+  <div class="root-row">
+    <p>HOME>DRESS>WEDDING DRESS</p>
   </div>
-{% if user.is_authenticated %}
-    {% if user_favorites %}
-    <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
-      {% csrf_token %}
-      <button type="submit">{% trans "Unlike"|capfirst %}</button>
-    </form>
-    {% else %}
-        <a class="button" href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
-          {% trans "Like"|capfirst %}
-        </a>
-    {% endif %}
-{% endif %}
+  <div class="product-container">
+    <div class="product-pictures">
+      {% if listing.picture %}
+        <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
+      {% else %}
+        <p>{% trans "No picture available" %}</p>
+      {% endif %}
+    </div>
+    <div class="product-description">
+      <h1>{{ listing.name }}</h1>
+      <p>Category: {{ listing.category }}</p>
+      <p>Brand: {{ listing.brand }}</p>
+      <p>Size: {{ listing.size }}</p>
+      <p>Quality: {{ listing.quality }}</p>
+      <p>{% trans "Listing Owner" %}:<a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
+      <p>Description: {{ listing.description }}</p>
+      <p>Value: {{ listing.value }}</p>
+      <p>{% trans "Price" %}: {{ listing.price }} {% trans "per day" %}</p>
+      {% if user.is_authenticated %}
+        {% if user_favorites %}
+        <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+          {% csrf_token %}
+          <button type="submit">{% trans "Unlike"|capfirst %}</button>
+        </form>
+        {% else %}
+            <a class="button" href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+              {% trans "Like"|capfirst %}
+            </a>
+        {% endif %}
+      <a class="button" href="{% url 'offers:send_offer_with_listing' listing_id=listing.pk %}">
+        {% trans "Send offer"|capfirst %}
+      </a>
+      {% endif %}
+  </div>
+</div>
+<div class='review-div'>
+  <h5>Reviews ({{ reviews.count }})</h5>
+  {% if reviews %} 
+  {% for r in reviews %}
+  <p> {{ r.rate }}⭐
+      "{{ r.comment }}"
+      {{ r.user }}
+      {{ r.created_at }}</p>
+      {% endfor %}
+  {% else %}
+  <p>No reviews</p>
+  {% endif %}  
+</div>
+  </div>
     <a class="button" href="{% url 'listings:my_listings' %}">
       {% trans "My Listings"|capfirst %}
     </a>
     <a class="button" href="{% url 'listings:listing_create' %}">
       {% trans "Create listing"|capfirst %}
-    </a>
-        <a class="button" href="{% url 'offers:send_offer_with_listing' listing_id=listing.pk %}">
-      {% trans "Send offer"|capfirst %}
-    </a>
   {% if listing.owner == request.user %}
       <a class="button" href="{% url 'listings:listing_update' listing.pk %}">
         {% trans "Edit"|capfirst %}

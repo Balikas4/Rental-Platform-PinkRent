@@ -1,18 +1,12 @@
+<!-- category_page.html -->
+
 {% extends "base.html" %}
 {% load i18n %} {% load static %}
-{% block title %}{% trans "Main Page" %}{% endblock title %}
+{% block title %}{% trans "Category Page" %}{% endblock title %}
 {% block content %}
-    <h1>{% trans "Shop" %}</h1>
-    <div class="category-filters">
-        <p>{% trans "Filter by Category:" %}</p>
-        <select id="category-filter">
-            <option value="all">{% trans "All" %}</option>
-            {% for category in categories %}
-                <option value="{{ category.id }}">{{ category.name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    {% for listing in listings %}
+    <h1>{{ category.name }}</h1>
+    <div id="listings-container">
+        {% for listing in listings %}
         <div class="listings-container">
             {% if listing.picture %}
             <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
@@ -41,5 +35,6 @@
             {% endif %}
         {% endif %}
         </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock content %}

@@ -1,32 +1,35 @@
 {% extends "base.html" %}{% load i18n %}
 {% block title %}{{ user }} {% trans "at" %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>{% trans "user"|title %} {{ user.username }}</h1>
-<p>{{ user.first_name }} {{ user.last_name }}</p>
-<div>
-    {% if current_profile.picture %}
-        <img src="{{ current_profile.picture.url }}" alt="{% trans "Profile Picture"|title %}" width="300">
-    {% else %}
-        <p>{% trans "No profile picture available" %}</p>
+<div class="user-profile">
+    <div class="profile-picture">
+        {% if current_profile.picture %}
+            <img src="{{ current_profile.picture.url }}" alt="{% trans "Profile Picture"|title %}" width="300">
+        {% else %}
+            <div class="no-picture">
+                <p>{% trans "No profile picture available" %}</p>
+            </div>
+        {% endif %}
+    </div>
+    <div class="user-info">
+        <h1>{% trans "user"|title %} {{ user.username }}</h1>
+        <p>{{ user.first_name }} {{ user.last_name }}</p>
+        {% if user == request.user %}
+            <p>{% trans "e-mail"|capfirst %}: {{ user.email }}</p>
+        {% endif %}
+        {% with listing_count=user.listings.count %}
+            <p>{% trans "Number of Listings" %}: {{ listing_count }}</p>
+        {% endwith %}
+    </div>
+</div>
+<div class="buttons">
+    {% if request.user == user %}
+        <a class="button" href="{% url "user_update" %}">{% trans "edit profile data" %}</a>
+        <a class="button" href="{% url "offers:my_offers" %}">{% trans "my offers"%}</a>
+        <a class="button" href="{% url "listings:my_favorites" %}">{% trans "my favorite listings"%}</a>
+        <a class="button" href="{% url "my_favorite_users" %}">{% trans "my favorite users"%}</a>
     {% endif %}
 </div>
-{% if user == request.user %}
-    <p>{% trans "e-mail"|capfirst %}: {{ user.email }}</p>
-{% endif %}
-{% with listing_count=user.listings.count %}
-    <p>{% trans "Number of Listings" %}: {{ listing_count }}</p>
-{% endwith %}
-{% with unavailable_listings_count=unavailable_listings_count %}
-    <p>{% trans "Number of Unavailable Listings" %}: {{ unavailable_listings_count }}</p>
-{% endwith %}
-{% if request.user == user%}
-<p>
-<a class="button" href="{% url "user_update" %}">{% trans "edit profile data" %}</a>
-<a class="button" href="{% url "offers:my_offers" %}">{% trans "my offers"%}</a>
-<a class="button" href="{% url "listings:my_favorites" %}">{% trans "my favorite listings"%}</a>
-<a class="button" href="{% url "my_favorite_users" %}">{% trans "my favorite users"%}</a>
-{% endif %}
-</p>
     {% if user_favorites %}
     <form action="{% url 'remove_favorite' user.pk %}?next={{ request.path }}" method="post">
       {% csrf_token %}

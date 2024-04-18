@@ -48,13 +48,13 @@
                 </ul>
             </nav>
             </div>
-        <div class="category-navbar">
-            <a href="{% url 'listings:main_page' %}"> PROGINĖS SUKNELĖS</a>
-            <a href="{% url 'listings:main_page' %}"> VESTUVINĖS SUKNELĖS</a>
-            <a href="{% url 'listings:main_page' %}"> BATELIAI</a>
-            <a href="{% url 'listings:main_page' %}"> RANKINĖS</a>
-            <a href="{% url 'listings:main_page' %}"> AKSESUARAI</a>
-        <div>
+            <div class="category-navbar">
+                <a href="{% url 'listings:category_page' category_slug='wedding-dresses' %}">Wedding dresses</a>
+                <a href="{% url 'listings:category_page' category_slug='accessories' %}">Accessories</a>
+                <a href="{% url 'listings:category_page' category_slug='occasional-dressses' %}">Occasional dressses</a>
+                <a href="{% url 'listings:category_page' category_slug='handbags' %}">Handbags</a>
+                <a href="{% url 'listings:category_page' category_slug='heels' %}">Heels</a>
+            </div>            
     </header>
     <section class="messages">
         {% for message in messages %}
