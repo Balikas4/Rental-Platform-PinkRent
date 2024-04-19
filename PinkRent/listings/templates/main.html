@@ -9,9 +9,9 @@
   </div>
   <div class="hero-picture">
     <img src="{% static 'hero.png' %}" alt="Hero picture">
-    <div class="text-overlay">
-      <h2>NR.1 PROGINIŲ ĮVAIZDŽIŲ NUOMOS PLATFORMA LIETUVOJE</h2>
-      <h3>Įvairių dydžių ir modelių suknelių kolekcija iš skirtingų spintų</h3>
+    <div class="text-overlay"> 
+      <h2>NUMBER 1 FORMAL IMAGE RENTAL PLATFORM IN LITHUANIA</h2>
+      <h3>Collection of dresses of various sizes and models from different wardrobes</h3>
       <button>Rent</button>
     </div>
   </div>
@@ -41,19 +41,35 @@
           </a>
         {% endif %}
         <a href="{% url 'listings:listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
-        <p>{{ listing.price }} $ {% trans "per day" %}</p>
-        <p>{% trans "Uploaded by" %}: <a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
-        <p>{% trans "Brand" %}: {{ listing.brand }}</p>
-        <p>{% if listing.is_available %}&#x2611;{% else %}&#x2610;{% endif %}</p>
-      </div>
+        <p>{% trans "Size" %}: {{ listing.size }}</p>
+        <p>{% trans "Value" %}: {{ listing.value }}</p>
+        <p class="grid-price">{{ listing.price }}$ {% trans "Per day" %}</p>
+        {% if user.is_authenticated %}
+          {% if user_favorites %}
+          <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+            {% csrf_token %}
+            <button type="submit">{% trans "Unlike"|capfirst %}</button>
+          </form>
+          {% else %}
+              <a class="button" href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+                <img class="icon" src="{% static 'like-icon.png' %}">
+              </a>
+          {% endif %}
+          <button>
+          <a href="{% url 'offers:send_offer_with_listing' listing_id=listing.pk %}">
+            {% trans "Send offer"|capfirst %}
+          </a>
+        </button>
+        {% endif %}
+    </div>
     {% endfor %}
     </div>
     <div class="hero-button">
-      <button>All dresses</button>
+      <a href="" >{% trans "All dresses" %}</a>
     </div>
   </div>
   <div class="brands-line">
-    <h6>TA PATI PRABANGA, TIK PIGIAU</h6>
+    <h6>{% trans "SAME LUXURY, JUST CHEAPER" %}</h6>
     <img src="{% static 'new-arrivals.png' %}" alt="New-arrivals">
     <img src="{% static 'rebecca.png' %}" alt="Rebecca">
     <img src="{% static 'rotate.png' %}" alt="Rotate">
@@ -62,7 +78,7 @@
   </div>
   <div class="perk-bar">
     <div class="perk-text">
-      <h6>Kuriame tvaria ir prieinama mada</h6>
+      <h1>{% trans "Creating sustainable and affordable fashion" %}</h6>
     </div>
     <div class="perk-cards">
       <div class="perk-card">
@@ -96,23 +112,23 @@
         <img alt="user-icon"></img>
         <p class="review-name">Eglė</p>
         <p class="review-text">Anksčiau apie 500 eur vertės Self-portrait suknelę galėjau tik pasvajoti. Su PINKPINK platforma, tai tapo įmanoma, nes suknelę galiu išsinuomoti vos už 50 eur.</p>
-        <img alt="stars"></img>
+        <img alt="⭐"></img>
       </div>
       <div class="reviews-card">
         <img alt="user-icon"></img>
         <p class="review-name">Džiuljeta</p>
         <p class="review-text">Proginės suknelės paieška man visada asociavosi su nuolatiniu nusyvilimu, nerandant dydžio. Kaip džiaugiuosi atradusi PINKPINK, nes čia suknelę sau ras visos.</p>
-        <img alt="stars"></img>
+        <img alt="⭐"></img>
       </div>
       <div class="reviews-card">
         <img alt="user-icon"></img>
         <p class="review-name">Irena</p>
         <p class="review-text">Praėjusią vasarą dalyvavau net penkiose vestuvėse. Bijojau, kad kiekvienai šventei reikės pirkti po naują suknelę, juk su ta pačia neisiu. Laimei, atradau PINKPINK. Buvau skirtingai pasipuošusi už puikias kainas.</p>
-        <img alt="stars"></img>
+        <img alt="⭐"></img>
       </div>
     </div>
-    <div class="reviews=button-container">
-      <button>DAUGIAU INFORMACIJOS APIE NUOMA</button>
+    <div class="reviews-button-container">
+      <button>MORE INFORMATION ABOUT RENT</button>
     </div>
   </div>
   <div class="filter-bar">

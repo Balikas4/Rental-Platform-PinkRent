@@ -4,6 +4,7 @@
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Rented{% endblock title %}</title>
@@ -13,8 +14,8 @@
     <div class="promo-line"><a href="{% url 'signup' %}">DISCOUNT FOR NEW PLATFORM USERS - NO FEES</a></div>
     <header>
         <div class="main-line">
-            <a href="{% url 'listings:main_page' %}">
-                <p>Tapk partneriu</p>
+            <a href="{% url 'listings:how-it-works' %}">
+                <p>{% trans "How it works" %}</p>
             </a>        
             {% comment %} <ul class="nav">
                 <li><a href="{% url 'listings:shop_page' %}">{% trans "shop"|capfirst %}</a></li>
@@ -28,7 +29,13 @@
             <a href="{% url 'listings:main_page' %}">
                 <h1>PINKPINK</h1>
             </a>
-            <button id="menu-toggle" class="menu-icon">&#128100;</button>
+                <div class="profile-picture-icon">
+                    {% if request.user.userprofile.picture %}
+                        <img id="menu-toggle" class="menu-icon" src="{{ request.user.userprofile.picture.url }}" alt="{% trans "Profile Picture"|title %}" width="300">
+                    {% else %}
+                        <img id="menu-toggle" class="menu-icon" src="{% static 'profile-icon.png' %}">
+                    {% endif %}
+                </div>
             <nav id="menu" class="menu">
                 <ul>
                     {% if request.user.is_authenticated %}

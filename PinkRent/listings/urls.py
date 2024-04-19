@@ -1,9 +1,13 @@
 from django.urls import path
 from . import views
+from django.contrib import admin
 
 app_name = 'listings'
 
 urlpatterns = [
+
+    path('admin/', admin.site.urls),
+
     path('', views.main_page, name='main_page'),
     path('listings/', views.listing_list, name='listing_list'),
     path('listing/<int:pk>/', views.listing_detail, name='listing_detail'),
@@ -13,6 +17,7 @@ urlpatterns = [
     path('listing/<int:pk>/delete/', views.ListingDeleteView.as_view(), name='listing_delete'),
     path('my_listings/', views.my_listings, name="my_listings"),
     path('shop/', views.shop_page, name='shop_page'),
+    path('how-it-works/', views.how_it_works, name='how-it-works'),
     # URLs for adding and removing favorite listings
     path('listing/<int:pk>/favorite/', views.add_favorite_listing, name='add_favorite_listing'),
     path('listing/<int:pk>/unfavorite/', views.remove_favorite_listing, name='remove_favorite_listing'),

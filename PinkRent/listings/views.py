@@ -31,7 +31,13 @@ def category_page(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     listings = Listing.objects.filter(category=category)
     context = {'category': category, 'listings': listings}
+    if request.user.is_authenticated:
+        context['user_favorites'] = FavoriteListing.objects.filter(user=request.user)
+    context['categories'] = Category.objects.all()
     return render(request, 'category_page.html', context)
+
+def how_it_works(request):
+    return render(request, 'how-it-works.html')
 
 def listing_list(request: HttpRequest) -> HttpResponse:
     queryset = models.Listing.objects
@@ -52,13 +58,14 @@ def listing_list(request: HttpRequest) -> HttpResponse:
 
 def listing_detail(request: HttpRequest, pk:int) -> HttpResponse:
     listing = get_object_or_404(Listing, pk=pk)
-    user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing=listing)
-    reviews = ListingReview.objects.filter(listing=listing)
-    return render(request, 'listings/listing_details.html', {
-        'user_favorites': user_favorites,
+    context = {
         'listing': listing,
-        'reviews': reviews,
-    })
+    }
+    if request.user.is_authenticated:
+        context['user_favorites'] = FavoriteListing.objects.filter(user=request.user, favorite_listing=listing)
+    reviews = ListingReview.objects.filter(listing=listing)
+    context['reviews'] = reviews
+    return render(request, 'listings/listing_details.html', context)
 
 def listing_available(request: HttpRequest, pk:int) -> HttpResponse:
     listing = get_object_or_404(models.Listing, pk=pk)

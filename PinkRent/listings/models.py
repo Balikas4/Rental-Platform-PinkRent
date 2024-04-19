@@ -3,9 +3,11 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext as _
 from PIL import Image
+from django.utils.text import slugify
 
 class Category(models.Model):
     name = models.CharField(_("name"), max_length=100, db_index=True)
+    slug = models.SlugField(_("slug"), max_length=255, blank=True)
 
     class Meta:
         verbose_name = _("category")
@@ -13,6 +15,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 class Listing(models.Model):
     GOOD = 'good'

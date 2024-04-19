@@ -7,7 +7,7 @@ class ListingAdmin(admin.ModelAdmin):
     list_editable = ['is_available', 'category']
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['name', 'slug']
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'listing', 'rate', 'created_at']

@@ -1,7 +1,5 @@
 body {
     background-color: #ffffff;
-    font-family: sans-serif;
-    font-size: 16px;
     display: flex;
     flex-direction: column;
     margin: 0; padding: 0;
@@ -10,7 +8,6 @@ body {
 
 .promo-line {
     background-color: #3E3E3E;
-    color: white; /* Adding white font color */
     font-family: 'Montserrat', sans-serif; /* Adding Montserrat Regular font */
     font-size: 12px;
     font-weight: normal; /* Using normal font weight for Regular */
@@ -26,6 +23,7 @@ body {
 }
 
 header .main-line {
+    padding: 0px 20px;
     min-height: 80px;
     text-decoration: none;
     background-color: #ffffff;
@@ -33,6 +31,15 @@ header .main-line {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header .main-line p {
+    text-transform: uppercase;
+}
+
+header .main-line a {
+    color: #000000;
 }
 
 header ul.nav {
@@ -66,6 +73,8 @@ header .category-navbar {
     gap: 2rem;
     background-color: #ECECEC;
     padding: 4px 30px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header .category-navbar a{
@@ -94,6 +103,7 @@ header .category-navbar a{
     padding: 4px 20px;
     text-transform: uppercase;
     font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
 }   
 
 main {
@@ -177,7 +187,6 @@ section.messages {
 }
 
 a {
-    color: #004488;
     text-decoration: none;
 }
 
@@ -301,7 +310,6 @@ ul.dashboard li .stat {
 
 .main-page-content{
     padding: 10px;
-    text-align: center;
     min-width: 760px;
 }
 
@@ -311,13 +319,52 @@ ul.dashboard li .stat {
     gap: 20px;
     justify-content: center;
   }
-  
+
+.popular-dresses {
+    padding: 0px 90px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.popular-dresses h6 {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.grid-item p {
+    margin: 0px;
+}
+
+.grid-item a {
+    font-weight: 600;
+}
+
+.grid-item a:visited {
+    color: #000000;
+}
+
+.grid-item button a:visited {
+    color: #FFFFFF;
+}
+
+.grid-item a.button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.grid-price {
+    text-align: center;
+}
+
 .grid-item {
     background: #ffffff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     padding: 1rem;
     max-width: 200px;
   }
@@ -326,12 +373,10 @@ ul.dashboard li .stat {
     min-height: 300px;
 }
 
-.popular-dresses {
-    padding: 0px 90px;
-}
-
-.grid-item p {
-    margin: 0px;
+.grid-item img.icon {
+    min-height: 20px;
+    width: 40px;
+    height: 40px;
 }
 
 .hero-picture img{
@@ -358,15 +403,28 @@ ul.dashboard li .stat {
     transform: translate(-20%, -60%); /* Center the overlay */
     text-align: center; /* Center-align the text */
     color: white; /* Text color */
-    min-width: 690px;
+    width: 50%;
+    font-family: 'Montserrat', sans-serif;
 }
 
-  .text-overlay h2,
-  .text-overlay h3,
-  .text-overlay button {
+.text-overlay h2,
+.text-overlay h3,
+.text-overlay button {
     margin: 0; /* Remove default margin */
     padding: 10px 0px;
     background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+}
+
+.text-overlay h2 {
+    font-weight: 450;
+    font-size: 24px;
+}
+
+.text-overlay h3 {
+    font-weight: 300;
+    font-size: 18px;
 }
   
 .text-overlay button {
@@ -377,11 +435,13 @@ ul.dashboard li .stat {
     padding: 4px 40px;
     text-transform: uppercase;
     font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
 }
 
 .brands-line h6{
     font-size: 30px;
-    padding: 0px;
+    padding: 20px 0px;
     margin: 0px;
 }
 
@@ -391,14 +451,26 @@ ul.dashboard li .stat {
 }
 
 .brands-line {
+    font-family: 'Montserrat', sans-serif;
     background-color: #ECECEC;
+    text-align: center;
 }
 
 .perk-bar {
     background-color: #FFECC6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.perk-bar h1 {
+    padding: 20px 0px;
+    text-transform: uppercase;
+    padding: 20px 0px;
+    font-size: 24px;
+    text-align: center;
 }
 
 .perk-cards {
+    text-align: left;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
@@ -510,6 +582,24 @@ main div .product-container {
     position: relative; /* Add this line */
 }
 
+.profile-picture-icon {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden;
+    position: relative; /* Add this line */
+}
+
+.profile-picture-icon img {
+    width: 100%;
+    height: 100%; /* Set height to 100% */
+    object-fit: cover; /* Ensure the image fills the circle */
+    object-position: center; /* Center the image within the circle */
+    position: absolute; /* Position the image relative to its parent */
+    top: 0;
+    left: 0;
+}
+
 .profile-picture img {
     width: 100%;
     height: 100%; /* Set height to 100% */
@@ -522,4 +612,83 @@ main div .product-container {
 
 .user-info {
     margin-left: 20px; /* Adjust spacing between picture and info */
+}
+
+.disclaimer {
+    text-align: left;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.disclaimer h1{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.how-it-works h2, h3{
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0px 20px;
+}
+
+.hero-button {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    padding: 50px 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-button a {
+    padding: 4px 40px;
+    background-color: #3E3E3E;
+    color: #FFFFFF;
+}
+
+.hero-button a:visited {
+    color: #FFFFFF;
+}
+
+.review-bar {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.review-hero-text h6 {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.perk-text h6 {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-text h6 {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #3E3E3E;
+    color: #FFFFFF;
+    padding: 2px 10px;
+}
+
+.reviews-button-container {
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.filter-bar {
+    font-family: 'Montserrat', sans-serif;
 }
