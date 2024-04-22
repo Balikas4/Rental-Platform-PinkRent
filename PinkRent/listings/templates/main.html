@@ -4,15 +4,19 @@
 {% block content %}
 <div class='main-page-content'>
   <div class="small-bar">
-    <a href="{% url 'listings:listing_create' %}"> Upload item for rent</a>
-    <a href="{% url 'listings:main_page' %}"> Rent from others</a>
+    <a href="{% url 'listings:listing_create' %}"> {% trans "Upload item for rent" %}</a>
+    <a href="{% url 'listings:shop_page' %}"> {% trans "Rent from others" %}</a>
   </div>
   <div class="hero-picture">
     <img src="{% static 'hero.png' %}" alt="Hero picture">
     <div class="text-overlay"> 
       <h2>NUMBER 1 FORMAL IMAGE RENTAL PLATFORM IN LITHUANIA</h2>
       <h3>Collection of dresses of various sizes and models from different wardrobes</h3>
-      <button>Rent</button>
+      <button>
+        <a href="{% url 'listings:shop_page' %}">
+            {% trans "Rent" %}
+        </a>
+    </button>
     </div>
   </div>
 
@@ -65,7 +69,7 @@
     {% endfor %}
     </div>
     <div class="hero-button">
-      <a href="" >{% trans "All dresses" %}</a>
+      <a href="{% url 'listings:shop_page' %}" >{% trans "All dresses" %}</a>
     </div>
   </div>
   <div class="brands-line">
@@ -78,28 +82,28 @@
   </div>
   <div class="perk-bar">
     <div class="perk-text">
-      <h1>{% trans "Creating sustainable and affordable fashion" %}</h6>
+      <h1>{% trans "Creating sustainable and affordable fashion" %}</h1>
     </div>
     <div class="perk-cards">
       <div class="perk-card">
-        <img alt="icon"></img>
-        <h5>RASITE SAVO DYDĮ</h5>
-        <h6>Platformoje yra nuomojama daugiau nei 5000 įvairių dydžių ir modelių suknelių bei kitų mados produktų.</h6>
+        <img src="{% static 'size-icon.png' %}" alt="size-icon"></img>
+        <h5>{% trans "FIND YOUR SIZE" %}</h5>
+        <h6>{% trans "The platform offers more than 5000 different sizes and models of dresses and other fashion products for rent." %}</h6>
       </div>
       <div class="perk-card">
-        <img alt="icon"></img>
-        <h5>PASIPUOŠITE UŽ PIGIAU</h5>
-        <h6>Nuoma leidžia išvengti didelių išlaidų proginei suknelei, kuri įprastai yra vilkima vos iki keletos kartų.</h6>
+        <img src="{% static 'cost-icon.png' %}" alt="cost-icon"></img>
+        <h5>{% trans "DRESS UP FOR LESS" %}</h5>
+        <h6>{% trans "Renting allows you to avoid high costs for a formal dress that is usually worn only a few times." %}</h6>
       </div>
       <div class="perk-card">
-        <img alt="icon"></img>
-        <h5>PASIEKIAMA PRABANGA</h5>
-        <h6>Platformoje rasite populiariausių dizainerių sukneles, pasiekiamas jums už nuomos, ne vertės kainą.</h6>
+        <img src="{% static 'dress-icon.png' %}" alt="dress-icon"></img>
+        <h5>{% trans "ACCESSIBLE LUXURY" %}</h5>
+        <h6>{% trans "You will find dresses from the most popular designers on the platform, available to you for rent at a fraction of the value price." %}</h6>
       </div>
       <div class="perk-card">
-        <img alt="icon"></img>
-        <h5>SAUGOMA PLANETA</h5>
-        <h6>Su nuoma, mažiname naujai nusipirktų daiktų skaičių, todėl kuriame tvarų vartojimą.</h6>
+        <img src="{% static 'leaf-icon.png' %}" alt="leaf-icon"></img>
+        <h5>{% trans "PLANET-FRIENDLY" %}</h5>
+        <h6>{% trans "With renting, we reduce the number of newly purchased items, promoting sustainable consumption." %}</h6>
       </div>
     </div>
   </div>

@@ -11,6 +11,7 @@ from django.contrib.auth import get_user_model
 from .forms import ListingForm
 from .models import Listing , FavoriteListing, ListingReview, Category
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def main_page(request: HttpRequest) -> HttpResponse:
     context = {
@@ -20,20 +21,61 @@ def main_page(request: HttpRequest) -> HttpResponse:
     }
     return render(request, 'main.html', context)
 
-def shop_page(request: HttpRequest) -> HttpResponse:
-    context = {'listings' : Listing.objects.all(),}
+def shop_page(request):
+    listings = Listing.objects.all()
+    
+    # Filter by category
+    category_id = request.GET.get('category')
+    if category_id and category_id != 'all':
+        listings = listings.filter(category__id=category_id)
+    
+    # Search query
+    search_query = request.GET.get('search')
+    if search_query:
+        listings = listings.filter(name__icontains=search_query)
+    
+    # Pagination
+    paginator = Paginator(listings, 4)  # 4 listings per page
+    page = request.GET.get('page')
+    try:
+        listings = paginator.page(page)
+    except PageNotAnInteger:
+        listings = paginator.page(1)
+    except EmptyPage:
+        listings = paginator.page(paginator.num_pages)
+    
+    context = {
+        'listings': listings,
+        'categories': Category.objects.all(),
+    }
+    
     if request.user.is_authenticated:
         context['user_favorites'] = FavoriteListing.objects.filter(user=request.user)
-    context['categories'] = Category.objects.all()
+    
     return render(request, 'shop.html', context)
 
 def category_page(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     listings = Listing.objects.filter(category=category)
-    context = {'category': category, 'listings': listings}
+    
+    # Pagination
+    paginator = Paginator(listings, 4)  # 4 listings per page
+    page = request.GET.get('page')
+    try:
+        listings = paginator.page(page)
+    except PageNotAnInteger:
+        listings = paginator.page(1)
+    except EmptyPage:
+        listings = paginator.page(paginator.num_pages)
+    context = {
+        'category': category,
+        'listings': listings,
+    }
+
     if request.user.is_authenticated:
         context['user_favorites'] = FavoriteListing.objects.filter(user=request.user)
     context['categories'] = Category.objects.all()
+    
     return render(request, 'category_page.html', context)
 
 def how_it_works(request):

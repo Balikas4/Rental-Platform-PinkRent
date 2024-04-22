@@ -208,10 +208,6 @@ h4:first-child, h5:first-child, h6:first-child {
     margin-top: 0;
 } */
 
-ul li {
-    border-bottom: 1px solid #cccccc;
-    list-style-type: none;
-}
 
 header ul.nav li a, header ul.nav li form button {
     background-color: #c4c4c4;
@@ -407,6 +403,10 @@ ul.dashboard li .stat {
     font-family: 'Montserrat', sans-serif;
 }
 
+.text-overlay a {
+    color: #FFFFFF;
+}
+
 .text-overlay h2,
 .text-overlay h3,
 .text-overlay button {
@@ -459,6 +459,7 @@ ul.dashboard li .stat {
 .perk-bar {
     background-color: #FFECC6;
     font-family: 'Montserrat', sans-serif;
+    margin: 0px 6rem;
 }
 
 .perk-bar h1 {
@@ -477,9 +478,10 @@ ul.dashboard li .stat {
 }
 
 .perk-card {
-    justify-content: left;
-    padding-right: 1.5rem;
-    max-width: 400px;
+    width: calc(25% - 20px); /* Each card takes up 25% of the width with some spacing */
+    box-sizing: border-box; /* Include padding in width calculation */
+    padding: 20px; /* Add some padding around each card */
+    justify-items: center;
 }
 
 .perk-card p {
@@ -490,10 +492,12 @@ ul.dashboard li .stat {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .reviews-card {
     max-width: 300px;
+    background-color: #ECECEC;
 }
 
 .choice-container {
@@ -529,11 +533,13 @@ ul.dashboard li .stat {
 .menu.visible {
     display: block;
     position: absolute;
-    background-color: #6e6e6e;
-    right: 2rem;
-    top: 60px;
-    width: 300px;
+    background-color: #FFFFFF;
+    right: 20px;
+    top: 145px;
+    width: 200px;
     backdrop-filter: blur(15px);
+    text-align: center;
+    border: 1px solid #FFECC6;
 }
 
 .menu ul {
@@ -542,7 +548,8 @@ ul.dashboard li .stat {
 }
 
 .menu ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
 }
 
 .menu ul li a {
@@ -691,4 +698,11 @@ button {
 
 .filter-bar {
     font-family: 'Montserrat', sans-serif;
+}
+
+/* Media query for 2 cards per row on smaller screens */
+@media screen and (max-width: 1080px) {
+    .perk-card {
+        width: calc(50% - 20px); /* Each card takes up 50% of the width with some spacing */
+    }
 }
