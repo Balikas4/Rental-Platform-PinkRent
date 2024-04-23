@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Create a Listing Review"|capfirst %}
+{% endblock title %}
+
+{% block content %}
+  <h1>{% trans "Create a Listing Review"|capfirst %}</h1>
+  <div class="listing-review-create">
+    <form method="post" enctype="multipart/form-data" action="{% url 'listings:create_listing_review' listing_id=listing.id %}" class="listing-review-form">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="id_comment">{% trans "Comment"|capfirst %}:</label>
+        {{ form.comment }}
+      </div>
+      <div class="form-group">
+        <label for="id_rate">{% trans "Rating"|capfirst %}:</label>
+        {{ form.rate }}
+      </div>
+      <button type="submit" class="btn btn-primary">{% trans "Submit"|capfirst %}</button>
+    </form>
+  </div>
+{% endblock content %}

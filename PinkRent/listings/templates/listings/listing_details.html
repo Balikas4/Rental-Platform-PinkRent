@@ -16,57 +16,66 @@
     </div>
     <div class="product-description">
       <h1>{{ listing.name }}</h1>
-      <p>Category: {{ listing.category }}</p>
-      <p>Brand: {{ listing.brand }}</p>
-      <p>Size: {{ listing.size }}</p>
-      <p>Quality: {{ listing.quality }}</p>
-      <p>{% trans "Listing Owner" %}:<a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
-      <p>Description: {{ listing.description }}</p>
-      <p>Value: {{ listing.value }}</p>
-      <p>{% trans "Price" %}: {{ listing.price }} {% trans "per day" %}</p>
-      {% if user.is_authenticated %}
-        {% if user_favorites %}
-        <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
-          {% csrf_token %}
-          <button type="submit">{% trans "Unlike"|capfirst %}</button>
-        </form>
-        {% else %}
-            <a class="button" href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
-              {% trans "Like"|capfirst %}
-            </a>
-        {% endif %}
-      <a class="button" href="{% url 'offers:send_offer_with_listing' listing_id=listing.pk %}">
-        {% trans "Send offer"|capfirst %}
-      </a>
-      {% endif %}
+      <div class="description-box-items">
+        <h2>{% trans "Listing details"|capfirst %}</h2>
+        <div class= "inline-items"><p class="text-bold">{% trans "Category:" %} </p><p> {{ listing.category }}</p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Brand:" %} </p><p> {{ listing.brand }}</p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Size:" %} </p><p> {{ listing.size }}</p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Quality:" %} </p><p> {{ listing.quality }}</p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Listing Owner:" %} </p><p><a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Description:" %} </p><p> {{ listing.description }}</p></div>
+      </div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Value:" %} </p><p> {{ listing.value }}</p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Price:" %} </p><p> {{ listing.price }} {% trans "per day" %}</p></div>
+        <div class= "action-buttons">
+          {% if user.is_authenticated %}
+            {% if user_favorites %}
+            <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+              {% csrf_token %}
+              <button type="submit">{% trans "Unlike"|capfirst %}</button>
+            </form>
+            {% else %}
+                <a class="button" href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+                  {% trans "Like"|capfirst %}
+                </a>
+            {% endif %}
+          <a class="button" href="{% url 'offers:send_offer_with_listing' listing_id=listing.pk %}">
+            {% trans "Send offer"|capfirst %}
+          </a>
+          {% endif %}
+        </div>
   </div>
 </div>
-<div class='review-div'>
-  <h5>Reviews ({{ reviews.count }})</h5>
-  {% if reviews %} 
-  {% for r in reviews %}
-  <p> {{ r.rate }}⭐
-      "{{ r.comment }}"
-      {{ r.user }}
-      {{ r.created_at }}</p>
-      {% endfor %}
-  {% else %}
-  <p>No reviews</p>
-  {% endif %}  
-</div>
-  </div>
-    <a class="button" href="{% url 'listings:my_listings' %}">
-      {% trans "My Listings"|capfirst %}
+  <div class='review-div'>
+    <h5>{% trans "Reviews" %} ({{ reviews.count }})</h5>
+    {% if reviews %} 
+    {% for r in reviews %}
+    <p> {{ r.rate }}⭐
+        "{{ r.comment }}"
+        {{ r.user }}
+        {{ r.created_at }}</p>
+        {% endfor %}
+    {% else %}
+    <p>{% trans "No reviews" %}</p>
+    {% endif %}  
+    <a class="button" href="{% url 'listings:create_listing_review' listing_id=listing.pk %}">
+      {% trans "Leave a review"|capfirst %}
     </a>
-    <a class="button" href="{% url 'listings:listing_create' %}">
-      {% trans "Create listing"|capfirst %}
-  {% if listing.owner == request.user %}
-      <a class="button" href="{% url 'listings:listing_update' listing.pk %}">
-        {% trans "Edit"|capfirst %}
+  </div>
+  <div class="action-buttons">
+      <a class="button" href="{% url 'listings:my_listings' %}">
+        {% trans "My Listings"|capfirst %}
       </a>
-      <a class="button" href="{% url 'listings:listing_delete' listing.pk %}">
-        {% trans "Delete"|capfirst %}
+      <a class="button" href="{% url 'listings:listing_create' %}">
+        {% trans "Create listing"|capfirst %} 
       </a>
-    </p>
-  {% endif %}
+    {% if listing.owner == request.user %}
+        <a class="button" href="{% url 'listings:listing_update' listing.pk %}">
+          {% trans "Edit"|capfirst %}
+        </a>
+        <a class="button" href="{% url 'listings:listing_delete' listing.pk %}">
+          {% trans "Delete"|capfirst %}
+        </a>
+    {% endif %}
+    </div>
 {% endblock content %}

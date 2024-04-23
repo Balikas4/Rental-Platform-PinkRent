@@ -8,17 +8,23 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.contrib.auth import get_user_model
-from .forms import ListingForm
+from .forms import ListingForm , ListingReviewForm
 from .models import Listing , FavoriteListing, ListingReview, Category
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def main_page(request: HttpRequest) -> HttpResponse:
+    listings = Listing.objects.all()
     context = {
         'listing_count': models.Listing.objects.count(),
         'users_count': models.get_user_model().objects.count(),
         'listings': models.Listing.objects.all(),
     }
+    if request.user.is_authenticated:
+        user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__in=listings)
+        # Create a set of favorite listing ids for easier lookup
+        favorite_listing_ids = set(user_favorites.values_list('favorite_listing__id', flat=True))
+        context['favorite_listing_ids'] = favorite_listing_ids
     return render(request, 'main.html', context)
 
 def shop_page(request):
@@ -50,9 +56,13 @@ def shop_page(request):
     }
     
     if request.user.is_authenticated:
-        context['user_favorites'] = FavoriteListing.objects.filter(user=request.user)
+        user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__in=listings)
+        # Create a set of favorite listing ids for easier lookup
+        favorite_listing_ids = set(user_favorites.values_list('favorite_listing__id', flat=True))
+        context['favorite_listing_ids'] = favorite_listing_ids
     
     return render(request, 'shop.html', context)
+
 
 def category_page(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
@@ -73,8 +83,10 @@ def category_page(request, category_slug):
     }
 
     if request.user.is_authenticated:
-        context['user_favorites'] = FavoriteListing.objects.filter(user=request.user)
-    context['categories'] = Category.objects.all()
+        user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__in=listings)
+        # Create a set of favorite listing ids for easier lookup
+        favorite_listing_ids = set(user_favorites.values_list('favorite_listing__id', flat=True))
+        context['favorite_listing_ids'] = favorite_listing_ids
     
     return render(request, 'category_page.html', context)
 
@@ -211,3 +223,23 @@ def remove_favorite_listing(request, pk):
     else:
         # Handle GET requests or other cases as needed
         return HttpResponse('Method not allowed', status=405)
+
+def create_listing_review(request, listing_id):
+    listing = get_object_or_404(Listing, id=listing_id)
+    
+    if request.method == 'POST':
+        form = ListingReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.listing = listing  # Assign the listing to the review
+            review.save()
+            messages.success(request, 'Listing review created successfully!')
+            return redirect(reverse('listings:listing_review_success'))  # Redirect using reverse
+    else:
+        form = ListingReviewForm()
+    
+    return render(request, 'reviews/create_listing_review.html', {'form': form, 'listing': listing})
+
+def listing_review_success(request):
+    return render(request, 'reviews/listing_review_success.html')

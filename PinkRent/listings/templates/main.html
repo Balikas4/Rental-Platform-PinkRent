@@ -10,8 +10,8 @@
   <div class="hero-picture">
     <img src="{% static 'hero.png' %}" alt="Hero picture">
     <div class="text-overlay"> 
-      <h2>NUMBER 1 FORMAL IMAGE RENTAL PLATFORM IN LITHUANIA</h2>
-      <h3>Collection of dresses of various sizes and models from different wardrobes</h3>
+      <h2>{% trans "NUMBER 1 FORMAL IMAGE RENTAL PLATFORM IN LITHUANIA" %}</h2>
+      <h3>{% trans "Collection of dresses of various sizes and models from different wardrobes" %}</h3>
       <button>
         <a href="{% url 'listings:shop_page' %}">
             {% trans "Rent" %}
@@ -31,7 +31,7 @@
     <p>{% trans "User count" %} {{ users_count }}</p> {% endcomment %}
 
   <div class="popular-dresses">
-    <h6>Popular Dresses</h6>
+    <h6>{% trans "Popular Dresses" %}</h6>
     <div class="grid-wrapper">
       {% for listing in listings|slice:":4" %}
       <div class="grid-item">
@@ -48,23 +48,33 @@
         <p>{% trans "Size" %}: {{ listing.size }}</p>
         <p>{% trans "Value" %}: {{ listing.value }}</p>
         <p class="grid-price">{{ listing.price }}$ {% trans "Per day" %}</p>
-        {% if user.is_authenticated %}
-          {% if user_favorites %}
-          <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
-            {% csrf_token %}
-            <button type="submit">{% trans "Unlike"|capfirst %}</button>
-          </form>
-          {% else %}
-              <a class="button" href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
-                <img class="icon" src="{% static 'like-icon.png' %}">
-              </a>
+        <div class="like-unlike">
+          {% if user.is_authenticated %}
+              {% if favorite_listing_ids %}
+                  {% if listing.id in favorite_listing_ids %}
+                      <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+                          {% csrf_token %}
+                          <button type="submit" class="icon-button">
+                              <img class="icon" src="{% static 'unlike-icon.png' %}" alt="{% trans 'Unlike'|capfirst %}">
+                          </button>
+                      </form>
+                  {% else %}
+                      <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+                          <img class="icon" src="{% static 'like-icon.png' %}">
+                      </a>
+                  {% endif %}
+              {% else %}
+                  <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+                      <img class="icon" src="{% static 'like-icon.png' %}">
+                  </a>
+              {% endif %}
           {% endif %}
+        </div>
           <button>
           <a href="{% url 'offers:send_offer_with_listing' listing_id=listing.pk %}">
             {% trans "Send offer"|capfirst %}
           </a>
         </button>
-        {% endif %}
     </div>
     {% endfor %}
     </div>
@@ -109,30 +119,43 @@
   </div>
   <div class="review-bar">
     <div class="review-hero-text">
-      <h6>KALBA PLATFORMOS VARTOTOJAI</h6>
+      <h6>{% trans "What people say" %}</h6>
     </div>
     <div class="reviews-container">
       <div class="reviews-card">
-        <img alt="user-icon"></img>
-        <p class="review-name">Eglė</p>
-        <p class="review-text">Anksčiau apie 500 eur vertės Self-portrait suknelę galėjau tik pasvajoti. Su PINKPINK platforma, tai tapo įmanoma, nes suknelę galiu išsinuomoti vos už 50 eur.</p>
-        <img alt="⭐"></img>
+        <div class="containerpart1">
+          <img src="{% static 'user-icon-1.png' %}" alt="user-icon-1" class="user-icon">
+          <p class="review-text">{% trans "Previously, I could only dream of a Self-Portrait dress worth about 500 euros. With the PINKPINK platform, this became possible, because I can rent a dress for just 50 euros." %}</p>
+        </div>
+        <div class="containerpart2">
+          <p class="review-name">Eglė</p>
+          <p>5⭐</p>
+        </div>
       </div>
       <div class="reviews-card">
-        <img alt="user-icon"></img>
-        <p class="review-name">Džiuljeta</p>
-        <p class="review-text">Proginės suknelės paieška man visada asociavosi su nuolatiniu nusyvilimu, nerandant dydžio. Kaip džiaugiuosi atradusi PINKPINK, nes čia suknelę sau ras visos.</p>
-        <img alt="⭐"></img>
+        <div class="containerpart1">
+          <img src="{% static 'user-icon-2.png' %}" alt="user-icon-2" class="user-icon">
+          <p class="review-text">{% trans "Looking for a prom dress for me has always been associated with the constant frustration of not being able to find my size. I'm so glad I discovered PINKPINK, because everyone can find a dress for themselves here." %}</p>
+        </div>
+        <div class="containerpart2">
+          <p class="review-name">Džiuljeta</p>
+          <p>5⭐</p>
+        </div>
       </div>
       <div class="reviews-card">
-        <img alt="user-icon"></img>
-        <p class="review-name">Irena</p>
-        <p class="review-text">Praėjusią vasarą dalyvavau net penkiose vestuvėse. Bijojau, kad kiekvienai šventei reikės pirkti po naują suknelę, juk su ta pačia neisiu. Laimei, atradau PINKPINK. Buvau skirtingai pasipuošusi už puikias kainas.</p>
-        <img alt="⭐"></img>
+        <div class="containerpart1">
+          <img src="{% static 'user-icon-3.png' %}" alt="user-icon-3" class="user-icon">
+          <p class="review-text">{% trans "I attended five weddings last summer. I was afraid that I would have to buy a new dress for every holiday, because I wouldn't go with the same one. Luckily I discovered PINKPINK. I was dressed differently for great prices." %}</p>
+        </div>
+        <div class="containerpart2">
+          <p class="review-name">Irena</p>
+          <p>5⭐</p>
+        </div>
       </div>
     </div>
+  </div>  
     <div class="reviews-button-container">
-      <button>MORE INFORMATION ABOUT RENT</button>
+      <button>{% trans "MORE INFORMATION ABOUT RENT" %}</button>
     </div>
   </div>
   <div class="filter-bar">
