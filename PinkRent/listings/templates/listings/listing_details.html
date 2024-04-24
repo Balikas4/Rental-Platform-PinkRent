@@ -46,22 +46,20 @@
         </div>
   </div>
 </div>
-  <div class='review-div'>
-    <h5>{% trans "Reviews" %} ({{ reviews.count }})</h5>
-    {% if reviews %} 
+<div class='review-div'>
+  <h5>{% trans "Reviews" %} ({{ reviews.count }})</h5>
+  <h5>{% trans "Review average" %} ({{ average_rating|floatformat:"1" }})</h5>
+  {% if reviews %} 
     {% for r in reviews %}
-    <p> {{ r.rate }}⭐
-        "{{ r.comment }}"
-        {{ r.user }}
-        {{ r.created_at }}</p>
-        {% endfor %}
-    {% else %}
+      <p>{{ r.rate }}⭐ "{{ r.comment }}" {{ r.user }} {{ r.created_at }}</p>
+    {% endfor %}
+  {% else %}
     <p>{% trans "No reviews" %}</p>
-    {% endif %}  
-    <a class="button" href="{% url 'listings:create_listing_review' listing_id=listing.pk %}">
-      {% trans "Leave a review"|capfirst %}
-    </a>
-  </div>
+  {% endif %}  
+  <a class="button" href="{% url 'listings:create_listing_review' listing_id=listing.pk %}">
+    {% trans "Leave a review"|capfirst %}
+  </a>
+</div>
   <div class="action-buttons">
       <a class="button" href="{% url 'listings:my_listings' %}">
         {% trans "My Listings"|capfirst %}

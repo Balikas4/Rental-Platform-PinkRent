@@ -12,6 +12,7 @@ from .forms import ListingForm , ListingReviewForm
 from .models import Listing , FavoriteListing, ListingReview, Category
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Avg
 
 def main_page(request: HttpRequest) -> HttpResponse:
     listings = Listing.objects.all()
@@ -118,6 +119,11 @@ def listing_detail(request: HttpRequest, pk:int) -> HttpResponse:
     if request.user.is_authenticated:
         context['user_favorites'] = FavoriteListing.objects.filter(user=request.user, favorite_listing=listing)
     reviews = ListingReview.objects.filter(listing=listing)
+
+    # Calculate average rating
+    average_rating = reviews.aggregate(Avg('rate'))['rate__avg']
+    context['average_rating'] = average_rating if average_rating is not None else 0
+
     context['reviews'] = reviews
     return render(request, 'listings/listing_details.html', context)
 
