@@ -1,6 +1,8 @@
-{% extends "base.html" %}{% load i18n %}
+{% extends "base.html" %}
+{% load i18n %} {% load static %}
 {% block title %}{{ user }} {% trans "at" %} {{ block.super }}{% endblock title %}
 {% block content %}
+<h1>{% trans "My profile"|upper %}</h1>
 <div class="user-profile">
     <div class="profile-picture">
         {% if current_profile.picture %}
@@ -25,20 +27,75 @@
 <div class="buttons">
     {% if request.user == user %}
         <a class="button" href="{% url "user_update" %}">{% trans "edit profile data" %}</a>
-        <a class="button" href="{% url "offers:my_offers" %}">{% trans "my offers"%}</a>
-        <a class="button" href="{% url "listings:my_favorites" %}">{% trans "my favorite listings"%}</a>
-        <a class="button" href="{% url "my_favorite_users" %}">{% trans "my favorite users"%}</a>
     {% endif %}
 </div>
-    {% if user_favorites %}
-    <form action="{% url 'remove_favorite' user.pk %}?next={{ request.path }}" method="post">
-      {% csrf_token %}
-      <button type="submit">{% trans "Unlike"|capfirst %}</button>
-    </form>
+    {% if request.user == user %}
     {% else %}
-        <form action="{% url 'favorite_user' user.id %}?next={{ request.path }}" method="post">
-            {% csrf_token %}
-            <button type="submit">{% trans "Like"|capfirst %}</button>
+        {% if user_favorites %}
+        <form action="{% url 'remove_favorite' user.pk %}?next={{ request.path }}" method="post">
+        {% csrf_token %}
+        <button type="submit">{% trans "Unlike"|capfirst %}</button>
         </form>
-{% endif %}
+        {% else %}
+            <form action="{% url 'favorite_user' user.id %}?next={{ request.path }}" method="post">
+                {% csrf_token %}
+                <button type="submit">{% trans "Like"|capfirst %}</button>
+            </form>
+        {% endif %}
+    {% endif %}
+<div class="profile-listings">
+    <h1>{% trans "My Listings"|upper %}</h1>
+    <div class="grid-wrapper">
+        {% for listing in profile_listings %}
+        <div class="grid-item">
+          {% if listing.picture %}
+            <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+              <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
+            </a>
+          {% else %}
+            <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+              <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
+            </a>
+          {% endif %}
+          <a href="{% url 'listings:listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
+          <p>{% trans "Size" %}: {{ listing.size }}</p>
+          <p>{% trans "Value" %}: {{ listing.value }}</p>
+          <p class="grid-price">{{ listing.price }}$ {% trans "Per day" %}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="pagination">
+        {% if profile_listings.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ profile_listings.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in profile_listings.paginator.page_range %}
+            {% if profile_listings.number == num %}
+                <span class="current">{{ num }}</span>
+            {% else %}
+                <a href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if profile_listings.has_next %}
+            <a href="?page={{ profile_listings.next_page_number }}">Next</a>
+            <a href="?page={{ profile_listings.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+</div>
+<div class='review-div'>
+    <h5>{% trans "Reviews" %} ({{ reviews.count }})</h5>
+    <h5>{% trans "Review average" %} ({{ average_rating|floatformat:"1" }})</h5>
+    {% if reviews %} 
+      {% for r in reviews %}
+        <p>{{ r.rate }}⭐ "{{ r.comment }}" {{ r.user }} {{ r.created_at }}</p>
+      {% endfor %}
+    {% else %}
+      <p>{% trans "No reviews" %}</p>
+    {% endif %}  
+    <a class="button" href="{% url 'create_profile_review' profile_id=current_profile.pk %}">
+      {% trans "Leave a review"|capfirst %}
+    </a>
+  </div>
 {% endblock content %}

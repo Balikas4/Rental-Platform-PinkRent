@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Create a Profile Review"|capfirst %}
+{% endblock title %}
+
+{% block content %}
+  <h1>{% trans "Create a Profile Review"|capfirst %}</h1>
+  <div class="profile-review-create">
+    <form method="post" enctype="multipart/form-data" action="{% url 'create_profile_review' profile_id=profile.id %}" class="profile-review-form">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="id_comment">{% trans "Comment"|capfirst %}:</label>
+        {{ form.comment }}
+      </div>
+      <div class="form-group">
+        <label for="id_rate">{% trans "Rating"|capfirst %}:</label>
+        {{ form.rate }}
+      </div>
+      <button type="submit" class="btn btn-primary">{% trans "Submit"|capfirst %}</button>
+    </form>
+  </div>
+{% endblock content %}

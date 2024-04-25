@@ -6,7 +6,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from . import forms
 from django.core.exceptions import ObjectDoesNotExist
-from .models import UserProfile , FavoriteUser
+from .models import UserProfile , FavoriteUser, UserProfileReview
+from .forms import ProfileReviewForm
+from listings.models import Listing
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.urls import reverse
+from django.db.models import Avg
+
 
 def signup(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
@@ -32,12 +38,31 @@ def user_detail(request: HttpRequest, username: str | None = None)  -> HttpRespo
     unavailable_listings_count = user.listings.filter(is_available=False).count()
     user_favorites = FavoriteUser.objects.filter(user=request.user, favorite_user=user)
     current_profile = get_object_or_404(UserProfile, user=user)
+    profile_listings = Listing.objects.filter(owner=user)
+    # Pagination
+    paginator = Paginator(profile_listings, 3)  # 3 listings per page
+    page = request.GET.get('page')
+    try:
+        profile_listings = paginator.page(page)
+    except PageNotAnInteger:
+        profile_listings = paginator.page(1)
+    except EmptyPage:
+        profile_listings = paginator.page(paginator.num_pages)
+
     context = {
         'user': user,
         'unavailable_listings_count': unavailable_listings_count,
-        'user_favorites':user_favorites,
-        'current_profile':current_profile,
+        'user_favorites': user_favorites,
+        'current_profile': current_profile,
+        'profile_listings': profile_listings,
     }
+    reviews = UserProfileReview.objects.filter(profile=current_profile)
+
+    # Calculate average rating
+    average_rating = reviews.aggregate(Avg('rate'))['rate__avg']
+    context['average_rating'] = average_rating if average_rating is not None else 0
+
+    context['reviews'] = reviews
     return render(request, 'user_profile/user_detail.html', context)
 
 @login_required
@@ -105,3 +130,23 @@ def remove_favorite_user(request, user_id):
     else:
         # Handle GET requests or other cases as needed
         return HttpResponse('Method not allowed', status=405)
+
+def create_profile_review(request, profile_id):
+    profile = get_object_or_404(UserProfile, id=profile_id)
+    
+    if request.method == 'POST':
+        form = ProfileReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.profile = profile  # Assign the profile to the review
+            review.save()
+            messages.success(request, 'Profile review created successfully!')
+            return redirect(reverse('profile_review_success'))  # Redirect using reverse
+    else:
+        form = ProfileReviewForm()
+    
+    return render(request, 'reviews/create_profile_review.html', {'form': form, 'profile': profile})
+
+def profile_review_success(request):
+    return render(request, 'reviews/profile_review_success.html')
