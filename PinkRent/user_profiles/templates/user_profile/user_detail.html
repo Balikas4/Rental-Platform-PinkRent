@@ -2,7 +2,11 @@
 {% load i18n %} {% load static %}
 {% block title %}{{ user }} {% trans "at" %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>{% trans "My profile"|upper %}</h1>
+{% if request.user == user %}
+        <h1>{% trans "My Profile"|upper %}</h1>
+    {% else %}
+        <h1>{{ user.username|upper }} {% trans "Profile"|upper %}</h1>
+    {% endif %}
 <div class="user-profile">
     <div class="profile-picture">
         {% if current_profile.picture %}
@@ -44,7 +48,11 @@
         {% endif %}
     {% endif %}
 <div class="profile-listings">
-    <h1>{% trans "My Listings"|upper %}</h1>
+    {% if request.user == user %}
+        <h1>{% trans "My Listings"|upper %}</h1>
+    {% else %}
+        <h1>{{ user.username|upper }} {% trans "Listings"|upper %}</h1>
+    {% endif %}
     <div class="grid-wrapper">
         {% for listing in profile_listings %}
         <div class="grid-item">
@@ -84,6 +92,11 @@
             <a href="?page={{ profile_listings.paginator.num_pages }}">Last &raquo;</a>
         {% endif %}
 </div>
+{% if request.user == user %}
+        <h1>{% trans "My Reviews"|upper %}</h1>
+    {% else %}
+        <h1>{{ user.username|upper }} {% trans "Reviews"|upper %}</h1>
+    {% endif %}
 <div class='review-div'>
     <h5>{% trans "Reviews" %} ({{ reviews.count }})</h5>
     <h5>{% trans "Review average" %} ({{ average_rating|floatformat:"1" }})</h5>
@@ -94,8 +107,11 @@
     {% else %}
       <p>{% trans "No reviews" %}</p>
     {% endif %}  
-    <a class="button" href="{% url 'create_profile_review' profile_id=current_profile.pk %}">
-      {% trans "Leave a review"|capfirst %}
+    {% if request.user == user %}
+    {% else %}
+        <a class="button" href="{% url 'create_profile_review' profile_id=current_profile.pk %}">
+        {% trans "Leave a review"|capfirst %}
     </a>
+    {% endif %}
   </div>
 {% endblock content %}
