@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from .local_settings import SECRET_KEY
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost']
 
@@ -126,17 +127,17 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR.joinpath(STATIC_URL)
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR.joinpath(MEDIA_URL)
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static_root'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media_root'
 
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 LOCALE_PATHS = [
     BASE_DIR / 'PinkRent' / 'locale',
 ]

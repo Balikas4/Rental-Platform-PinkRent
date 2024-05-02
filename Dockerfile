@@ -16,10 +16,15 @@ COPY . /app
 # Install dependencies
 RUN pip install -r requirements.txt
 
-# Expose port 80 to the outside world
-EXPOSE 80
+# Expose port 8000 to the outside world
+EXPOSE 8000
 
-WORKDIR /app/PinkRent
+# COMMENTED BECAUSE docker-compose.yml 
 
-# Command to run the Django application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
+# RUN python manage.py collectstatic --noinput
+# RUN python manage.py migrate
+# CMD ["gunicorn", "-b", "0.0.0.0:8000", "PinkRent.wsgi"]
+
+
+# # Command to run the Django application
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
