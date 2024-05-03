@@ -3,6 +3,8 @@
 To run the platfrom you should install requirements.txt and run the server. <br>
 `pip install -r requirements.txt` <br>
 `./manage.py runserver`
+Dockerized command
+`docker-compose up -d`
 
 ## Overview
 

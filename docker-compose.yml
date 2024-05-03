@@ -1,4 +1,4 @@
-version: "2.27.0"  # nurodome suderinamo docker-compose versiją
+version: "3.8"  # nurodome suderinamo docker-compose versiją
 services:       # services yra konteinerių sąrašas
   dev:          # konfigūruojame konteinerį pavadinimu web
     # build komanda nudorome, kad iš kuriame kataloge (šiuo atveju iš esančio katalogo, .) esančio Dockerfile statyti konteinerį
@@ -18,11 +18,35 @@ services:       # services yra konteinerių sąrašas
     # volumes - disko sąsaja, kur konteineris sinchronizuos savo failus su realiais diske esančiais failais. Šių failų nereikės kopijuoti su cp. Taip pat panašiai sinchronizuosime ir `static` bei `media` katalogus su nginx konteineriu.
     volumes:
       - ./PinkRent:/app
+    # priklausomybės - kurie konteineriai turėtu būti paleisti, paleidžiant šį konteinerį.
+    depends_on:
+      - db
+    # pervadiname db konteinerio host lokaliame projekto tinkle. Nepamirškite duomenų bazės konfigūracijos faile nurodyti `host=postgres` vietoj `host=localhost`
+    links:
+      - db:postgres
     # vykdome komandas startuojant konteineriui, o ne konstruojant to konteinerio paveiksliuką (image). Rekomenduojame šias komandas iš Dockerfile pašalinti arba užkomentuoti.
     command: >
-      bash -c "python manage.py migrate &&
-      python manage.py collectstatic --noinput &&
-      gunicorn PinkRent.wsgi --bind 0.0.0.0:8000"
+      bash -c "python wait_for_postgres.py &&
+               python manage.py migrate &&
+               python manage.py collectstatic --noinput &&
+               gunicorn PinkRent.wsgi --bind 0.0.0.0:8000"
+    # sukuriame naują duomenų bazės servisą
+  db:
+    # naudosime standartinį postgres image
+    image: postgres
+    # konteinerio pavadinimas
+    container_name: project.db
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+    # nurodžius environment'e duomenų bazės parametrus, naujas postgres konteineris šiais parametrais sukurs tuščią duomenų bazę. Produkcinėje aplinkoje siūlytume nenurodyti jautrių duomenų šiame faile, o naudoti tarpinį .env failą, įdėtą į .gitignore.
+    environment:
+      POSTGRES_DB: project
+      POSTGRES_USER: pinkpink
+      POSTGRES_PASSWORD: serpantinas
+      POSTGRES_PORT: 5432    
   nginx:           # Nginx konteineris
     # surenkame nginx konteinerį su mūsų projekto .conf
     build: ./nginx/
