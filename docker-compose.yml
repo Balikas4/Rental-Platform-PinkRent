@@ -44,8 +44,8 @@ services:       # services yra konteinerių sąrašas
     # nurodžius environment'e duomenų bazės parametrus, naujas postgres konteineris šiais parametrais sukurs tuščią duomenų bazę. Produkcinėje aplinkoje siūlytume nenurodyti jautrių duomenų šiame faile, o naudoti tarpinį .env failą, įdėtą į .gitignore.
     environment:
       POSTGRES_DB: project
-      POSTGRES_USER: pinkpink
-      POSTGRES_PASSWORD: serpantinas
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_PORT: 5432    
   nginx:           # Nginx konteineris
     # surenkame nginx konteinerį su mūsų projekto .conf
@@ -65,5 +65,5 @@ services:       # services yra konteinerių sąrašas
       - dev:project
     # sinchronizuojame failus tarp konteinerio ir projekto `static` ir `media` katalogų. Šiuo atveju, netgi padarius `python manage.py collectstatic` iš projekto `dev` konteinerio, `nginx` konteineryje atitinkami failai taip pat atsinaujins.
     volumes:
-      - ./PinkRent/media:/app/media
-      - ./PinkRent/listings/static:/app/static
+      - ./PinkRent/media_root:/app/media
+      - ./PinkRent/static_root:/app/static
