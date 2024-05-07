@@ -335,6 +335,12 @@ ul.dashboard li .stat {
 
 .grid-item a {
     font-weight: 600;
+    color: #FFFFFF;
+}
+
+.grid-item p {
+    font-weight: 600;
+    color: #000000;
 }
 
 .grid-item a:visited {

@@ -39,7 +39,11 @@
             <nav id="menu" class="menu">
                 <ul>
                     {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'user_detail_current' %}">My Profile</a></li>
+                        {% if request.user.userprofile.picture %}
+                            <li><a href="{% url 'user_detail_current' %}">My Profile</a></li>
+                        {% else %}
+                            <li><a href="{% url 'user_update' %}">Create Profile</a></li>
+                        {% endif %}
                     <li><a href="{% url "offers:my_offers" %}">My Orders</a></li>
                     <li><a href="{% url "my_favorite_users" %}">My Favorite users</a></li>
                     <li><a href="{% url "listings:my_favorites" %}">My Favorite listings</a></li>

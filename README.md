@@ -1,6 +1,8 @@
 # PinkRent: Your Sustainable Item Rental Platform
 
 To run the platfrom you should install requirements.txt and run the server. <br>
+
+
 `pip install -r requirements.txt` <br>
 `./manage.py runserver`
 Dockerized command
@@ -46,7 +48,7 @@ We are continuously working to enhance the PinkRent experience. Future updates m
 
 - **Expanded Catalog:** Regularly update our catalog with a wider range of items to meet diverse needs.
 
-- **User reviews :**
+- **Deploy on any linux server** Dockerizing this porject to run it anywhere
 
 - **Partners :**
 
