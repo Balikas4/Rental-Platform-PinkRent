@@ -1,12 +1,32 @@
 # PinkRent: Your Sustainable Item Rental Platform
 
-To run the platfrom you should install requirements.txt and run the server. <br>
+## HOW TO RUN
 
+Assuming you are running on a Virtual Private Server Linux based. Note it should have docker. <br>
 
+Clone git:
+`git clone https://github.com/Balikas4/Rental-Platform-PinkRent.git`<br>
+Go into directory
+`cd Rental-Platform-PinkRent`<br>
+Install venv if not present
+`apt install python3.10-venv`<br>
+Crete venv and activate
+`python3 -m venv venv`<br>
+`source venv/bin/activate`<br>
+Install requirements
 `pip install -r requirements.txt` <br>
-`./manage.py runserver`
-Dockerized command
-`docker-compose up -d`
+Add local_settings.py with your password and save. this file should be next to settings.py
+`cd PinkRent/`<br>
+`nano local_settings.py` or `vim local_settings.py`<br>
+`SECRET_KEY = your_django_key`<br>
+Add your domain to settings.py allowed hosts
+`ALLOWED_HOSTS = ['localhost', 'postgres', 'your_domain']`<br>
+Change your database host from postgres to VPS IP adress:
+`'HOST': 'postgres',` to `'HOST': 'vps_ip',`<br>
+Create admin superuser
+`./manage.py createsuperuser`<br>
+Run docker compose
+`docker-compose up -d`<br>
 
 ## Overview
 
@@ -46,14 +66,16 @@ We are committed to promoting a sustainable lifestyle by encouraging the sharing
 
 We are continuously working to enhance the PinkRent experience. Future updates may include:
 
-- **Expanded Catalog:** Regularly update our catalog with a wider range of items to meet diverse needs.
+- **Expanded Catalog Filters** Update our catalog with a wider range of filters to meet diverse needs.
 
-- **Deploy on any linux server** Dockerizing this porject to run it anywhere
+- **Partners :** Create partner account and offer renting service for renters.
 
-- **Partners :**
+- **UI UX :** Change the way website looks.
 
 ## Join PinkRent Today!
 
 Embrace a more sustainable and cost-effective lifestyle by joining PinkRent. Browse our catalog, rent items, and be part of a community that values sharing and environmental responsibility.
+
+Currently running on VPS domain www.pinkrent.lt
 
 Happy renting!
