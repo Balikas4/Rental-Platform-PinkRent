@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'postgres', 'project.local']
+ALLOWED_HOSTS = ['localhost', 'postgres', 'www.pinkpink.lt', 'pinkpink.lt']
 
 
 # Application definition
@@ -85,7 +85,7 @@ DATABASES = {
         "NAME": "project",
         "USER": "postgres",
         "PASSWORD": "postgres",
-        'HOST': 'postgres',
+        'HOST': '62.72.35.92',
         "PORT": 5432,
     }
 }

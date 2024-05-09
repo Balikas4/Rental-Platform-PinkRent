@@ -67,3 +67,10 @@ services:       # services yra konteinerių sąrašas
     volumes:
       - ./PinkRent/media_root:/app/media
       - ./PinkRent/static_root:/app/static
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - /var/certbot/conf:/etc/letsencrypt/:rw
+      - /var/certbot/www/:/var/www/certbot/:rw
+    depends_on:
+      - nginx
