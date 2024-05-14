@@ -22,11 +22,10 @@ Add local_settings.py with your password and save. this file should be next to s
 Add your domain to settings.py allowed hosts
 `ALLOWED_HOSTS = ['localhost', 'postgres', 'your_domain']`<br>
 Change your database host from postgres to VPS IP adress:
-`'HOST': 'postgres',` to `'HOST': 'vps_ip',`<br>
-Create admin superuser
-`./manage.py createsuperuser`<br>
 Run docker compose
 `docker-compose up -d`<br>
+Create django admin superuser
+`./manage.py createsuperuser`<br>
 
 ## Overview
 
@@ -71,6 +70,8 @@ We are continuously working to enhance the PinkRent experience. Future updates m
 - **Partners :** Create partner account and offer renting service for renters.
 
 - **UI UX :** Change the way website looks.
+
+- **SSL/HTTPS** Security update
 
 ## Join PinkRent Today!
 
