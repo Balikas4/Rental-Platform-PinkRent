@@ -39,7 +39,7 @@ def shop_page(request):
     # Filter by category/profile tags
     if query:
         listings = listings.filter(name__icontains=query)
-        profiles = profiles.filter(name__icontains=query)
+        profiles = profiles.filter(user__icontains=query)
 
     if selected_tags:
         listings = listings.filter(tags__id__in=selected_tags).distinct()
