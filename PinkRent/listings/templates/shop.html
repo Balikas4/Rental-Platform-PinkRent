@@ -4,7 +4,7 @@
 {% block content %}
     <h1>{% trans "Shop" %}</h1>
     <!-- Search Form Tags -->
-    <form method="GET" action="{% url 'shop' %}">
+    <form method="GET" action="{% url 'listings:shop_page' %}">
         <input type="text" name="q" placeholder="Search by listing or profile" value="{{ request.GET.q }}">
         
         <h4>Filter by Tags</h4>
