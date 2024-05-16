@@ -9,10 +9,11 @@ from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.contrib.auth import get_user_model
 from .forms import ListingForm , ListingReviewForm
-from .models import Listing , FavoriteListing, ListingReview, Category
+from .models import Listing , FavoriteListing, ListingReview, Category, Tag
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Avg
+from user_profiles.models import UserProfile
 
 def main_page(request: HttpRequest) -> HttpResponse:
     listings = Listing.objects.all()
@@ -29,8 +30,22 @@ def main_page(request: HttpRequest) -> HttpResponse:
     return render(request, 'main.html', context)
 
 def shop_page(request):
+    query = request.GET.get('q', '')
+    selected_tags = request.GET.getlist('tags')
+
     listings = Listing.objects.all()
+    profiles = UserProfile.objects.all()
     
+    # Filter by category/profile tags
+    if query:
+        listings = listings.filter(name__icontains=query)
+        profiles = profiles.filter(name__icontains=query)
+
+    if selected_tags:
+        listings = listings.filter(tags__id__in=selected_tags).distinct()
+
+    tags = Tag.objects.all()
+
     # Filter by category
     category_id = request.GET.get('category')
     if category_id and category_id != 'all':
@@ -54,6 +69,7 @@ def shop_page(request):
     context = {
         'listings': listings,
         'categories': Category.objects.all(),
+        'tags': tags,
     }
     
     if request.user.is_authenticated:
