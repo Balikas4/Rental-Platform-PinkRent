@@ -1,10 +1,15 @@
 from django import forms
-from .models import Listing, ListingReview
+from .models import Listing, ListingReview, Tag
 
 class ListingForm(forms.ModelForm):
+    tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
     class Meta:
         model = Listing
-        fields = ['category', 'picture', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'description']
+        fields = ['category', 'picture', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'description', 'tags']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

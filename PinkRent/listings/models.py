@@ -8,6 +8,8 @@ from django.utils.text import slugify
 class Category(models.Model):
     name = models.CharField(_("name"), max_length=100, db_index=True)
     slug = models.SlugField(_("slug"), max_length=255, blank=True)
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='subcategories', on_delete=models.CASCADE)
+
 
     class Meta:
         verbose_name = _("category")
@@ -20,6 +22,16 @@ class Category(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+class Tag(models.Model):
+    name = models.CharField(_("name"), max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = _("tag")
+        verbose_name_plural = _("tags")
+
+    def __str__(self):
+        return self.name
 
 class Listing(models.Model):
     GOOD = 'good'
@@ -57,6 +69,8 @@ class Listing(models.Model):
         blank=True,
         related_name='listing',
     )
+    tags = models.ManyToManyField(Tag, related_name='listings')
+
 
     class Meta:
         verbose_name = _("listing")
