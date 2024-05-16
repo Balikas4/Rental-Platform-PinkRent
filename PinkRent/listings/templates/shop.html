@@ -11,7 +11,7 @@
         {% for tag in tags %}
             <label>
                 <input type="checkbox" name="tags" value="{{ tag.id }}" 
-                    {% if tag.id|stringformat:"s" in request.GET.getlist('tags') %}checked{% endif %}>
+                    {% if tag.id in request.GET.tags %}checked{% endif %}>
                 {{ tag.name }}
             </label>
         {% endfor %}
