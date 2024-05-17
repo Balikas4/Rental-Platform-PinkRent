@@ -5,44 +5,19 @@
     <h1>{% trans "Shop" %}</h1>
     <!-- Search Form Tags -->
     <form method="GET" action="{% url 'listings:shop_page' %}">
-        <input type="text" name="q" placeholder="Search by listing or profile" value="{{ request.GET.q }}">
-        
-        <h4>Filter by Tags</h4>
+        <input type="text" name="q" placeholder="Search by listing name" value="{{ request.GET.q }}">
+
+        <h4>{% trans "Filter by Tags" %}</h4>
         {% for tag in tags %}
             <label>
-                <input type="checkbox" name="tags" value="{{ tag.id }}" 
+                <input type="checkbox" name="tags" value="{{ tag.id }}"
                     {% if tag.id in request.GET.tags %}checked{% endif %}>
                 {{ tag.name }}
             </label>
         {% endfor %}
-        
-        <button type="submit">Search</button>
-    </form>
-    <h2>Search Results</h2>
 
-    <h3>Listings</h3>
-    <ul>
-        {% for listing in listings %}
-            <li>{{ listing.name }}</li>
-        {% empty %}
-            <li>No listings found.</li>
-        {% endfor %}
-    </ul>
-    
-    <h3>Profiles</h3>
-    <ul>
-        {% for profile in profiles %}
-            <li>{{ profile.name }}</li>
-        {% empty %}
-            <li>No profiles found.</li>
-        {% endfor %}
-    </ul>
-    <!-- Search Form -->
-    <form method="GET" action="{% url 'listings:shop_page' %}">
-        <input type="text" name="search" placeholder="{% trans 'Search listings' %}">
-        <button type="submit">{% trans 'Search' %}</button>
+        <button type="submit">{% trans "Filter" %}</button>
     </form>
-    
     <!-- Category Filter Form -->
     <form method="GET" action="{% url 'listings:shop_page' %}">
         <div class="category-filters">
@@ -53,7 +28,7 @@
                     <option value="{{ category.id }}">{{ category.name }}</option>
                 {% endfor %}
             </select>
-            <button type="submit">{% trans 'Apply Filter' %}</button>
+            <button type="submit">{% trans 'Filter' %}</button>
         </div>
     </form>
     <div class="grid-wrapper">

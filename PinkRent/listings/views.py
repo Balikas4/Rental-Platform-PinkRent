@@ -32,30 +32,27 @@ def main_page(request: HttpRequest) -> HttpResponse:
 def shop_page(request):
     query = request.GET.get('q', '')
     selected_tags = request.GET.getlist('tags')
+    category_id = request.GET.get('category', 'all')
+    search_query = request.GET.get('search')
 
     listings = Listing.objects.all()
-    profiles = UserProfile.objects.all()
-    
-    # Filter by category/profile tags
+
+    # Filter by name query
     if query:
         listings = listings.filter(name__icontains=query)
-        profiles = profiles.filter(user__username__icontains=query)
 
+    # Filter by selected tags
     if selected_tags:
         listings = listings.filter(tags__id__in=selected_tags).distinct()
 
-    tags = Tag.objects.all()
-
     # Filter by category
-    category_id = request.GET.get('category')
-    if category_id and category_id != 'all':
+    if category_id != 'all':
         listings = listings.filter(category__id=category_id)
-    
-    # Search query
-    search_query = request.GET.get('search')
+
+    # Filter by search query
     if search_query:
         listings = listings.filter(name__icontains=search_query)
-    
+
     # Pagination
     paginator = Paginator(listings, 4)  # 4 listings per page
     page = request.GET.get('page')
@@ -65,22 +62,20 @@ def shop_page(request):
         listings = paginator.page(1)
     except EmptyPage:
         listings = paginator.page(paginator.num_pages)
-    
+
     context = {
         'listings': listings,
         'categories': Category.objects.all(),
-        'tags': tags,
-        'profiles': profiles,
+        'tags': Tag.objects.all(),
     }
-    
+
     if request.user.is_authenticated:
         user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__in=listings)
         # Create a set of favorite listing ids for easier lookup
         favorite_listing_ids = set(user_favorites.values_list('favorite_listing__id', flat=True))
         context['favorite_listing_ids'] = favorite_listing_ids
-    
-    return render(request, 'shop.html', context)
 
+    return render(request, 'shop.html', context)
 
 def category_page(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
