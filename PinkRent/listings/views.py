@@ -70,6 +70,7 @@ def shop_page(request):
         'listings': listings,
         'categories': Category.objects.all(),
         'tags': tags,
+        'profiles': profiles,
     }
     
     if request.user.is_authenticated:

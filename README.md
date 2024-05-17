@@ -2,30 +2,37 @@
 
 ## HOW TO RUN
 
-Assuming you are running on a Virtual Private Server Linux based. Note it should have docker. <br>
+Assuming you are running on a Virtual Private Server Linux based. Note it should have docker. Also you have made your domain A tags to redirect to your VPS. <br>
 
-Clone git:
+Clone git:<br>
 `git clone https://github.com/Balikas4/Rental-Platform-PinkRent.git`<br>
-Go into directory
+Go into directory<br>
 `cd Rental-Platform-PinkRent`<br>
-Install venv if not present
+Install venv, activate<br>
 `apt install python3.10-venv`<br>
-Crete venv and activate
 `python3 -m venv venv`<br>
 `source venv/bin/activate`<br>
-Install requirements
-`pip install -r requirements.txt` <br>
-Add local_settings.py with your password and save. this file should be next to settings.py
-`cd PinkRent/`<br>
+Install requirements<br>
+`pip install -r requirements.txt`<br>
+Add local_settings.py with your password and save. this file should be next to settings.py<br>
+`cd PinkRent/PinkRent/`<br>
 `nano local_settings.py` or `vim local_settings.py`<br>
 `SECRET_KEY = your_django_key`<br>
-Add your domain to settings.py allowed hosts
-`ALLOWED_HOSTS = ['localhost', 'postgres', 'your_domain']`<br>
-Change your database host from postgres to VPS IP adress:
-Run docker compose
+Add your domain to settings.py allowed hosts. Check for debug to be FALSE<br>
+`ALLOWED_HOSTS = ['localhost', 'postgres', 'your_domain.com', 'www.your_domain.com']`<br>
+`DEBUG=False`<br>
+Install certbot-nginx for SSL HTTPS secure connection and run trough configuration.<br>
+`sudo apt install certbot python3-certbot-nginx`<br>
+`sudo certbot --nginx`<br>
+`sudo systemctl stop nginx`<br>
+Navigate to manage.py and check for migrations<br>
+`./manage.py migrate`<br>
+Run docker compose<br>
 `docker-compose up -d`<br>
-Create django admin superuser
+Create django admin superuser inside docker<br>
+`docker exec -it project.dev bash`<br>
 `./manage.py createsuperuser`<br>
+Populate db trough website admin with your categories, tags, etc..<br>
 
 ## Overview
 
@@ -70,8 +77,6 @@ We are continuously working to enhance the PinkRent experience. Future updates m
 - **Partners :** Create partner account and offer renting service for renters.
 
 - **UI UX :** Change the way website looks.
-
-- **SSL/HTTPS** Security update
 
 ## Join PinkRent Today!
 
