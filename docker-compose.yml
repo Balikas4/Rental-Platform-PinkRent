@@ -68,10 +68,12 @@ services:       # services yra konteinerių sąrašas
       - ./PinkRent/media_root:/app/media
       - ./PinkRent/static_root:/app/static
       - /etc/letsencrypt:/etc/letsencrypt
+      - /var/www/certbot:/var/www/certbot
   certbot:
     image: certbot/certbot
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
+      - /var/www/certbot:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     depends_on:
       - nginx
