@@ -14,10 +14,11 @@ Install venv, activate<br>
 `source venv/bin/activate`<br>
 Install requirements<br>
 `pip install -r requirements.txt`<br>
-Add local_settings.py with your password and save. this file should be next to settings.py<br>
+Add local_settings.py with your dajng and postgres password and save. this file should be next to settings.py<br>
 `cd PinkRent/PinkRent/`<br>
 `nano local_settings.py` or `vim local_settings.py`<br>
 `SECRET_KEY = your_django_key`<br>
+`POSTGRES_PASSWORD = 'your_postgres_password'` <br>
 Add your domain to settings.py allowed hosts. Check for debug to be FALSE<br>
 `ALLOWED_HOSTS = ['localhost', 'postgres', 'your_domain.com', 'www.your_domain.com']`<br>
 `DEBUG=False`<br>
