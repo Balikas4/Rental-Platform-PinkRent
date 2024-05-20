@@ -35,6 +35,8 @@ def shop_page(request):
     category_id = request.GET.get('category', 'all')
     search_query = request.GET.get('search')
 
+    parent_categories = Category.objects.filter(parent=None)
+    categories = Category.objects.all()
     listings = Listing.objects.all()
 
     # Filter by name query
@@ -65,7 +67,8 @@ def shop_page(request):
 
     context = {
         'listings': listings,
-        'categories': Category.objects.all(),
+        'categories': categories,
+        'parent_categories': parent_categories,
         'tags': Tag.objects.all(),
     }
 
@@ -77,8 +80,13 @@ def shop_page(request):
 
     return render(request, 'shop.html', context)
 
-def category_page(request, category_slug):
-    category = get_object_or_404(Category, slug=category_slug)
+def category_page(request, category_slug, parent_slug=None):
+    # Fetch category based on parent_slug if provided
+    if parent_slug:
+        parent_category = get_object_or_404(Category, slug=parent_slug, parent=None)
+        category = get_object_or_404(Category, slug=category_slug, parent=parent_category)
+    else:
+        category = get_object_or_404(Category, slug=category_slug, parent=None)
     listings = Listing.objects.filter(category=category)
     
     # Pagination
