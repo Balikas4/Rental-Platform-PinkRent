@@ -45,7 +45,7 @@ services:       # services yra konteinerių sąrašas
     environment:
       POSTGRES_DB: project
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: futbolas7
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_PORT: 5432
   nginx:           # Nginx konteineris
     # surenkame nginx konteinerį su mūsų projekto .conf
