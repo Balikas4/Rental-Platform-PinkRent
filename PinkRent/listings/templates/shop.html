@@ -22,6 +22,8 @@
     <form method="GET" action="{% url 'listings:shop_page' %}">
         <div class="category-filters">
             <p>{% trans "Filter by Category:" %}</p>
+            
+            <!-- Parent Category Dropdown -->
             <label for="parent-category-filter">{% trans "Parent Category:" %}</label>
             <select id="parent-category-filter" name="parent_category">
                 <option value="all">{% trans "All" %}</option>
@@ -30,12 +32,15 @@
                 {% endfor %}
             </select>
             
+            <!-- Sub-Category Dropdown (Initially Disabled) -->
             <label for="sub-category-filter">{% trans "Sub-Category:" %}</label>
-            <select id="sub-category-filter" name="category">
+            <select id="sub-category-filter" name="category" disabled>
                 <option value="all">{% trans "All" %}</option>
-                <!-- Sub-categories will be populated by JavaScript -->
+                {% for subcategory in subcategories %}
+                    <option value="{{ subcategory.id }}">{{ subcategory.name }}</option>
+                {% endfor %}
             </select>
-            
+            <!-- Submit Button -->
             <button type="submit">{% trans 'Filter' %}</button>
         </div>
     </form>
@@ -100,31 +105,4 @@
             <a href="?page={{ listings.paginator.num_pages }}">Last &raquo;</a>
         {% endif %}
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const categories = {{ categories|safe }};
-            const parentCategoryFilter = document.getElementById("parent-category-filter");
-            const subCategoryFilter = document.getElementById("sub-category-filter");
-        
-            parentCategoryFilter.addEventListener("change", function() {
-                const parentId = this.value;
-                
-                // Clear current options in sub-category filter
-                subCategoryFilter.innerHTML = '<option value="all">{% trans "All" %}</option>';
-                
-                if (parentId !== "all") {
-                    // Populate sub-category filter based on selected parent category
-                    const filteredSubCategories = categories.filter(category => category.parent === parseInt(parentId));
-                    
-                    filteredSubCategories.forEach(function(subCategory) {
-                        const option = document.createElement("option");
-                        option.value = subCategory.id;
-                        option.text = subCategory.name;
-                        subCategoryFilter.appendChild(option);
-                    });
-                }
-            });
-        });
-        </script>
 {% endblock content %}

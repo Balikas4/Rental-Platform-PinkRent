@@ -25,6 +25,6 @@ urlpatterns = [
     path('listing/<int:listing_id>/create-listing-review/', views.create_listing_review, name='create_listing_review'),
     path('listing-review-success/', views.listing_review_success, name='listing_review_success'),
     # URLs for listing filtering
-    path('<slug:parent_slug>/<slug:category_slug>/', views.category_page, name='category_page'),
-    path('<slug:category_slug>/', views.category_page, name='category_page'),
+    path('category/<slug:parent_slug>/<slug:category_slug>/', views.category_page, name='category_page'),
+    path('category/<slug:category_slug>/', views.category_page, name='category_page'),
 ]
