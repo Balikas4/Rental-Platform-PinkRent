@@ -25,17 +25,20 @@
             
             <!-- Parent Category Dropdown -->
             <label for="parent-category-filter">{% trans "Parent Category:" %}</label>
-            <select id="parent-category-filter" name="parent_category" hx-get="{% url 'get_subcategories' %}" hx-target="#sub-category-filter" hx-trigger="change">
+            <select id="parent-category-filter" name="parent_category" hx-get="{% url 'listings:get_subcategories' %}" hx-target="#sub-category-filter" hx-trigger="change">
                 <option value="">{% trans "Select Parent Category" %}</option>
                 {% for parent in parent_categories %}
-                    <option value="{{ parent.id }}">{{ parent.name }}</option>
+                    <option value="{{ parent.id }}" {% if parent.id|stringformat:"s" == selected_parent_category %}selected{% endif %}>{{ parent.name }}</option>
                 {% endfor %}
             </select>
             
             <!-- Sub-Category Dropdown -->
             <label for="sub-category-filter">{% trans "Sub-Category:" %}</label>
-            <select id="sub-category-filter" name="category" hx-swap="innerHTML">
+            <select id="sub-category-filter" name="category">
                 <option value="">{% trans "Select Sub-Category" %}</option>
+                {% for subcategory in subcategories %}
+                    <option value="{{ subcategory.id }}" {% if subcategory.id|stringformat:"s" == selected_category %}selected{% endif %}>{{ subcategory.name }}</option>
+                {% endfor %}
             </select>
             
             <!-- Submit Button -->
