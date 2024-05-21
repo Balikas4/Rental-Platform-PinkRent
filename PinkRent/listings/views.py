@@ -117,8 +117,8 @@ def category_page(request, category_slug, parent_slug=None):
 def get_subcategories(request):
     parent_id = request.GET.get('parent_id')
     subcategories = Category.objects.filter(parent_id=parent_id)
-    options = ''.join([f'<option value="{sub.id}">{sub.name}</option>' for sub in subcategories])
-    return JsonResponse({'html': options})
+    options = [{'id': sub.id, 'name': sub.name} for sub in subcategories]
+    return JsonResponse({'subcategories': options})
 
 def how_it_works(request):
     return render(request, 'how-it-works.html')

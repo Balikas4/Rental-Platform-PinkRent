@@ -8,7 +8,7 @@
         {% csrf_token %}
         <div>
             <label for="id_parent_category">{% trans "Parent Category" %}</label>
-            <select id="id_parent_category" name="parent_category" hx-get="{% url 'get_subcategories' %}" hx-target="#id_sub_category" hx-trigger="change">
+            <select id="id_parent_category" name="parent_category" hx-get="{% url 'listings:get_subcategories' %}" hx-target="#id_sub_category" hx-trigger="change">
                 <option value="">{% trans "Select Parent Category" %}</option>
                 {% for parent in form.parent_category.field.queryset %}
                     <option value="{{ parent.id }}" {% if form.parent_category.value|stringformat:"s" == parent.id|stringformat:"s" %}selected{% endif %}>{{ parent.name }}</option>
