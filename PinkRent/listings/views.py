@@ -1,4 +1,4 @@
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render ,redirect
 from . import models
@@ -110,6 +110,12 @@ def category_page(request, category_slug, parent_slug=None):
         context['favorite_listing_ids'] = favorite_listing_ids
     
     return render(request, 'category_page.html', context)
+
+def get_subcategories(request):
+    parent_id = request.GET.get('parent_id')
+    subcategories = Category.objects.filter(parent_id=parent_id)
+    options = ''.join([f'<option value="{sub.id}">{sub.name}</option>' for sub in subcategories])
+    return JsonResponse({'html': options})
 
 def how_it_works(request):
     return render(request, 'how-it-works.html')

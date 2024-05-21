@@ -27,4 +27,6 @@ urlpatterns = [
     # URLs for listing filtering
     path('category/<slug:parent_slug>/<slug:category_slug>/', views.category_page, name='category_page'),
     path('category/<slug:category_slug>/', views.category_page, name='category_page'),
+    # HTMX
+    path('get-subcategories/', views.get_subcategories, name='get_subcategories'),
 ]
