@@ -1,12 +1,42 @@
-{% extends "base.html" %}{% load i18n %}
+{% extends "base.html" %}
+{% load i18n %}
 {% block title %}{% trans "create a listing at"|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
 <h1>{% trans "create a listing"|capfirst %}</h1>
 <div class="listing-create">
-<form method="post" enctype="multipart/form-data" action="{{ request.path }}" class="listing-form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p><button type="submit">{% trans "create"|capfirst %}</button></p>
-</form>
+    <form method="post" enctype="multipart/form-data" action="{{ request.path }}" class="listing-form">
+        {% csrf_token %}
+        <div>
+            <label for="id_parent_category">{% trans "Parent Category" %}</label>
+            <select id="id_parent_category" name="parent_category" hx-get="{% url 'get_subcategories' %}" hx-target="#id_sub_category" hx-trigger="change">
+                <option value="">{% trans "Select Parent Category" %}</option>
+                {% for parent in form.parent_category.field.queryset %}
+                    <option value="{{ parent.id }}" {% if form.parent_category.value|stringformat:"s" == parent.id|stringformat:"s" %}selected{% endif %}>{{ parent.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="id_sub_category">{% trans "Sub Category" %}</label>
+            <select id="id_sub_category" name="sub_category">
+                <option value="">{% trans "Select Sub Category" %}</option>
+                {% if form.sub_category.field.queryset %}
+                    {% for sub in form.sub_category.field.queryset %}
+                        <option value="{{ sub.id }}" {% if form.sub_category.value|stringformat:"s" == sub.id|stringformat:"s" %}selected{% endif %}>{{ sub.name }}</option>
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        {{ form.picture.as_p }}
+        {{ form.name.as_p }}
+        {{ form.brand.as_p }}
+        {{ form.size.as_p }}
+        {{ form.quality.as_p }}
+        {{ form.color.as_p }}
+        {{ form.value.as_p }}
+        {{ form.price.as_p }}
+        {{ form.description.as_p }}
+        {{ form.tags.as_p }}
+        <p><button type="submit">{% trans "create"|capfirst %}</button></p>
+    </form>
 </div>
 {% endblock content %}

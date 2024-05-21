@@ -34,8 +34,10 @@ def shop_page(request):
     selected_tags = request.GET.getlist('tags')
     category_id = request.GET.get('category', 'all')
     search_query = request.GET.get('search')
+    parent_category_id = request.GET.get('parent_category', None)
 
     parent_categories = Category.objects.filter(parent=None)
+    subcategories = Category.objects.filter(parent_id=parent_category_id) if parent_category_id else None
     categories = Category.objects.all()
     listings = Listing.objects.all()
 
@@ -70,6 +72,7 @@ def shop_page(request):
         'categories': categories,
         'parent_categories': parent_categories,
         'tags': Tag.objects.all(),
+        'subcategories': subcategories,
     }
 
     if request.user.is_authenticated:

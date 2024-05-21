@@ -1,5 +1,5 @@
 from django import forms
-from .models import Listing, ListingReview, Tag
+from .models import Listing, ListingReview, Tag, Category
 
 class ListingForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
@@ -7,13 +7,33 @@ class ListingForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
         required=False
     )
+
+    parent_category = forms.ModelChoiceField(
+        queryset=Category.objects.filter(parent=None),
+        required=True,
+        label="Parent Category"
+    )
+
+    sub_category = forms.ModelChoiceField(
+        queryset=Category.objects.none(),
+        required=True,
+        label="Sub Category"
+    )
+
     class Meta:
         model = Listing
-        fields = ['category', 'picture', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'description', 'tags']
+        fields = ['parent_category', 'sub_category', 'picture', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'description', 'tags']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # You can customize form widgets or add additional settings here if needed
+        if 'parent_category' in self.data:
+            try:
+                parent_id = int(self.data.get('parent_category'))
+                self.fields['sub_category'].queryset = Category.objects.filter(parent_id=parent_id)
+            except (ValueError, TypeError):
+                pass  # invalid input from the client; ignore and fallback to empty SubCategory queryset
+        elif self.instance.pk and self.instance.sub_category:
+            self.fields['sub_category'].queryset = self.instance.sub_category.parent.subcategory_set.all()
 
 class ListingReviewForm(forms.ModelForm):
     class Meta:
