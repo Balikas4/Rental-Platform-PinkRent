@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from .local_settings import SECRET_KEY, POSTGRES_PASSWORD
+from .local_settings import SECRET_KEY, DATABASES
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +24,6 @@ CSRF_TRUSTED_ORIGINS=['https://pinkpink.lt', 'https://www.pinkpink.lt']
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = SECRET_KEY
-POSTGRES_PASSWORD = POSTGRES_PASSWORD
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -81,16 +80,18 @@ WSGI_APPLICATION = 'PinkRent.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "project",
-        "USER": "postgres",
-        "PASSWORD": POSTGRES_PASSWORD,
-        'HOST': 'postgres',
-        "PORT": 5432,
-    }
-}
+
+DATABASES = DATABASES
+# DATABASES = {
+#     'default': {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "project",
+#         "USER": "postgres",
+#         "PASSWORD": POSTGRES_PASSWORD,
+#         'HOST': 'postgres',
+#         "PORT": 5432,
+#     }
+# }
 
 
 # Password validation

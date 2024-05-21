@@ -14,13 +14,24 @@ Install venv, activate<br>
 `source venv/bin/activate`<br>
 Install requirements<br>
 `pip install -r requirements.txt`<br>
-Add local_settings.py with your dajng and postgres password and save. this file should be next to settings.py<br>
+Add local_settings.py with your dajngo and postgres password and save. this file should be next to settings.py<br>
 `cd PinkRent/PinkRent/`<br>
 `nano local_settings.py` or `vim local_settings.py`<br>
-`SECRET_KEY = your_django_key`<br>
-`POSTGRES_PASSWORD = 'your_postgres_password'` <br>
-Edit docker-compose.yml: <br>
-`POSTGRES_PASSWORD: postgres_password`<br
+```python
+SECRET_KEY = your_django_key
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',
+        'HOST': 'your_database_host',
+        'PORT': 'your_database_port',
+    }
+}
+```
+Edit docker-compose.yml with your postgres credentials, it should be same as DATABASES in local_settings.py: <br>
+`POSTGRES_PASSWORD: postgres_password`<br>
 Add your domain to settings.py allowed hosts. Check for debug to be FALSE<br>
 `ALLOWED_HOSTS = ['localhost', 'postgres', 'your_domain.com', 'www.your_domain.com']`<br>
 `DEBUG=False`<br>

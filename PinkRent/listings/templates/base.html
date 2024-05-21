@@ -68,12 +68,12 @@
             </nav>
             </div>
             <div class="category-navbar">
-                <a href="{% url 'listings:category_page' category_slug='wedding-dresses' %}">Wedding dresses</a>
-                <a href="{% url 'listings:category_page' category_slug='accessories' %}">Accessories</a>
-                <a href="{% url 'listings:category_page' category_slug='occasional-dresses' %}">Occasional dresses</a>
-                <a href="{% url 'listings:category_page' category_slug='handbags' %}">Handbags</a>
-                <a href="{% url 'listings:category_page' category_slug='heels' %}">Heels</a>
-            </div>            
+                <a href="{% url 'listings:category_page' category_slug='wedding-dresses' parent_slug='women' %}">Wedding dresses</a>
+                <a href="{% url 'listings:category_page' category_slug='accessories' parent_slug='women' %}">Accessories</a>
+                <a href="{% url 'listings:category_page' category_slug='occasional-dresses' parent_slug='women' %}">Occasional dresses</a>
+                <a href="{% url 'listings:category_page' category_slug='handbags' parent_slug='women' %}">Handbags</a>
+                <a href="{% url 'listings:category_page' category_slug='heels' parent_slug='women' %}">Heels</a>
+            </div>                    
     </header>
     <section class="messages">
         {% for message in messages %}
