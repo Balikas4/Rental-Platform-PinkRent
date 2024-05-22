@@ -26,7 +26,7 @@ CSRF_TRUSTED_ORIGINS=['https://pinkpink.lt', 'https://www.pinkpink.lt']
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'postgres', 'www.pinkpink.lt', 'pinkpink.lt']
 

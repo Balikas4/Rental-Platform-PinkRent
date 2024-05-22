@@ -2,11 +2,13 @@
 {% load i18n %} {% load static %}
 {% block title %}{% trans "Main Page" %}{% endblock title %}
 {% block content %}
-    <h1>{% trans "Shop" %}</h1>
-    <!-- Search Form Tags -->
+<h1>{% trans "Shop" %}</h1>
+    <!-- Combined Filter Form -->
     <form method="GET" action="{% url 'listings:shop_page' %}">
+        <!-- Search Bar -->
         <input type="text" name="q" placeholder="Search by listing name" value="{{ request.GET.q }}">
 
+        <!-- Tag Checkboxes -->
         <h4>{% trans "Filter by Tags" %}</h4>
         {% for tag in tags %}
             <label>
@@ -16,35 +18,38 @@
             </label>
         {% endfor %}
 
-        <button type="submit">{% trans "Filter" %}</button>
-    </form>
-    <!-- Category Filter Form -->
-    <form method="GET" action="{% url 'listings:shop_page' %}">
+        <!-- Category Filters -->
         <div class="category-filters">
             <p>{% trans "Filter by Category:" %}</p>
-    
+
             <!-- Parent Category Dropdown -->
             <label for="parent-category-filter">{% trans "Parent Category:" %}</label>
-            <select id="parent-category-filter" name="parent_category" hx-get="{% url 'listings:get_subcategories' %}" hx-target="#sub-category-filter" hx-trigger="change">
+            <select id="parent-category-filter" name="parent_category" onchange="fetchSubcategories(this.value)">
                 <option value="">{% trans "Select Parent Category" %}</option>
                 {% for parent in parent_categories %}
-                    <option value="{{ parent.id }}" {% if parent.id|stringformat:"s" == request.GET.parent_category %}selected{% endif %}>{{ parent.name }}</option>
+                    <option value="{{ parent.id }}" {% if parent.id|stringformat:"s" == request.GET.parent_category %}selected{% endif %}>
+                        {{ parent.name }}
+                    </option>
                 {% endfor %}
             </select>
-    
+
             <!-- Sub-Category Dropdown -->
             <label for="sub-category-filter">{% trans "Sub-Category:" %}</label>
             <select id="sub-category-filter" name="category">
                 <option value="">{% trans "Select Sub-Category" %}</option>
-                {% for subcategory in subcategories %}
-                    <option value="{{ subcategory.id }}" {% if subcategory.id|stringformat:"s" == request.GET.category %}selected{% endif %}>{{ subcategory.name }}</option>
-                {% endfor %}
+                {% if subcategories %}
+                    {% for subcategory in subcategories %}
+                        <option value="{{ subcategory.id }}" {% if subcategory.id|stringformat:"s" == request.GET.category %}selected{% endif %}>
+                            {{ subcategory.name }}
+                        </option>
+                    {% endfor %}
+                {% endif %}
             </select>
-    
-            <button type="submit">{% trans "Filter" %}</button>
         </div>
+
+        <!-- Single Filter Button -->
+        <button type="submit">{% trans "Filter" %}</button>
     </form>
-    
     <div class="grid-wrapper">
         {% for listing in listings %}
         <div class="grid-item">
@@ -106,4 +111,25 @@
             <a href="?page={{ listings.paginator.num_pages }}">Last &raquo;</a>
         {% endif %}
     </div>
+
+<script>
+    function fetchSubcategories(parentId) {
+        if (parentId) {
+            fetch(`{% url 'listings:get_subcategories' %}?parent_category=` + parentId)
+                .then(response => response.json())
+                .then(data => {
+                    const subcategorySelect = document.getElementById('sub-category-filter');
+                    subcategorySelect.innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+                    data.subcategories.forEach(subcategory => {
+                        const option = document.createElement('option');
+                        option.value = subcategory.id;
+                        option.textContent = subcategory.name;
+                        subcategorySelect.appendChild(option);
+                    });
+                });
+        } else {
+            document.getElementById('sub-category-filter').innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+        }
+    }
+</script>
 {% endblock content %}

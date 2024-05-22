@@ -2,41 +2,101 @@
 {% load i18n %}
 {% block title %}{% trans "create a listing at"|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>{% trans "create a listing"|capfirst %}</h1>
-<div class="listing-create">
-    <form method="post" enctype="multipart/form-data" action="{{ request.path }}" class="listing-form">
-        {% csrf_token %}
-        <div>
-            <label for="id_parent_category">{% trans "Parent Category" %}</label>
-            <select id="id_parent_category" name="parent_category" hx-get="{% url 'listings:get_subcategories' %}" hx-target="#id_sub_category" hx-trigger="change">
-                <option value="">{% trans "Select Parent Category" %}</option>
-                {% for parent in form.parent_category.field.queryset %}
-                    <option value="{{ parent.id }}" {% if form.parent_category.value|stringformat:"s" == parent.id|stringformat:"s" %}selected{% endif %}>{{ parent.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div>
-            <label for="id_sub_category">{% trans "Sub Category" %}</label>
-            <select id="id_sub_category" name="sub_category">
-                <option value="">{% trans "Select Sub Category" %}</option>
-                {% if form.sub_category.field.queryset %}
-                    {% for sub in form.sub_category.field.queryset %}
-                        <option value="{{ sub.id }}" {% if form.sub_category.value|stringformat:"s" == sub.id|stringformat:"s" %}selected{% endif %}>{{ sub.name }}</option>
-                    {% endfor %}
-                {% endif %}
-            </select>
-        </div>
-        {{ form.picture.as_p }}
-        {{ form.name.as_p }}
-        {{ form.brand.as_p }}
-        {{ form.size.as_p }}
-        {{ form.quality.as_p }}
-        {{ form.color.as_p }}
-        {{ form.value.as_p }}
-        {{ form.price.as_p }}
-        {{ form.description.as_p }}
-        {{ form.tags.as_p }}
-        <p><button type="submit">{% trans "create"|capfirst %}</button></p>
-    </form>
-</div>
-{% endblock content %}
+  <h1>Create a New Listing</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.parent_category.errors }}
+        <label for="{{ form.parent_category.id_for_label }}">Parent Category:</label>
+        {{ form.parent_category }}
+      </div>
+      <div class="fieldWrapper">
+        {{ form.sub_category.errors }}
+        <label for="{{ form.sub_category.id_for_label }}">Sub Category:</label>
+        <select id="sub-category-filter">
+          <option value="">{% trans "Select Sub-Category" %}</option>
+        </select>
+      </div>
+    <div class="fieldWrapper">
+      {{ form.picture.errors }}
+      <label for="{{ form.picture.id_for_label }}">Picture:</label>
+      {{ form.picture }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.name.errors }}
+      <label for="{{ form.name.id_for_label }}">Name:</label>
+      {{ form.name }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.brand.errors }}
+      <label for="{{ form.brand.id_for_label }}">Brand:</label>
+      {{ form.brand }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.size.errors }}
+      <label for="{{ form.size.id_for_label }}">Size:</label>
+      {{ form.size }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.quality.errors }}
+      <label for="{{ form.quality.id_for_label }}">Quality:</label>
+      {{ form.quality }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.color.errors }}
+      <label for="{{ form.color.id_for_label }}">Color:</label>
+      {{ form.color }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.value.errors }}
+      <label for="{{ form.value.id_for_label }}">Value:</label>
+      {{ form.value }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.price.errors }}
+      <label for="{{ form.price.id_for_label }}">Price:</label>
+      {{ form.price }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.description.errors }}
+      <label for="{{ form.description.id_for_label }}">Description:</label>
+      {{ form.description }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.tags.errors }}
+      <label for="{{ form.tags.id_for_label }}">Tags:</label>
+      {{ form.tags }}
+    </div>
+    <button type="submit">Create Listing</button>
+  </form>
+  <script>
+    function fetchSubcategories(parentId) {
+        if (parentId) {
+            fetch(`{% url 'listings:get_subcategories' %}?parent_category=` + parentId)
+                .then(response => response.json())
+                .then(data => {
+                    const subcategorySelect = document.getElementById('sub-category-filter');
+                    subcategorySelect.innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+                    data.subcategories.forEach(subcategory => {
+                        const option = document.createElement('option');
+                        option.value = subcategory.id;
+                        option.textContent = subcategory.name;
+                        subcategorySelect.appendChild(option);
+                    });
+                });
+        } else {
+            document.getElementById('sub-category-filter').innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+        }
+    }
+
+    // Add event listener to parent category dropdown
+    const parentCategorySelect = document.getElementById("{{ form.parent_category.id_for_label }}");
+    parentCategorySelect.addEventListener("change", function() {
+        fetchSubcategories(this.value);
+    });
+
+    // Call fetchSubcategories initially
+    fetchSubcategories(parentCategorySelect.value);
+  </script>
+{% endblock %}

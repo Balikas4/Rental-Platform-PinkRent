@@ -46,7 +46,8 @@ Run docker compose<br>
 Create django admin superuser inside docker<br>
 `docker exec -it project.dev bash`<br>
 `./manage.py createsuperuser`<br>
-Populate db trough website admin with your categories, tags, etc..<br>
+Populate db trough website admin or following json file:<br>
+`./manage.py loaddata fixtures/initial_data.json`
 
 ## Overview
 

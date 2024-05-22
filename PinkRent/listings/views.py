@@ -14,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Avg
 from user_profiles.models import UserProfile
+from django.template.loader import render_to_string
 
 def main_page(request: HttpRequest) -> HttpResponse:
     listings = Listing.objects.all()
@@ -36,24 +37,25 @@ def shop_page(request):
     search_query = request.GET.get('search')
     parent_category_id = request.GET.get('parent_category', None)
 
+    # Fetch parent categories (parent=None)
     parent_categories = Category.objects.filter(parent=None)
+    
+    # Fetch subcategories based on selected parent category
     subcategories = Category.objects.filter(parent_id=parent_category_id) if parent_category_id else None
+    
     categories = Category.objects.all()
     listings = Listing.objects.all()
 
-    # Filter by name query
+    # Apply filters
     if query:
         listings = listings.filter(name__icontains=query)
 
-    # Filter by selected tags
     if selected_tags:
         listings = listings.filter(tags__id__in=selected_tags).distinct()
 
-    # Filter by category
     if category_id != 'all':
         listings = listings.filter(category__id=category_id)
 
-    # Filter by search query
     if search_query:
         listings = listings.filter(name__icontains=search_query)
 
@@ -77,11 +79,20 @@ def shop_page(request):
 
     if request.user.is_authenticated:
         user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__in=listings)
-        # Create a set of favorite listing ids for easier lookup
         favorite_listing_ids = set(user_favorites.values_list('favorite_listing__id', flat=True))
         context['favorite_listing_ids'] = favorite_listing_ids
 
     return render(request, 'shop.html', context)
+
+def get_subcategories(request):
+    parent_id = request.GET.get('parent_category')
+    if parent_id:
+        parent_category = Category.objects.get(id=parent_id)
+        subcategories = parent_category.subcategories.all()
+        subcategories_data = [{'id': subcat.id, 'name': subcat.name} for subcat in subcategories]
+        return JsonResponse({'subcategories': subcategories_data})
+    else:
+        return JsonResponse({'subcategories': []})
 
 def category_page(request, category_slug, parent_slug=None):
     # Fetch category based on parent_slug if provided
@@ -108,17 +119,11 @@ def category_page(request, category_slug, parent_slug=None):
 
     if request.user.is_authenticated:
         user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__in=listings)
-        # Create a set of favorite listing ids for easier lookup
         favorite_listing_ids = set(user_favorites.values_list('favorite_listing__id', flat=True))
         context['favorite_listing_ids'] = favorite_listing_ids
     
     return render(request, 'category_page.html', context)
 
-def get_subcategories(request):
-    parent_id = request.GET.get('parent_id')
-    subcategories = Category.objects.filter(parent_id=parent_id)
-    options = [{'id': sub.id, 'name': sub.name} for sub in subcategories]
-    return JsonResponse({'subcategories': options})
 
 def how_it_works(request):
     return render(request, 'how-it-works.html')
