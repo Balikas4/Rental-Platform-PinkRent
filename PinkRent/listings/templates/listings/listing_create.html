@@ -14,7 +14,7 @@
       <div class="fieldWrapper">
         {{ form.sub_category.errors }}
         <label for="{{ form.sub_category.id_for_label }}">Sub Category:</label>
-        <select id="sub-category-filter">
+        <select id="{{ form.sub_category.id_for_label }}" name="{{ form.sub_category.html_name }}">
           <option value="">{% trans "Select Sub-Category" %}</option>
         </select>
       </div>
@@ -71,32 +71,70 @@
     <button type="submit">Create Listing</button>
   </form>
   <script>
-    function fetchSubcategories(parentId) {
-        if (parentId) {
-            fetch(`{% url 'listings:get_subcategories' %}?parent_category=` + parentId)
-                .then(response => response.json())
-                .then(data => {
-                    const subcategorySelect = document.getElementById('sub-category-filter');
-                    subcategorySelect.innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
-                    data.subcategories.forEach(subcategory => {
-                        const option = document.createElement('option');
-                        option.value = subcategory.id;
-                        option.textContent = subcategory.name;
-                        subcategorySelect.appendChild(option);
+    document.addEventListener("DOMContentLoaded", function() {
+        function fetchSubcategories(parentId) {
+            if (parentId) {
+                fetch(`{% url 'listings:get_subcategories' %}?parent_category=` + parentId)
+                    .then(response => response.json())
+                    .then(data => {
+                        const subcategorySelect = document.getElementById('{{ form.sub_category.id_for_label }}');
+                        subcategorySelect.innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+                        data.subcategories.forEach(subcategory => {
+                            const option = document.createElement('option');
+                            option.value = subcategory.id;
+                            option.textContent = subcategory.name;
+                            subcategorySelect.appendChild(option);
+                        });
                     });
-                });
-        } else {
-            document.getElementById('sub-category-filter').innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+            } else {
+                document.getElementById('{{ form.sub_category.id_for_label }}').innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+            }
         }
-    }
 
-    // Add event listener to parent category dropdown
-    const parentCategorySelect = document.getElementById("{{ form.parent_category.id_for_label }}");
-    parentCategorySelect.addEventListener("change", function() {
-        fetchSubcategories(this.value);
+        function fetchSizes(subCategoryId) {
+            const sizeSelect = document.getElementById('{{ form.size.id_for_label }}');
+            let sizes = [];
+
+            if (subCategoryId) {
+                switch (subCategoryId) {
+                    case '7':  // Shoe subcategory ID
+                        sizes = ['35', '35.5', '36', '36.5', '37', '37.5', '38', '38.5', '39', '39.5', '40', '40.5', '41', '41.5', '42', '42.5', '43', '43.5', '44', '44.5', '45', '45.5', '46', '46.5', '47', '47.5', '48', '48.5'];
+                        break;
+                    case '6':  // Handbag subcategory ID
+                        sizes = ['onesize'];
+                        break;
+                    case '4':  // Accessories subcategory ID
+                        sizes = ['XL', 'L', 'M', 'S', 'onesize'];
+                        break;
+                    default:
+                        sizes = ['XXXS / 30 / 2', 'XXS / 32 / 4', 'XS / 34 / 6', 'S / 36 / 8', 'M / 38 / 10', 'L / 40 / 12', 'XL / 42 / 14', 'XXL / 44 / 16', 'XXXL / 46 / 18', '4XL / 48 / 20', '5XL / 50 / 22', '6XL / 52 / 24', '7XL / 54 / 26', '8XL / 56 / 28', 'Other'];
+                        break;
+                }
+            }
+
+            sizeSelect.innerHTML = '<option value="">{% trans "Select Size" %}</option>';
+            sizes.forEach(size => {
+                const option = document.createElement('option');
+                option.value = size;
+                option.textContent = size;
+                sizeSelect.appendChild(option);
+            });
+        }
+
+        // Add event listener to parent category dropdown
+        const parentCategorySelect = document.getElementById("{{ form.parent_category.id_for_label }}");
+        parentCategorySelect.addEventListener("change", function() {
+            fetchSubcategories(this.value);
+        });
+
+        // Add event listener to subcategory dropdown
+        const subCategorySelect = document.getElementById('{{ form.sub_category.id_for_label }}');
+        subCategorySelect.addEventListener("change", function() {
+            fetchSizes(this.value);
+        });
+
+        // Initial load
+        fetchSubcategories(parentCategorySelect.value);
     });
-
-    // Call fetchSubcategories initially
-    fetchSubcategories(parentCategorySelect.value);
   </script>
 {% endblock %}

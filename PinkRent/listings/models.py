@@ -34,15 +34,74 @@ class Tag(models.Model):
         return self.name
 
 class Listing(models.Model):
+    NEWWITHTAGS = 'newwithtags'
+    NEWWITHOUTTAGS = 'newwithouttags'
+    GREAT = 'great'
     GOOD = 'good'
-    LIKENEW = 'likenew'
-    NEW = 'new'
+    WORN = 'worn'
 
     QUALITY_CHOICES = [
+        (NEWWITHTAGS, 'New with tags'),
+        (NEWWITHOUTTAGS, 'New without tags'),
+        (GREAT, 'Great'),
         (GOOD, 'Good'),
-        (LIKENEW, 'Like new'),
-        (NEW, 'New'),
+        (WORN, 'Worn'),
     ]
+
+    COLOR_CHOICES = [
+            ('black', _('Black')),
+            ('white', _('White')),
+            ('gray', _('Grey')),
+            ('silver', _('Silver')),
+            ('gold', _('Golden')),
+            ('beige', _('Beige')),
+            ('brown', _('Brown')),
+            ('dark_blue', _('Dark Blue')),
+            ('blue', _('Blue')),
+            ('light_blue', _('Light Blue')),
+            ('cyan', _('Blue')),
+            ('green', _('Green')),
+            ('khaki', _('khaki')),
+            ('yellow', _('Yellow')),
+            ('mustard', _('Mustard')),
+            ('orange', _('Orange')),
+            ('coral', _('Coral')),
+            ('red', _('Red')),
+            ('burgundy', _('Burgundy')),
+            ('light_pink', _('Light Pink')),
+            ('pink', _('Pink')),
+            ('bright_pink', _('Bright Pink')),
+            ('purple', _('Purple')),
+            ('lavender', _('Lavender')),
+            ('mint', _('Mint')),
+            ('turquoise', _('Turquoise')),
+            ('maroon', _('Burgundy')),
+            ('peach', _('Peach')),
+            ('ivory', _('Ivory')),
+            ('champagne', _('Champagne')),
+            ('rose_gold', _('Rose Gold')),
+            ('bronze', _('Bronze')),
+            ('blush', _('Pink')),
+            ('cobalt_blue', _('Cobalt Blue')),
+            ('emerald', _('Emerald')),
+            ('magenta', _('Purple')),
+            ('fuchsia', _('Fuchsia')),
+        ]
+    
+    SIZE_CHOICES = [
+        ('XXXS / 30 / 2', 'XXXS / 30 / 2'), ('XXS / 32 / 4', 'XXS / 32 / 4'), ('XS / 34 / 6', 'XS / 34 / 6'),
+        ('S / 36 / 8', 'S / 36 / 8'), ('M / 38 / 10', 'M / 38 / 10'), ('L / 40 / 12', 'L / 40 / 12'),
+        ('XL / 42 / 14', 'XL / 42 / 14'), ('XXL / 44 / 16', 'XXL / 44 / 16'), ('XXXL / 46 / 18', 'XXXL / 46 / 18'),
+        ('4XL / 48 / 20', '4XL / 48 / 20'), ('5XL / 50 / 22', '5XL / 50 / 22'), ('6XL / 52 / 24', '6XL / 52 / 24'),
+        ('7XL / 54 / 26', '7XL / 54 / 26'), ('8XL / 56 / 28', '8XL / 56 / 28'), ('35', '35'), 
+        ('35.5', '35.5'), ('36', '36'), ('36.5', '36.5'), ('37', '37'), ('37.5', '37.5'), 
+        ('38', '38'), ('38.5', '38.5'), ('39', '39'), ('39.5', '39.5'), ('40', '40'), 
+        ('40.5', '40.5'), ('41', '41'), ('41.5', '41.5'), ('42', '42'), ('42.5', '42.5'), 
+        ('43', '43'), ('43.5', '43.5'), ('44', '44'), ('44.5', '44.5'), ('45', '45'), 
+        ('45.5', '45.5'), ('46', '46'), ('46.5', '46.5'), ('47', '47'), ('47.5', '47.5'), 
+        ('48', '48'), ('48.5', '48.5'), ('onesize', 'One Size'), ('Other', 'Other')
+    ]
+
     name = models.CharField(_("name"), max_length=100, db_index = True)
     description = models.TextField(_("description"), blank=True, max_length = 100000)
     price = models.DecimalField(_("price"), max_digits=10, decimal_places=2)
@@ -51,9 +110,9 @@ class Listing(models.Model):
     is_available = models.BooleanField(_("is available"), db_index = True, default = False)
     brand = models.CharField(_("brand"), max_length=100, db_index = True)
     picture = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
-    size = models.DecimalField(_("size"), max_digits=10, decimal_places=2)
-    quality = models.CharField(max_length=10, choices=QUALITY_CHOICES, default=GOOD)
-    color = models.CharField(_("color"), max_length=100, db_index = True)
+    size = models.CharField(_("size"), max_length=20, choices=SIZE_CHOICES, db_index = True)
+    quality = models.CharField(max_length=20, choices=QUALITY_CHOICES, default=GOOD)
+    color = models.CharField(_("color"), max_length=20, choices=COLOR_CHOICES, default=None, db_index = True)
     value = models.DecimalField(_("value"), max_digits=10, decimal_places=2)
     owner = models.ForeignKey(
         get_user_model(), 

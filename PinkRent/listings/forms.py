@@ -20,6 +20,12 @@ class ListingForm(forms.ModelForm):
         label="Sub Category"
     )
 
+    size = forms.ChoiceField(
+        choices=Listing.SIZE_CHOICES,
+        required=True,
+        label="Size"
+    )
+
     class Meta:
         model = Listing
         fields = ['parent_category', 'sub_category', 'picture', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'description', 'tags']
