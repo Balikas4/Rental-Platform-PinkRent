@@ -306,7 +306,6 @@ ul.dashboard li .stat {
 
 .main-page-content{
     padding: 10px;
-    min-width: 760px;
 }
 
 .grid-wrapper {
@@ -376,7 +375,17 @@ ul.dashboard li .stat {
     align-items: left;
     padding: 1rem;
     max-width: 200px;
-  }
+}
+
+.filter-grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    padding: 1rem;
+    max-width: 200px;
+    text-align: center;
+}
 
 .grid-item img {
     min-height: 300px;
@@ -473,6 +482,7 @@ ul.dashboard li .stat {
     background-color: #FFECC6;
     font-family: 'Montserrat', sans-serif;
     margin: 0px 6rem;
+    text-align: center;
 }
 
 .perk-bar h1 {
@@ -516,10 +526,21 @@ ul.dashboard li .stat {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
+    gap: 6rem;
+}
+
+.choice-container img {
+    width: 200px;
 }
 
 .listing-create {
     padding: 10px 200px;
+}
+
+.dual-choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .listing-form {
@@ -782,9 +803,69 @@ button {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Media query for 2 cards per row on smaller screens */
-@media screen and (max-width: 1080px) {
-    .perk-card {
-        width: calc(50% - 20px); /* Each card takes up 50% of the width with some spacing */
+/* Media query for tablets */
+@media screen and (max-width: 1024px) {
+    /* Tablet styles */
+    .text-overlay {
+        top: 40%;
+        left:40%;
     }
+    .text-overlay h2,
+    .text-overlay h3,
+    .text-overlay button {
+        font-size: 80%;
+    }
+    .small-bar a{
+        font-size: 80%;
+    }
+    header .category-navbar {
+        font-size: 80%;
+        gap: 1rem;
+    }
+    .perk-card {
+        width: calc(50% - 10px); /* Each card takes up 50% of the width with some spacing */
+    }
+    .perk-bar {
+        margin: 0px 3rem;
+    }
+    .perk-bar h1{
+        font-size: 20px;
+    }
+    .perk-text {
+        width: calc(100%);
+    }
+    .brands-line img {
+        width: 100px;
+        height: 50px;
+    }
+    .grid-wrapper {
+        grid-template-columns: repeat(2, 0fr);
+        gap: 10px;
+      }
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 600px) {
+    /* Mobile styles */
+    .perk-card {
+        width: calc(100% - 5px); /* Each card takes up 100% of the width with some spacing */
+    }
+    .perk-bar {
+        margin: 0px 1rem;
+    }
+    .perk-bar h1{
+        font-size: 16px;
+    }
+    .perk-text {
+        width: calc(100%);
+    }
+    .perk-cards {
+        width: calc(100%);
+    }
+    .grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(1, 0fr);
+        gap: 5px;
+        justify-content: center;
+      }
 }
