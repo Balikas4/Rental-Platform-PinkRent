@@ -66,14 +66,77 @@
         "model": "listings.tag",
         "pk": 1,
         "fields": {
-            "name": "New Arrival"
+            "name": "Bride"
         }
     },
     {
         "model": "listings.tag",
         "pk": 2,
         "fields": {
-            "name": "Sale"
+            "name": "Groom"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 3,
+        "fields": {
+            "name": "Wedding guest"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 4,
+        "fields": {
+            "name": "Cocktail attire"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 5,
+        "fields": {
+            "name": "Bachelorette party"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 6,
+        "fields": {
+            "name": "Birthday"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 7,
+        "fields": {
+            "name": "Banquet"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 8,
+        "fields": {
+            "name": "Evening wear"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 9,
+        "fields": {
+            "name": "Baptisms"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 10,
+        "fields": {
+            "name": "Black tie"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 11,
+        "fields": {
+            "name": "Pregnat friendly"
         }
     }
 ]

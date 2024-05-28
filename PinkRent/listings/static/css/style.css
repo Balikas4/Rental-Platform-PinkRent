@@ -847,6 +847,52 @@ button {
 /* Media query for mobile devices */
 @media screen and (max-width: 600px) {
     /* Mobile styles */
+    header h1 {
+        font-size: 30px;
+    }
+    .hero-picture {
+        justify-content: center;
+    }
+    .text-overlay {
+        display: block;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+    }
+    .text-overlay h2,
+    .text-overlay h3,
+    .text-overlay button {
+        text-align: center;
+    }
+    .main-page-content{
+        padding: 0px;
+    }
+    .promo-line {
+        font-size: 60%;
+    }
+    .footer-content{
+        gap: 5px;
+        padding: 10px;
+        flex-direction: column;
+    }
+    header .main-line {
+        font-size: 60%;
+    }
+    header .category-navbar {
+        display: none;
+    }
+    header .main-line {
+        padding: 0px 5px;
+    }
+    .small-bar {
+        font-size: 60%;
+    }
+    .popular-dresses {
+        padding: 0px 10px;
+    }
+
     .perk-card {
         width: calc(100% - 5px); /* Each card takes up 100% of the width with some spacing */
     }
