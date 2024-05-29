@@ -40,8 +40,8 @@ def shop_page(request):
     # Fetch parent categories (parent=None)
     parent_categories = Category.objects.filter(parent=None)
     
-    # Fetch subcategories based on selected parent category
-    subcategories = Category.objects.filter(parent_id=parent_category_id) if parent_category_id else None
+    # Initialize subcategories to None
+    subcategories = None
     
     categories = Category.objects.all()
     listings = Listing.objects.all()
@@ -55,9 +55,12 @@ def shop_page(request):
 
     if category_id != 'all':
         listings = listings.filter(category__id=category_id)
-
-    if search_query:
-        listings = listings.filter(name__icontains=search_query)
+        
+    elif parent_category_id != 'all':
+        # Fetch listings based on selected parent category
+        parent_category = get_object_or_404(Category, id=parent_category_id)
+        subcategories = parent_category.subcategories.all()
+        listings = listings.filter(category__parent_id=parent_category_id)
 
     # Pagination
     paginator = Paginator(listings, 4)  # 4 listings per page
@@ -84,15 +87,19 @@ def shop_page(request):
 
     return render(request, 'shop.html', context)
 
+
 def get_subcategories(request):
     parent_id = request.GET.get('parent_category')
-    if parent_id:
+    if parent_id and parent_id != 'all':
         parent_category = Category.objects.get(id=parent_id)
         subcategories = parent_category.subcategories.all()
         subcategories_data = [{'id': subcat.id, 'name': subcat.name} for subcat in subcategories]
         return JsonResponse({'subcategories': subcategories_data})
     else:
-        return JsonResponse({'subcategories': []})
+        # Fetch all subcategories from the database
+        subcategories = Category.objects.filter(parent__isnull=False)
+        subcategories_data = [{'id': subcat.id, 'name': subcat.name} for subcat in subcategories]
+        return JsonResponse({'subcategories': subcategories_data})
 
 def category_page(request, category_slug, parent_slug=None):
     # Fetch category based on parent_slug if provided
