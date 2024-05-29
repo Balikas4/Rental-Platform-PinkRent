@@ -55,8 +55,11 @@ def shop_page(request):
 
     if category_id != 'all':
         listings = listings.filter(category__id=category_id)
-        
-    elif parent_category_id != 'all':
+
+    if category_id != 'all':
+        listings = listings.filter(category__id=category_id)
+
+    elif parent_category_id and parent_category_id != 'all':
         # Fetch listings based on selected parent category
         parent_category = get_object_or_404(Category, id=parent_category_id)
         subcategories = parent_category.subcategories.all()
