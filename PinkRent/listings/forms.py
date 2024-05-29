@@ -8,16 +8,10 @@ class ListingForm(forms.ModelForm):
         required=False
     )
 
-    parent_category = forms.ModelChoiceField(
+    category = forms.ModelChoiceField(
         queryset=Category.objects.filter(parent=None),
         required=True,
-        label="Parent Category"
-    )
-
-    sub_category = forms.ModelChoiceField(
-        queryset=Category.objects.none(),
-        required=True,
-        label="Sub Category"
+        label="Category"
     )
 
     size = forms.ChoiceField(
@@ -28,18 +22,18 @@ class ListingForm(forms.ModelForm):
 
     class Meta:
         model = Listing
-        fields = ['parent_category', 'sub_category', 'picture', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'description', 'tags']
+        fields = ['category', 'picture', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'description', 'tags']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        if 'parent_category' in self.data:
+        if 'category' in self.data:
             try:
-                parent_id = int(self.data.get('parent_category'))
-                self.fields['sub_category'].queryset = Category.objects.filter(parent_id=parent_id)
+                category_id = int(self.data.get('category'))
+                self.fields['category'].queryset = Category.objects.filter(id=category_id)
             except (ValueError, TypeError):
-                pass  # invalid input from the client; ignore and fallback to empty SubCategory queryset
-        elif self.instance.pk and self.instance.sub_category:
-            self.fields['sub_category'].queryset = self.instance.sub_category.parent.subcategory_set.all()
+                pass  # invalid input from the client; ignore and fallback to empty Category queryset
+        elif self.instance.pk and self.instance.category:
+            self.fields['category'].queryset = self.instance.category.parent.subcategories.all()
 
 class ListingReviewForm(forms.ModelForm):
     class Meta:

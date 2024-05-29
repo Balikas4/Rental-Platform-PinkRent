@@ -93,16 +93,13 @@ def shop_page(request):
 
 def get_subcategories(request):
     parent_id = request.GET.get('parent_category')
-    if parent_id and parent_id != 'all':
-        parent_category = Category.objects.get(id=parent_id)
-        subcategories = parent_category.subcategories.all()
-        subcategories_data = [{'id': subcat.id, 'name': subcat.name} for subcat in subcategories]
-        return JsonResponse({'subcategories': subcategories_data})
+    if parent_id:
+        subcategories = Category.objects.filter(parent_id=parent_id)
     else:
-        # Fetch all subcategories from the database
         subcategories = Category.objects.filter(parent__isnull=False)
-        subcategories_data = [{'id': subcat.id, 'name': subcat.name} for subcat in subcategories]
-        return JsonResponse({'subcategories': subcategories_data})
+
+    subcategories_data = [{'id': subcat.id, 'name': subcat.name} for subcat in subcategories]
+    return JsonResponse({'subcategories': subcategories_data})
 
 def category_page(request, category_slug, parent_slug=None):
     # Fetch category based on parent_slug if provided
@@ -206,6 +203,11 @@ class ListingCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['parent_categories'] = Category.objects.filter(parent=None)
+        return context
     
 class ListingUpdateView(
         LoginRequiredMixin, 
