@@ -6,6 +6,7 @@
     <h1>{{ category.name }}</h1>
     <div class="grid-wrapper">
         {% for listing in listings %}
+        {% if listing.is_available %}
         <div class="grid-item">
           {% if listing.picture %}
             <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
@@ -43,6 +44,7 @@
             {% endif %}
           </div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
     <div class="pagination">

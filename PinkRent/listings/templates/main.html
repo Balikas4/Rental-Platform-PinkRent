@@ -34,6 +34,7 @@
     <h6>{% trans "Popular Dresses" %}</h6>
     <div class="grid-wrapper">
       {% for listing in listings|slice:":4" %}
+      {% if listing.is_available %}
       <div class="grid-item">
         {% if listing.picture %}
           <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
@@ -70,9 +71,10 @@
               {% endif %}
           {% endif %}
         </div>
-    </div>
-    {% endfor %}
-    </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+  </div>
     <div class="hero-button">
       <a href="{% url 'listings:shop_page' %}" >{% trans "All dresses" %}</a>
     </div>
