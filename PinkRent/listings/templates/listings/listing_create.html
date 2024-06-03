@@ -28,6 +28,21 @@
         {{ form.picture }}
     </div>
     <div class="fieldWrapper">
+        {{ form.picture_1.errors }}
+        <label for="{{ form.picture_1.id_for_label }}">Picture 2:</label>
+        {{ form.picture_1 }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.picture_2.errors }}
+        <label for="{{ form.picture_2.id_for_label }}">Picture 3:</label>
+        {{ form.picture_2 }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.picture_3.errors }}
+        <label for="{{ form.picture_3.id_for_label }}">Picture 4:</label>
+        {{ form.picture_3 }}
+    </div>
+    <div class="fieldWrapper">
         {{ form.name.errors }}
         <label for="{{ form.name.id_for_label }}">Name:</label>
         {{ form.name }}

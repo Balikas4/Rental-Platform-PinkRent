@@ -110,6 +110,9 @@ class Listing(models.Model):
     is_available = models.BooleanField(_("is available"), db_index = True, default = False)
     brand = models.CharField(_("brand"), max_length=100, db_index = True)
     picture = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
+    picture_1 = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
+    picture_2 = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
+    picture_3 = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
     size = models.CharField(_("size"), max_length=20, choices=SIZE_CHOICES, db_index = True)
     quality = models.CharField(max_length=20, choices=QUALITY_CHOICES, default=GOOD)
     color = models.CharField(_("color"), max_length=20, choices=COLOR_CHOICES, default=None, db_index = True)
@@ -129,7 +132,24 @@ class Listing(models.Model):
         related_name='listing',
     )
     tags = models.ManyToManyField(Tag, related_name='listings')
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        max_size = (400, 300)
+        if self.picture:
+            self._resize_image(self.picture, max_size)
+        if self.picture_1:
+            self._resize_image(self.picture_1, max_size)
+        if self.picture_2:
+            self._resize_image(self.picture_2, max_size)
+        if self.picture_3:
+            self._resize_image(self.picture_3, max_size)
 
+    def _resize_image(self, image_field, max_size):
+        image = Image.open(image_field.path)
+        if image.size[0] > max_size[0] or image.size[1] > max_size[1]:
+            image.thumbnail(max_size)
+            image.save(image_field.path)
 
     class Meta:
         verbose_name = _("listing")
@@ -141,15 +161,6 @@ class Listing(models.Model):
 
     def get_absolute_url(self):
         return reverse("listing_detail", kwargs={"pk": self.pk})
-    
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        if self.picture:
-            image = Image.open(self.picture.path)
-            max_size = (400, 300)
-            if image.size[0] > max_size[0] or image.size[1] > max_size[1]:
-                image.thumbnail(max_size)
-                image.save(self.picture.path)
 
 class FavoriteListing(models.Model):
     user = models.ForeignKey(get_user_model(), verbose_name=_("favorited_by"), on_delete=models.CASCADE, related_name='favorite_listings')
