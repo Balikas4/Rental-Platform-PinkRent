@@ -46,10 +46,8 @@
                         {% else %}
                             <li><a href="{% url 'user_update' %}">Create Profile</a></li>
                         {% endif %}
-                    <li><a href="{% url "offers:my_offers" %}">My Orders</a></li>
                     <li><a href="{% url "my_favorite_users" %}">My Favorite users</a></li>
                     <li><a href="{% url "listings:my_favorites" %}">My Favorite listings</a></li>
-                    <li><a href="#">Messages</a></li>
                     {% if request.user.is_superuser or request.user.is_staff %}
                         <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
                     {% endif %}

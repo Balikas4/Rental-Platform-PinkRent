@@ -23,7 +23,6 @@ urlpatterns = [
     path('', include('listings.urls')),
     path('user_profile/', include('user_profiles.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('offers/', include('offers.urls', namespace='offers')),
     path('i18n/', include('django.conf.urls.i18n')),    
     path('admin/', admin.site.urls),
 ]

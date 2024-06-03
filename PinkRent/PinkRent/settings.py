@@ -34,7 +34,6 @@ ALLOWED_HOSTS = ['localhost', 'postgres', 'www.pinkpink.lt', 'pinkpink.lt']
 # Application definition
 
 INSTALLED_APPS = [
-    'offers',
     'listings',
     'user_profiles',
     'django.contrib.admin',
