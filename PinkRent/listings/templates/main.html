@@ -48,7 +48,7 @@
         <a href="{% url 'listings:listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
         <p>{% trans "Size" %}: {{ listing.size }}</p>
         <p>{% trans "Value" %}: {{ listing.value }}</p>
-        <p class="grid-price">{{ listing.price }}$ {% trans "Per day" %}</p>
+        <p class="grid-price">{{ listing.price }}$ {% trans "For 4 days" %}</p>
         <div class="like-unlike">
           {% if user.is_authenticated %}
               {% if favorite_listing_ids %}

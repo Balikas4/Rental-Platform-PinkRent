@@ -26,7 +26,7 @@
         <div class= "inline-items"><p class="text-bold">{% trans "Description:" %} </p><p> {{ listing.description }}</p></div>
       </div>
         <div class= "inline-items"><p class="text-bold">{% trans "Value:" %} </p><p> {{ listing.value }}</p></div>
-        <div class= "inline-items"><p class="text-bold">{% trans "Price:" %} </p><p> {{ listing.price }} {% trans "per day" %}</p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Price:" %} </p><p> {{ listing.price }} {% trans "for 4 days" %}</p></div>
         <div class= "action-buttons">
           {% if user.is_authenticated %}
             {% if user_favorites %}
