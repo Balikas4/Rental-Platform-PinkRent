@@ -5,7 +5,27 @@
 <form action={{ request.path }} method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form_user.as_p }}
-    {{ form_profile.as_p }}
-    <p><button type="submit">{% trans "confirm" %}</button></p>
+    <div>
+        {{ form_profile.picture.label_tag }} {{ form_profile.picture }}
+    </div>
+    <div>
+        {{ form_profile.city.label_tag }} {{ form_profile.city }}
+    </div>
+    <div>
+        {{ form_profile.show_instagram.label_tag }} {{ form_profile.show_instagram }}
+        {{ form_profile.instagram_url.label_tag }} {{ form_profile.instagram_url }}
+    </div>
+    <div>
+        {{ form_profile.show_facebook.label_tag }} {{ form_profile.show_facebook }}
+        {{ form_profile.facebook_url.label_tag }} {{ form_profile.facebook_url }}
+    </div>
+    <div>
+        {{ form_profile.show_phone.label_tag }} {{ form_profile.show_phone }}
+        {{ form_profile.phone_number.label_tag }} {{ form_profile.phone_number }}
+    </div>
+    <div>
+        {{ form_profile.show_email.label_tag }} {{ form_profile.show_email }}
+    </div>
+    <p><button type="submit">{% trans "Confirm" %}</button></p>
 </form>
 {% endblock content %}

@@ -9,6 +9,16 @@ from PIL import Image
 class UserProfile(models.Model):
     user = models.OneToOneField(get_user_model(), verbose_name=_("user"), on_delete=models.CASCADE)
     picture = models.ImageField(_("picture"), upload_to='user_pictures/', blank=True, null=True)
+    city = models.CharField(_("city"), max_length=50, blank=True, null=True)
+    
+    CONTACT_OPTIONS = [
+        ('IG', 'Instagram'),
+        ('FB', 'Facebook'),
+        ('NUM', 'Phone Number'),
+        ('EMAIL', 'Email'),
+    ]
+
+    contact_options = models.JSONField(_("contact options"), default=dict, blank=True)
 
     class Meta:
         verbose_name = _("profile")

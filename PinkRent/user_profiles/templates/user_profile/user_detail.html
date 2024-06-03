@@ -20,12 +20,22 @@
     <div class="user-info">
         <h1>{% trans "user"|title %} {{ user.username }}</h1>
         <p>{{ user.first_name }} {{ user.last_name }}</p>
-        {% if user == request.user %}
-            <p>{% trans "e-mail"|capfirst %}: {{ user.email }}</p>
-        {% endif %}
         {% with listing_count=user.listings.count %}
             <p>{% trans "Number of Listings" %}: {{ listing_count }}</p>
         {% endwith %}
+    
+        {% if user.userprofile.contact_options.IG %}
+            <p><strong>{% trans "Instagram" %}:</strong> <a href="{{ user.userprofile.contact_options.IG }}" target="_blank">{{ user.userprofile.contact_options.IG }}</a></p>
+        {% endif %}
+        {% if user.userprofile.contact_options.FB %}
+            <p><strong>{% trans "Facebook" %}:</strong> <a href="{{ user.userprofile.contact_options.FB }}" target="_blank">{{ user.userprofile.contact_options.FB }}</a></p>
+        {% endif %}
+        {% if user.userprofile.contact_options.NUM %}
+            <p><strong>{% trans "Phone Number" %}:</strong> {{ user.userprofile.contact_options.NUM }}</p>
+        {% endif %}
+        {% if user.userprofile.contact_options.EMAIL %}
+            <p><strong>{% trans "Email" %}:</strong> {{ user.userprofile.contact_options.EMAIL }}</p>
+        {% endif %}
     </div>
 </div>
 <div class="buttons">
