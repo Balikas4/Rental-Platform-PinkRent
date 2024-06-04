@@ -1,5 +1,5 @@
 from django import forms
-from .models import Listing, ListingReview, Tag, Category
+from .models import Listing, ListingReview, Tag, Category, Brand
 
 class ListingForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
@@ -19,6 +19,11 @@ class ListingForm(forms.ModelForm):
         required=True,
         label="Size"
     )
+
+    brand = forms.ModelChoiceField(
+        queryset=Brand.objects.all(), 
+        required=False, 
+        widget=forms.Select(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Listing

@@ -33,6 +33,16 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+class Brand(models.Model):
+    name = models.CharField(_("name"), max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = _("brand")
+        verbose_name_plural = _("brands")
+
+    def __str__(self):
+        return self.name
+
 class Listing(models.Model):
     NEWWITHTAGS = 'newwithtags'
     NEWWITHOUTTAGS = 'newwithouttags'
@@ -109,7 +119,7 @@ class Listing(models.Model):
     updated_at = models.DateTimeField(_("updated at"), auto_now=True, db_index = True)
     is_available = models.BooleanField(_("is available"), db_index = True, default = False)
     is_for_sale = models.BooleanField(_("is for sale"), db_index = True, default = False)
-    brand = models.CharField(_("brand"), max_length=100, db_index = True)
+    brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, null=True, blank=True, related_name='listings')
     picture = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
     picture_1 = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
     picture_2 = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)

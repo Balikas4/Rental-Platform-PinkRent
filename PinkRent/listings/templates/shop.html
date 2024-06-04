@@ -66,7 +66,10 @@
                 {% endif %}
             </select>
         </div>
-
+        <div>
+            <input type="text" id="brand-input" name="brand" placeholder="Search for a brand...">
+            <select id="brand-dropdown" size="5" style="display:none; position:absolute;"></select>
+        </div>
         <!-- Single Filter Button -->
         <button type="submit">{% trans "Filter" %}</button>
     </form>
@@ -156,5 +159,38 @@
             document.getElementById('sub-category-filter').innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
         }
     }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#brand-input').on('input', function(){
+            var query = $(this).val();
+            if (query.length > 0) {
+                $.ajax({
+                    url: '{% url "listings:brand_search" %}',
+                    data: {'q': query},
+                    success: function(data){
+                        $('#brand-dropdown').empty();
+                        if (data.length > 0) {
+                            $('#brand-dropdown').show();
+                            data.forEach(function(brand){
+                                // Append brand names to the dropdown
+                                $('#brand-dropdown').append('<option value="' + brand.name + '">' + brand.name + '</option>');
+                            });
+                        } else {
+                            $('#brand-dropdown').hide();
+                        }
+                    }
+                });
+            } else {
+                $('#brand-dropdown').hide();
+            }
+        });
+    
+        $('#brand-dropdown').on('change', function(){
+            $('#brand-input').val($(this).val());
+            $('#brand-dropdown').hide();
+        });
+    });
 </script>
 {% endblock content %}

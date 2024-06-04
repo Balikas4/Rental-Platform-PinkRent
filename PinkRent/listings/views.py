@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.contrib.auth import get_user_model
 from .forms import ListingForm , ListingReviewForm
-from .models import Listing , FavoriteListing, ListingReview, Category, Tag
+from .models import Listing , FavoriteListing, ListingReview, Category, Tag, Brand
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Avg
@@ -39,6 +39,7 @@ def shop_page(request):
     is_for_sale = request.GET.get('is_for_sale', '')
     sort_by_price_asc = request.GET.get('sort_by') == 'price_asc'
     sort_by_price_desc = request.GET.get('sort_by') == 'price_desc'
+    brand = request.GET.get('brand', '')
 
     # Fetch parent categories (parent=None)
     parent_categories = Category.objects.filter(parent=None)
@@ -56,6 +57,9 @@ def shop_page(request):
     if city_query:
         listings = listings.filter(owner__userprofile__city__icontains=city_query)
 
+    if brand:
+        listings = listings.filter(brand__id=brand)
+        
     if is_for_sale == 'true':
         listings = listings.filter(is_for_sale=True)
     elif is_for_sale == 'false':
@@ -98,6 +102,8 @@ def shop_page(request):
         'parent_categories': parent_categories,
         'tags': Tag.objects.all(),
         'subcategories': subcategories,
+        'brands': Brand.objects.all(),
+
     }
 
     if request.user.is_authenticated:
@@ -107,6 +113,15 @@ def shop_page(request):
 
     return render(request, 'shop.html', context)
 
+def brand_search(request):
+    query = request.GET.get('q', '')
+    # Fetch distinct brand objects matching the query
+    brands = Listing.objects.filter(brand__name__icontains=query).values('brand__id', 'brand__name').distinct()
+    
+    # Format the response
+    brand_list = [{'id': brand['brand__id'], 'name': brand['brand__name']} for brand in brands]
+    
+    return JsonResponse(brand_list, safe=False)
 
 def get_subcategories(request):
     parent_id = request.GET.get('parent_category')

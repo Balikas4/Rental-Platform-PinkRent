@@ -9,6 +9,10 @@ class ListingAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'slug']
 
+class BrandAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+
 class TagAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
@@ -21,3 +25,4 @@ admin.site.register(models.ListingReview, ReviewAdmin)
 admin.site.register(models.Listing, ListingAdmin)
 admin.site.register(models.Category, CategoryAdmin)
 admin.site.register(models.Tag, TagAdmin)
+admin.site.register(models.Brand, BrandAdmin)

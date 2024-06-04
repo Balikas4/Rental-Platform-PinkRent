@@ -29,4 +29,5 @@ urlpatterns = [
     path('category/<slug:category_slug>/', views.category_page, name='category_page'),
     # HTMX
     path('get_subcategories/', views.get_subcategories, name='get_subcategories'),
+    path('brand-search/', views.brand_search, name='brand_search'),
 ]
