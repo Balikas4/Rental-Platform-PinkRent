@@ -6,24 +6,44 @@
     <!-- Combined Filter Form -->
     <form method="GET" action="{% url 'listings:shop_page' %}">
         <!-- Search Bar -->
-        <input type="text" name="q" placeholder="Search by listing name" value="{{ request.GET.q }}">
-
-        <!-- Tag Checkboxes -->
-        <h4>{% trans "Filter by Tags" %}</h4>
-        {% for tag in tags %}
+        <div class="search-bar">
+            <input type="text" name="q" placeholder="Search by listing name" value="{{ request.GET.q }}">
+            <input type="text" name="city" placeholder="Search by city" value="{{ request.GET.city }}">
+        </div>
+        <!-- For Sale Checkbox -->
+        <div>
             <label>
-                <input type="checkbox" name="tags" value="{{ tag.id }}"
-                    {% if tag.id in request.GET.tags %}checked{% endif %}>
-                {{ tag.name }}
+                <input type="checkbox" name="is_for_sale" value="true" {% if request.GET.is_for_sale == 'true' %}checked{% endif %}>
+                {% trans "For Sale" %}
             </label>
-        {% endfor %}
+            <!-- Sort by Price -->
+            <label>
+                <input type="checkbox" name="sort_by" value="price_asc" {% if request.GET.sort_by == 'price_asc' %}checked{% endif %}>
+                {% trans "Price: Low to High" %}
+            </label>
+            <label>
+                <input type="checkbox" name="sort_by" value="price_desc" {% if request.GET.sort_by == 'price_desc' %}checked{% endif %}>
+                {% trans "Price: High to Low" %}
+            </label>
+        </div>
+        <!-- Tag Checkboxes -->
+        <div>
+            <p>{% trans "Filter by Tags" %}</p>
+            {% for tag in tags %}
+                <label>
+                    <input type="checkbox" name="tags" value="{{ tag.id }}"
+                        {% if tag.id in request.GET.tags %}checked{% endif %}>
+                    {{ tag.name }}
+                </label>
+            {% endfor %}
+        </div>
 
         <!-- Category Filters -->
         <div class="category-filters">
             <p>{% trans "Filter by Category:" %}</p>
 
             <!-- Parent Category Dropdown -->
-            <label for="parent-category-filter">{% trans "Parent Category:" %}</label>
+            <label for="parent-category-filter"></label>
             <select id="parent-category-filter" name="parent_category" onchange="fetchSubcategories(this.value)">
                 <option value="all">{% trans "All Parent Categories" %}</option>
                 {% for parent in parent_categories %}
@@ -34,7 +54,7 @@
             </select>
 
             <!-- Sub-Category Dropdown -->
-            <label for="sub-category-filter">{% trans "Sub-Category:" %}</label>
+            <label for="sub-category-filter"></label>
             <select id="sub-category-filter" name="category">
                 <option value="all">{% trans "All Sub-Categories" %}</option>
                 {% if subcategories %}
@@ -50,6 +70,9 @@
         <!-- Single Filter Button -->
         <button type="submit">{% trans "Filter" %}</button>
     </form>
+    <div>
+        <p>Total Listings: {{ listings.paginator.count }}</p>
+    </div>
     <div class="grid-wrapper">
         {% for listing in listings %}
         {% if  listing.is_available %}

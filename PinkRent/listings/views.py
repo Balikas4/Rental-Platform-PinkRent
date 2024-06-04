@@ -32,10 +32,13 @@ def main_page(request: HttpRequest) -> HttpResponse:
 
 def shop_page(request):
     query = request.GET.get('q', '')
+    city_query = request.GET.get('city', '')
     selected_tags = request.GET.getlist('tags')
     category_id = request.GET.get('category', 'all')
-    search_query = request.GET.get('search')
     parent_category_id = request.GET.get('parent_category', None)
+    is_for_sale = request.GET.get('is_for_sale', '')
+    sort_by_price_asc = request.GET.get('sort_by') == 'price_asc'
+    sort_by_price_desc = request.GET.get('sort_by') == 'price_desc'
 
     # Fetch parent categories (parent=None)
     parent_categories = Category.objects.filter(parent=None)
@@ -49,6 +52,14 @@ def shop_page(request):
     # Apply filters
     if query:
         listings = listings.filter(name__icontains=query)
+    
+    if city_query:
+        listings = listings.filter(owner__userprofile__city__icontains=city_query)
+
+    if is_for_sale == 'true':
+        listings = listings.filter(is_for_sale=True)
+    elif is_for_sale == 'false':
+        listings = listings.filter(is_for_sale=False)
 
     if selected_tags:
         listings = listings.filter(tags__id__in=selected_tags).distinct()
@@ -64,6 +75,12 @@ def shop_page(request):
         parent_category = get_object_or_404(Category, id=parent_category_id)
         subcategories = parent_category.subcategories.all()
         listings = listings.filter(category__parent_id=parent_category_id)
+
+    # Sort by price per 4 days
+    if sort_by_price_asc:
+        listings = listings.order_by('price')
+    elif sort_by_price_desc:
+        listings = listings.order_by('-price')
 
     # Pagination
     paginator = Paginator(listings, 4)  # 4 listings per page
