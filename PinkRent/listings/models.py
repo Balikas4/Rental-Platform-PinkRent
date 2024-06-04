@@ -108,6 +108,7 @@ class Listing(models.Model):
     created_at = models.DateTimeField(_("created at"), auto_now_add=True, db_index = True)
     updated_at = models.DateTimeField(_("updated at"), auto_now=True, db_index = True)
     is_available = models.BooleanField(_("is available"), db_index = True, default = False)
+    is_for_sale = models.BooleanField(_("is for sale"), db_index = True, default = False)
     brand = models.CharField(_("brand"), max_length=100, db_index = True)
     picture = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)
     picture_1 = models.ImageField(upload_to='listing_pictures/', blank=True, null=True)

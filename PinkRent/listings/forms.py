@@ -22,7 +22,7 @@ class ListingForm(forms.ModelForm):
 
     class Meta:
         model = Listing
-        fields = ['category', 'picture', 'picture_1', 'picture_2', 'picture_3', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'description', 'tags']
+        fields = ['category', 'picture', 'picture_1', 'picture_2', 'picture_3', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'is_for_sale', 'description', 'tags']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
