@@ -138,26 +138,5 @@
         "fields": {
             "name": "Pregnat friendly"
         }
-    },
-    {
-        "model": "listings.brand",
-        "pk": 1,
-        "fields": {
-            "name": "Valentino"
-        }
-    },
-    {
-        "model": "listings.brand",
-        "pk": 2,
-        "fields": {
-            "name": "Self Portrait"
-        }
-    },
-    {
-        "model": "listings.brand",
-        "pk": 3,
-        "fields": {
-            "name": "Gucci"
-        }
     }
 ]
