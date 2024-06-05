@@ -115,12 +115,12 @@ def shop_page(request):
 
 def brand_search(request):
     query = request.GET.get('q', '')
-    # Fetch distinct brand objects matching the query
-    brands = Listing.objects.filter(brand__name__icontains=query).values('brand__id', 'brand__name').distinct()
+    if query:
+        brands = Brand.objects.filter(name__icontains=query).values('id', 'name')
+    else:
+        brands = Brand.objects.all().values('id', 'name')
     
-    # Format the response
-    brand_list = [{'id': brand['brand__id'], 'name': brand['brand__name']} for brand in brands]
-    
+    brand_list = list(brands)
     return JsonResponse(brand_list, safe=False)
 
 def get_subcategories(request):

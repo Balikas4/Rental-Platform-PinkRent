@@ -49,8 +49,9 @@
     </div>
     <div class="fieldWrapper">
         {{ form.brand.errors }}
-        <label for="{{ form.brand.id_for_label }}">Brand:</label>
-        {{ form.brand }}
+        <label for="brand-input">Brand:</label>
+        <input type="text" id="brand-input" name="brand" class="form-control">
+        <select id="brand-dropdown" class="form-control" size="5" style="display: none;"></select>
     </div>
     <div class="fieldWrapper">
         {{ form.size.errors }}
@@ -96,7 +97,7 @@
     <button type="submit">Create Listing</button>
   </form>
 
-  <script>
+<script>
     document.addEventListener("DOMContentLoaded", function() {
         function fetchSubcategories(parentId) {
             if (parentId) {
@@ -163,5 +164,37 @@
         // Initial load
         fetchSubcategories(parentCategorySelect.value);
     });
-  </script>
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#brand-input').on('input', function(){
+            var query = $(this).val();
+            if (query.length > 0) {
+                $.ajax({
+                    url: '{% url "listings:brand_search" %}',
+                    data: {'q': query},
+                    success: function(data){
+                        $('#brand-dropdown').empty();
+                        if (data.length > 0) {
+                            $('#brand-dropdown').show();
+                            data.forEach(function(brand){
+                                $('#brand-dropdown').append('<option value="' + brand.name + '">' + brand.name + '</option>');
+                            });
+                        } else {
+                            $('#brand-dropdown').hide();
+                        }
+                    }
+                });
+            } else {
+                $('#brand-dropdown').hide();
+            }
+        });
+
+        $('#brand-dropdown').on('change', function(){
+            $('#brand-input').val($(this).val());
+            $('#brand-dropdown').hide();
+        });
+    });
+</script>
 {% endblock %}
