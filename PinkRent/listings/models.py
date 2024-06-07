@@ -204,3 +204,12 @@ class ListingReview(models.Model):
 
     def get_absolute_url(self):
         return reverse("listing_review_detail", kwargs={"pk": self.pk})
+
+class Feedback(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
+    comment = models.TextField()
+    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)], default=5)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username if self.user else 'Anonymous'} - {self.rating}"

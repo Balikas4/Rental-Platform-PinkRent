@@ -1,5 +1,5 @@
 from django import forms
-from .models import Listing, ListingReview, Tag, Category, Brand
+from .models import Listing, ListingReview, Tag, Category, Brand, Feedback
 
 class ListingForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
@@ -52,3 +52,8 @@ class ListingReviewForm(forms.ModelForm):
             'comment': forms.Textarea(attrs={'rows': 4, 'cols': 15}),
             'rate': forms.NumberInput(attrs={'min': 0, 'max': 5}),
         }
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['comment', 'rating']

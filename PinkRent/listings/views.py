@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.contrib.auth import get_user_model
-from .forms import ListingForm , ListingReviewForm
+from .forms import ListingForm , ListingReviewForm, FeedbackForm
 from .models import Listing , FavoriteListing, ListingReview, Category, Tag, Brand
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -327,3 +327,19 @@ def create_listing_review(request, listing_id):
 
 def listing_review_success(request):
     return render(request, 'reviews/listing_review_success.html')
+
+def feedback_view(request):
+    if request.method == "POST":
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            feedback = form.save(commit=False)
+            if request.user.is_authenticated:
+                feedback.user = request.user
+            feedback.save()
+            return redirect('listings:feedback_thank_you')
+    else:
+        form = FeedbackForm()
+    return render(request, 'feedback/feedback.html', {'form': form})
+
+def feedback_thank_you_view(request):
+    return render(request, 'feedback/feedback_thank_you.html')

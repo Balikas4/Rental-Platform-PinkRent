@@ -30,4 +30,6 @@ urlpatterns = [
     # HTMX
     path('get_subcategories/', views.get_subcategories, name='get_subcategories'),
     path('brand-search/', views.brand_search, name='brand_search'),
+    path('feedback/', views.feedback_view, name='feedback'),
+    path('feedback/thank-you/', views.feedback_thank_you_view, name='feedback_thank_you'),
 ]
