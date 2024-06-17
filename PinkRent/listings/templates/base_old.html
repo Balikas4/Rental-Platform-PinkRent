@@ -7,68 +7,59 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}UPUPAM{% endblock title %}</title>
+    <title>{% block title %}Rented{% endblock title %}</title>
     <link rel="icon" href="{% static 'icon.png' %}" type="image/x-icon">
+    <!-- Include HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
 </head>
 <body>
-    {% comment %} <div class="promo-line"><a href="{% url 'signup' %}">DISCOUNT FOR NEW PLATFORM USERS - NO FEES</a></div> {% endcomment %}
+    <div class="promo-line"><a href="{% url 'signup' %}">DISCOUNT FOR NEW PLATFORM USERS - NO FEES</a></div>
     <header>
         <div class="main-line">
-            <div class="main-partition">
-                <!-- Hamburger menu icon for mobile -->
-                <div class="mobile-menu-icon">
-                    <img id="menu-toggle-mobile" src="{% static 'menu-logo.png' %}" alt="{% trans "Menu" %}">
-                </div>        
-                <!-- Logo -->
-                <div class="header-logo">
-                    <a href="{% url 'listings:main_page' %}"> <img src="{% static 'icon.png' %}" ></a>
-                </div>
-                <!-- Search bar -->
-                <div class="search-bar">
-                    <form action="{% url 'listings:shop_page' %}" method="get">
-                        <input type="text" name="q" placeholder="{% trans 'Search' %}">
-                    </form>
-                </div>
+            <div class="how-it-works-link">
+                <a href="{% url 'listings:how-it-works' %}">
+                    <p>{% trans "How it works" %}</p>
+                </a>
             </div>
-            <div class="main-partition">
-                <!-- Action buttons -->
-                <div class="action-buttons">
-                    <a href="{% url 'listings:shop_page' %}" class="button">{% trans 'Rent' %}</a>
-                    <a href="{% url 'listings:listing_create' %}" class="button">{% trans 'Lend' %}</a>
-                </div>            
-                <div class="profile-picture-icon">
-                    {% if request.user.userprofile.picture %}
-                        <img id="menu-toggle-desktop" class="menu-icon" src="{{ request.user.userprofile.picture.url }}" alt="{% trans "Profile Picture"|title %}" width="300">
-                    {% else %}
-                        <img id="menu-toggle-desktop" class="menu-icon" src="{% static 'profile-icon.png' %}">
-                    {% endif %}
-                </div>
-                <!-- Desktop Navigation Menu -->
-                <nav id="menu-desktop" class="menu">
-                    <ul>
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.userprofile.picture %}
-                                <li><a href="{% url 'user_detail_current' %}">My Profile</a></li>
-                            {% else %}
-                                <li><a href="{% url 'user_update' %}">Create Profile</a></li>
-                            {% endif %}
-                            <li><a href="{% url "my_favorite_users" %}">My Favorite users</a></li>
-                            <li><a href="{% url "listings:my_favorites" %}">My Favorite listings</a></li>
-                            {% if request.user.is_superuser or request.user.is_staff %}
-                                <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
-                            {% endif %}
-                            <li>
-                                <form method="post" action="{% url "logout" %}">{% csrf_token %}
-                                    <button type="submit">{% trans "log out"|capfirst %}</button>
-                                </form>
-                            </li>
+            <!-- Hamburger menu icon for mobile -->
+            <div class="mobile-menu-icon">
+                <img id="menu-toggle-mobile" src="{% static 'menu-logo.png' %}" alt="{% trans "Menu" %}">
+            </div>        
+            <a href="{% url 'listings:main_page' %}">
+                <h1>PINKPINK</h1>
+            </a>
+            <div class="profile-picture-icon">
+                {% if request.user.userprofile.picture %}
+                    <img id="menu-toggle-desktop" class="menu-icon" src="{{ request.user.userprofile.picture.url }}" alt="{% trans "Profile Picture"|title %}" width="300">
+                {% else %}
+                    <img id="menu-toggle-desktop" class="menu-icon" src="{% static 'profile-icon.png' %}">
+                {% endif %}
+            </div>
+            <!-- Desktop Navigation Menu -->
+            <nav id="menu-desktop" class="menu">
+                <ul>
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.userprofile.picture %}
+                            <li><a href="{% url 'user_detail_current' %}">My Profile</a></li>
                         {% else %}
-                            <li><a href="{% url 'login' %}">{% trans "log in"|capfirst %}</a></li>
-                            <li><a href="{% url 'signup' %}">{% trans "sign up"|capfirst %}</a></li>
+                            <li><a href="{% url 'user_update' %}">Create Profile</a></li>
                         {% endif %}
-                    </ul>
-                </nav>
-            </div>
+                        <li><a href="{% url "my_favorite_users" %}">My Favorite users</a></li>
+                        <li><a href="{% url "listings:my_favorites" %}">My Favorite listings</a></li>
+                        {% if request.user.is_superuser or request.user.is_staff %}
+                            <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
+                        {% endif %}
+                        <li>
+                            <form method="post" action="{% url "logout" %}">{% csrf_token %}
+                                <button type="submit">{% trans "log out"|capfirst %}</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">{% trans "log in"|capfirst %}</a></li>
+                        <li><a href="{% url 'signup' %}">{% trans "sign up"|capfirst %}</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
             <!-- Mobile Full-screen Menu -->
             <div id="fullscreen-menu" class="mobile-fullscreen-menu">
                 <div class="mobile-exit-button">
@@ -125,23 +116,26 @@
         {% block footer %}{% endblock footer %}
         <div class="footer-content">
             <div class="footer-collumn">
-                <div class="footer-logo">
-                    <a href="{% url 'listings:main_page' %}"> <img src="{% static 'icon.png' %}" ></a>
-                </div>
-                <p>Email</p>
-                <p>About UPUPAM</p>
+                <h6>PLATFORMA</h6>
+                <p>Kaip veikia nuoma?</p>
+                <p>Dažniausiai užduodami klausimai</p>
+                <p>Susikurti profilį</p>
+                <p>Mano mėgstamiausi</p>
             </div>
             <div class="footer-collumn">
-                <p>How it woks</p>
-                <p>Fashion Rental Tips and Guidelines</p>
+                <h6>PINKPINK</h6>
+                <p>Apie mus</p>
+                <p>Mados tvarumo iniciatyvos</p>
+                <p>Karjera</p>
             </div>
             <div class="footer-collumn">
-                <p>Privacy Policy</p>
-                <p>Terms and Conditions</p>
+                <h6>TAISYKLĖS</h6>
+                <p>Naudojimosi platforma taisyklės</p>
+                <p>Privatumo politika</p>
             </div>
         </div>
         <div class="footer-extra-bar">
-            <p>Copyright &copy; Upupam. All rights reserved. 2024</p>
+            <p>Copyright &copy; 2023-2024 Visos teisės saugomos</p>
             <form action="{% url 'set_language' %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ redirect_to }}">

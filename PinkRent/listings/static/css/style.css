@@ -7,7 +7,7 @@ body {
 }
 
 .promo-line {
-    background-color: #3E3E3E;
+    background-color: #DF4E40;
     font-family: 'Montserrat', sans-serif; /* Adding Montserrat Regular font */
     font-size: 12px;
     font-weight: normal; /* Using normal font weight for Regular */
@@ -34,12 +34,11 @@ header .main-line {
     font-family: 'Montserrat', sans-serif;
 }
 
-header .main-line p {
-    text-transform: uppercase;
-}
-
-header .main-line a {
-    color: #000000;
+header .main-partition {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
 }
 
 header ul.nav {
@@ -68,10 +67,10 @@ header .category-navbar {
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    justify-content: center;
+    justify-content: space-evenly;
     padding-inline: 0;
     gap: 2rem;
-    background-color: #ECECEC;
+    background-color: #FFFFFF;
     padding: 4px 30px;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
@@ -85,26 +84,9 @@ header .category-navbar a{
     color: #000000;
 }
 
-.small-bar {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 20px;
-    height: 50px;
-    padding: 10px;
-    align-items: center;
-    background-color: #FFECC6;
+.header-logo {
+    width: 50px;
 }
-
-.small-bar a {
-    display: inline-block;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #3E3E3E;
-    padding: 4px 20px;
-    text-transform: uppercase;
-    font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
-}   
 
 main {
     background-color: #ffffff;
@@ -112,18 +94,17 @@ main {
 }
 
 footer {
-    background-color: #ECECEC;
+    background-color: #fafafa;
 }
 
 .footer-content {
-    background-color: #ECECEC;
+    background-color: #fafafa;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 20px;
-    justify-content: space-around;
+    padding: 20px 40px;
+    justify-content: space-between;
     align-items: flex-start;
-    gap: 20px;
 }
 
 .footer-extra-bar {
@@ -175,11 +156,13 @@ section.messages {
 }
 
 .message-success {
-    background-color: #ccff99;
+    background-color: #FF6F61;
+    border-bottom: 0px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .message-warning {
-    background-color: #ffcc99;
+    background-color: #AB666B;
 }
 
 .message-error {
@@ -316,16 +299,16 @@ ul.dashboard li .stat {
   }
 
 .popular-dresses {
-    padding: 0px 90px;
+    padding: 0px 30px;
     font-family: 'Montserrat', sans-serif;
 }
 
-.popular-dresses h6 {
-    text-transform: uppercase;
-    font-size: 24px;
+.seperator-text h1 {
+    font-size: 48px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
+    margin: 60px;
 }
 
 .grid-item p {
@@ -399,7 +382,6 @@ ul.dashboard li .stat {
 
 .hero-picture img{
     width: 100%;
-    padding: 10px 0px;
 }
 
 .hero-picture h2, h3 {
@@ -416,12 +398,12 @@ ul.dashboard li .stat {
 
 .text-overlay {
     position: absolute; /* Position the overlay absolutely */
-    top: 50%; /* Position it 50% from the top */
-    left: 50%; /* Position it 50% from the left */
+    top: 55%; /* Position it 50% from the top */
+    left: 25%; /* Position it 25% from the left */
     transform: translate(-20%, -60%); /* Center the overlay */
     text-align: center; /* Center-align the text */
     color: white; /* Text color */
-    width: 50%;
+    width: 60%;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -435,47 +417,47 @@ ul.dashboard li .stat {
     margin: 0; /* Remove default margin */
     padding: 10px 0px;
     background-color: transparent;
-    font-family: 'Montserrat', sans-serif;
     text-align: left;
+    color: #FFFFFF;
 }
 
 .text-overlay h2 {
-    font-weight: 450;
-    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
 }
 
 .text-overlay h3 {
-    font-weight: 300;
+    font-family: "Inter", sans-serif;
+    font-weight: 100;
     font-size: 18px;
 }
   
-.text-overlay button {
-    display: inline-block;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #3E3E3E;
-    padding: 4px 40px;
-    text-transform: uppercase;
-    font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
-    text-align: left;
+.hero-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
-.brands-line h6{
-    font-size: 30px;
-    padding: 20px 0px;
-    margin: 0px;
+.text-overlay button {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #DF4E40;
+    padding: 4px 40px;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.brands-line {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-around;
 }
 
 .brands-line img {
     width: 200px;
     height: 100px;
-}
-
-.brands-line {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #ECECEC;
-    text-align: center;
 }
 
 .perk-bar {
@@ -650,7 +632,6 @@ main div .product-container {
 .action-buttons {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
 }
 
 .user-profile {
@@ -713,30 +694,6 @@ main div .product-container {
     text-transform: uppercase;
 }
 
-.how-it-works h2, h3{
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    padding: 0px 20px;
-}
-
-.hero-button {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 24px;
-    padding: 50px 20px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.hero-button a {
-    padding: 4px 40px;
-    background-color: #3E3E3E;
-    color: #FFFFFF;
-}
-
-.hero-button a:visited {
-    color: #FFFFFF;
-}
-
 .review-bar {
     font-family: 'Montserrat', sans-serif;
 }
@@ -782,33 +739,35 @@ main div .product-container {
     font-family: 'Montserrat', sans-serif;
 }
 
-.hero-text h6 {
-    font-size: 24px;
-    text-align: center;
-    padding: 20px 0px;
-}
-
 button {
     font-family: 'Montserrat', sans-serif;
-    background-color: #3E3E3E;
+    background-color: #DF4E40;
     color: #FFFFFF;
-    padding: 2px 10px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    border-width: 0px;
 }
 
 .button {
     font-family: 'Montserrat', sans-serif;
-    background-color: #3E3E3E;
+    background-color: #DF4E40;
     color: #FFFFFF;
-    padding: 2px 10px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    border-width: 0px;
 }
 
-.reviews-button-container {
-    text-align: center;
-    padding: 20px 0px;
+.complete-your-look {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
 }
 
-.filter-bar {
-    font-family: 'Montserrat', sans-serif;
+.container-choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Media query for tablets */
@@ -821,9 +780,6 @@ button {
     .text-overlay h2,
     .text-overlay h3,
     .text-overlay button {
-        font-size: 80%;
-    }
-    .small-bar a{
         font-size: 80%;
     }
     header .category-navbar {
@@ -888,17 +844,15 @@ button {
         font-size: 60%;
     }
     .footer-content{
-        gap: 5px;
-        padding: 10px;
+        gap: 20px;
+        padding: 10px 20px;
         flex-direction: column;
+        justify-content: space-between;
     }
     header .main-line {
         font-size: 60%;
     }
     header .category-navbar {
-        display: none;
-    }
-    .how-it-works-link {
         display: none;
     }
     .profile-picture-icon {
@@ -907,9 +861,7 @@ button {
     header .main-line {
         padding: 0px 5px;
     }
-    .small-bar {
-        display: none;
-    }
+
     .popular-dresses {
         padding: 0px 10px;
     }

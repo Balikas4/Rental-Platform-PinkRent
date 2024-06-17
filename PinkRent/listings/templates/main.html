@@ -3,20 +3,23 @@
 {% block title %}{{ block.super }} {% trans "Main" %}{% endblock title %}
 {% block content %}
 <div class='main-page-content'>
-  <div class="small-bar">
-    <a href="{% url 'listings:listing_create' %}"> {% trans "Upload item for rent" %}</a>
-    <a href="{% url 'listings:shop_page' %}"> {% trans "Rent from others" %}</a>
-  </div>
   <div class="hero-picture">
     <img src="{% static 'hero.png' %}" alt="Hero picture">
     <div class="text-overlay"> 
-      <h2>{% trans "NUMBER 1 FORMAL IMAGE RENTAL PLATFORM IN LITHUANIA" %}</h2>
-      <h3>{% trans "Collection of dresses of various sizes and models from different wardrobes" %}</h3>
-      <button>
-        <a href="{% url 'listings:shop_page' %}">
-            {% trans "Rent" %}
-        </a>
-      </button>
+      <h2>{% trans "Rent, Earn, Discover - all without leaving your neighborhood!" %}</h2>
+      <h3>{% trans "Enjoy easy fashion rentals, no fees. Earn while sharing your wardrobe. Join our platform and start your journey today!" %}</h3>
+      <div class="hero-buttons">
+        <button>
+          <a href="{% url 'listings:listing_create' %}">
+              {% trans "Earn now" %}
+          </a>
+        </button>
+        <button>
+          <a href="{% url 'listings:shop_page' %}">
+              {% trans "Explore dresses" %}
+          </a>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -30,8 +33,10 @@
     <p>{% trans "Listing count" %} {{ listing_count }}</p>
     <p>{% trans "User count" %} {{ users_count }}</p> {% endcomment %}
 
-  <div class="popular-dresses">
-    <h6>{% trans "Popular Dresses" %}</h6>
+  <div>
+    <div class="seperator-text">
+      <h1>{% trans "Top Trending Dresses" %}</h1>
+    </div>
     <div class="grid-wrapper">
       {% for listing in listings|slice:":4" %}
       {% if listing.is_available %}
@@ -74,90 +79,11 @@
       </div>
       {% endif %}
       {% endfor %}
-  </div>
-    <div class="hero-button">
-      <a href="{% url 'listings:shop_page' %}" >{% trans "All dresses" %}</a>
-    </div>
-  </div>
-  <div class="brands-line">
-    <h6>{% trans "SAME LUXURY, JUST CHEAPER" %}</h6>
-    <img src="{% static 'new-arrivals.png' %}" alt="New-arrivals">
-    <img src="{% static 'rebecca.png' %}" alt="Rebecca">
-    <img src="{% static 'rotate.png' %}" alt="Rotate">
-    <img src="{% static 'valentino.png' %}" alt="Valentino">
-    <img src="{% static 'self-portrait.png' %}" alt="Self-portrait">
-  </div>
-  <div class="perk-bar">
-    <div class="perk-text">
-      <h1>{% trans "Creating sustainable and affordable fashion" %}</h1>
-    </div>
-    <div class="perk-cards">
-      <div class="perk-card">
-        <img src="{% static 'size-icon.png' %}" alt="size-icon"></img>
-        <h5>{% trans "FIND YOUR SIZE" %}</h5>
-        <h6>{% trans "The platform offers more than 5000 different sizes and models of dresses and other fashion products for rent." %}</h6>
-      </div>
-      <div class="perk-card">
-        <img src="{% static 'cost-icon.png' %}" alt="cost-icon"></img>
-        <h5>{% trans "DRESS UP FOR LESS" %}</h5>
-        <h6>{% trans "Renting allows you to avoid high costs for a formal dress that is usually worn only a few times." %}</h6>
-      </div>
-      <div class="perk-card">
-        <img src="{% static 'dress-icon.png' %}" alt="dress-icon"></img>
-        <h5>{% trans "ACCESSIBLE LUXURY" %}</h5>
-        <h6>{% trans "You will find dresses from the most popular designers on the platform, available to you for rent at a fraction of the value price." %}</h6>
-      </div>
-      <div class="perk-card">
-        <img src="{% static 'leaf-icon.png' %}" alt="leaf-icon"></img>
-        <h5>{% trans "PLANET-FRIENDLY" %}</h5>
-        <h6>{% trans "With renting, we reduce the number of newly purchased items, promoting sustainable consumption." %}</h6>
-      </div>
-    </div>
-  </div>
-  <div class="review-bar">
-    <div class="review-hero-text">
-      <h6>{% trans "What people say" %}</h6>
-    </div>
-    <div class="reviews-container">
-      <div class="reviews-card">
-        <div class="containerpart1">
-          <img src="{% static 'user-icon-1.png' %}" alt="user-icon-1" class="user-icon">
-          <p class="review-text">{% trans "Previously, I could only dream of a Self-Portrait dress worth about 500 euros. With the PINKPINK platform, this became possible, because I can rent a dress for just 50 euros." %}</p>
-        </div>
-        <div class="containerpart2">
-          <p class="review-name">Eglė</p>
-          <p>5⭐</p>
-        </div>
-      </div>
-      <div class="reviews-card">
-        <div class="containerpart1">
-          <img src="{% static 'user-icon-2.png' %}" alt="user-icon-2" class="user-icon">
-          <p class="review-text">{% trans "Looking for a prom dress for me has always been associated with the constant frustration of not being able to find my size. I'm so glad I discovered PINKPINK, because everyone can find a dress for themselves here." %}</p>
-        </div>
-        <div class="containerpart2">
-          <p class="review-name">Džiuljeta</p>
-          <p>5⭐</p>
-        </div>
-      </div>
-      <div class="reviews-card">
-        <div class="containerpart1">
-          <img src="{% static 'user-icon-3.png' %}" alt="user-icon-3" class="user-icon">
-          <p class="review-text">{% trans "I attended five weddings last summer. I was afraid that I would have to buy a new dress for every holiday, because I wouldn't go with the same one. Luckily I discovered PINKPINK. I was dressed differently for great prices." %}</p>
-        </div>
-        <div class="containerpart2">
-          <p class="review-name">Irena</p>
-          <p>5⭐</p>
-        </div>
-      </div>
-    </div>
-  </div>  
-    <div class="reviews-button-container">
-      <button>{% trans "MORE INFORMATION ABOUT RENT" %}</button>
     </div>
   </div>
   <div class="filter-bar">
-    <div class="hero-text">
-      <h6>DRESSES FOR ALL OCCASIONS</h6>
+    <div class="seperator-text">
+      <h1>Dresses for Every Occasion</h1>
     </div>
     <div class="grid-wrapper">
       <div class="filter-grid-item">
@@ -178,47 +104,60 @@
       </div>
     </div>
   </div>
-  <div class="countainer-dual-choice">
-    <div class="review-hero-text">
-      <h6>CREATE FULL IMAGE</h6>
+  <div class="how-it-works">
+    <div class="seperator-text">
+      <h1>{% trans "How Upupam Platform Works?" %}</h1>
     </div>
-    <div class="choice-container">
+    <div>
       <div class="dual-choice">
-        <img src="{% static "nuomotisrankine.png" %}"></img>
-        <button>Rent Handbags</button>
+        <button>{% trans "How to Lend" %}</button>
+        <button>{% trans "How to Rent" %}</button>
       </div>
-      <div class="dual-choice">
-        <img src="{% static "nuomotisbatus.png" %}"></img>
-        <button>Rent Heels</button>
+      <div class="how-it-works-container">
+        <div clas="container-content">
+          <h2>{% trans "Share & Earn" %}</h2>
+          <p>List your items for free, set your prices, and start earning from rentals without leaving your home.</p>
+        </div>
+        <div clas="container-content">
+          <h2>{% trans "Foster Circularity" %}</h2>
+          <p>By lending your items, you contribute to extending the life of garments and reducing waste.</p>
+        </div>
+        <div clas="container-content">
+          <h2>{% trans "Seamless Connection" %}</h2>
+          <p>Connect with renters through social media, phone, or email to finalise rental details.</p>
+        </div>
+      </div>
+      <div class="hero-button">
+        <button>{% trans "Start Lending Now" %}</button>
       </div>
     </div>
   </div>
-  <div class="perk-bar">
-    <div class="perk-text">
-      <h6>Creating sustainable and affordable fashion</h6>
+  <div class="brands-line">
+    <img src="{% static 'new-arrivals.png' %}" alt="New-arrivals">
+    <img src="{% static 'rebecca.png' %}" alt="Rebecca">
+    <img src="{% static 'rotate.png' %}" alt="Rotate">
+    <img src="{% static 'valentino.png' %}" alt="Valentino">
+    <img src="{% static 'self-portrait.png' %}" alt="Self-portrait">
+  </div>
+  <div class="seperator-text">
+    <h1>{% trans "Complete Your Look" %}</h1>
+  </div>
+  <div class="complete-your-look">
+    <div class="container-choice">
+      <img src="{% static 'rent-handbags.png' %}" alt="Rotate">
+      <button>{% trans "Rent Bags" %}</button>
     </div>
-    <div class="perk-cards">
-      <div class="perk-card">
-        <img src="{% static 'eur-icon.png' %}" alt="icon"></img>
-        <h5>PROFITABLE</h5>
-        <h6>By renting out the purchased occasion clothes, you can get back the money you spent on them and earn extra.</h6>
-      </div>
-      <div class="perk-card">
-        <img src="{% static 'dress-icon.png' %}" alt="icon"></img>
-        <h5>SMART</h5>
-        <h6>You will be able to continue to enjoy your occasion fashion product because it will remain yours.</h6>
-      </div>
-      <div class="perk-card">
-        <img src="{% static 'leaf-icon.png' %}" alt="icon"></img>
-        <h5>SUSTAINABLE</h5>
-        <h6>You will give the opportunity to other consumers not to buy and thus reduce the consumerism of fashion.</h6>
-      </div>
+    <div class="container-choice">
+      <img src="{% static 'rent-shoes.png' %}" alt="Rotate">
+      <button>{% trans "Rent Shoes" %}</button>
     </div>
   </div>
-  <button>
-    <a href="{% url 'listings:feedback' %}">
-        {% trans "Feedback" %}
-    </a>
-  </button>
+  <div>
+    <button>
+      <a href="{% url 'listings:feedback' %}">
+          {% trans "Feedback" %}
+      </a>
+    </button>
+  </div>
 </div>
 {% endblock content %}
