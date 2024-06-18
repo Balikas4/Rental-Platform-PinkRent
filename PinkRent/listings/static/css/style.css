@@ -177,6 +177,10 @@ a:hover {
     text-decoration: none;
 }
 
+.grid-wrapper a {
+    color: #000000;
+}
+
 /* h1, h2, h3, h4, h5, h6 {
     background-color: #cccccc;
     border-bottom: 2px solid #888888;
@@ -216,19 +220,17 @@ header form select {
     font-size: 100%;
 }
 
-/* button, .button {
-    background-color: #d8d8d8;
-    border: 1px solid #666666;
-    border-bottom: 2px solid #004488;
-    padding: 0.5rem;
-    font-size: 120%;
+button, .button {
     cursor: pointer;
 }
 
+button a {
+    color: #FFFFFF;
+}
+
 button:hover, .button:hover {
-    background-color: #dfdfdf;
-    border-bottom: 2px solid #0055cc;
-} */
+    background-color: #AB666B;
+}
 
 ul.dashboard {
     display: flex;
@@ -322,6 +324,7 @@ ul.dashboard li .stat {
 
 .grid-item p {
     font-weight: 600;
+    font-size: 12px;
     color: #000000;
 }
 
@@ -331,6 +334,30 @@ ul.dashboard li .stat {
 
 .grid-item button a:visited {
     color: #FFFFFF;
+}
+
+.grid-tags {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    font-family: 'Inter', sans-serif;
+}
+
+.grid-tags p {
+    background-color: #FF6F61;
+    border-radius: 10px;
+    font-weight: 300;
+    padding: 2px 8px;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+.grid-text {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .like-unlike {
@@ -346,16 +373,13 @@ ul.dashboard li .stat {
     border: 0px;
 }
 
-.grid-price {
-    text-align: center;
-}
-
 .grid-item {
     background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: left;
+    gap: 2px;
     padding: 1rem;
     max-width: 200px;
 }
@@ -364,10 +388,17 @@ ul.dashboard li .stat {
     display: flex;
     flex-direction: column;
     justify-content: left;
-    align-items: left;
     padding: 1rem;
     max-width: 200px;
+    font-family: 'Inter', sans-serif;
     text-align: center;
+    font-weight: 400;
+}
+
+.filter-grid-item p {
+    margin: 10px 20px;
+    border-bottom: 1px solid;
+    width: auto;
 }
 
 .grid-item img {
@@ -519,10 +550,44 @@ ul.dashboard li .stat {
     padding: 10px 200px;
 }
 
-.dual-choice {
+.hiw-container {
+    text-align: center;
+}
+
+.hiw-grid {
+    width: 30%;
+}
+
+.dual-choice button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    background-color: #FFFFFF;
+    color: #333;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.dual-choice button.active {
+    background-color: #FF6F61;
+    color: #fff;
+}
+
+.how-it-works-container .container-content {
+    display: none;  
+}
+
+.how-it-works-container .container-content.active {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.hero-button button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 
 .listing-form {
@@ -768,7 +833,61 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 40%;
 }
+
+.container-choice button {
+    margin: 10px 20%;
+}
+
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 5)); /* Adjust this value based on the number of unique slides */
+    }
+  }
+  
+  .slider {
+    height: 150px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
+  }
+  
+  .slider::before, .slider::after {
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+  
+  .slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+  
+  .slider::before {
+    left: 0;
+    top: 0;
+  }
+  
+  .slider .slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 10); /* Adjust this value based on the total number of slides */
+  }
+  
+  .slider .slide {
+    height: 100px;
+    width: 250px;
+    padding-left: 20px;
+  }
+  
 
 /* Media query for tablets */
 @media screen and (max-width: 1024px) {

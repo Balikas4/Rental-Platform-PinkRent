@@ -10,12 +10,12 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'slug']
 
 class BrandAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    search_fields = ('name',)
+    list_display = ('id', 'name',)
+    search_fields = ('id', 'name',)
 
 class TagAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    search_fields = ('name',)
+    list_display = ('id', 'name',)
+    search_fields = ('id', 'name',)
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'listing', 'rate', 'created_at']

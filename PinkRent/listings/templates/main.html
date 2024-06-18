@@ -50,10 +50,14 @@
             <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
           </a>
         {% endif %}
-        <a href="{% url 'listings:listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
-        <p>{% trans "Size" %}: {{ listing.size }}</p>
-        <p>{% trans "Value" %}: {{ listing.value }}</p>
-        <p class="grid-price">{{ listing.price }}$ {% trans "For 4 days" %}</p>
+        <div class="grid-tags">
+          <a href=""><p>{{ listing.size }}</p></a>
+          <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.id }}"><p>{{ listing.brand }}</p></a>
+        </div>
+        <div class="grid-text">
+          <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
+          <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+        </div>
         <div class="like-unlike">
           {% if user.is_authenticated %}
               {% if favorite_listing_ids %}
@@ -81,83 +85,154 @@
       {% endfor %}
     </div>
   </div>
-  <div class="filter-bar">
-    <div class="seperator-text">
-      <h1>Dresses for Every Occasion</h1>
-    </div>
-    <div class="grid-wrapper">
+<div class="filter-bar">
+  <div class="seperator-text">
+    <h1>Dresses for Every Occasion</h1>
+  </div>
+  <div class="grid-wrapper">
+    <a href="{% url 'listings:shop_page' %}?tags=3">
       <div class="filter-grid-item">
         <img src="{% static 'pinkpink-vestuviusvecias.avif' %}" alt="dress"></img>
         <p>Wedding guest</p>
       </div>
+    </a>
+    <a href="{% url 'listings:shop_page' %}?tags=6">
       <div class="filter-grid-item">
-        <img src="{% static "pinkpink-gimtadienis.avif" %}" alt="dress"></img>
+        <img src="{% static 'pinkpink-gimtadienis.avif' %}" alt="dress"></img>
         <p>Birthday guest</p>
       </div>
+    </a>
+    <a href="{% url 'listings:shop_page' %}?tags=4">
       <div class="filter-grid-item">
-        <img src="{% static "pinkpink-kokteilineapranga.avif" %}" alt="dress"></img>
+        <img src="{% static 'pinkpink-kokteilineapranga.avif' %}" alt="dress"></img>
         <p>Cocktail party</p>
       </div>
+    </a>
+    <a href="{% url 'listings:shop_page' %}?tags=5">
       <div class="filter-grid-item">
-        <img src="{% static "pinkpink-mergvakaris.avif" %}" alt="dress"></img>
+        <img src="{% static 'pinkpink-mergvakaris.avif' %}" alt="dress"></img>
         <p>Bachelorette party</p>
       </div>
-    </div>
-  </div>
-  <div class="how-it-works">
-    <div class="seperator-text">
-      <h1>{% trans "How Upupam Platform Works?" %}</h1>
-    </div>
-    <div>
-      <div class="dual-choice">
-        <button>{% trans "How to Lend" %}</button>
-        <button>{% trans "How to Rent" %}</button>
-      </div>
-      <div class="how-it-works-container">
-        <div clas="container-content">
-          <h2>{% trans "Share & Earn" %}</h2>
-          <p>List your items for free, set your prices, and start earning from rentals without leaving your home.</p>
-        </div>
-        <div clas="container-content">
-          <h2>{% trans "Foster Circularity" %}</h2>
-          <p>By lending your items, you contribute to extending the life of garments and reducing waste.</p>
-        </div>
-        <div clas="container-content">
-          <h2>{% trans "Seamless Connection" %}</h2>
-          <p>Connect with renters through social media, phone, or email to finalise rental details.</p>
-        </div>
-      </div>
-      <div class="hero-button">
-        <button>{% trans "Start Lending Now" %}</button>
-      </div>
-    </div>
-  </div>
-  <div class="brands-line">
-    <img src="{% static 'new-arrivals.png' %}" alt="New-arrivals">
-    <img src="{% static 'rebecca.png' %}" alt="Rebecca">
-    <img src="{% static 'rotate.png' %}" alt="Rotate">
-    <img src="{% static 'valentino.png' %}" alt="Valentino">
-    <img src="{% static 'self-portrait.png' %}" alt="Self-portrait">
-  </div>
-  <div class="seperator-text">
-    <h1>{% trans "Complete Your Look" %}</h1>
-  </div>
-  <div class="complete-your-look">
-    <div class="container-choice">
-      <img src="{% static 'rent-handbags.png' %}" alt="Rotate">
-      <button>{% trans "Rent Bags" %}</button>
-    </div>
-    <div class="container-choice">
-      <img src="{% static 'rent-shoes.png' %}" alt="Rotate">
-      <button>{% trans "Rent Shoes" %}</button>
-    </div>
-  </div>
-  <div>
-    <button>
-      <a href="{% url 'listings:feedback' %}">
-          {% trans "Feedback" %}
-      </a>
-    </button>
+    </a>
   </div>
 </div>
+<div class="seperator-text">
+  <h1>How Upupam Platform Works</h1>
+</div>
+<div class="hiw-container">
+  <div class="dual-choice">
+      <button id="lend-button" class="active">{% trans "How to Lend" %}</button>
+      <button id="rent-button">{% trans "How to Rent" %}</button>
+  </div>
+  <div class="how-it-works-container">
+    <div id="lend-content" class="container-content active">
+      <div class="hiw-grid">
+        <h2>{% trans "Share & Earn" %}</h2>
+        <p>List your items for free, set your prices, and start earning from rentals without leaving your home.</p>
+      </div>
+      <div class="hiw-grid">
+        <h2>{% trans "Foster Circularity" %}</h2>
+        <p>By lending your items, you contribute to extending the life of garments and reducing waste.</p>
+      </div>
+      <div class="hiw-grid">
+        <h2>{% trans "Seamless Connection" %}</h2>
+        <p>Connect with renters through social media, phone, or email to finalise rental details.</p>
+      </div>
+  </div>
+  <div id="rent-content" class="container-content">
+    <div class="hiw-grid">
+      <h2>{% trans "Find Unique Pieces" %}</h2>
+      <p>Explore a wide variety of unique garments and accessories for your special occasions.</p>
+    </div>
+    <div class="hiw-grid">
+      <h2>{% trans "Rent with Ease" %}</h2>
+      <p>Book your chosen items easily and have them delivered to your doorstep.</p>
+    </div>
+    <div class="hiw-grid">
+      <h2>{% trans "Support Sustainability" %}</h2>
+      <p>By renting, you are supporting sustainable fashion and reducing waste.</p>
+    </div>
+  </div>
+</div>
+<div class="hero-button">
+  <button><a href="{% url "listings:listing_create" %}">{% trans "Start Lending Now" %}</a></button>
+</div>
+<div class="slider">
+  <div class="slide-track">
+    <div class="slide">
+      <img src="{% static 'norma-kamali.png' %}" alt="Norma-kamali">
+    </div>
+    <div class="slide">
+      <img src="{% static 'rebecca-vallance.png' %}" alt="Rebecca-vallance">
+    </div>
+    <div class="slide">
+      <img src="{% static 'rotate.png' %}" alt="Rotate">
+    </div>
+    <div class="slide">
+      <img src="{% static 'valentino.png' %}" alt="Valentino">
+    </div>
+    <div class="slide">
+      <img src="{% static 'self-portrait.png' %}" alt="Self-portrait">
+    </div>
+    <!-- Duplicates start here -->
+    <div class="slide">
+      <img src="{% static 'norma-kamali.png' %}" alt="Norma-kamali">
+    </div>
+    <div class="slide">
+      <img src="{% static 'rebecca-vallance.png' %}" alt="Rebecca-vallance">
+    </div>
+    <div class="slide">
+      <img src="{% static 'rotate.png' %}" alt="Rotate">
+    </div>
+    <div class="slide">
+      <img src="{% static 'valentino.png' %}" alt="Valentino">
+    </div>
+    <div class="slide">
+      <img src="{% static 'self-portrait.png' %}" alt="Self-portrait">
+    </div>
+  </div>
+</div>  
+<div class="seperator-text">
+  <h1>{% trans "Complete Your Look" %}</h1>
+</div>
+<div class="complete-your-look">
+  <div class="container-choice">
+    <img src="{% static 'rent-handbags.png' %}" alt="Rotate">
+    <button><a href="{% url "listings:shop_page" %}">{% trans "Rent Bags" %}</a></button>
+  </div>
+  <div class="container-choice">
+    <img src="{% static 'rent-shoes.png' %}" alt="Rotate">
+    <button><a href="{% url "listings:shop_page" %}">{% trans "Rent Shoes" %}</a></button>
+  </div>
+</div>
+<div>
+  <button>
+    <a href="{% url 'listings:feedback' %}">
+        {% trans "Feedback" %}
+    </a>
+  </button>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const lendButton = document.getElementById('lend-button');
+    const rentButton = document.getElementById('rent-button');
+    const lendContent = document.getElementById('lend-content');
+    const rentContent = document.getElementById('rent-content');
+  
+    lendButton.addEventListener('click', function() {
+      lendButton.classList.add('active');
+      rentButton.classList.remove('active');
+      lendContent.classList.add('active');
+      rentContent.classList.remove('active');
+    });
+  
+    rentButton.addEventListener('click', function() {
+      rentButton.classList.add('active');
+      lendButton.classList.remove('active');
+      rentContent.classList.add('active');
+      lendContent.classList.remove('active');
+    });
+  });  
+</script>
 {% endblock content %}
