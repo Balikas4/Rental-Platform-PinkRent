@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from .local_settings import SECRET_KEY, DATABASES
+from .local_settings import SECRET_KEY, DATABASES, SOCIALACCOUNT_PROVIDERS
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -157,23 +157,7 @@ MEDIA_ROOT = BASE_DIR / 'media_root'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': '825316291343-1cuksdugr78q0dtu5fv50iu1n6i86rt6.apps.googleusercontent.com',
-            'secret': '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',
-            'key': ''
-        },
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        },
-        'REDIRECT_URI': 'http://localhost:8000/accounts/google/login/callback/',
-    }
-}
+SOCIALACCOUNT_PROVIDERS = SOCIALACCOUNT_PROVIDERS
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
