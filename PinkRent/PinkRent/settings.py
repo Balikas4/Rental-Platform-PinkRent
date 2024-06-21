@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'user_profiles',
     'django.contrib.admin',
     'django.contrib.auth',
+    # log in with google
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    #
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -53,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware', 
 ]
 
 ROOT_URLCONF = 'PinkRent.urls'
@@ -75,6 +83,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PinkRent.wsgi.application'
 
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -141,6 +155,25 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media_root'
 
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '825316291343-1cuksdugr78q0dtu5fv50iu1n6i86rt6.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'REDIRECT_URI': 'http://localhost:8000/accounts/google/login/callback/',
+    }
+}
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
