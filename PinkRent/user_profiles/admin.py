@@ -4,7 +4,7 @@ from listings.models import Listing
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'picture']
+    list_display = ['id', 'user', 'picture']
     list_editable = ['picture']
 
 class ReviewAdmin(admin.ModelAdmin):

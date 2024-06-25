@@ -1,0 +1,121 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "Rasa",
+            "password": "testas11",
+            "email": "testuser@example.com",
+            "is_staff": false,
+            "is_active": true
+        }
+    },
+    {
+        "model": "user_profiles.userprofile",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "city": "Vilnius"
+        }
+    },
+    {
+        "model": "listings.listing",
+        "pk": 1,
+        "fields": {
+            "name": "Midi Zimmerman dress",
+            "description": "Nuostabių raštų kūrėjo prekės ženklo Zimmermann kūrinys, kuris šventinį įvaizdį pavers itin stilingu! Ši proginė Zimmermann suknelė viršutinėje dalyje turi akcentinę klostuotą detalę, nugara yra atvira, surišama su dirželiu.",
+            "price": "99.00",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z",
+            "is_available": true,
+            "is_for_sale": true,
+            "brand": 1748,
+            "picture": "",
+            "picture_1": "",
+            "picture_2": "",
+            "picture_3": "",
+            "size": "M / 38 / 10",
+            "quality": "great",
+            "color": "white",
+            "value": "760.00",
+            "owner": 1,
+            "category": 5,
+            "tags": [1,3,4,5,8]
+        }
+    },
+    {
+        "model": "listings.listing",
+        "pk": 2,
+        "fields": {
+            "name": "Rotate Sequined Puff-sleeve dress",
+            "description": "Nice dress",
+            "price": "70.00",
+            "created_at": "2024-02-01T00:00:00Z",
+            "updated_at": "2024-02-01T00:00:00Z",
+            "is_available": true,
+            "is_for_sale": true,
+            "brand": 1375,
+            "picture": "",
+            "picture_1": "",
+            "picture_2": "",
+            "picture_3": "",
+            "size": "39",
+            "quality": "great",
+            "color": "pink",
+            "value": "389.00",
+            "owner": 1,
+            "category": 5,
+            "tags": [1,3,4,5,6,8]
+        }
+    },
+    {
+        "model": "listings.listing",
+        "pk": 3,
+        "fields": {
+            "name": "3D Jacquard Midi Rotate dress",
+            "description": "Nice dress",
+            "price": "60.00",
+            "created_at": "2024-03-01T00:00:00Z",
+            "updated_at": "2024-03-01T00:00:00Z",
+            "is_available": true,
+            "is_for_sale": true,
+            "brand": 1375,
+            "picture": "",
+            "picture_1": "",
+            "picture_2": "",
+            "picture_3": "",
+            "size": "39",
+            "quality": "newwithtags",
+            "color": "khaki",
+            "value": "320.00",
+            "owner": 1,
+            "category": 5,
+            "tags": [1,3,4,5,8]
+        }
+    },
+    {
+        "model": "listings.listing",
+        "pk": 4,
+        "fields": {
+            "name": "Rebecca Vallance Versailles dress",
+            "description": "Cute dress",
+            "price": "120.00",
+            "created_at": "2024-04-01T00:00:00Z",
+            "updated_at": "2024-04-01T00:00:00Z",
+            "is_available": true,
+            "is_for_sale": true,
+            "brand": 1317,
+            "picture": "",
+            "picture_1": "",
+            "picture_2": "",
+            "picture_3": "",
+            "size": "L / 40 / 12",
+            "quality": "great",
+            "color": "white",
+            "value": "420.00",
+            "owner": 1,
+            "category": 5,
+            "tags": [1,3,5,6,8]
+        }
+    }
+]

@@ -37,7 +37,26 @@
                 </label>
             {% endfor %}
         </div>
-
+        <!-- Color Filter -->
+        <div>
+            <label for="color-filter">{% trans "Filter by Color:" %}</label>
+            <select id="color-filter" name="color">
+                <option value="all">{% trans "All Colors" %}</option>
+                {% for color, display in colors %}
+                    <option value="{{ color }}" {% if request.GET.color == color %}selected{% endif %}>{{ display }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <!-- Size Filter -->
+        <div>
+            <label for="size-filter">{% trans "Filter by Size:" %}</label>
+            <select id="size-filter" name="size">
+                <option value="all">{% trans "All Sizes" %}</option>
+                {% for size in sizes %}
+                    <option value="{{ size }}" {% if request.GET.size == size %}selected{% endif %}>{{ size }}</option>
+                {% endfor %}
+            </select>
+        </div>
         <!-- Category Filters -->
         <div class="category-filters">
             <p>{% trans "Filter by Category:" %}</p>

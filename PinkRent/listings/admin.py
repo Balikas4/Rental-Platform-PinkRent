@@ -3,7 +3,7 @@ from . import models
 
 
 class ListingAdmin(admin.ModelAdmin):
-    list_display = ['id', 'description', 'owner', 'is_available', 'price', 'brand', 'category']
+    list_display = ['id', 'name', 'description', 'owner', 'is_available', 'price', 'brand', 'category']
     list_editable = ['is_available', 'category']
 
 class CategoryAdmin(admin.ModelAdmin):

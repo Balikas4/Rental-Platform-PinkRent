@@ -40,6 +40,8 @@ def shop_page(request):
     sort_by_price_asc = request.GET.get('sort_by') == 'price_asc'
     sort_by_price_desc = request.GET.get('sort_by') == 'price_desc'
     brand = request.GET.get('brand', '')
+    color_filter = request.GET.get('color', 'all')
+    size_filter = request.GET.get('size', 'all')
 
     # Fetch parent categories (parent=None)
     parent_categories = Category.objects.filter(parent=None)
@@ -79,6 +81,12 @@ def shop_page(request):
         parent_category = get_object_or_404(Category, id=parent_category_id)
         subcategories = parent_category.subcategories.all()
         listings = listings.filter(category__parent_id=parent_category_id)
+    
+    if color_filter != 'all':
+        listings = listings.filter(color=color_filter)
+
+    if size_filter != 'all':
+        listings = listings.filter(size=size_filter)
 
     # Sort by price per 4 days
     if sort_by_price_asc:
@@ -95,6 +103,9 @@ def shop_page(request):
         listings = paginator.page(1)
     except EmptyPage:
         listings = paginator.page(paginator.num_pages)
+    
+    unique_colors = Listing.COLOR_CHOICES
+    unique_sizes = Listing.objects.values_list('size', flat=True).distinct()
 
     context = {
         'listings': listings,
@@ -103,6 +114,8 @@ def shop_page(request):
         'tags': Tag.objects.all(),
         'subcategories': subcategories,
         'brands': Brand.objects.all(),
+        'colors': unique_colors,
+        'sizes': unique_sizes,
 
     }
 

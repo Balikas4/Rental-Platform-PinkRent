@@ -30,15 +30,15 @@ class ListingForm(forms.ModelForm):
         fields = ['category', 'picture', 'picture_1', 'picture_2', 'picture_3', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'is_for_sale', 'description', 'tags']
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        if 'category' in self.data:
-            try:
-                category_id = int(self.data.get('category'))
-                self.fields['category'].queryset = Category.objects.filter(id=category_id)
-            except (ValueError, TypeError):
-                pass  # invalid input from the client; ignore and fallback to empty Category queryset
-        elif self.instance.pk and self.instance.category:
-            self.fields['category'].queryset = self.instance.category.parent.subcategories.all()
+        super(ListingForm, self).__init__(*args, **kwargs)
+        if self.instance and self.instance.pk:
+            category = self.instance.category
+            if category and category.parent:
+                self.fields['category'].queryset = category.parent.subcategories.all()
+            else:
+                self.fields['category'].queryset = Category.objects.all()
+        else:
+            self.fields['category'].queryset = Category.objects.all()
 
 class ListingReviewForm(forms.ModelForm):
     class Meta:

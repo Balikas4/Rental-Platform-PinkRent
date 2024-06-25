@@ -71,7 +71,7 @@ class Listing(models.Model):
             ('light_blue', _('Light Blue')),
             ('cyan', _('Blue')),
             ('green', _('Green')),
-            ('khaki', _('khaki')),
+            ('khaki', _('Khaki')),
             ('yellow', _('Yellow')),
             ('mustard', _('Mustard')),
             ('orange', _('Orange')),
@@ -109,7 +109,7 @@ class Listing(models.Model):
         ('40.5', '40.5'), ('41', '41'), ('41.5', '41.5'), ('42', '42'), ('42.5', '42.5'), 
         ('43', '43'), ('43.5', '43.5'), ('44', '44'), ('44.5', '44.5'), ('45', '45'), 
         ('45.5', '45.5'), ('46', '46'), ('46.5', '46.5'), ('47', '47'), ('47.5', '47.5'), 
-        ('48', '48'), ('48.5', '48.5'), ('onesize', 'One Size'), ('Other', 'Other')
+        ('48', '48'), ('48.5', '48.5'), ('One Size', 'One Size'), ('Other', 'Other')
     ]
 
     name = models.CharField(_("name"), max_length=100, db_index = True)
@@ -183,7 +183,7 @@ class FavoriteListing(models.Model):
         verbose_name_plural = _("favorite listings")
 
     def __str__(self):
-        return self.name
+        return f"{self.user.username} favorited {self.favorite_listing.name}"
 
     def get_absolute_url(self):
         return reverse("favorite_listing_detail", kwargs={"pk": self.pk})
