@@ -82,11 +82,82 @@ header .category-navbar a{
     justify-content: center;
     align-items: center; 
     color: #000000;
+    font-size: 22px;
 }
 
 .header-logo {
-    width: 50px;
+    padding: 32px;
+    width: 80px;
+    height: 80px;
 }
+
+.header-logo img {
+    width: 80px;
+    height: 80px;
+}
+
+/* SEARCH BAR */
+  /* Main styles */
+  .search-bar-header form {
+    position: relative;
+    width: 320px;
+    background: #FFFFFF; /* Replacing var(--color-brand) */
+    border-radius: .7rem; /* Replacing var(--rad) */
+    margin: auto;
+  }
+  
+  .search-bar-header input, .search-bar-header button {
+    height: 50px; /* Replacing var(--height) */
+    font-family: 'Montserrat', sans-serif;
+    border: 0;
+    color: #2f2f2f; /* Replacing var(--color-dark) */
+    font-size: 22px;
+  }
+  
+  .search-bar-header input[type="text"] {
+    outline: 0; /* For better accessibility, consider removing this */
+    width: 100%;
+    background: #fff; /* Replacing var(--color-light) */
+    padding: 0 60px 0 0;
+    border-radius: .7rem; /* Replacing var(--rad) */
+    appearance: none; /* For iOS input[type="search"] roundedness issue */
+    transition: all .3s cubic-bezier(0, 0, 0.43, 1.49); /* Replacing var(--dur) and var(--bez) */
+    transition-property: width, border-radius;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .search-bar-header button {
+    display: none; /* Prevent being able to tab to it */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px; /* Replacing var(--btn-width) */
+    background: #FF6F61; /* Replacing var(--color-brand) */
+    border-radius: 0 .7rem .7rem 0; /* Replacing var(--rad) */
+    z-index: 3;
+    color: #FFFFFF;
+  }
+  
+  .search-bar-header input:not(:placeholder-shown) {
+    border-radius: .7rem 0 0 .7rem; /* Replacing var(--rad) */
+    width: calc(100% - 6rem); /* Replacing var(--btn-width) */
+  }
+  
+  .search-bar-header input:not(:placeholder-shown) + button {
+    display: block;
+  }
+  
+  .search-bar-header label {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }  
+/* SEARCH BAR END*/
 
 main {
     background-color: #ffffff;
@@ -222,14 +293,42 @@ header form select {
 
 button, .button {
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FF6F61;
+    color: #FFFFFF;
+    padding: 13px 22px;
+    border-radius: 20px;
+    border-width: 0px;
+    font-size: 22px;
+    outline: 1px solid #DF4E40;
 }
 
-button a {
+.button-black {
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+    outline: 1px solid #000000;
+    background-color: #FFFFFF;
+    padding: 13px 22px;
+    border-radius: 20px;
+    border-width: 0px;
+    font-size: 22px;
+}
+
+.button-black a {
+    color: #000000;
+}
+
+button a, .button a {
     color: #FFFFFF;
 }
 
+.button-black:hover {
+    background-color: #eeeeee;
+}
+
 button:hover, .button:hover {
-    background-color: #AB666B;
+    background-color: #DF4E40;
 }
 
 ul.dashboard {
@@ -433,18 +532,12 @@ ul.dashboard li .stat {
     left: 25%; /* Position it 25% from the left */
     transform: translate(-20%, -60%); /* Center the overlay */
     text-align: center; /* Center-align the text */
-    color: white; /* Text color */
     width: 60%;
     font-family: 'Montserrat', sans-serif;
 }
 
-.text-overlay a {
-    color: #FFFFFF;
-}
-
 .text-overlay h2,
-.text-overlay h3,
-.text-overlay button {
+.text-overlay h3 {
     margin: 0; /* Remove default margin */
     padding: 10px 0px;
     background-color: transparent;
@@ -467,16 +560,8 @@ ul.dashboard li .stat {
 .hero-buttons {
     display: flex;
     flex-direction: row;
-    gap: 10px;
-}
-
-.text-overlay button {
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #DF4E40;
-    padding: 4px 40px;
-    font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
+    gap: 20px;
+    padding: 10px 20px;
 }
 
 .brands-line {
@@ -582,12 +667,6 @@ ul.dashboard li .stat {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-.hero-button button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
 }
 
 .listing-form {
@@ -713,6 +792,7 @@ main div .product-container {
 }
 
 .profile-picture-icon {
+    margin: 0px 20px 0px 50px;
     width: 50px; /* Adjust as needed */
     height: 50px; /* Adjust as needed */
     border-radius: 50%; /* Make it circular */
@@ -802,24 +882,6 @@ main div .product-container {
     text-align: center;
     padding: 20px 0px;
     font-family: 'Montserrat', sans-serif;
-}
-
-button {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #DF4E40;
-    color: #FFFFFF;
-    padding: 10px 10px;
-    border-radius: 12px;
-    border-width: 0px;
-}
-
-.button {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #DF4E40;
-    color: #FFFFFF;
-    padding: 10px 10px;
-    border-radius: 12px;
-    border-width: 0px;
 }
 
 .complete-your-look {
