@@ -3,6 +3,11 @@
     position: relative;
     text-align: center;
     color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.teaser-content div {
+    justify-self: center;
 }
 
 .teaser-image {
@@ -16,11 +21,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    text-align: -webkit-center
 }
 
 .teaser-content h1 {
@@ -56,7 +59,7 @@
 }
 
 .waitlist-email-input {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     font-size: 1rem;
     margin-bottom: 10px;
@@ -65,24 +68,24 @@
 .waitlist-form button {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #f39c12;
+    background-color: #FF6F61;
     border: none;
     color: white;
     cursor: pointer;
-    width: 100%;
+    width: 60%;
 }
 
 .waitlist-form button:hover {
-    background-color: #e67e22;
+    background-color: #DF4E40;
 }
-
-/* TEASER */
+/* TEASER END*/
 body {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     margin: 0; padding: 0;
     min-height: 100vh;
+    text-align: center;
 }
 
 .promo-line {
