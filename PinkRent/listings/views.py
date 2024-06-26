@@ -8,13 +8,28 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
 from django.contrib.auth import get_user_model
-from .forms import ListingForm , ListingReviewForm, FeedbackForm
+from .forms import ListingForm , ListingReviewForm, FeedbackForm, JoinWaitlistForm
 from .models import Listing , FavoriteListing, ListingReview, Category, Tag, Brand
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Avg
 from user_profiles.models import UserProfile
 from django.template.loader import render_to_string
+
+class JoinWaitlistView(generic.View):
+    def get(self, request, *args, **kwargs):
+        form = JoinWaitlistForm()
+        return render(request, 'teaser.html', {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = JoinWaitlistForm(request.POST)
+        if form.is_valid():
+            models.WaitlistEntry.objects.create(email=form.cleaned_data['email'])
+            return redirect('waitlist/thank-you/')  # Replace 'success_page' with your success URL name
+        return render(request, 'teaser.html', {'form': form})
+
+def waitlist_thank_you_view(request):
+    return render(request, 'waitlist_thank_you.html')
 
 def main_page(request: HttpRequest) -> HttpResponse:
     listings = Listing.objects.all()

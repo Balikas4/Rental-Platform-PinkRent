@@ -57,3 +57,9 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = ['comment', 'rating']
+
+class JoinWaitlistForm(forms.Form):
+    email = forms.EmailField(widget=forms.EmailInput(attrs={
+        'placeholder': 'Enter your email',
+        'class': 'waitlist-email-input'
+    }))

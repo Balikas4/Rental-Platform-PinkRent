@@ -15,10 +15,6 @@
     <header>
         <div class="main-line">
             <div class="main-partition">
-                <!-- Hamburger menu icon for mobile -->
-                <div class="mobile-menu-icon">
-                    <img id="menu-toggle-mobile" src="{% static 'menu-logo.png' %}" alt="{% trans "Menu" %}">
-                </div>        
                 <!-- Logo -->
                 <div class="header-logo">
                     <a href="{% url 'listings:main_page' %}"> <img src="{% static 'logo.png' %}" ></a>
@@ -70,7 +66,11 @@
                         {% endif %}
                     </ul>
                 </nav>
-            </div>
+                <!-- Hamburger menu icon for mobile -->
+                <div class="mobile-menu-icon">
+                    <img id="menu-toggle-mobile" src="{% static 'hamburger-menu.png' %}" alt="{% trans "Menu" %}">
+                </div>  
+            </div>      
             <!-- Mobile Full-screen Menu -->
             <div id="fullscreen-menu" class="mobile-fullscreen-menu">
                 <div class="mobile-exit-button">

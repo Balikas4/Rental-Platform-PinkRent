@@ -1,0 +1,23 @@
+{% extends "base_teaser.html" %}
+{% load i18n %} {% load static %}
+{% block title %}{% trans "Main Page" %}{% endblock title %}
+{% block content %}
+<div class="teaser-container">
+    <img src="{% static 'hero.png' %}" alt="Hero picture" class="teaser-image">
+    <div class="teaser-content">
+        <h1>Your Gateway to Stylish Rentals Nearby and Wardrobe Earnings is Almost Here!</h1>
+        <p>Until then...</p>
+        <h2>Sign up early and receive:</h2>
+        <ul>
+            <li><strong>Free Top Listing Visibility for 1 Month -</strong> Boost your chances of renting out your items!</li>
+            <li><strong>Early Access to Platform Features -</strong> Be the first to lend and explore items nearby.</li>
+        </ul>
+        <p>Join the fashion revolution today!</p>
+        <form method="post" action="{% url 'listings:main_page' %}" class="waitlist-form">
+            {% csrf_token %}
+            {{ form.email }}
+            <button type="submit">Join Waitlist</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

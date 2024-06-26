@@ -1,3 +1,82 @@
+/* TEASER */
+.teaser-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.teaser-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.teaser-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.teaser-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.teaser-content p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.teaser-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.teaser-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.teaser-content ul li {
+    margin-bottom: 1rem;
+}
+
+.teaser-content ul li strong {
+    font-weight: bold;
+}
+
+.waitlist-form {
+    margin-top: 20px;
+}
+
+.waitlist-email-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.waitlist-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #f39c12;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+.waitlist-form button:hover {
+    background-color: #e67e22;
+}
+
+/* TEASER */
 body {
     background-color: #ffffff;
     display: flex;
@@ -118,7 +197,7 @@ header .category-navbar a{
     outline: 0; /* For better accessibility, consider removing this */
     width: 100%;
     background: #fff; /* Replacing var(--color-light) */
-    padding: 0 60px 0 0;
+    padding: 0 0 0 0;
     border-radius: .7rem; /* Replacing var(--rad) */
     appearance: none; /* For iOS input[type="search"] roundedness issue */
     transition: all .3s cubic-bezier(0, 0, 0.43, 1.49); /* Replacing var(--dur) and var(--bez) */
@@ -165,17 +244,22 @@ main {
 }
 
 footer {
-    background-color: #fafafa;
+    background-color: #f3f3f3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
 }
 
 .footer-content {
-    background-color: #fafafa;
+    background-color: #f3f3f3;
     display: flex;
     flex-direction: row;
-    align-items: center;
     padding: 20px 40px;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.footer-collumn {
+    vertical-align: auto;
 }
 
 .footer-extra-bar {
@@ -412,6 +496,11 @@ ul.dashboard li .stat {
     margin: 60px;
 }
 
+.seperator-div {
+    text-align: center;
+    padding: 20px 0px;
+}
+
 .grid-item p {
     margin: 0px;
 }
@@ -477,7 +566,6 @@ ul.dashboard li .stat {
     display: flex;
     flex-direction: column;
     justify-content: left;
-    align-items: left;
     gap: 2px;
     padding: 1rem;
     max-width: 200px;
@@ -637,26 +725,14 @@ ul.dashboard li .stat {
 
 .hiw-container {
     text-align: center;
+    padding-bottom: 20px;
 }
 
 .hiw-grid {
-    width: 30%;
-}
-
-.dual-choice button {
-    cursor: pointer;
-    padding: 10px 20px;
-    border: none;
-    background-color: #FFFFFF;
-    color: #333;
-    font-size: 16px;
-    margin: 0 5px;
-    transition: background-color 0.3s;
-}
-
-.dual-choice button.active {
-    background-color: #FF6F61;
-    color: #fff;
+    width: 25%;
+    padding: 20px 5px;
+    background-color: #F8F8F8;
+    border-radius: 30px;
 }
 
 .how-it-works-container .container-content {
@@ -667,6 +743,40 @@ ul.dashboard li .stat {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.how-it-works-container {
+    font-family: 'Inter', sans-serif;
+}
+
+.how-it-works-container h2 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.how-it-works-container p {
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.dual-choice {
+    padding: 0px 0px 20px 0px;
+}
+
+.dual-choice button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    background-color: #FFFFFF;
+    color: #333333;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.dual-choice button.active {
+    background-color: #FF6F61;
+    color: #fff;
 }
 
 .listing-form {
@@ -916,7 +1026,7 @@ main div .product-container {
     margin: auto;
     overflow: hidden;
     position: relative;
-    width: 960px;
+    width: 960;
   }
   
   .slider::before, .slider::after {
@@ -954,6 +1064,19 @@ main div .product-container {
 /* Media query for tablets */
 @media screen and (max-width: 1024px) {
     /* Tablet styles */
+    button, .button, .button-black{
+        padding: 7px 11px;
+        font-size: 20px;
+    }
+    header .category-navbar a {
+        font-size: 18px;
+    }
+    .seperator-text h1{
+        font-size: 36px;
+    }
+    .search-bar-header form {
+        width: 260px;
+    }
     .text-overlay {
         top: 40%;
         left:40%;
@@ -961,10 +1084,9 @@ main div .product-container {
     .text-overlay h2,
     .text-overlay h3,
     .text-overlay button {
-        font-size: 80%;
+        font-size: 18px;
     }
     header .category-navbar {
-        font-size: 80%;
         gap: 1rem;
     }
     .perk-card {
@@ -987,11 +1109,17 @@ main div .product-container {
         grid-template-columns: repeat(2, 0fr);
         gap: 10px;
       }
+    .slider {
+        width: 600px;
+    }
 }
 
 /* Media query for mobile devices */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 760px) {
     /* Mobile styles */
+    .slider {
+        width: 300px;
+    }
     header h1 {
         font-size: 30px;
     }
@@ -1005,6 +1133,19 @@ main div .product-container {
         object-fit: cover; /* crop the image to fill the container while maintaining aspect ratio */
         display: block; /* remove any bottom space */
         object-position: center left;
+    }
+    .search-bar-header form {
+        width: 200px;
+    }
+    .seperator-text h1 {
+        margin: 5px;
+    }
+    .how-it-works-container .container-content.active, .complete-your-look{
+        flex-direction: column;
+        gap: 2px;
+    }
+    .hiw-grid, .container-choice {
+        width: 100%;
     }
     .text-overlay {
         position: absolute;
@@ -1033,16 +1174,15 @@ main div .product-container {
     header .main-line {
         font-size: 60%;
     }
-    header .category-navbar {
-        display: none;
-    }
-    .profile-picture-icon {
+    header .category-navbar, .profile-picture-icon, .action-buttons {
         display: none;
     }
     header .main-line {
         padding: 0px 5px;
     }
-
+    .header-logo {
+        padding: 6px;
+    }
     .popular-dresses {
         padding: 0px 10px;
     }

@@ -7,8 +7,11 @@ app_name = 'listings'
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-
-    path('', views.main_page, name='main_page'),
+    # Teaser
+    path('', views.JoinWaitlistView.as_view(), name='main_page'),  # Assuming you want the teaser page to be the home page
+    path('waitlist/thank-you/', views.waitlist_thank_you_view, name='waitlist_thank_you'),
+    
+    # path('', views.main_page, name='main_page'),
     path('listings/', views.listing_list, name='listing_list'),
     path('listing/<int:pk>/', views.listing_detail, name='listing_detail'),
     path('listing/<int:pk>/available/', views.listing_available, name='listing_available'),

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}{% get_available_languages as LANGUAGES %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}UPUPAM{% endblock title %}</title>
+    <link rel="icon" href="{% static 'icon.png' %}" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <!-- Logo -->
+        <div class="header-logo">
+            <a href="{% url 'listings:main_page' %}"> <img src="{% static 'logo.png' %}" ></a>
+        </div>
+    </header>
+    <section class="messages">
+        {% for message in messages %}
+            <p class="message message-{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </section>
+    <main>{% block content %}{% endblock content %}</main>
+    <footer>
+    </footer>
+</body>
+</html>
