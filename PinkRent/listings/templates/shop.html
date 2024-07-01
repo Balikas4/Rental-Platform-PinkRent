@@ -2,144 +2,161 @@
 {% load i18n %} {% load static %}
 {% block title %}{% trans "Main Page" %}{% endblock title %}
 {% block content %}
-<div class="filter-div">
-    <!-- Combined Filter Form -->
-    <form method="GET" action="{% url 'listings:shop_page' %}">
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" name="q" placeholder="Search by listing name" value="{{ request.GET.q }}">
-            <input type="text" name="city" placeholder="Search by city" value="{{ request.GET.city }}">
-        </div>
-        <!-- For Sale Checkbox -->
-        <div>
-            <label>
-                <input type="checkbox" name="is_for_sale" value="true" {% if request.GET.is_for_sale == 'true' %}checked{% endif %}>
-                {% trans "For Sale" %}
-            </label>
-            <!-- Sort by Price -->
-            <label>
-                <input type="checkbox" name="sort_by" value="price_asc" {% if request.GET.sort_by == 'price_asc' %}checked{% endif %}>
-                {% trans "Price: Low to High" %}
-            </label>
-            <label>
-                <input type="checkbox" name="sort_by" value="price_desc" {% if request.GET.sort_by == 'price_desc' %}checked{% endif %}>
-                {% trans "Price: High to Low" %}
-            </label>
-        </div>
-        <!-- Tag Checkboxes -->
-        <div>
-            <p>{% trans "Filter by Tags" %}</p>
-            {% for tag in tags %}
-                <label>
-                    <input type="checkbox" name="tags" value="{{ tag.id }}"
-                        {% if tag.id in request.GET.tags %}checked{% endif %}>
-                    {{ tag.name }}
-                </label>
-            {% endfor %}
-        </div>
-        <!-- Color Filter -->
-        <div>
-            <label for="color-filter">{% trans "Filter by Color:" %}</label>
-            <select id="color-filter" name="color">
-                <option value="all">{% trans "All Colors" %}</option>
-                {% for color, display in colors %}
-                    <option value="{{ color }}" {% if request.GET.color == color %}selected{% endif %}>{{ display }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <!-- Size Filter -->
-        <div>
-            <label for="size-filter">{% trans "Filter by Size:" %}</label>
-            <select id="size-filter" name="size">
-                <option value="all">{% trans "All Sizes" %}</option>
-                {% for size in sizes %}
-                    <option value="{{ size }}" {% if request.GET.size == size %}selected{% endif %}>{{ size }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <!-- Category Filters -->
-        <div class="category-filters">
-            <p>{% trans "Filter by Category:" %}</p>
-
-            <!-- Parent Category Dropdown -->
-            <label for="parent-category-filter"></label>
-            <select id="parent-category-filter" name="parent_category" onchange="fetchSubcategories(this.value)">
-                <option value="all">{% trans "All Parent Categories" %}</option>
-                {% for parent in parent_categories %}
-                    <option value="{{ parent.id }}" {% if parent.id|stringformat:"s" == request.GET.parent_category %}selected{% endif %}>
-                        {{ parent.name }}
-                    </option>
-                {% endfor %}
-            </select>
-
-            <!-- Sub-Category Dropdown -->
-            <label for="sub-category-filter"></label>
-            <select id="sub-category-filter" name="category">
-                <option value="all">{% trans "All Sub-Categories" %}</option>
-                {% if subcategories %}
-                    {% for subcategory in subcategories %}
-                        <option value="{{ subcategory.id }}" {% if subcategory.id|stringformat:"s" == request.GET.category %}selected{% endif %}>
-                            {{ subcategory.name }}
-                        </option>
-                    {% endfor %}
-                {% endif %}
-            </select>
-        </div>
-        <div>
-            <input type="text" id="brand-input" name="brand" placeholder="Search for a brand...">
-            <select id="brand-dropdown" size="5" style="display:none; position:absolute;"></select>
-        </div>
-        <!-- Single Filter Button -->
-        <button type="submit">{% trans "Filter" %}</button>
-    </form>
-    <div>
-        <p>Total Listings: {{ listings.paginator.count }}</p>
+<div class="shop-content">
+    <div class="mobile-filters">
+        <button type="button" id="filters-button">
+            <h2>FILTERS ({{ total_filters }})</h2>
+        </button>
+        <p>{{ listings.paginator.count }} RESULTS</p>
     </div>
-</div>
-<div class="grid-wrapper">
-    {% for listing in listings %}
-    {% if  listing.is_available %}
-    <div class="grid-item">
-        {% if listing.picture %}
-        <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
-            <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
-        </a>
-        {% else %}
-        <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
-            <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
-        </a>
-        {% endif %}
-        <a href="{% url 'listings:listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
-        <p>{% trans "Size" %}: {{ listing.size }}</p>
-        <p>{% trans "Value" %}: {{ listing.value }}</p>
-        <p class="grid-price">{{ listing.price }}$ {% trans "For 4 days" %}</p>
-        <div class="like-unlike">
-        {% if user.is_authenticated %}
-            {% if favorite_listing_ids %}
-                {% if listing.id in favorite_listing_ids %}
-                    <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="icon-button">
-                            <img class="icon" src="{% static 'unlike-icon.png' %}" alt="{% trans 'Unlike'|capfirst %}">
-                        </button>
-                    </form>
+    <!-- DESKTOP FILTER MENU -->
+    <div class="filter-menu">
+        <h2>FILTERS ({{ total_filters }})</h2>
+        <p>{{ listings.paginator.count }} RESULTS</p>
+        <form method="GET" action="{% url 'listings:shop_page' %}">
+            <!-- Search Bar -->
+            <div class="filter-item">
+                <button type="button" class="filter-toggle">Search</button>
+                <div class="filter-content">
+                    <input type="text" name="q" placeholder="Search by listing name" value="{{ request.GET.q }}">
+                    <input type="text" name="city" placeholder="Search by city" value="{{ request.GET.city }}">
+                </div>
+            </div>
+            <!-- For Sale and Sort by Price -->
+            <div class="filter-item">
+                <button type="button" class="filter-toggle">Sale and Price</button>
+                <div class="filter-content">
+                    <label class="toggle-button{% if request.GET.is_for_sale == 'true' %} active{% endif %}">
+                        <input type="checkbox" name="is_for_sale" value="true" {% if request.GET.is_for_sale == 'true' %}checked{% endif %}>
+                        {% trans "For Sale" %}
+                    </label>
+                    <label class="toggle-button{% if request.GET.sort_by == 'price_asc' %} active{% endif %}">
+                        <input type="checkbox" name="sort_by" value="price_asc" {% if request.GET.sort_by == 'price_asc' %}checked{% endif %}>
+                        {% trans "Price: Low to High" %}
+                    </label>
+                    <label class="toggle-button{% if request.GET.sort_by == 'price_desc' %} active{% endif %}">
+                        <input type="checkbox" name="sort_by" value="price_desc" {% if request.GET.sort_by == 'price_desc' %}checked{% endif %}>
+                        {% trans "Price: High to Low" %}
+                    </label>
+                </div>                
+            </div>
+            <!-- Tag Checkboxes -->
+            <div class="filter-item">
+                <button type="button" class="filter-toggle">Tags</button>
+                <div class="filter-content">
+                    {% for tag in tags %}
+                        <label class="toggle-button{% if tag.id|stringformat:"s" in request.GET.tags %} active{% endif %}">
+                            <input type="checkbox" name="tags" value="{{ tag.id }}" {% if tag.id|stringformat:"s" in request.GET.tags %}checked{% endif %}>
+                            {{ tag.name }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Color Filter -->
+            <div class="filter-item">
+                <button type="button" class="filter-toggle">Color</button>
+                <div class="filter-content">
+                    <label for="color-filter">{% trans "Filter by Color:" %}</label>
+                    <select id="color-filter" name="color">
+                        <option value="all">{% trans "All Colors" %}</option>
+                        {% for color, display in colors %}
+                            <option value="{{ color }}" {% if request.GET.color == color %}selected{% endif %}>{{ display }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <!-- Size Filter -->
+            <div class="filter-item">
+                <button type="button" class="filter-toggle">Size</button>
+                <div class="filter-content">
+                    <label for="size-filter">{% trans "Filter by Size:" %}</label>
+                    <select id="size-filter" name="size">
+                        <option value="all">{% trans "All Sizes" %}</option>
+                        {% for size in sizes %}
+                            <option value="{{ size }}" {% if request.GET.size == size %}selected{% endif %}>{{ size }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <!-- Category Filters -->
+            <div class="filter-item">
+                <button type="button" class="filter-toggle">Category</button>
+                <div class="filter-content">
+                    <label for="parent-category-filter">{% trans "Parent Category:" %}</label>
+                    <select id="parent-category-filter" name="parent_category" onchange="fetchSubcategories(this.value)">
+                        <option value="all">{% trans "All Parent Categories" %}</option>
+                        {% for parent in parent_categories %}
+                            <option value="{{ parent.id }}" {% if parent.id|stringformat:"s" == request.GET.parent_category %}selected{% endif %}>
+                                {{ parent.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <label for="category-filter">{% trans "Subcategory:" %}</label>
+                    <select id="category-filter" name="category">
+                        <option value="all">{% trans "All Categories" %}</option>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}" {% if category.id|stringformat:"s" == request.GET.category %}selected{% endif %}>
+                                {{ category.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <!-- Brand Filter -->
+            <div class="filter-item">
+                <button type="button" class="filter-toggle">Brand</button>
+                <div class="filter-content">
+                    <input type="text" id="brand-input" name="brand" placeholder="Search for a brand..." value="{{ request.GET.brand }}">
+                    <select id="brand-dropdown" size="5" style="display:none; position:absolute;"></select>
+                </div>
+            </div>
+            <button type="submit">{% trans "Apply Filters" %}</button>
+        </form>
+    </div>    
+    <div class="grid-wrapper">
+        {% for listing in listings %}
+        {% if  listing.is_available %}
+        <div class="grid-item">
+            {% if listing.picture %}
+            <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+                <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
+            </a>
+            {% else %}
+            <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+                <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
+            </a>
+            {% endif %}
+            <a href="{% url 'listings:listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
+            <p>{% trans "Size" %}: {{ listing.size }}</p>
+            <p>{% trans "Value" %}: {{ listing.value }}</p>
+            <p class="grid-price">{{ listing.price }}$ {% trans "For 4 days" %}</p>
+            <div class="like-unlike">
+            {% if user.is_authenticated %}
+                {% if favorite_listing_ids %}
+                    {% if listing.id in favorite_listing_ids %}
+                        <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="icon-button">
+                                <img class="icon" src="{% static 'unlike-icon.png' %}" alt="{% trans 'Unlike'|capfirst %}">
+                            </button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+                            <img class="icon" src="{% static 'like-icon.png' %}">
+                        </a>
+                    {% endif %}
                 {% else %}
                     <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
                         <img class="icon" src="{% static 'like-icon.png' %}">
                     </a>
                 {% endif %}
-            {% else %}
-                <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
-                    <img class="icon" src="{% static 'like-icon.png' %}">
-                </a>
             {% endif %}
-        {% endif %}
+            </div>
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
 </div>
-
 <div class="pagination">
     {% if listings.has_previous %}
         <a href="?page=1">&laquo; First</a>
@@ -161,12 +178,42 @@
 </div>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Toggle the filter menu visibility
+        document.getElementById('filters-button').addEventListener('click', function() {
+            var filterMenu = document.querySelector('.filter-menu');
+            filterMenu.classList.toggle('show');
+        });
+
+        // Toggle filter content visibility
+        const filterToggles = document.querySelectorAll('.filter-toggle');
+        filterToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const filterContent = this.nextElementSibling;
+                if (filterContent.style.display === 'flex') {
+                    filterContent.style.display = 'none';
+                } else {
+                    filterContent.style.display = 'flex';
+                }
+            });
+        });
+
+        // Toggle checkbox button state
+        document.querySelectorAll('.toggle-button input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                this.parentNode.classList.toggle('active', this.checked);
+            });
+        });
+    });
+
+    // Fetch subcategories based on parent category selection
     function fetchSubcategories(parentId) {
         if (parentId) {
             fetch(`{% url 'listings:get_subcategories' %}?parent_category=` + parentId)
                 .then(response => response.json())
                 .then(data => {
-                    const subcategorySelect = document.getElementById('sub-category-filter');
+                    const subcategorySelect = document.getElementById('category-filter');
                     subcategorySelect.innerHTML = '<option value="all">{% trans "All Sub-Categories" %}</option>';
                     data.subcategories.forEach(subcategory => {
                         const option = document.createElement('option');
@@ -174,12 +221,17 @@
                         option.textContent = subcategory.name;
                         subcategorySelect.appendChild(option);
                     });
-                });
+                    subcategorySelect.style.display = 'block'; // Show the select dropdown
+                })
+                .catch(error => console.error('Error fetching subcategories:', error));
         } else {
-            document.getElementById('sub-category-filter').innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+            const subcategorySelect = document.getElementById('category-filter');
+            subcategorySelect.innerHTML = '<option value="all">{% trans "All Sub-Categories" %}</option>';
+            subcategorySelect.style.display = 'block'; // Show the select dropdown
         }
     }
 </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
@@ -194,8 +246,7 @@
                         if (data.length > 0) {
                             $('#brand-dropdown').show();
                             data.forEach(function(brand){
-                                // Append brand names to the dropdown
-                                $('#brand-dropdown').append('<option value="' + brand.name + '">' + brand.name + '</option>');
+                                $('#brand-dropdown').append('<option value="' + brand.id + '">' + brand.name + '</option>');
                             });
                         } else {
                             $('#brand-dropdown').hide();
@@ -206,9 +257,10 @@
                 $('#brand-dropdown').hide();
             }
         });
-    
+
         $('#brand-dropdown').on('change', function(){
-            $('#brand-input').val($(this).val());
+            var selectedBrandId = $(this).val();
+            $('#brand-input').val($(this).find('option:selected').text()); // Show the brand name in the input field
             $('#brand-dropdown').hide();
         });
     });

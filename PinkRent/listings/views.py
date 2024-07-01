@@ -54,7 +54,7 @@ def shop_page(request):
     is_for_sale = request.GET.get('is_for_sale', '')
     sort_by_price_asc = request.GET.get('sort_by') == 'price_asc'
     sort_by_price_desc = request.GET.get('sort_by') == 'price_desc'
-    brand = request.GET.get('brand', '')
+    brand_name = request.GET.get('brand', '')
     color_filter = request.GET.get('color', 'all')
     size_filter = request.GET.get('size', 'all')
 
@@ -74,8 +74,8 @@ def shop_page(request):
     if city_query:
         listings = listings.filter(owner__userprofile__city__icontains=city_query)
 
-    if brand:
-        listings = listings.filter(brand__id=brand)
+    if brand_name:
+        listings = listings.filter(brand__name__icontains=brand_name)
         
     if is_for_sale == 'true':
         listings = listings.filter(is_for_sale=True)
@@ -122,6 +122,19 @@ def shop_page(request):
     unique_colors = Listing.COLOR_CHOICES
     unique_sizes = Listing.objects.values_list('size', flat=True).distinct()
 
+    # Count active filters
+    filter_counts = {
+        'tags': len(selected_tags),
+        'color': 1 if color_filter != 'all' else 0,
+        'size': 1 if size_filter != 'all' else 0,
+        'category': 1 if category_id != 'all' else 0,
+        'parent_category': 1 if parent_category_id and parent_category_id != 'all' else 0,
+        'brand': 1 if brand_name else 0,
+        'is_for_sale': 1 if is_for_sale else 0,
+        'sort_by': 1 if sort_by_price_asc or sort_by_price_desc else 0
+    }
+    total_filters = sum(filter_counts.values())
+
     context = {
         'listings': listings,
         'categories': categories,
@@ -131,7 +144,8 @@ def shop_page(request):
         'brands': Brand.objects.all(),
         'colors': unique_colors,
         'sizes': unique_sizes,
-
+        'filter_counts': filter_counts,
+        'total_filters': total_filters,
     }
 
     if request.user.is_authenticated:
