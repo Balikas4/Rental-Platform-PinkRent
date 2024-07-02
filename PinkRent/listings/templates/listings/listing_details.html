@@ -7,13 +7,34 @@
     <p>HOME>DRESS>WEDDING DRESS</p>
   </div>
   <div class="product-container">
-    <div class="product-pictures">
-      {% if listing.picture %}
-        <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
-      {% else %}
-        <p>{% trans "No picture available" %}</p>
+    <div class="carousel-container">
+      <div class="carousel">
+          {% if listing.picture %}
+              <div class="carousel-item active">
+                  <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
+              </div>
+          {% endif %}
+          {% if listing.picture_1 %}
+              <div class="carousel-item">
+                  <img src="{{ listing.picture_1.url }}" alt="{{ listing.name }}">
+              </div>
+          {% endif %}
+          {% if listing.picture_2 %}
+              <div class="carousel-item">
+                  <img src="{{ listing.picture_2.url }}" alt="{{ listing.name }}">
+              </div>
+          {% endif %}
+          {% if listing.picture_3 %}
+              <div class="carousel-item">
+                  <img src="{{ listing.picture_3.url }}" alt="{{ listing.name }}">
+              </div>
+          {% endif %}
+      </div>
+      {% if listing.picture or listing.picture_1 or listing.picture_2 or listing.picture_3 %}
+          <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+          <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
       {% endif %}
-    </div>
+  </div>  
     <div class="product-description">
       <h1>{{ listing.name }}</h1>
       <div class="description-box-items">
@@ -73,4 +94,34 @@
         </a>
     {% endif %}
     </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const carousel = document.querySelector('.carousel');
+      const items = document.querySelectorAll('.carousel-item');
+      const totalItems = items.length;
+      let currentIndex = 0;
+  
+      function updateCarousel() {
+          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+  
+      window.nextSlide = function() {
+          if (currentIndex < totalItems - 1) {
+              currentIndex++;
+          } else {
+              currentIndex = 0;
+          }
+          updateCarousel();
+      };
+  
+      window.prevSlide = function() {
+          if (currentIndex > 0) {
+              currentIndex--;
+          } else {
+              currentIndex = totalItems - 1;
+          }
+          updateCarousel();
+      };
+  });
+  </script>
 {% endblock content %}
