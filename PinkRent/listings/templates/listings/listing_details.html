@@ -3,8 +3,8 @@
 {% block title %}{{ block.super }} | {{ listing.name }}{% endblock title %}
 {% block content %}
 <div clas="listing-container">
-  <div class="root-row">
-    <p>HOME>DRESS>WEDDING DRESS</p>
+  <div class="seperator-text">
+    <h1>{{ listing.name }}</h1>
   </div>
   <div class="product-container">
     <div class="carousel-container">
@@ -36,14 +36,13 @@
       {% endif %}
   </div>  
     <div class="product-description">
-      <h1>{{ listing.name }}</h1>
       <div class="description-box-items">
         <h2>{% trans "Listing details"|capfirst %}</h2>
-        <div class= "inline-items"><p class="text-bold">{% trans "Category:" %} </p><p> {{ listing.category }}</p></div>
-        <div class= "inline-items"><p class="text-bold">{% trans "Brand:" %} </p><p> {{ listing.brand }}</p></div>
-        <div class= "inline-items"><p class="text-bold">{% trans "Size:" %} </p><p> {{ listing.size }}</p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Category:" %} </p><a href="{% url 'listings:shop_page' %}?parent_category=all&category={{ listing.category.id }}"><p class="button">{{ listing.category }}</p></a></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Brand:" %} </p><a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p class="button">{{ listing.brand }}</p></a></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Size:" %} </p><a href="{% url 'listings:shop_page' %}?size={{ listing.size }}"><p class="button"> {{ listing.size }}</p></a></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Quality:" %} </p><p> {{ listing.quality }}</p></div>
-        <div class= "inline-items"><p class="text-bold">{% trans "Listing Owner:" %} </p><p><a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Listing Owner:" %} </p><p class="button"><a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Description:" %} </p><p> {{ listing.description }}</p></div>
       </div>
         <div class= "inline-items"><p class="text-bold">{% trans "Value:" %} </p><p> {{ listing.value }}</p></div>

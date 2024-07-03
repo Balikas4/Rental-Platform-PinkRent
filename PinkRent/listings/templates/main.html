@@ -51,8 +51,8 @@
           </a>
         {% endif %}
         <div class="grid-tags">
-          <a href=""><p>{{ listing.size }}</p></a>
-          <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.id }}"><p>{{ listing.brand }}</p></a>
+          <a href="{% url 'listings:shop_page' %}?size={{ listing.size }}"><p>{{ listing.size }}</p></a>
+          <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p>{{ listing.brand }}</p></a>
         </div>
         <div class="grid-text">
           <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
@@ -84,6 +84,7 @@
       {% endif %}
       {% endfor %}
     </div>
+  </div>
   </div>
 <div class="filter-bar">
   <div class="seperator-text">

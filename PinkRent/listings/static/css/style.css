@@ -472,8 +472,6 @@ ul.dashboard li .stat {
 
 .listing-image {
     object-fit: cover; /* This property will make the image fill the specified dimensions without stretching */
-    width: 200px; /* Adjust as needed */
-    height: 100px; /* Adjust as needed */
 }
 
 .main-page-content{
@@ -747,7 +745,8 @@ ul.dashboard li .stat {
 }
 
 .grid-item img {
-    min-height: 300px;
+    max-height: 300px;
+    max-width: 200px;
 }
 
 .grid-item img.icon {
@@ -864,6 +863,16 @@ ul.dashboard li .stat {
 .reviews-card {
     max-width: 350px;
     background-color: #ECECEC;
+}
+
+.review-div {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin: auto;
+    width: 30%;
+    gap: 2px;
 }
 
 .choice-container {
@@ -995,20 +1004,22 @@ ul.dashboard li .stat {
 main div .product-container {
     display: flex;
     flex-wrap: wrap;
-    padding: 0px 20px;
+    flex-direction: row;
+    gap: 50px;
     justify-content: center;
 }
 
 .carousel-container {
     position: relative;
-    max-width: 500px; /* Adjust to your preferred width */
-    margin: auto;
+    width: 400px; 
+    max-height: 600px;
     overflow: hidden;
 }
 
 .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    max-height: 600px;
 }
 
 .carousel-item {
@@ -1018,7 +1029,7 @@ main div .product-container {
 
 .carousel-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
 }
 
@@ -1035,17 +1046,22 @@ main div .product-container {
 }
 
 .prev {
-    left: 0;
+    left: 10px;
 }
 
 .next {
-    right: 0;
+    right: 10px;
 }
 
 .product-description {
     width: 40%;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
 }
 
 .product-description h1 {
@@ -1055,13 +1071,16 @@ main div .product-container {
 }
 
 .product-description h2 {
-    border: #D2D2D2 1px solid;
     margin: 0px;
     font-size: 20px;
 }
 
 .description-box-items {
     border: #D2D2D2 1px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
 }
 
 .description-box-items p {
@@ -1071,6 +1090,7 @@ main div .product-container {
 }
 .inline-items {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .text-bold {
@@ -1112,6 +1132,10 @@ main div .product-container {
     position: absolute; /* Position the image relative to its parent */
     top: 0;
     left: 0;
+}
+
+.icon-button {
+    outline: 0;
 }
 
 .profile-picture img {
@@ -1306,6 +1330,14 @@ main div .product-container {
     .slider {
         width: 600px;
     }
+    .review-div {
+        margin: auto;
+        width: 90%;
+        gap: 4px;
+    }
+    .product-description {
+        width: auto;
+    }
 }
 
 /* Media query for mobile devices */
@@ -1403,10 +1435,14 @@ main div .product-container {
     }
     .grid-wrapper {
         display: grid;
-        grid-template-columns: repeat(1, 0fr);
+        grid-template-columns: repeat(2, 0fr);
         gap: 5px;
         justify-content: center;
-      }
+    }
+    .listing-image {
+        width: 150px;
+        height: 200px;
+    }
     header .main-line a {
         color: #999999;
     }
@@ -1460,8 +1496,22 @@ main div .product-container {
     .mobile-filters {
         display: flex;
         flex-direction: column;
+        margin: 10px 0px;
+    }
+    .mobile-filters h2 {
+        font-size: 18px;
+        font-weight: 400;
     }
     .filter-menu.show {
         width: 100%;
+    }
+    .filter-menu h2 , .filter-menu p {
+        display: none;
+    }
+    .grid-text , .grid-tags {
+        flex-wrap: wrap;
+    }
+    button.filter-toggle {
+        font-weight: 400;
     }
 }

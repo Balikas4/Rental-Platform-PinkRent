@@ -114,23 +114,27 @@
         </form>
     </div>    
     <div class="grid-wrapper">
-        {% for listing in listings %}
-        {% if  listing.is_available %}
+        {% for listing in listings|slice:":4" %}
+        {% if listing.is_available %}
         <div class="grid-item">
-            {% if listing.picture %}
+          {% if listing.picture %}
             <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
-                <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
+              <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
             </a>
-            {% else %}
+          {% else %}
             <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
-                <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
+              <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
             </a>
-            {% endif %}
-            <a href="{% url 'listings:listing_detail' pk=listing.pk %}"><p>{{ listing.name }}</p></a>
-            <p>{% trans "Size" %}: {{ listing.size }}</p>
-            <p>{% trans "Value" %}: {{ listing.value }}</p>
-            <p class="grid-price">{{ listing.price }}$ {% trans "For 4 days" %}</p>
-            <div class="like-unlike">
+          {% endif %}
+          <div class="grid-tags">
+            <a href="{% url 'listings:shop_page' %}?size={{ listing.size }}"><p>{{ listing.size }}</p></a>
+            <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p>{{ listing.brand }}</p></a>
+          </div>
+          <div class="grid-text">
+            <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
+            <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+          </div>
+          <div class="like-unlike">
             {% if user.is_authenticated %}
                 {% if favorite_listing_ids %}
                     {% if listing.id in favorite_listing_ids %}
@@ -151,10 +155,11 @@
                     </a>
                 {% endif %}
             {% endif %}
-            </div>
+          </div>
         </div>
         {% endif %}
         {% endfor %}
+      </div>
     </div>
 </div>
 <div class="pagination">
