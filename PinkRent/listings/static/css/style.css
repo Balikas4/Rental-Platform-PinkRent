@@ -480,10 +480,10 @@ ul.dashboard li .stat {
 
 .grid-wrapper {
     display: grid;
-    grid-template-columns: repeat(4, 0fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-content: center;
-  }
+}
 
 .popular-dresses {
     padding: 0px 30px;
@@ -529,6 +529,7 @@ ul.dashboard li .stat {
 .grid-tags {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 4px;
     font-family: 'Inter', sans-serif;
 }
@@ -569,8 +570,8 @@ ul.dashboard li .stat {
     flex-direction: column;
     justify-content: left;
     gap: 2px;
-    padding: 1rem;
-    max-width: 200px;
+    min-width: 186px;
+    overflow: hidden;
 }
 
 /* Mobile Full-screen Menu Styles */
@@ -643,7 +644,7 @@ ul.dashboard li .stat {
     margin-top: 0;
 }
 
-.mobile-filters h2 , p {
+.mobile-filters h2 {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
 }
@@ -1230,6 +1231,11 @@ main div .product-container {
     margin: 10px 20%;
 }
 
+div .pagination {
+    font-family: 'Inter', sans-serif;
+    margin-top: 20px;
+}
+
 @keyframes scroll {
     0% {
       transform: translateX(0);
@@ -1440,8 +1446,8 @@ main div .product-container {
         justify-content: center;
     }
     .listing-image {
-        width: 150px;
-        height: 200px;
+        min-width: 186px;
+        min-height: 279px;
     }
     header .main-line a {
         color: #999999;
@@ -1508,10 +1514,13 @@ main div .product-container {
     .filter-menu h2 , .filter-menu p {
         display: none;
     }
-    .grid-text , .grid-tags {
+    .grid-text {
         flex-wrap: wrap;
     }
     button.filter-toggle {
         font-weight: 400;
+    }
+    .filter-bar .grid-wrapper {
+        grid-template-columns: repeat(1, 0fr);
     }
 }

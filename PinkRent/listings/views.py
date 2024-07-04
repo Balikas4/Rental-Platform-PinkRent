@@ -32,15 +32,14 @@ def waitlist_thank_you_view(request):
     return render(request, 'waitlist_thank_you.html')
 
 def main_page(request: HttpRequest) -> HttpResponse:
-    listings = Listing.objects.all()
+    listings = Listing.objects.filter(is_available=True)  # Filter only available listings
     context = {
-        'listing_count': models.Listing.objects.count(),
+        'listing_count': listings.count(),
         'users_count': models.get_user_model().objects.count(),
-        'listings': models.Listing.objects.all(),
+        'listings': listings,
     }
     if request.user.is_authenticated:
         user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__in=listings)
-        # Create a set of favorite listing ids for easier lookup
         favorite_listing_ids = set(user_favorites.values_list('favorite_listing__id', flat=True))
         context['favorite_listing_ids'] = favorite_listing_ids
     return render(request, 'main.html', context)
@@ -65,7 +64,7 @@ def shop_page(request):
     subcategories = None
     
     categories = Category.objects.all()
-    listings = Listing.objects.all()
+    listings = Listing.objects.filter(is_available=True)  # Filter only available listings
 
     # Apply filters
     if query:
@@ -110,7 +109,7 @@ def shop_page(request):
         listings = listings.order_by('-price')
 
     # Pagination
-    paginator = Paginator(listings, 4)  # 4 listings per page
+    paginator = Paginator(listings, 16)  # 4 listings per page
     page = request.GET.get('page')
     try:
         listings = paginator.page(page)
@@ -146,6 +145,8 @@ def shop_page(request):
         'sizes': unique_sizes,
         'filter_counts': filter_counts,
         'total_filters': total_filters,
+        'query_params': request.GET.urlencode(),  # Provide cleaned URL parameters for pagination
+
     }
 
     if request.user.is_authenticated:
@@ -185,7 +186,7 @@ def category_page(request, category_slug, parent_slug=None):
     listings = Listing.objects.filter(category=category)
     
     # Pagination
-    paginator = Paginator(listings, 4)  # 4 listings per page
+    paginator = Paginator(listings, 8)  # 4 listings per page
     page = request.GET.get('page')
     try:
         listings = paginator.page(page)

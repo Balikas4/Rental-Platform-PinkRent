@@ -49,8 +49,9 @@
     </div>
     <div class="fieldWrapper">
         {{ form.brand.errors }}
-        <label for="brand-input">Brand:</label>
-        <input type="text" id="brand-input" name="brand" class="form-control">
+        <label for="brand-search">Brand:</label>
+        <input type="hidden" id="brand-input" name="brand">
+        <input type="text" id="brand-search" class="form-control" placeholder="Search for brand">
         <select id="brand-dropdown" class="form-control" size="5" style="display: none;"></select>
     </div>
     <div class="fieldWrapper">
@@ -128,10 +129,10 @@
                         sizes = ['35', '35.5', '36', '36.5', '37', '37.5', '38', '38.5', '39', '39.5', '40', '40.5', '41', '41.5', '42', '42.5', '43', '43.5', '44', '44.5', '45', '45.5', '46', '46.5', '47', '47.5', '48', '48.5'];
                         break;
                     case '6':  // Handbag subcategory ID
-                        sizes = ['onesize'];
+                        sizes = ['One Size'];
                         break;
                     case '4':  // Accessories subcategory ID
-                        sizes = ['XL', 'L', 'M', 'S', 'onesize'];
+                        sizes = ['XL', 'L', 'M', 'S', 'One Size'];
                         break;
                     default:
                         sizes = ['XXXS / 30 / 2', 'XXS / 32 / 4', 'XS / 34 / 6', 'S / 36 / 8', 'M / 38 / 10', 'L / 40 / 12', 'XL / 42 / 14', 'XXL / 44 / 16', 'XXXL / 46 / 18', '4XL / 48 / 20', '5XL / 50 / 22', '6XL / 52 / 24', '7XL / 54 / 26', '8XL / 56 / 28', 'Other'];
@@ -168,7 +169,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('#brand-input').on('input', function(){
+        $('#brand-search').on('input', function(){
             var query = $(this).val();
             if (query.length > 0) {
                 $.ajax({
@@ -179,7 +180,7 @@
                         if (data.length > 0) {
                             $('#brand-dropdown').show();
                             data.forEach(function(brand){
-                                $('#brand-dropdown').append('<option value="' + brand.name + '">' + brand.name + '</option>');
+                                $('#brand-dropdown').append('<option value="' + brand.id + '">' + brand.name + '</option>');
                             });
                         } else {
                             $('#brand-dropdown').hide();
@@ -190,11 +191,15 @@
                 $('#brand-dropdown').hide();
             }
         });
-
+    
         $('#brand-dropdown').on('change', function(){
-            $('#brand-input').val($(this).val());
+            var selectedOption = $(this).find('option:selected');
+            var brandId = selectedOption.val();
+            var brandName = selectedOption.text();
+            $('#brand-input').val(brandId);
+            $('#brand-search').val(brandName);
             $('#brand-dropdown').hide();
         });
-    });
+    });    
 </script>
 {% endblock %}

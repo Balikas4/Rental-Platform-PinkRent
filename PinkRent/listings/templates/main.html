@@ -39,49 +39,49 @@
     </div>
     <div class="grid-wrapper">
       {% for listing in listings|slice:":4" %}
-      {% if listing.is_available %}
-      <div class="grid-item">
-        {% if listing.picture %}
-          <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
-            <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
-          </a>
-        {% else %}
-          <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
-            <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
-          </a>
-        {% endif %}
-        <div class="grid-tags">
-          <a href="{% url 'listings:shop_page' %}?size={{ listing.size }}"><p>{{ listing.size }}</p></a>
-          <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p>{{ listing.brand }}</p></a>
-        </div>
-        <div class="grid-text">
-          <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
-          <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
-        </div>
-        <div class="like-unlike">
-          {% if user.is_authenticated %}
-              {% if favorite_listing_ids %}
-                  {% if listing.id in favorite_listing_ids %}
-                      <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
-                          {% csrf_token %}
-                          <button type="submit" class="icon-button">
-                              <img class="icon" src="{% static 'unlike-icon.png' %}" alt="{% trans 'Unlike'|capfirst %}">
-                          </button>
-                      </form>
+        {% if listing.is_available %}
+          <div class="grid-item">
+            {% if listing.picture %}
+              <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+                <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
+              </a>
+            {% else %}
+              <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+                <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
+              </a>
+            {% endif %}
+            <div class="grid-tags">
+              <a href="{% url 'listings:shop_page' %}?size={{ listing.size }}"><p>{{ listing.size }}</p></a>
+              <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p>{{ listing.brand }}</p></a>
+            </div>
+            <div class="grid-text">
+              <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
+              <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+            </div>
+            <div class="like-unlike">
+              {% if user.is_authenticated %}
+                  {% if favorite_listing_ids %}
+                      {% if listing.id in favorite_listing_ids %}
+                          <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+                              {% csrf_token %}
+                              <button type="submit" class="icon-button">
+                                  <img class="icon" src="{% static 'unlike-icon.png' %}" alt="{% trans 'Unlike'|capfirst %}">
+                              </button>
+                          </form>
+                      {% else %}
+                          <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+                              <img class="icon" src="{% static 'like-icon.png' %}">
+                          </a>
+                      {% endif %}
                   {% else %}
                       <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
                           <img class="icon" src="{% static 'like-icon.png' %}">
                       </a>
                   {% endif %}
-              {% else %}
-                  <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
-                      <img class="icon" src="{% static 'like-icon.png' %}">
-                  </a>
               {% endif %}
-          {% endif %}
-        </div>
-      </div>
-      {% endif %}
+            </div>
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
