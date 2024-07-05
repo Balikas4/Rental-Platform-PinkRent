@@ -299,6 +299,12 @@ class ListingUpdateView(
 
     def test_func(self) -> bool | None:
         return self.get_object().owner == self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['parent_categories'] = models.Category.objects.filter(parent__isnull=True)
+        context['favorite_listing_ids'] = self.request.user.favorite_listings.values_list('id', flat=True)
+        return context
     
 class ListingDeleteView(
         LoginRequiredMixin, 

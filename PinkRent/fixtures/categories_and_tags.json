@@ -1,0 +1,227 @@
+[
+    {
+        "model": "listings.category",
+        "pk": 1,
+        "fields": {
+            "name": "Women's Fashion",
+            "slug": "women",
+            "parent": null
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 2,
+        "fields": {
+            "name": "Men's Fashion",
+            "slug": "men",
+            "parent": null
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 3,
+        "fields": {
+            "name": "Dresses",
+            "slug": "dresses",
+            "parent": 1
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 4,
+        "fields": {
+            "name": "Shirts and Tops",
+            "slug": "shirts-tops",
+            "parent": 1
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 5,
+        "fields": {
+            "name": "Jackets",
+            "slug": "jackets",
+            "parent": 1
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 6,
+        "fields": {
+            "name": "Trousers",
+            "slug": "trousers",
+            "parent": 1
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 7,
+        "fields": {
+            "name": "Coats",
+            "slug": "coats",
+            "parent": 1
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 8,
+        "fields": {
+            "name": "Suits",
+            "slug": "suits",
+            "parent": 1
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 9,
+        "fields": {
+            "name": "Bags",
+            "slug": "bags",
+            "parent": 1
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 10,
+        "fields": {
+            "name": "Shoes",
+            "slug": "shoes",
+            "parent": 1
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 11,
+        "fields": {
+            "name": "Accessories",
+            "slug": "accessories",
+            "parent": 1
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 12,
+        "fields": {
+            "name": "Jackets",
+            "slug": "jackets",
+            "parent": 2
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 13,
+        "fields": {
+            "name": "Pants",
+            "slug": "pants",
+            "parent": 2
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 14,
+        "fields": {
+            "name": "Suits",
+            "slug": "suits",
+            "parent": 2
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 15,
+        "fields": {
+            "name": "Shoes",
+            "slug": "shoes",
+            "parent": 2
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 16,
+        "fields": {
+            "name": "Shirts and Tops",
+            "slug": "shirts-tops",
+            "parent": 2
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 17,
+        "fields": {
+            "name": "Accessories",
+            "slug": "accessories",
+            "parent": 2
+        }
+    },
+    {
+        "model": "listings.category",
+        "pk": 18,
+        "fields": {
+            "name": "Coats",
+            "slug": "coats",
+            "parent": 2
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 1,
+        "fields": {
+            "name": "Wedding - bride"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 2,
+        "fields": {
+            "name": "Wedding - groom"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 3,
+        "fields": {
+            "name": "Wedding guest"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 4,
+        "fields": {
+            "name": "Cocktail dress-code"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 5,
+        "fields": {
+            "name": "Ball gown"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 6,
+        "fields": {
+            "name": "Evening dresses"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 7,
+        "fields": {
+            "name": "Baptism"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 8,
+        "fields": {
+            "name": "Black tie"
+        }
+    },
+    {
+        "model": "listings.tag",
+        "pk": 9,
+        "fields": {
+            "name": "Pregnat friendly"
+        }
+    }
+]

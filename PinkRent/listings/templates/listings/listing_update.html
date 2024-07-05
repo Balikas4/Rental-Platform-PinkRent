@@ -8,13 +8,214 @@
 {% block content %}
   <h1>{% trans "editing listing"|capfirst %} {{ listing.name }}</h1>
   {% if listing.picture %}
-  <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
-{% else %}
-  <p>No picture available</p>
-{% endif %}
+    <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
+  {% else %}
+    <p>No picture available</p>
+  {% endif %}
   <form method="post" action="{{ request.path }}" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.non_field_errors }}
+
+    <div class="fieldWrapper">
+        <label for="parent_category">{% trans "Parent Category" %}</label>
+        <select id="parent_category">
+          <option value="">{% trans "Select Parent Category" %}</option>
+          {% for category in parent_categories %}
+            <option value="{{ category.id }}" {% if listing.category.parent and listing.category.parent.id == category.id %}selected{% endif %}>{{ category.name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div class="fieldWrapper">
+        <label for="sub_category">{% trans "Sub Category" %}</label>
+        <select id="sub_category">
+          <option value="">{% trans "Select Sub-Category" %}</option>
+        </select>
+    </div>
+    <div class="fieldWrapper">
+        {{ form.picture.errors }}
+        <label for="{{ form.picture.id_for_label }}">Picture:</label>
+        {{ form.picture }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.picture_1.errors }}
+        <label for="{{ form.picture_1.id_for_label }}">Picture 2:</label>
+        {{ form.picture_1 }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.picture_2.errors }}
+        <label for="{{ form.picture_2.id_for_label }}">Picture 3:</label>
+        {{ form.picture_2 }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.picture_3.errors }}
+        <label for="{{ form.picture_3.id_for_label }}">Picture 4:</label>
+        {{ form.picture_3 }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.name.errors }}
+        <label for="{{ form.name.id_for_label }}">Name:</label>
+        {{ form.name }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.brand.errors }}
+        <label for="brand-search">Brand:</label>
+        <input type="hidden" id="brand-input" name="brand" value="{{ form.brand.value }}">
+        <input type="text" id="brand-search" class="form-control" placeholder="Search for brand" value="{{ listing.brand.name }}">
+        <select id="brand-dropdown" class="form-control" size="5" style="display: none;"></select>
+    </div>
+    <div class="fieldWrapper">
+        {{ form.size.errors }}
+        <label for="{{ form.size.id_for_label }}">Size:</label>
+        {{ form.size }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.quality.errors }}
+        <label for="{{ form.quality.id_for_label }}">Quality:</label>
+        {{ form.quality }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.color.errors }}
+        <label for="{{ form.color.id_for_label }}">Color:</label>
+        {{ form.color }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.value.errors }}
+        <label for="{{ form.value.id_for_label }}">Value:</label>
+        {{ form.value }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.is_for_sale.errors }}
+        <label for="{{ form.is_for_sale.id_for_label }}">Receive buy offers:</label>
+        {{ form.is_for_sale }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.price.errors }}
+        <label for="{{ form.price.id_for_label }}">4 day rent price:</label>
+        {{ form.price }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.description.errors }}
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        {{ form.description }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.tags.errors }}
+        <label for="{{ form.tags.id_for_label }}">Tags:</label>
+        {{ form.tags }}
+    </div>
+    <input type="hidden" id="id_category" name="category" value="{{ form.category.value }}">
     <p><button type="submit">{% trans "confirm"|capfirst %}</button></p>
   </form>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    function fetchSubcategories(parentId) {
+        if (parentId) {
+            fetch(`{% url 'listings:get_subcategories' %}?parent_category=` + parentId)
+                .then(response => response.json())
+                .then(data => {
+                    const subcategorySelect = document.getElementById('sub_category');
+                    subcategorySelect.innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+                    data.subcategories.forEach(subcategory => {
+                        const option = document.createElement('option');
+                        option.value = subcategory.id;
+                        option.textContent = subcategory.name;
+                        subcategorySelect.appendChild(option);
+                    });
+                    subcategorySelect.value = '{{ listing.category.id }}'; // Set selected subcategory
+                });
+        } else {
+            document.getElementById('sub_category').innerHTML = '<option value="">{% trans "Select Sub-Category" %}</option>';
+        }
+    }
+
+    function fetchSizes(subCategoryId) {
+        const sizeSelect = document.getElementById('{{ form.size.id_for_label }}');
+        let sizes = [];
+
+        if (subCategoryId) {
+            switch (subCategoryId) {
+                case '10':  // Shoe subcategory ID
+                case '15':  // Men's Shoe subcategory ID
+                    sizes = ['35', '35.5', '36', '36.5', '37', '37.5', '38', '38.5', '39', '39.5', '40', '40.5', '41', '41.5', '42', '42.5', '43', '43.5', '44', '44.5', '45', '45.5', '46', '46.5', '47', '47.5', '48', '48.5'];
+                    break;
+                case '9':   // Bags subcategory ID
+                    sizes = ['One Size'];
+                    break;
+                case '11':  // Accessories subcategory ID
+                case '17':  // Men's Accessories subcategory ID
+                    sizes = ['XL', 'L', 'M', 'S', 'One Size'];
+                    break;
+                default:
+                    sizes = ['XXXS / 30 / 2', 'XXS / 32 / 4', 'XS / 34 / 6', 'S / 36 / 8', 'M / 38 / 10', 'L / 40 / 12', 'XL / 42 / 14', 'XXL / 44 / 16', 'XXXL / 46 / 18', '4XL / 48 / 20', '5XL / 50 / 22', '6XL / 52 / 24', '7XL / 54 / 26', '8XL / 56 / 28', 'Other'];
+                    break;
+            }
+        }
+
+        sizeSelect.innerHTML = '<option value="">{% trans "Select Size" %}</option>';
+        sizes.forEach(size => {
+            const option = document.createElement('option');
+            option.value = size;
+            option.textContent = size;
+            sizeSelect.appendChild(option);
+        });
+    }
+
+    // Add event listener to parent category dropdown
+    const parentCategorySelect = document.getElementById("parent_category");
+    parentCategorySelect.addEventListener("change", function() {
+        fetchSubcategories(this.value);
+    });
+
+    // Add event listener to subcategory dropdown
+    const subCategorySelect = document.getElementById('sub_category');
+    subCategorySelect.addEventListener("change", function() {
+        fetchSizes(this.value);
+        document.getElementById('id_category').value = this.value; // Update hidden field value with subcategory
+    });
+
+    // Initial load
+    fetchSubcategories(parentCategorySelect.value);
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#brand-search').on('input', function(){
+            var query = $(this).val();
+            if (query.length > 0) {
+                $.ajax({
+                    url: '{% url "listings:brand_search" %}',
+                    data: {'q': query},
+                    success: function(data){
+                        $('#brand-dropdown').empty();
+                        if (data.length > 0) {
+                            $('#brand-dropdown').show();
+                            data.forEach(function(brand){
+                                $('#brand-dropdown').append('<option value="' + brand.id + '">' + brand.name + '</option>');
+                            });
+                        } else {
+                            $('#brand-dropdown').hide();
+                        }
+                    }
+                });
+            } else {
+                $('#brand-dropdown').hide();
+            }
+        });
+    
+        $('#brand-dropdown').on('change', function(){
+            var selectedOption = $(this).find('option:selected');
+            var brandId = selectedOption.val();
+            var brandName = selectedOption.text();
+            $('#brand-input').val(brandId);
+            $('#brand-search').val(brandName);
+            $('#brand-dropdown').hide();
+        });
+
+        // Set initial brand search input value
+        $('#brand-input').val('{{ listing.brand.id }}');
+        $('#brand-search').val('{{ listing.brand.name }}');
+    });    
+</script>
 {% endblock content %}
