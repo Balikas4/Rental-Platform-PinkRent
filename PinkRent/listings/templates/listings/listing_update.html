@@ -12,6 +12,7 @@
   {% else %}
     <p>No picture available</p>
   {% endif %}
+<div class="form-fields">
   <form method="post" action="{{ request.path }}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.non_field_errors }}
@@ -106,7 +107,7 @@
     <input type="hidden" id="id_category" name="category" value="{{ form.category.value }}">
     <p><button type="submit">{% trans "confirm"|capfirst %}</button></p>
   </form>
-
+</div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     function fetchSubcategories(parentId) {

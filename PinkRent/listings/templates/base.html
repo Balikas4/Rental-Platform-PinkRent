@@ -78,11 +78,11 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="{% url 'listings:category_page' category_slug='wedding-dresses' parent_slug='women' %}">Wedding dresses</a></li>
-                        <li><a href="{% url 'listings:category_page' category_slug='accessories' parent_slug='women' %}">Accessories</a></li>
-                        <li><a href="{% url 'listings:category_page' category_slug='occasional-dresses' parent_slug='women' %}">Occasional dresses</a></li>
-                        <li><a href="{% url 'listings:category_page' category_slug='handbags' parent_slug='women' %}">Handbags</a></li>
-                        <li><a href="{% url 'listings:category_page' category_slug='heels' parent_slug='women' %}">Heels</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=3">Wedding dresses</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=4">Accessories</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=5">Occasional dresses</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=6">Handbags</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=7">Heels</a></li>
                         <li><a href="{% url 'listings:listing_create' %}"> {% trans "Upload item for rent" %}</a></li>
                         <li><a href="{% url 'listings:shop_page' %}"> {% trans "Rent from others" %}</a></li>
                         {% if request.user.is_authenticated %}
@@ -92,7 +92,7 @@
                                 <li><a href="{% url 'user_update' %}">Create Profile</a></li>
                             {% endif %}
                             <li><a href="{% url "my_favorite_users" %}">My Favorite users</a></li>
-                            <li><li><a href="{% url "listings:my_favorites" %}">My Favorite listings</a></li>
+                            <li><a href="{% url "listings:my_favorites" %}">My Favorite listings</a></li>
                             {% if request.user.is_superuser or request.user.is_staff %}
                                 <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
                             {% endif %}
@@ -106,7 +106,7 @@
                             <li><a href="{% url 'signup' %}">{% trans "sign up"|capfirst %}</a></li>
                         {% endif %}
                     </ul>
-                </nav>
+                </nav>                
             </div>
         </div>
         <div class="category-navbar">

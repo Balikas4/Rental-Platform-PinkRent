@@ -4,8 +4,9 @@ from .models import Listing, ListingReview, Tag, Category, Brand, Feedback
 class ListingForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False
+        widget=forms.Select(attrs={'class': 'form-control'}),
+        required=False,
+        label="Occasion"
     )
 
     category = forms.ModelChoiceField(
@@ -31,6 +32,8 @@ class ListingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ListingForm, self).__init__(*args, **kwargs)
+        # Add a blank choice
+        self.fields['tags'].widget.choices = [('', '---------')] + list(self.fields['tags'].widget.choices)
         if self.instance and self.instance.pk:
             category = self.instance.category
             if category and category.parent:
