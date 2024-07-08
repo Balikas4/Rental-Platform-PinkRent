@@ -1245,6 +1245,12 @@ div .pagination {
 
 .fieldWrapper input , .fieldWrapper select {
     font-family: 'Montserrat', sans-serif;
+    margin-right: auto;
+}
+
+.fieldWrapper a {
+    font-size: 10px;
+    margin-right: auto;
 }
 
 .form-fields {
