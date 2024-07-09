@@ -17,7 +17,7 @@
             <li><strong>Early Access to Platform Features -</strong> Be the first to lend and explore items nearby.</li>
         </ul>
         <p>Join the fashion revolution today!</p>
-        <form method="post" action="{% url 'listings:waitlist_thank_you' %}" class="waitlist-form">
+        <form method="post" action="{% url 'listings:waitlist_page' %}" class="waitlist-form">
             {% csrf_token %}
             {{ form.email }}
             <button type="submit">Join Waitlist</button>
