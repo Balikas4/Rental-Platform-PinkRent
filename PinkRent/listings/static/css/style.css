@@ -873,6 +873,12 @@ ul.dashboard li .stat {
     gap: 2px;
 }
 
+.product-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .choice-container {
     justify-content: center;
     display: flex;
@@ -1098,7 +1104,9 @@ main div .product-container {
 
 .action-buttons {
     display: flex;
+    padding: 20px 0px;
     gap: 10px;
+    justify-content: center;
 }
 
 .user-profile {
