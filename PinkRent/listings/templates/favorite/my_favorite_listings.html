@@ -1,21 +1,23 @@
 {% extends "base.html" %}
-{% load static %}{% load i18n %}
+{% load static %}
+{% load i18n %}
+
 {% block title %}{{ block.super }} my favorite listings{% endblock title %}
+
 {% block content %}
 <h1>{% trans "My favorite listings" %}</h1>
+
 <div class="grid-wrapper">
-  {% for listing in listing_favorites %}
-      {% if listing.is_available %}
+  {% for favorite in listing_favorites %}
+      {% with favorite.listing as listing %}
           <div class="grid-item">
-              {% if listing.picture %}
-                  <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+              <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+                  {% if listing.picture %}
                       <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
-                  </a>
-              {% else %}
-                  <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+                  {% else %}
                       <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
-                  </a>
-              {% endif %}
+                  {% endif %}
+              </a>
               <div class="grid-tags">
                   <a href="{% url 'listings:shop_page' %}?size={{ listing.size }}"><p>{{ listing.size }}</p></a>
                   <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p>{{ listing.brand }}</p></a>
@@ -26,19 +28,13 @@
               </div>
               <div class="like-unlike">
                   {% if user.is_authenticated %}
-                      {% if favorite_listing_ids %}
-                          {% if listing.id in favorite_listing_ids %}
-                              <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
-                                  {% csrf_token %}
-                                  <button type="submit" class="icon-button">
-                                      <img class="icon" src="{% static 'unlike-icon.png' %}" alt="{% trans 'Unlike'|capfirst %}">
-                                  </button>
-                              </form>
-                          {% else %}
-                              <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
-                                  <img class="icon" src="{% static 'like-icon.png' %}">
-                              </a>
-                          {% endif %}
+                      {% if listing.id in favorite_listing_ids %}
+                          <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+                              {% csrf_token %}
+                              <button type="submit" class="icon-button">
+                                  <img class="icon" src="{% static 'unlike-icon.png' %}" alt="{% trans 'Unlike'|capfirst %}">
+                              </button>
+                          </form>
                       {% else %}
                           <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
                               <img class="icon" src="{% static 'like-icon.png' %}">
@@ -47,7 +43,9 @@
                   {% endif %}
               </div>
           </div>
-      {% endif %}
+      {% endwith %}
+  {% empty %}
+      <p>{% trans "No favorite listings found." %}</p>
   {% endfor %}
-</div>        
+</div>
 {% endblock content %}

@@ -13,7 +13,7 @@ from .models import Listing , FavoriteListing, ListingReview, Category, Tag, Bra
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Avg
-from user_profiles.models import UserProfile
+from user_profiles.models import UserProfile, FavoriteUser
 from django.template.loader import render_to_string
 
 class JoinWaitlistView(generic.View):
@@ -339,9 +339,15 @@ def add_favorite_listing(request, pk):
         return redirect(request.GET.get("next"))
     return redirect('listings:my_favorites')
 
+@login_required
 def my_favorites(request):
-    listing_favorites = FavoriteListing.objects.filter(user=request.user)
+    listing_favorites = FavoriteListing.objects.filter(user=request.user, listing__is_available=True)
     return render(request, 'favorite/my_favorite_listings.html', {'listing_favorites': listing_favorites})
+
+@login_required
+def my_favorite_users(request):
+    favorite_users = FavoriteUser.objects.filter(user=request.user)
+    return render(request, 'favorite/my_favorite_users.html', {'favorite_users': favorite_users})
 
 def remove_favorite_listing(request, pk):
     if request.method == 'POST':

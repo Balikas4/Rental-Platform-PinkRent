@@ -80,6 +80,7 @@
   </div>
   <div class="user-details">
     <div class='review-div'>
+      <p class="button"><a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
       <h5>{% trans "User Reviews" %} ({{ reviews.count }})</h5>
       <h5>{% trans "Review average" %} ({{ average_rating|floatformat:"1" }})</h5>
       {% if reviews %} 

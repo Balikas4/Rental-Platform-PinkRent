@@ -1,17 +1,54 @@
 {% extends "base.html" %}
-{% load static %}{% load i18n %}
-{% block title %}{{ block.super }} my favorites list{% endblock title %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ block.super }} My Favorite Users{% endblock title %}
+
 {% block content %}
-  <h1>{% trans "My favorites" %}</h1>
-  <ul>
-    {% for favorite in user_favorites %}
-    <li>
-        <p>{{ favorite.user }} likes {{ favorite.favorite_user }}</p>
-      <form action="{% url 'remove_favorite' favorite.favorite_user.id %}" method="post">
-          {% csrf_token %}
-          <button type="submit">{% trans "Remove"|capfirst %}</button>
-      </form>
-    </li>
+<h1>{% trans "My Favorite Users"|upper %}</h1>
+
+<div class="user-list">
+    {% for favorite in favorite_users %}
+        {% with favorite.favorite_user as user %}
+            <div class="user-item">
+                <div class="profile-picture">
+                    {% if user.userprofile.picture %}
+                        <img src="{{ user.userprofile.picture.url }}" alt="{% trans "Profile Picture"|title %}" width="100">
+                    {% else %}
+                        <div class="no-picture">
+                            <p>{% trans "No profile picture available" %}</p>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="user-info">
+                    <a href="{% url 'user_detail' user.username %}"><h2>{{ user.username }}</h2></a>
+                    <p>{{ user.first_name }} {{ user.last_name }}</p>
+                    <p>{% trans "Number of Listings" %}: {{ user.listings.count }}</p>
+                    {% if user.userprofile.contact_options.IG %}
+                        <p><strong>{% trans "Instagram" %}:</strong> <a href="{{ user.userprofile.contact_options.IG }}" target="_blank">{{ user.userprofile.contact_options.IG }}</a></p>
+                    {% endif %}
+                    {% if user.userprofile.contact_options.FB %}
+                        <p><strong>{% trans "Facebook" %}:</strong> <a href="{{ user.userprofile.contact_options.FB }}" target="_blank">{{ user.userprofile.contact_options.FB }}</a></p>
+                    {% endif %}
+                    {% if user.userprofile.contact_options.NUM %}
+                        <p><strong>{% trans "Phone Number" %}:</strong> {{ user.userprofile.contact_options.NUM }}</p>
+                    {% endif %}
+                    {% if user.userprofile.contact_options.EMAIL %}
+                        <p><strong>{% trans "Email" %}:</strong> {{ user.userprofile.contact_options.EMAIL }}</p>
+                    {% endif %}
+                </div>
+                <div class="like-unlike">
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'remove_favorite' user.pk %}?next={{ request.path }}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">{% trans "Unlike"|capfirst %}</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        {% endwith %}
+    {% empty %}
+        <p>{% trans "You have no favorite users." %}</p>
     {% endfor %}
-  </ul>
+</div>
 {% endblock content %}

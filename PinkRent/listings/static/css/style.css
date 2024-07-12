@@ -868,8 +868,7 @@ ul.dashboard li .stat {
     display: flex;
     flex-direction: column;
     font-size: 20px;
-    margin: auto;
-    width: 30%;
+    width: 300px;
     gap: 2px;
 }
 
@@ -877,6 +876,8 @@ ul.dashboard li .stat {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .choice-container {
@@ -1377,7 +1378,6 @@ input#id_picture {
         width: 600px;
     }
     .review-div {
-        margin: auto;
         width: 90%;
         gap: 4px;
     }
