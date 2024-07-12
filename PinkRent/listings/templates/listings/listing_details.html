@@ -81,10 +81,10 @@
   <div class="user-details">
     <div class='review-div'>
       <p class="button"><a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
-      <h5>{% trans "User Reviews" %} ({{ reviews.count }})</h5>
-      <h5>{% trans "Review average" %} ({{ average_rating|floatformat:"1" }})</h5>
+      <h5>{% trans "User Reviews" %} ({{ profile_reviews.count }})</h5>
+      <h5>{% trans "Review average" %} ({{ profile_average_rating|floatformat:"1" }})</h5>
       {% if reviews %} 
-        {% for r in reviews %}
+        {% for r in profile_reviews %}
           <p>{{ r.rate }}⭐ "{{ r.comment }}" {{ r.user }} {{ r.created_at|date:"d M Y" }}</p>
         {% endfor %}
       {% else %}
@@ -96,7 +96,7 @@
           {% trans "Leave a review"|capfirst %}
       </a>
       {% endif %}
-  </div>
+    </div>
   </div>
 </div>
   <div class="action-buttons">

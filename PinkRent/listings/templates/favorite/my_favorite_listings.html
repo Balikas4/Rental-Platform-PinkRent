@@ -9,7 +9,7 @@
 
 <div class="grid-wrapper">
   {% for favorite in listing_favorites %}
-      {% with favorite.listing as listing %}
+      {% with favorite.favorite_listing as listing %}
           <div class="grid-item">
               <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
                   {% if listing.picture %}
@@ -24,7 +24,7 @@
               </div>
               <div class="grid-text">
                   <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
-                  <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+                  <p>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p>
               </div>
               <div class="like-unlike">
                   {% if user.is_authenticated %}

@@ -13,7 +13,7 @@ from .models import Listing , FavoriteListing, ListingReview, Category, Tag, Bra
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Avg
-from user_profiles.models import UserProfile, FavoriteUser
+from user_profiles.models import UserProfile, UserProfileReview, FavoriteUser
 from django.template.loader import render_to_string
 
 class JoinWaitlistView(generic.View):
@@ -229,18 +229,30 @@ def listing_list(request: HttpRequest) -> HttpResponse:
 
 def listing_detail(request: HttpRequest, pk:int) -> HttpResponse:
     listing = get_object_or_404(Listing, pk=pk)
+    owner = listing.owner  # Assumes `owner` is a ForeignKey to the user in the Listing model
+    owner_profile = get_object_or_404(UserProfile, user=owner)
     context = {
         'listing': listing,
+        'owner_profile': owner_profile,
     }
     if request.user.is_authenticated:
         context['user_favorites'] = FavoriteListing.objects.filter(user=request.user, favorite_listing=listing)
-    reviews = ListingReview.objects.filter(listing=listing)
+    listing_reviews = ListingReview.objects.filter(listing=listing)
 
     # Calculate average rating
-    average_rating = reviews.aggregate(Avg('rate'))['rate__avg']
+    average_rating = listing_reviews.aggregate(Avg('rate'))['rate__avg']
     context['average_rating'] = average_rating if average_rating is not None else 0
 
-    context['reviews'] = reviews
+    context['listing_reviews'] = listing_reviews
+
+    profile_reviews = UserProfileReview.objects.filter(profile=owner_profile)
+
+    # Calculate average rating
+    profile_average_rating = profile_reviews.aggregate(Avg('rate'))['rate__avg']
+    context['profile_average_rating'] = profile_average_rating if profile_average_rating is not None else 0
+
+    context['profile_reviews'] = profile_reviews
+
     return render(request, 'listings/listing_details.html', context)
 
 def listing_available(request: HttpRequest, pk:int) -> HttpResponse:
@@ -341,7 +353,7 @@ def add_favorite_listing(request, pk):
 
 @login_required
 def my_favorites(request):
-    listing_favorites = FavoriteListing.objects.filter(user=request.user, listing__is_available=True)
+    listing_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__is_available=True)
     return render(request, 'favorite/my_favorite_listings.html', {'listing_favorites': listing_favorites})
 
 @login_required
