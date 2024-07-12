@@ -8,7 +8,7 @@
 <h1>{% trans "My Favorite Users"|upper %}</h1>
 
 <div class="user-list">
-    {% for favorite in favorite_users %}
+    {% for favorite in user_favorites %}
         {% with favorite.favorite_user as user %}
             <div class="user-item">
                 <div class="profile-picture">

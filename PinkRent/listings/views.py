@@ -354,7 +354,10 @@ def add_favorite_listing(request, pk):
 @login_required
 def my_favorites(request):
     listing_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__is_available=True)
-    return render(request, 'favorite/my_favorite_listings.html', {'listing_favorites': listing_favorites})
+    context = {
+        'listing_favorites': listing_favorites,
+    }
+    return render(request, 'favorite/my_favorite_listings.html', context)
 
 @login_required
 def my_favorite_users(request):

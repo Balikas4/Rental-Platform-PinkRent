@@ -2,10 +2,10 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{{ block.super }} my favorite listings{% endblock title %}
+{% block title %}{{ block.super }} My Favorite Listings{% endblock title %}
 
 {% block content %}
-<h1>{% trans "My favorite listings" %}</h1>
+<h1>{% trans "My Favorite Listings" %}</h1>
 
 <div class="grid-wrapper">
   {% for favorite in listing_favorites %}
@@ -28,18 +28,16 @@
               </div>
               <div class="like-unlike">
                   {% if user.is_authenticated %}
-                      {% if listing.id in favorite_listing_ids %}
-                          <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
-                              {% csrf_token %}
-                              <button type="submit" class="icon-button">
-                                  <img class="icon" src="{% static 'unlike-icon.png' %}" alt="{% trans 'Unlike'|capfirst %}">
-                              </button>
-                          </form>
-                      {% else %}
-                          <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
-                              <img class="icon" src="{% static 'like-icon.png' %}">
-                          </a>
-                      {% endif %}
+                      <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
+                          {% csrf_token %}
+                          <button type="submit" class="icon-button">
+                              <img class="icon" src="{% static 'unlike-icon.png' %}" alt="{% trans 'Unlike'|capfirst %}">
+                          </button>
+                      </form>
+                  {% else %}
+                      <a href="{% url 'listings:add_favorite_listing' listing.pk %}?next={{ request.path }}">
+                          <img class="icon" src="{% static 'like-icon.png' %}">
+                      </a>
                   {% endif %}
               </div>
           </div>
