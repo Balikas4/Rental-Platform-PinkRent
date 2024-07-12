@@ -97,6 +97,6 @@ We are continuously working to enhance the PinkRent experience. Future updates m
 
 Embrace a more sustainable and cost-effective lifestyle by joining PinkRent. Browse our catalog, rent items, and be part of a community that values sharing and environmental responsibility.
 
-Currently running on VPS domain www.pinkpink.lt
+Currently running on VPS domain www.upupam.world
 
 Happy renting!
