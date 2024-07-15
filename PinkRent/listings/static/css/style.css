@@ -243,6 +243,7 @@ header .category-navbar a{
 main {
     background-color: #ffffff;
     padding: 0px 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 footer {
@@ -1113,6 +1114,19 @@ main div .product-container {
 .user-profile {
     display: flex;
     align-items: center;
+}
+
+.user-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-list {
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .profile-picture {

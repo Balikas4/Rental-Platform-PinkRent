@@ -26,7 +26,7 @@ CSRF_TRUSTED_ORIGINS=['https://upupam.world', 'https://www.upupam.world']
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'postgres', 'www.upupam.world', 'upupam.world']
 
@@ -76,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'PinkRent.context_processors.google_analytics',
             ],
         },
     },
