@@ -23,7 +23,7 @@
     transform: translate(-50%, -50%);
     max-width: 800px;
     width: 100%;
-    text-align: -webkit-center
+    text-align: -webkit-center;
 }
 
 .teaser-content h1 {
@@ -1114,6 +1114,7 @@ main div .product-container {
 .user-profile {
     display: flex;
     align-items: center;
+    justify-content: center
 }
 
 .user-item {
@@ -1188,6 +1189,11 @@ main div .product-container {
     font-weight: 400;
     text-transform: uppercase;
 }
+
+.review-container {
+    text-align: -webkit-center;
+}
+
 
 .review-bar {
     font-family: 'Montserrat', sans-serif;

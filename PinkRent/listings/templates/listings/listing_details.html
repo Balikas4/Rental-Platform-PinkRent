@@ -95,7 +95,7 @@
           {% trans "Leave a review"|capfirst %}
       </a>
       {% endif %}
-      <p class="button"><a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p>
+      <a href="{% url 'user_detail' username=listing.owner.username %}"><p class="button">{{ listing.owner.username }}</p></a>
     </div>
   </div>
 </div>
