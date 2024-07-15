@@ -142,18 +142,19 @@
         <div class="footer-content">
             <div class="footer-collumn">
                 <div class="footer-logo">
-                    <a href="{% url 'listings:main_page' %}"> <img src="{% static 'icon.png' %}" ></a>
+                    <a href="{% url 'listings:main_page' %}"> <img src="{% static 'icon.png' %}" alt="Upupam Logo"></a>
                 </div>
-                <p>Email</p>
-                <p>About UPUPAM</p>
+                <p><a href="{% url 'listings:about_us' %}">About UPUPAM</a></p>
             </div>
             <div class="footer-collumn">
-                <p>How it woks</p>
-                <p>Fashion Rental Tips and Guidelines</p>
+                <p><a href="{% url 'listings:how_it_works' %}">How It Works</a></p>
+                <p><a href="{% url 'listings:fashion_rental_tips' %}">Fashion Rental Tips and Guidelines</a></p>
+                <p><a href="{% url 'listings:best_practices_lending' %}">Best Practices | Lending</a></p>
             </div>
             <div class="footer-collumn">
-                <p>Privacy Policy</p>
-                <p>Terms and Conditions</p>
+                <p><a href="">Privacy Policy</a></p>
+                <p><a href="{% url 'listings:terms_and_conditions' %}">Terms and Conditions</a></p>
+                <p><a href="{% url 'listings:platform_rules' %}">Platform Rules</a></p>
             </div>
         </div>
         <div class="footer-extra-bar">
@@ -170,7 +171,7 @@
                 </select>
             </form>
         </div>
-    </footer>
+    </footer>    
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const menuToggleDesktop = document.getElementById("menu-toggle-desktop");

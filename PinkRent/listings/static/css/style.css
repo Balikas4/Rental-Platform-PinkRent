@@ -597,7 +597,7 @@ ul.dashboard li .stat {
 .mobile-exit-button button {
     font-size: 2rem;
     background: none;
-    border: none;
+    outline: 1px solid #444444;
     cursor: pointer;
 }
 
@@ -873,6 +873,10 @@ ul.dashboard li .stat {
     gap: 2px;
 }
 
+.review-container {
+    text-align: -webkit-center;
+}
+
 .product-details {
     display: flex;
     flex-direction: row;
@@ -1114,7 +1118,7 @@ main div .product-container {
 .user-profile {
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .user-item {
@@ -1591,9 +1595,6 @@ input#id_picture {
     .footer-extra-bar {
         padding: 4px;
         flex-direction: column;
-    }
-    footer {
-        font-size: 60%;
     }
     .footer-collumn {
         max-width: 60%;

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %} {% load static %}
+{% block title %}{% trans "Platform Rules" %}{% endblock title %}
+{% block content %}
+<div class="platform-rules">
+    <h1>{% trans "Platform Rules" %}</h1>
+
+    <p>{% trans "Upupam platform is a place to transform consumerism choices. Here, we wish to create a safe and friendly place for all customers to contribute to circular items' life. Due to this, we ask all members to adhere to the Upupam Platform Catalog Rules below when uploading their items." %}</p>
+
+    <h2>{% trans "On Upupam, you can rent/sell the following items:" %}</h2>
+    <ul>
+        <li>{% trans "Women’s, men’s clothes, shoes, and accessories." %}</li>
+    </ul>
+
+    <h2>{% trans "On Upupam, you can’t rent/sell the following items:" %}</h2>
+    <ul>
+        <li>{% trans "Items that are counterfeits;" %}</li>
+        <li>{% trans "Items with real animal fur or leather." %}</li>
+    </ul>
+</div>
+{% endblock content %}

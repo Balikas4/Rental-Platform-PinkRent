@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %} {% load static %}
+{% block title %}{% trans "Best Practices | Lending" %}{% endblock title %}
+{% block content %}
+<div class="best-practices">
+    <h1>{% trans "Best Practices | Lending" %}</h1>
+
+    <h2>{% trans "Establish Communication" %}</h2>
+    <p>{% trans "Renters will connect with you through social media, phone number, or email. Make sure to respond promptly, clearly, and friendly." %}</p>
+
+    <h2>{% trans "Insurance/Deposit Terms" %}</h2>
+    <p>{% trans "If you decide to charge for a non-refundable insurance fee to cover minor damages (e.g., a broken zipper or loose stitch), clearly state it to the renter before renting an item. You may also consider requesting a refundable deposit. Clearly communicate to the renter that the deposit will be returned after the item is given back in good condition." %}</p>
+
+    <h2>{% trans "Rental Conditions" %}</h2>
+    <p>{% trans "Clearly outline all rental conditions, including how the item should be used and cared for (e.g., you may ask the renter not to do any dry cleaning after wearing it). Define the start and end dates of the rental period. If the same item is booked for rental with a short time gap, remember that you need to clean and prepare it in time. Always consider whether you will have enough time to receive the item, clean it, and rent it out to another person." %}</p>
+
+    <h2>{% trans "Delivery Process" %}</h2>
+    <p>{% trans "If you decide to choose a parcel carrier service, make sure to use a reliable parcel carrier service for shipping the item. You may also consider using same-day dispatch services available in Lithuania, such as bus shipping. If the renter lives nearby, you can also arrange to meet and hand over the item in person. Ensure the delivery method is agreed upon and clearly communicated to avoid misunderstandings." %}</p>
+
+    <h2>{% trans "Repair and Reuse" %}</h2>
+    <p>{% trans "If your item is damaged, don’t throw it away. Use fixing services by seamstresses to repair the item and get it back into the rental world. Promote the concept of fashion circularity by keeping your items in good condition and available for future rentals." %}</p>
+
+    <h2>{% trans "Reviews" %}</h2>
+    <p>{% trans "We encourage lenders to follow best practices by utilizing our platform’s review feature. After successfully lending an item to another user, consider leaving a 5-star review along with a sincere comment. This helps inspire confidence in other members, signaling that the borrower is reliable and friendly. Conversely, if any issues arise with a renter, feel free to leave a 1-5 star review addressing the concerns for the benefit of others. Let’s prioritize sincerity and fairness in our reviews to foster a safe and friendly platform environment for all." %}</p>
+</div>
+{% endblock content %}

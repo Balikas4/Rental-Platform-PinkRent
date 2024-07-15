@@ -208,7 +208,25 @@ def category_page(request, category_slug, parent_slug=None):
 
 
 def how_it_works(request):
-    return render(request, 'how-it-works.html')
+    return render(request, 'pages/how_it_works.html')
+
+def terms_and_conditions(request):
+    return render(request, 'pages/terms_and_conditions.html')
+
+def best_practices_lending(request):
+    return render(request, 'pages/best_practices_lending.html')
+
+def listing_upload_guidelines(request):
+    return render(request, 'pages/listing_upload_guidelines.html')
+
+def fashion_rental_tips(request):
+    return render(request, 'pages/fashion_rental_tips.html')
+
+def about_us(request):
+    return render(request, 'pages/about_us.html')
+
+def platform_rules(request):
+    return render(request, 'pages/platform_rules.html')
 
 def listing_list(request: HttpRequest) -> HttpResponse:
     queryset = models.Listing.objects
@@ -285,7 +303,7 @@ class ListingCreateView(LoginRequiredMixin, generic.CreateView):
 
     def get_success_url(self) -> str:
         messages.success(self.request, _('listing created successfully').capitalize())
-        return reverse('listings:my_listings')
+        return reverse('listings:listing_detail', kwargs={'pk': self.object.pk})
 
     def form_valid(self, form):
         form.instance.owner = self.request.user

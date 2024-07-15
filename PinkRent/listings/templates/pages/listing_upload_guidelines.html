@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %} {% load static %}
+{% block title %}{% trans "Listing Upload Guidelines" %}{% endblock title %}
+{% block content %}
+<div class="listing-upload-guidelines">
+    <h1>{% trans "Listing Upload Guidelines" %}</h1>
+
+    <h2>{% trans "Setting Prices" %}</h2>
+    <p>{% trans "Consider Cleaning Costs: for example, in Lithuania, cleaning an occasion dress costs approximately 20 EUR. Factor this into your rental price to cover these expenses;" %}</p>
+    <p>{% trans "Lenders have full control over setting the rental price for their items. On our platform, the listing form requires you to set a rental price for a 4-day rental period. However, once a renter contacts you, you can adjust the price based on the agreed rental period. Below are relevant considerations and recommendations for setting your item's price:" %}</p>
+    <ul>
+        <li>{% trans "Shipping Costs: Consider the item shipping costs if you and the renter agree this as a delivery method. It’s up to you to decide whether the shipping costs are on you or the buyer. If you plan to charge for the shipping expenses, we recommend including it in the item description rather than 4-Day Rental Price." %}</li>
+        <li>{% trans "4-Day Rental Price: Have in mind that in the listing upload form, you are putting a 4-day rental price. We recommend setting the rental price at 10-15% of the item’s retail price for a day rental period. If your item is high in demand, you may want to increase the rental price to maximize your earnings." %}</li>
+        <li>{% trans "Security Deposit: You may ask the renter to pay a 4-Day Rental fee plus a deposit determined by you, which you’ll refund once the item is returned in good condition. If you do so, include this in the listing description or in the messages once you connect with the renter. Do not add deposit in the 4-Day Rent Price tab." %}</li>
+        <li>{% trans "Insurance Fee: You can consider including a non-refundable insurance fee to cover small “wear and tear” cases, such as a broken zipper or a loose stitch. We recommend including the insurance fee in the listing description rather than adding it in the 4-Day Rental Price tab. It’s up to you to decide on the insurance fee, but we recommend an optimal 3-10 EUR cost depending on the item’s retail value." %}</li>
+        <li>{% trans "Market Comparison: Compare your pricing with similar items listed on the platform. Adjust your rental price based on item or item’s size demand." %}</li>
+    </ul>
+
+    <h2>{% trans "Item Description" %}</h2>
+    <p>{% trans "Details you should consider including in the listing description:" %}</p>
+    <ul>
+        <li>{% trans "Size: Specify if the item is true to size or if it appears to be smaller/larger than the size label indicated. It’s beneficial to include specific measurements (e.g., bust, waist, hips, length) to help renters ensure a proper fit." %}</li>
+        <li>{% trans "Wearability: Mention if the item is comfortable to wear, particularly for long periods or special occasions." %}</li>
+        <li>{% trans "Defects: Clearly state if there are any defects, such as stains, tears, or missing buttons, to set accurate expectations." %}</li>
+    </ul>
+
+    <h2>{% trans "Item Pictures" %}</h2>
+    <p>{% trans "We highly recommend uploading at least 3 clear pictures of your item. Here are more tips to follow for listing pictures:" %}</p>
+    <ul>
+        <li>{% trans "Item Representation: Ensure the pictures accurately represent what the item looks like. Include pictures of yourself/someone else wearing the item at a celebration or at home if no event photos are available." %}</li>
+        <li>{% trans "Color Accuracy: Show the item’s true color. If the color varies in different lighting, include photos showing the item in various lighting conditions." %}</li>
+        <li>{% trans "Condition of the Item: Highlight any defects, such as tears or stains, by clearly showing them in the photos." %}</li>
+        <li>{% trans "Background Removal (Optional): If you want to remove the background from your item pictures, use this tool: https://www.remove.bg/" %}</li>
+    </ul>
+
+    <h2>{% trans "Listing Tags" %}</h2>
+    <p>{% trans "Tags help increase your item’s visibility on the platform and make it easier to find it. Consider the traits and occasions your item is suitable for; for example: if your item’s a bride’s dress, veil, or shoes, mark it with the “Bride” tag. If your item fits multiple occasions, mark all relevant tags; for example: if the item is suitable for baptism, is bump-friendly, and perfect for a birthday party, select all these tags." %}</p>
+</div>
+{% endblock content %}

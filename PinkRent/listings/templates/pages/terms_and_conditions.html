@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %} {% load static %}
+{% block title %}{% trans "Terms and Conditions" %}{% endblock title %}
+{% block content %}
+<div class="terms-conditions">
+    <h1>{% trans "Terms and Conditions" %}</h1>
+
+    <h2>{% trans "Introduction" %}</h2>
+    <p>{% trans "These Terms and Conditions govern your use of Rentzies, an online C2C fashion rental platform (hereinafter referred to as 'the Platform'). By accessing or using the Platform, you agree to be bound by these Terms and Conditions and our Privacy Policy." %}</p>
+
+    <h2>{% trans "User Eligibility" %}</h2>
+    <p>2.1. {% trans "You must be at least 18 years old to use the Platform." %}</p>
+    <p>2.2. {% trans "By using the Platform, you warrant that you have the legal capacity to enter into this agreement and abide by its terms." %}</p>
+
+    <h2>{% trans "User Accounts" %}</h2>
+    <p>3.1. {% trans "To access certain features of the Platform, you may be required to create an account." %}</p>
+    <p>3.2. {% trans "You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete." %}</p>
+    <p>3.3. {% trans "You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account." %}</p>
+
+    <h2>{% trans "Listings and Transactions" %}</h2>
+    <p>4.1. {% trans "Users may create listings for fashion items available for rent." %}</p>
+    <p>4.2. {% trans "The Platform does not facilitate transactions between users and does not own or guarantee the quality, safety, legality, or availability of the items listed." %}</p>
+    <p>4.3. {% trans "Users agree to accurately represent the condition, size, and other relevant details of listed items." %}</p>
+    <p>4.4. {% trans "Users are in full control of their items and rental transactions. The Platform does not take ownership of or responsibility for any items listed on the Platform." %}</p>
+
+    <h2>{% trans "Rental Agreements" %}</h2>
+    <p>5.1. {% trans "By renting an item through the Platform, users do not enter into a legally binding agreement with the item’s owner." %}</p>
+    <p>5.2. {% trans "Users agree to comply with the terms specified in the rental agreement, including but not limited to rental duration, rental fee, and return conditions." %}</p>
+
+    <h2>{% trans "Prohibited Conduct" %}</h2>
+    <p>6.1. {% trans "Users agree not to engage in any conduct that violates these Terms and Conditions, our Community Guidelines, or applicable laws and regulations." %}</p>
+    <p>6.2. {% trans "Prohibited conduct includes but is not limited to fraud, harassment, infringement of intellectual property rights, and illegal activities." %}</p>
+
+    <h2>{% trans "Intellectual Property" %}</h2>
+    <p>7.1. {% trans "All content and materials available on the Platform, including but not limited to text, graphics, logos, images, and software, are the property of Rentzies or its licensors and are protected by copyright, trademark, and other intellectual property laws." %}</p>
+    <p>7.2. {% trans "Users agree not to reproduce, distribute, modify, or create derivative works of any content on the Platform without prior written consent." %}</p>
+
+    <h2>{% trans "Disclaimer of Warranties" %}</h2>
+    <p>8.1. {% trans "The Platform is provided on an 'as is' and 'as available' basis, without any warranties of any kind, express or implied." %}</p>
+    <p>8.2. {% trans "Rentzies does not warrant that the Platform will be uninterrupted or error-free, or that defects will be corrected." %}</p>
+
+    <h2>{% trans "Limitation of Liability" %}</h2>
+    <p>9.1. {% trans "In no event shall Rentzies be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, arising out of your use of the Platform." %}</p>
+    <p>9.2. {% trans "Rentzies's total liability arising out of or relating to these Terms and Conditions shall not exceed the total amount paid by you to Rentzies in the twelve months preceding the event giving rise to the liability." %}</p>
+
+    <h2>{% trans "Payments and Fees" %}</h2>
+    <p>10.1. {% trans "The Platform does not issue refunds for any fees or charges paid to the other users." %}</p>
+
+    <h2>{% trans "No Guarantee of Successful Transactions" %}</h2>
+    <p>11.1. {% trans "The Platform does not guarantee the successful completion of rental transactions. Users acknowledge that rentals are conducted at their own risk." %}</p>
+    <p>11.2. {% trans "The Platform is not responsible for ensuring that renters pay for items or that lenders send items as described." %}</p>
+    <p>11.3. {% trans "In the event a renter does not pay, or an item is not as described, the Platform is not liable for any resulting damages or losses." %}</p>
+
+    <h2>{% trans "Modifications to Terms and Conditions" %}</h2>
+    <p>12.1. {% trans "Rentzies reserves the right to modify or amend these Terms and Conditions at any time. Any changes will be effective immediately upon posting on the Platform." %}</p>
+    <p>12.2. {% trans "Your continued use of the Platform after the posting of any changes constitutes acceptance of those changes." %}</p>
+    <p>12.3. {% trans "Upon termination, your right to use the Platform will immediately cease, and you must cease all use of the Platform and delete any downloaded or printed materials obtained from the Platform." %}</p>
+
+    <h2>{% trans "Contact Information" %}</h2>
+    <p>{% trans "If you have any questions or concerns about these Terms and Conditions, please contact us at (email)." %}</p>
+</div>
+{% endblock content %}

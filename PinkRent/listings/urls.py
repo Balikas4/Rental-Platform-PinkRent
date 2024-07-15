@@ -20,7 +20,14 @@ urlpatterns = [
     path('listing/<int:pk>/delete/', views.ListingDeleteView.as_view(), name='listing_delete'),
     path('my-listings/', views.my_listings, name="my_listings"),
     path('shop/', views.shop_page, name='shop_page'),
-    path('how-it-works/', views.how_it_works, name='how-it-works'),
+    #Pages
+    path('how-it-works/', views.how_it_works, name='how_it_works'),
+    path('terms-and-conditions/', views.terms_and_conditions, name='terms_and_conditions'),
+    path('best-practices-lending/', views.best_practices_lending, name='best_practices_lending'),
+    path('listing-upload-guidelines/', views.listing_upload_guidelines, name='listing_upload_guidelines'),
+    path('about-us/', views.about_us, name='about_us'),
+    path('fashion-rental-tips/', views.fashion_rental_tips, name='fashion_rental_tips'),
+    path('platform-rules/', views.platform_rules, name='platform_rules'),
     # URLs for adding and removing favorite listings
     path('listing/<int:pk>/favorite/', views.add_favorite_listing, name='add_favorite_listing'),
     path('listing/<int:pk>/unfavorite/', views.remove_favorite_listing, name='remove_favorite_listing'),
