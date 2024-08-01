@@ -49,8 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # form
-    'image_uploader_widget',
 ]
 
 MIDDLEWARE = [
