@@ -1354,6 +1354,44 @@ input#id_picture {
   }
 /* SWITCH END   */
 
+/* TAGS CHECKBOX*/
+.tags-toggle-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-toggle-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    font-size: 14px;
+}
+
+.tag-toggle-button.active {
+    background-color: #2196F3; /* Color when selected */
+    color: white;
+    border-color: #2196F3;
+}
+
+.tag-toggle-button:hover {
+    background-color: #e0e0e0; /* Color on hover */
+}
+
+.tag-toggle-button input:checked + .tag-toggle-button {
+    background-color: #2196F3; /* Color when checked */
+    color: white;
+}
+/* TAGS CHECKBOX END */
+
 @keyframes scroll {
     0% {
       transform: translateX(0);
