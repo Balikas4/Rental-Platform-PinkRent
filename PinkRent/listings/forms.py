@@ -4,7 +4,7 @@ from .models import Listing, ListingReview, Tag, Category, Brand, Feedback
 class ListingForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(),
-        widget=forms.SelectMultiple(attrs={'class': 'form-control'}),
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-control'}),
         required=False,
         label="Occasion"
     )
