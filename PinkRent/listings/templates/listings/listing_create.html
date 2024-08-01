@@ -207,4 +207,43 @@
         }
     });
 </script>
+<script>
+    $(document).ready(function(){
+        $('#brand-search').on('input', function(){
+            var query = $(this).val();
+            if (query.length > 0) {
+                $.ajax({
+                    url: '{% url "listings:brand_search" %}',
+                    data: {'q': query},
+                    success: function(data){
+                        $('#brand-dropdown').empty();
+                        if (data.length > 0) {
+                            $('#brand-dropdown').show();
+                            data.forEach(function(brand){
+                                $('#brand-dropdown').append('<option value="' + brand.id + '">' + brand.name + '</option>');
+                            });
+                        } else {
+                            $('#brand-dropdown').hide();
+                        }
+                    }
+                });
+            } else {
+                $('#brand-dropdown').hide();
+            }
+        });
+    
+        $('#brand-dropdown').on('change', function(){
+            var selectedOption = $(this).find('option:selected');
+            var brandId = selectedOption.val();
+            var brandName = selectedOption.text();
+            $('#brand-input').val(brandId);
+            $('#brand-search').val(brandName);
+            $('#brand-dropdown').hide();
+        });
+
+        // Set initial brand search input value
+        $('#brand-input').val('{{ listing.brand.id }}');
+        $('#brand-search').val('{{ listing.brand.name }}');
+    });    
+</script>
 {% endblock %}
