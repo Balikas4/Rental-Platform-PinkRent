@@ -207,38 +207,4 @@
         }
     });
 </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const buttons = document.querySelectorAll('.tag-toggle-button');
-
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                const input = document.querySelector(`input[id="${this.dataset.id}"]`);
-                const isActive = this.classList.contains('active');
-
-                // Toggle the button appearance
-                this.classList.toggle('active');
-                
-                // Check or uncheck the hidden input
-                input.checked = !isActive;
-
-                // Update the form field or handle the selected values
-                updateFormField();
-            });
-        });
-
-        function updateFormField() {
-            const inputs = document.querySelectorAll('.tag-toggle-button input');
-            const checkedValues = Array.from(inputs)
-                .filter(input => input.checked)
-                .map(input => input.value);
-
-            // Update the form field value or any other required field
-            const formField = document.querySelector('input[name="tags"]');
-            if (formField) {
-                formField.value = checkedValues.join(',');
-            }
-        }
-    });
-</script>
 {% endblock %}

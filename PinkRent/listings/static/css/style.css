@@ -1377,9 +1377,9 @@ input#id_picture {
 }
 
 .tag-toggle-button.active {
-    background-color: #2196F3; /* Color when selected */
+    background-color: #FF6F61; /* Color when selected */
     color: white;
-    border-color: #2196F3;
+    border-color: #FF6F61;
 }
 
 .tag-toggle-button:hover {
