@@ -1,5 +1,7 @@
 from django import forms
 from .models import Listing, ListingReview, Tag, Category, Brand, Feedback
+from image_uploader_widget.widgets import ImageUploaderWidget
+
 
 class ListingForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
@@ -29,6 +31,7 @@ class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
         fields = ['category', 'picture', 'picture_1', 'picture_2', 'picture_3', 'name', 'brand', 'size', 'quality', 'color', 'value', 'price', 'is_for_sale', 'description', 'tags']
+        widgets = {'image': ImageUploaderWidget()}
 
     def __init__(self, *args, **kwargs):
         super(ListingForm, self).__init__(*args, **kwargs)
