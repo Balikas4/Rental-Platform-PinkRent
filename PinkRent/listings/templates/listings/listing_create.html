@@ -198,7 +198,6 @@
             button.addEventListener('click', function() {
                 const checkbox = document.querySelector(`input[id="tag-${this.dataset.value}"]`);
                 checkbox.checked = !checkbox.checked;
-
                 this.classList.toggle('active');
                 updateFormField();
             });
@@ -208,9 +207,10 @@
             const checkedValues = Array.from(document.querySelectorAll('.tag-toggle-button input:checked'))
                 .map(input => input.value);
 
+            const uniqueValues = Array.from(new Set(checkedValues)); // Ensure unique values
             const formField = document.querySelector('input[name="{{ form.tags.name }}"]');
             if (formField) {
-                formField.value = checkedValues.join(',');
+                formField.value = uniqueValues.join(',');
             }
         }
 
