@@ -33,7 +33,7 @@ class ListingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ListingForm, self).__init__(*args, **kwargs)
         # Add a blank choice
-        self.fields['tags'].widget.choices = [('', '---------')] + list(self.fields['tags'].widget.choices)
+        self.fields['tags'].widget.choices = [('')] + list(self.fields['tags'].widget.choices)
         if self.instance and self.instance.pk:
             category = self.instance.category
             if category and category.parent:

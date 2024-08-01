@@ -105,7 +105,14 @@
     <div class="fieldWrapper">
         {{ form.tags.errors }}
         <label for="{{ form.tags.id_for_label }}">Tags:</label>
-        {{ form.tags }}
+        <div class="tags-toggle-buttons">
+            {% for checkbox in form.tags %}
+                <div class="tag-toggle-button" data-value="{{ checkbox.value }}" data-id="{{ checkbox.id_for_label }}">
+                    {{ checkbox.choice_label }}
+                    <input type="checkbox" id="{{ checkbox.id_for_label }}" name="{{ checkbox.name }}" value="{{ checkbox.value }}" {% if checkbox.checked %}checked{% endif %} style="display: none;">
+                </div>
+            {% endfor %}
+        </div>
     </div>
     <input type="hidden" id="id_category" name="category" value="{{ form.category.value }}">
     <p><button type="submit">{% trans "confirm"|capfirst %}</button></p>
@@ -221,5 +228,39 @@
         $('#brand-input').val('{{ listing.brand.id }}');
         $('#brand-search').val('{{ listing.brand.name }}');
     });    
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.tag-toggle-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                const input = document.querySelector(`input[id="${this.dataset.id}"]`);
+                const isActive = this.classList.contains('active');
+
+                // Toggle the button appearance
+                this.classList.toggle('active');
+                
+                // Check or uncheck the hidden input
+                input.checked = !isActive;
+
+                // Update the form field or handle the selected values
+                updateFormField();
+            });
+        });
+
+        function updateFormField() {
+            const inputs = document.querySelectorAll('.tag-toggle-button input');
+            const checkedValues = Array.from(inputs)
+                .filter(input => input.checked)
+                .map(input => input.value);
+
+            // Update the form field value or any other required field
+            const formField = document.querySelector('input[name="tags"]');
+            if (formField) {
+                formField.value = checkedValues.join(',');
+            }
+        }
+    });
 </script>
 {% endblock content %}
