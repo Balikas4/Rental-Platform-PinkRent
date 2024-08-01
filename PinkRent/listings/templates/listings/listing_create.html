@@ -50,9 +50,17 @@
         <label for="{{ form.tags.id_for_label }}">Occasion:</label>
         <div class="tags-toggle-buttons">
             {% for choice in form.tags.field.choices %}
-                <div class="tag-toggle-button" data-value="{{ choice.0 }}" data-id="{{ choice.1 }}">
+                <div class="tag-toggle-button" 
+                     data-value="{{ choice.0 }}" 
+                     data-id="tag-{{ choice.0 }}"
+                     {% if choice.0 in form.tags.value %}class="selected"{% endif %}>
                     {{ choice.1 }}
-                    <input type="checkbox" id="tag-{{ choice.0 }}" name="{{ form.tags.name }}" value="{{ choice.0 }}" {% if choice.0 in form.tags.value %}checked{% endif %} style="display: none;">
+                    <input type="checkbox" 
+                           id="tag-{{ choice.0 }}" 
+                           name="{{ form.tags.name }}" 
+                           value="{{ choice.0 }}" 
+                           {% if choice.0 in form.tags.value %}checked{% endif %} 
+                           style="display: none;">
                 </div>
             {% endfor %}
         </div>
@@ -190,7 +198,7 @@
             button.addEventListener('click', function() {
                 const checkbox = document.querySelector(`input[id="tag-${this.dataset.value}"]`);
                 checkbox.checked = !checkbox.checked;
-                
+
                 this.classList.toggle('active');
                 updateFormField();
             });
@@ -205,6 +213,9 @@
                 formField.value = checkedValues.join(',');
             }
         }
+
+        // Initial state update
+        updateFormField();
     });
 </script>
 <script>
