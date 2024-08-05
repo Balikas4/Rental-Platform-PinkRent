@@ -325,7 +325,7 @@ class ListingUpdateView(
 
     def get_success_url(self) -> str:
         messages.success(self.request, _('listing updated successfully').capitalize())
-        return reverse('listings:my_listings')
+        return reverse('user_detail_current')
 
     def test_func(self) -> bool | None:
         return self.get_object().owner == self.request.user
@@ -346,7 +346,7 @@ class ListingDeleteView(
 
     def get_success_url(self) -> str:
         messages.success(self.request, _('listing deleted successfully').capitalize())
-        return reverse('listings:my_listings')
+        return reverse('user_detail_current')
 
     def test_func(self) -> bool | None:
         return self.get_object().owner == self.request.user

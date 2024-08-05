@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  dev:
+    build: .
+    image: project:dev
+    container_name: project.dev
+    tty: true
+    stdin_open: true
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - ./PinkRent:/app
+    depends_on:
+      - db
+    links:
+      - db:postgres
+    command: >
+      bash -c "python wait_for_postgres.py &&
+               python manage.py migrate &&
+               python manage.py collectstatic --noinput &&
+               gunicorn PinkRent.wsgi --bind 0.0.0.0:8000"
+
+  db:
+    image: postgres
+    container_name: project.db
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: project
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PORT: 5432
+
+  nginx:
+    build: ./nginx/
+    image: nginx:project
+    container_name: project.nginx
+    restart: always
+    ports:
+      - 80:80
+    links:
+      - dev:project
+    volumes:
+      - ./PinkRent/media_root:/app/media
+      - ./PinkRent/static_root:/app/static
+      

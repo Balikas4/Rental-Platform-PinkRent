@@ -1354,7 +1354,7 @@ input#id_picture {
   }
 /* SWITCH END   */
 
-/* TAGS CHECKBOX*/
+/* TAGS CHECKBOX */
 .tags-toggle-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -1376,7 +1376,7 @@ input#id_picture {
     font-size: 14px;
 }
 
-.tag-toggle-button.active {
+.tag-toggle-button.selected {
     background-color: #FF6F61; /* Color when selected */
     color: white;
     border-color: #FF6F61;
@@ -1386,10 +1386,17 @@ input#id_picture {
     background-color: #e0e0e0; /* Color on hover */
 }
 
+/* Hide the actual checkbox input */
+.tag-toggle-button input {
+    display: none;
+}
+
+/* Ensure the checkbox is hidden but still functional */
 .tag-toggle-button input:checked + .tag-toggle-button {
     background-color: #2196F3; /* Color when checked */
     color: white;
 }
+
 /* TAGS CHECKBOX END */
 
 @keyframes scroll {
