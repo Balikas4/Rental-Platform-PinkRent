@@ -96,22 +96,25 @@
         {{ form.description }}
     </div>
     <input type="hidden" id="id_category" name="category" value="{{ form.category.value }}">
-    <div class="tag-toggle-buttons">
-        {% for choice in form.tags.field.choices %}
-            <div class="tag-toggle-button {% if choice.0 in form.tags.value %}selected{% endif %}" 
-                 data-value="{{ choice.0 }}" 
-                 data-id="tag-{{ choice.0 }}">
-                {{ choice.1 }}
-                <input type="checkbox" 
-                       id="tag-{{ choice.0 }}" 
-                       name="tags" 
-                       value="{{ choice.0 }}" 
-                       {% if choice.0 in form.tags.value %}checked{% endif %} 
-                       style="display: none;">
-            </div>
-        {% endfor %}
+    <div class="fieldWrapper">
+        <label for="tags">Occasion:</label>
+        <div class="tag-toggle-buttons">
+            {% for choice in form.tags.field.choices %}
+                <div class="tag-toggle-button {% if choice.0 in form.tags.value %}selected{% endif %}" 
+                    data-value="{{ choice.0 }}" 
+                    data-id="tag-{{ choice.0 }}">
+                    {{ choice.1 }}
+                    <input type="checkbox" 
+                        id="tag-{{ choice.0 }}" 
+                        name="tags" 
+                        value="{{ choice.0 }}" 
+                        {% if choice.0 in form.tags.value %}checked{% endif %} 
+                        style="display: none;">
+                </div>
+            {% endfor %}
+        </div>
     </div>
-    <button type="submit">Create Listing</button>
+    <button type="submit" style="margin: 10px 0;">Create Listing</button>
     </form>
 </div>
 <script>

@@ -3,9 +3,11 @@
 {% block title %}{{ block.super }} Feedback {% endblock title %}
 {% block content %}
 <h1>Leave Feedback</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
+<div class="feedback-form">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
 {% endblock content %}
