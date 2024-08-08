@@ -37,7 +37,7 @@
                         <p><strong>{% trans "Email" %}:</strong> {{ user.userprofile.contact_options.EMAIL }}</p>
                     {% endif %}
                 </div>
-                <div class="like-unlike">
+                <div class="like-unlike-profile">
                     {% if user.is_authenticated %}
                         <form action="{% url 'remove_favorite' user.pk %}?next={{ request.path }}" method="post">
                             {% csrf_token %}

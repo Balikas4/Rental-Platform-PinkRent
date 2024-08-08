@@ -335,6 +335,10 @@ a:hover {
     text-decoration: none;
 }
 
+.seperator-text a, .seperator-text a:visited {
+    color: #000000;
+}
+
 .grid-wrapper a {
     color: #000000;
 }
@@ -416,6 +420,10 @@ button a, .button a {
 
 button:hover, .button:hover {
     background-color: #DF4E40;
+}
+
+.icon-button:hover {
+    background-color: transparent
 }
 
 ul.dashboard {
@@ -556,10 +564,16 @@ ul.dashboard li .stat {
     position: absolute;
 }
 
-.like-unlike button{
+.like-unlike-profile {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+
+.like-unlike-profile button{
     color: #FFFFFF;
-    background-color: #00000000;
-    padding: 0px;
+    background-color: #FF6F61;
+    padding: 4px;
     border: 0px;
 }
 
@@ -701,6 +715,7 @@ ul.dashboard li .stat {
     z-index: 1000; /* Ensure the dropdown appears above other elements */
     max-height: 150px; /* Limit the height for better usability */
     overflow-y: auto; /* Add scroll if the content exceeds the max height */
+    max-width: 300px;
 }
 
 /* Hide the default checkbox */
@@ -1163,6 +1178,10 @@ main div .product-container {
 
 .icon-button {
     outline: 0;
+    background: transparent;
+    padding: 0px;
+    width: 40px;
+    height: 40px;
 }
 
 .profile-picture img {
