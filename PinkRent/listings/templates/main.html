@@ -16,7 +16,7 @@
         </button>
         <button class="button-black">
           <a href="{% url 'listings:shop_page' %}">
-              {% trans "Explore dresses" %}
+              {% trans "Explore" %}
           </a>
         </button>
       </div>
@@ -56,7 +56,9 @@
             </div>
             <div class="grid-text">
               <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
-              <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+              {% if listing.is_for_sale %}
+                <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+              {% endif %}
             </div>
             <div class="like-unlike">
               {% if user.is_authenticated %}

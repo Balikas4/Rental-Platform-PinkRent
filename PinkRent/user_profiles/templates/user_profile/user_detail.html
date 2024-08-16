@@ -65,27 +65,30 @@
     {% endif %}
     <div class="grid-wrapper">
         {% for listing in profile_listings %}
-            {% if listing.is_available %}
-                <div class="grid-item">
-                    {% if listing.picture %}
-                        <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
-                            <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
-                        </a>
-                    {% else %}
-                        <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
-                            <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
-                        </a>
-                    {% endif %}
-                    <div class="grid-tags">
-                        <a href="{% url 'listings:shop_page' %}?size={{ listing.size }}"><p>{{ listing.size }}</p></a>
-                        <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p>{{ listing.brand }}</p></a>
-                    </div>
-                    <div class="grid-text">
-                        <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
-                        <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
-                    </div>
+            <div class="grid-item">
+                {% if listing.picture %}
+                    <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+                        <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" width="200" height="400" class="listing-image">
+                    </a>
+                {% else %}
+                    <a href="{% url 'listings:listing_detail' pk=listing.pk %}">
+                        <img src="{% static 'default-image.jpg' %}" alt="Default Image" width="200" height="400" class="listing-image">
+                    </a>
+                {% endif %}
+                <div class="grid-tags">
+                    <a href="{% url 'listings:shop_page' %}?size={{ listing.size }}"><p>{{ listing.size }}</p></a>
+                    <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p>{{ listing.brand }}</p></a>
                 </div>
-            {% endif %}
+                <div class="grid-text">
+                    <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
+                    {% if listing.is_for_sale %}
+                        <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+                    {% endif %}
+                </div>
+                {% if not listing.is_available %}
+                    <p>{% trans "Waiting for admin approval" %}</p>
+                {% endif %}
+            </div>
         {% endfor %}
     </div>        
 </div>

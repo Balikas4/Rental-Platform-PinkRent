@@ -12,7 +12,7 @@ from .forms import ListingForm , ListingReviewForm, FeedbackForm, JoinWaitlistFo
 from .models import Listing , FavoriteListing, ListingReview, Category, Tag, Brand
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.db.models import Avg
+from django.db.models import Avg, Count
 from user_profiles.models import UserProfile, UserProfileReview, FavoriteUser
 from django.template.loader import render_to_string
 
@@ -119,7 +119,11 @@ def shop_page(request):
         listings = paginator.page(paginator.num_pages)
     
     unique_colors = Listing.COLOR_CHOICES
-    unique_sizes = Listing.objects.values_list('size', flat=True).distinct()
+    unique_sizes = (Listing.objects.values('size')
+                .annotate(size_count=Count('size'))
+                .order_by('size')
+                .values_list('size', flat=True)
+                .distinct())
 
     # Count active filters
     filter_counts = {

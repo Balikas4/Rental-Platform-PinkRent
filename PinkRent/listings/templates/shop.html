@@ -71,7 +71,9 @@
                     <select id="size-filter" name="size">
                         <option value="all">{% trans "All Sizes" %}</option>
                         {% for size in sizes %}
-                            <option value="{{ size }}" {% if request.GET.size == size %}selected{% endif %}>{{ size }}</option>
+                            <option value="{{ size }}" {% if request.GET.size == size %}selected{% endif %}>
+                                {{ size }}
+                            </option>
                         {% endfor %}
                     </select>
                 </div>
@@ -133,7 +135,9 @@
                         </div>
                         <div class="grid-text">
                             <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
-                            <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+                            {% if listing.is_for_sale %}
+                                <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+                            {% endif %}
                         </div>
                         <div class="like-unlike">
                             {% if user.is_authenticated %}
