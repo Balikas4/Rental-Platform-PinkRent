@@ -1284,6 +1284,11 @@ main div .product-container {
 div .pagination {
     font-family: 'Inter', sans-serif;
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .fieldWrapper {
@@ -1721,6 +1726,9 @@ input#id_picture {
     }
     .footer-collumn {
         max-width: 60%;
+    }
+    .pagination button {
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 360px) {
