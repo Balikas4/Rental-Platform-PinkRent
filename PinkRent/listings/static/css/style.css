@@ -1379,10 +1379,11 @@ input#id_picture {
 /* SWITCH END   */
 
 /* TAGS CHECKBOX */
-.tags-toggle-buttons {
+.tag-toggle-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
 .tag-toggle-button {

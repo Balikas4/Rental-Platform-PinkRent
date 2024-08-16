@@ -97,6 +97,7 @@
     </div>
     <input type="hidden" id="id_category" name="category" value="{{ form.category.value }}">
     <div class="fieldWrapper">
+        {{ form.tags.errors }}
         <label for="tags">Occasion:</label>
         <div class="tag-toggle-buttons">
             {% for choice in form.tags.field.choices %}
@@ -202,23 +203,27 @@
         });
     
         function updateFormField() {
+            // Remove old tag fields
+            const existingTagFields = document.querySelectorAll('input[name^="tags_"]');
+            existingTagFields.forEach(field => field.remove());
+    
             // Collect all checked inputs
             const checkedValues = Array.from(document.querySelectorAll('.tag-toggle-button input:checked'))
                 .map(input => input.value);
     
-            // Ensure unique values
-            const uniqueValues = Array.from(new Set(checkedValues)); 
-    
-            // Update the form field value
-            const formField = document.querySelector('input[name="tags"]');
-            if (formField) {
-                formField.value = uniqueValues.join(',');
-            }
+            // Create hidden fields for each selected tag
+            checkedValues.forEach((value, index) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = `tags_${index}`;  // Unique name for each tag
+                input.value = value;
+                document.querySelector('form').appendChild(input);
+            });
         }
     
         // Initial state update
         updateFormField();
-    });
+    });    
 </script>
 <script>
     $(document).ready(function(){

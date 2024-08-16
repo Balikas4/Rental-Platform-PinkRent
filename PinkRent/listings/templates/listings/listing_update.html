@@ -103,6 +103,7 @@
         {{ form.description }}
     </div>
     <div class="tag-toggle-buttons">
+        {{ form.tags.errors }}
         {% for choice in form.tags.field.choices %}
             <div class="tag-toggle-button {% if choice.0 in form.tags.value %}selected{% endif %}" 
                  data-value="{{ choice.0 }}" 
@@ -236,6 +237,40 @@
     document.addEventListener('DOMContentLoaded', function() {
         const buttons = document.querySelectorAll('.tag-toggle-button');
     
+        function updateFormField() {
+            // Remove old tag fields
+            const existingTagFields = document.querySelectorAll('input[name^="tags_"]');
+            existingTagFields.forEach(field => field.remove());
+    
+            // Collect all checked inputs
+            const checkedValues = Array.from(document.querySelectorAll('.tag-toggle-button input:checked'))
+                .map(input => input.value);
+    
+            // Create hidden fields for each selected tag
+            checkedValues.forEach((value, index) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = `tags_${index}`;  // Unique name for each tag
+                input.value = value;
+                document.querySelector('form').appendChild(input);
+            });
+        }
+    
+        function initializeTagButtons() {
+            buttons.forEach(button => {
+                const checkbox = document.querySelector(`input[id="${button.dataset.id}"]`);
+                if (checkbox.checked) {
+                    button.classList.add('selected');
+                } else {
+                    button.classList.remove('selected');
+                }
+            });
+        }
+    
+        // Initialize tag buttons based on existing state
+        initializeTagButtons();
+    
+        // Add event listeners for tag buttons
         buttons.forEach(button => {
             button.addEventListener('click', function() {
                 const checkbox = document.querySelector(`input[id="${this.dataset.id}"]`);
@@ -244,21 +279,6 @@
                 updateFormField();
             });
         });
-    
-        function updateFormField() {
-            // Collect all checked inputs
-            const checkedValues = Array.from(document.querySelectorAll('.tag-toggle-button input:checked'))
-                .map(input => input.value);
-    
-            // Ensure unique values
-            const uniqueValues = Array.from(new Set(checkedValues)); 
-    
-            // Update the form field value
-            const formField = document.querySelector('input[name="tags"]');
-            if (formField) {
-                formField.value = uniqueValues.join(',');
-            }
-        }
     
         // Initial state update
         updateFormField();
