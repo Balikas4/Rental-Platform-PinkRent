@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %} {% load static %}
-{% block title %}{{ block.super }} {% trans "Main" %}{% endblock title %}
+{% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
 <div class='main-page-content'>
   <div class="hero-picture">
@@ -24,10 +24,10 @@
   </div>
 
     {% comment %} <!-- About Us -->
-    <p>{% trans "Welcome to Rented, your go-to platform for item rental. We believe in making life more convenient by providing a platform where users can easily rent items they need for a short period, saving both money and resources." %}</p>
+    <p>{% trans "Welcome to UPUPAM, your go-to platform for item rental. We believe in making life more convenient by providing a platform where users can easily rent items they need for a short period, saving both money and resources." %}</p>
 
     <!-- Our Vision -->
-    <p>{% trans "At Rented, we envision a world where sharing resources is a common practice, reducing waste and promoting a sustainable lifestyle. We strive to connect people and enable them to share items, fostering a sense of community and environmental responsibility." %}</p>
+    <p>{% trans "At UPUPAM, we envision a world where sharing resources is a common practice, reducing waste and promoting a sustainable lifestyle. We strive to connect people and enable them to share items, fostering a sense of community and environmental responsibility." %}</p>
  
     <!-- Our Stats -->
     <p>{% trans "Listing count" %} {{ listing_count }}</p>
@@ -201,11 +201,11 @@
 </div>
 <div class="complete-your-look">
   <div class="container-choice">
-    <img src="{% static 'rent-handbags.png' %}" alt="Rotate">
+    <img src="{% static 'rent-handbags.png' %}" alt="rent-handbags">
     <button><a href="{% url "listings:shop_page" %}">{% trans "Rent Bags" %}</a></button>
   </div>
   <div class="container-choice">
-    <img src="{% static 'rent-shoes.png' %}" alt="Rotate">
+    <img src="{% static 'rent-shoes.png' %}" alt="rent-shoes">
     <button><a href="{% url "listings:shop_page" %}">{% trans "Rent Shoes" %}</a></button>
   </div>
 </div>

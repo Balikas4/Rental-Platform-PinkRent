@@ -63,7 +63,7 @@
     {% else %}
         <h1>{{ user.username|upper }} {% trans "Listings"|upper %}</h1>
     {% endif %}
-    <div class="grid-wrapper">
+    <div class="grid-wrapper-profile">
         {% for listing in profile_listings %}
             <div class="grid-item">
                 {% if listing.picture %}

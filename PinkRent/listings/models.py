@@ -146,7 +146,7 @@ class Listing(models.Model):
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        max_size = (400, 300)
+        max_size = (800, 600)
         if self.picture:
             self._resize_image(self.picture, max_size)
         if self.picture_1:

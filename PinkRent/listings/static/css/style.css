@@ -492,6 +492,13 @@ ul.dashboard li .stat {
     justify-content: center;
 }
 
+.grid-wrapper-profile {
+    display: grid;
+    grid-template-columns: repeat(4, 0fr);
+    gap: 20px;
+    justify-content: center;
+}
+
 .popular-dresses {
     padding: 0px 30px;
     font-family: 'Montserrat', sans-serif;
@@ -526,6 +533,14 @@ ul.dashboard li .stat {
 }
 
 .grid-item a:visited {
+    color: #000000;
+}
+
+.pagination a:visited {
+    color: #000000;
+}
+
+.pagination a:link {
     color: #000000;
 }
 
@@ -625,7 +640,7 @@ ul.dashboard li .stat {
     background-color: #fff;
     padding: 10px 0px;
     border-radius: 8px;
-    width: 300px;
+    width: 350px;
     min-width: 300px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -821,6 +836,10 @@ ul.dashboard li .stat {
     flex-direction: row;
     gap: 20px;
     padding: 10px 20px;
+}
+
+.buttons {
+    margin: 10px 0px;
 }
 
 .brands-line {
@@ -1527,6 +1546,7 @@ input#id_picture {
         grid-template-columns: repeat(2, 0fr);
         gap: 10px;
       }
+
     .slider {
         width: 600px;
     }
@@ -1637,7 +1657,7 @@ input#id_picture {
     .perk-cards {
         width: calc(100%);
     }
-    .grid-wrapper {
+    .grid-wrapper .grid-wrapper-profile{
         display: grid;
         grid-template-columns: repeat(2, 0fr);
         gap: 5px;
@@ -1718,8 +1738,8 @@ input#id_picture {
     button.filter-toggle {
         font-weight: 400;
     }
-    .filter-bar .grid-wrapper {
-        grid-template-columns: repeat(1, 0fr);
+    .filter-bar , .grid-wrapper-profile {
+        grid-template-columns: repeat(2, 0fr);
     }
     .footer-extra-bar {
         padding: 4px;
@@ -1737,7 +1757,7 @@ input#id_picture {
     .search-bar-header {
         display: none;
     }
-    .grid-wrapper {
+    .grid-wrapper , .grid-wrapper-profile {
         grid-template-columns: repeat(1, 0fr);   
     }
     .slider {

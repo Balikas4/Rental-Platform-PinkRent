@@ -1,25 +1,44 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from . import forms
-from django.core.exceptions import ObjectDoesNotExist
 from .models import UserProfile , FavoriteUser, UserProfileReview
 from .forms import ProfileReviewForm
 from listings.models import Listing
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import send_mail
 from django.urls import reverse
 from django.db.models import Avg
+from django.conf import settings
 
+
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'registration/password_reset_form.html'
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'registration/password_reset_confirm.html'
 
 def signup(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         form = forms.CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
             messages.success(request, _("Thank you! You can log in now with your credentials."))
+
+            # Send a welcome email
+            send_mail(
+                subject=_("Welcome to UPUPAM!"),
+                message=_("Hi {username},\n\nThank you for signing up! We're excited to have you on board.\n\nBest regards,\nThe UPUPAM Team").format(username=user.username),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[user.email],
+                fail_silently=False,
+            )
+            
             return redirect("login")
     else:
         form = forms.CreateUserForm()
@@ -40,7 +59,7 @@ def user_detail(request: HttpRequest, username: str | None = None)  -> HttpRespo
     current_profile = get_object_or_404(UserProfile, user=user)
     profile_listings = Listing.objects.filter(owner=user)
     # Pagination
-    paginator = Paginator(profile_listings, 3)  # 3 listings per page
+    paginator = Paginator(profile_listings, 4)  # 4 listings per page
     page = request.GET.get('page')
     try:
         profile_listings = paginator.page(page)

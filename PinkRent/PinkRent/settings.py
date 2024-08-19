@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from .local_settings import SECRET_KEY, DATABASES, SOCIALACCOUNT_PROVIDERS
+from .local_settings import SECRET_KEY, DATABASES, SOCIALACCOUNT_PROVIDERS, EMAIL_HOST_PASSWORD
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -160,7 +160,14 @@ LOGOUT_REDIRECT_URL = '/'
 
 SOCIALACCOUNT_PROVIDERS = SOCIALACCOUNT_PROVIDERS
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False  # Only one of EMAIL_USE_TLS or EMAIL_USE_SSL can be True.
+EMAIL_HOST_USER = 'upupam.official@gmail.com'
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+DEFAULT_FROM_EMAIL = 'upupam.official@gmail.com'
 
 LOCALE_PATHS = [
     BASE_DIR / 'PinkRent' / 'locale',

@@ -159,7 +159,7 @@
         </div>
         <div class="footer-extra-bar">
             <p>Copyright &copy; Upupam. All rights reserved. 2024</p>
-            <form action="{% url 'set_language' %}" method="post">
+            {% comment %} <form action="{% url 'set_language' %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ redirect_to }}">
                 <select class="language" name="language" onchange="this.form.submit();">
@@ -169,7 +169,7 @@
                         </option>
                     {% endfor %}
                 </select>
-            </form>
+            </form> {% endcomment %}
         </div>
     </footer>    
     <script>
