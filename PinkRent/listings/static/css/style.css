@@ -1308,6 +1308,7 @@ div .pagination {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 6px;
 }
 
 .fieldWrapper {
@@ -1562,6 +1563,9 @@ input#id_picture {
 /* Media query for mobile devices */
 @media screen and (max-width: 760px) {
     /* Mobile styles */
+    .user-profile {
+        flex-direction: column;
+    }
     .slider {
         width: 300px;
     }
