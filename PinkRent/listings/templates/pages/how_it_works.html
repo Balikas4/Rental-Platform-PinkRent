@@ -2,26 +2,26 @@
 {% load i18n %} {% load static %}
 {% block title %}{% trans "How it works" %}{% endblock title %}
     {% block content %}
-<div class="disclaimer">
+{% comment %} <div class="disclaimer">
     <h1>{% trans "How it works" %}</h1>
     <h2>{% trans "Attention: please read all the questions and answers about using the platform. If you have any additional questions not provided on this page, please feel free to contact us via email info@pinkpink.lt." %}</h2>
     <h2>{% trans "Important: before sending the item to the tenant, we recommend taking photos of the item within 24 hours before sending and sending them to siuntimas@pinkpink.lt. This will help resolve the situation if your item returns in a different condition than when it was sent. Tenants are also advised to take photos of the item within 24 hours of receiving it if the owner claims a change in the item's condition after return, and you disagree with that." %}</h2>
 </div>
 <div class="how-it-works">
     <h2>{% trans "How does item rental work?" %}</h2>
-    <h3>{% trans "The owner uploads a listing with the item for rent. The Pink Pink team reviews your listing. If it is approved, you will receive an email confirming the approval of the listing to your specified email address." %}</h3>
+    <h3>{% trans "The owner uploads a listing with the item for rent. The UPUPAM team reviews your listing. If it is approved, you will receive an email confirming the approval of the listing to your specified email address." %}</h3>
 
     <h2>{% trans "How does the submission/receipt of a rental order work?" %}</h2>
     <h3>{% trans "The tenant selects a rental period on the calendar and clicks Reserve The owner can confirm the order upon receiving a request to rent their item. After confirmation, the tenant receives a notification that the order has been accepted." %}</h3>
 
     <h2>{% trans "How does payment for an order work?" %}</h2>
-    <h3>{% trans "The owner pays for the order in the My Profile section, under the Orders tab. They enter their details and the address to which the order will be sent. The owner sends the rental payment to Pink Pink's payment system using the specified payment details." %}</h3>
+    <h3>{% trans "The owner pays for the order in the My Profile section, under the Orders tab. They enter their details and the address to which the order will be sent. The owner sends the rental payment to UPUPAM's payment system using the specified payment details." %}</h3>
 
-    <h2>{% trans "What percentage of the owner's earnings does Pink Pink keep?" %}</h2>
-    <h3>{% trans "10% of the profit from one rented listing goes to Pink Pink as a service fee for platform usage. This portion is automatically deducted from your earnings when the owner pays the rental fee." %}</h3>
+    <h2>{% trans "What percentage of the owner's earnings does UPUPAM keep?" %}</h2>
+    <h3>{% trans "10% of the profit from one rented listing goes to UPUPAM as a service fee for platform usage. This portion is automatically deducted from your earnings when the owner pays the rental fee." %}</h3>
 
     <h2>{% trans "How does the order get sent to the tenant?" %}</h2>
-    <h3>{% trans "After payment for the rental, Pink Pink sends a message to the tenant with the address of the parcel locker. The tenant then sends the order themselves." %}</h3>
+    <h3>{% trans "After payment for the rental, UPUPAM sends a message to the tenant with the address of the parcel locker. The tenant then sends the order themselves." %}</h3>
 
     <h2>{% trans "How does order receipt work?" %}</h2>
     <h3>{% trans "Upon receiving the order, the tenant sends a confirmation to the UPUPAM email (lapinkpinkstudio@gmail.com)." %}</h3>
@@ -49,6 +49,6 @@
 
     <h2>{% trans "How does the owner cover the losses for the tenant?" %}</h2>
     <h3>{% trans "If the item is completely damaged, then the owner must fully cover the value of the item, which is determined based on the same item's market value, taking into account its condition (new, very good quality, satisfactory quality, etc.). For minor damages such as a broken zipper, torn seam, or minimal stain, the tenant pays a €10 fee to the owner." %}</h3>
-</div>
+</div> {% endcomment %}
 
     {% endblock content %}
