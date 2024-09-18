@@ -171,7 +171,7 @@ EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 DEFAULT_FROM_EMAIL = 'upupam.official@gmail.com'
 
 LOCALE_PATHS = [
-    BASE_DIR / 'PinkRent' / 'PinkRent' / 'locale',
+    BASE_DIR / 'PinkRent' / 'locale',
 ]
 
 try:
