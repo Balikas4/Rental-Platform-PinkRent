@@ -60,12 +60,12 @@
                     <ul>
                         {% if request.user.is_authenticated %}
                             {% if request.user.userprofile.picture %}
-                                <li><a href="{% url 'user_detail_current' %}">My Profile</a></li>
+                                <li><a href="{% url 'user_detail_current' %}">{% trans "My Profile" %}</a></li>
                             {% else %}
-                                <li><a href="{% url 'user_update' %}">Create Profile</a></li>
+                                <li><a href="{% url 'user_update' %}">{% trans "Create Profile" %}</a></li>
                             {% endif %}
-                            <li><a href="{% url "my_favorite_users" %}">My Favorite users</a></li>
-                            <li><a href="{% url "listings:my_favorites" %}">My Favorite listings</a></li>
+                            <li><a href="{% url "my_favorite_users" %}">{% trans "My Favorite users" %}</a></li>
+                            <li><a href="{% url "listings:my_favorites" %}">{% trans "My Favorite listings" %}</a></li>
                             {% if request.user.is_superuser or request.user.is_staff %}
                                 <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
                             {% endif %}
@@ -92,21 +92,21 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=3">Wedding dresses</a></li>
-                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=4">Accessories</a></li>
-                        <li><a href="{% url 'listings:shop_page' %}?tags=6">Evening dresses</a></li>
-                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=6">Handbags</a></li>
-                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=7">Heels</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=3">{% trans "Wedding dresses" %}</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=4">{% trans "Accessories" %}</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?tags=6">{% trans "Evening dresses" %}</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=6">{% trans "Handbags" %}</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=7">{% trans "Heels" %}</a></li>
                         <li><a href="{% url 'listings:listing_create' %}"> {% trans "Upload item for rent" %}</a></li>
                         <li><a href="{% url 'listings:shop_page' %}"> {% trans "Rent from others" %}</a></li>
                         {% if request.user.is_authenticated %}
                             {% if request.user.userprofile.picture %}
-                                <li><a href="{% url 'user_detail_current' %}">My Profile</a></li>
+                                <li><a href="{% url 'user_detail_current' %}">{% trans "My Profile" %}</a></li>
                             {% else %}
-                                <li><a href="{% url 'user_update' %}">Create Profile</a></li>
+                                <li><a href="{% url 'user_update' %}">{% trans "Create Profile" %}</a></li>
                             {% endif %}
-                            <li><a href="{% url "my_favorite_users" %}">My Favorite users</a></li>
-                            <li><a href="{% url "listings:my_favorites" %}">My Favorite listings</a></li>
+                            <li><a href="{% url "my_favorite_users" %}">{% trans "My Favorite users" %}</a></li>
+                            <li><a href="{% url "listings:my_favorites" %}">{% trans "My Favorite listings" %}</a></li>
                             {% if request.user.is_superuser or request.user.is_staff %}
                                 <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
                             {% endif %}
@@ -124,11 +124,11 @@
             </div>
         </div>
         <div class="category-navbar">
-            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=3">Wedding dresses</a>
-            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=4">Accessories</a>
-            <a href="{% url 'listings:shop_page' %}?tags=6">Evening dresses</a>
-            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=6">Handbags</a>
-            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=7">Heels</a>
+            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=3">{% trans "Wedding dresses" %}</a>
+            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=4">{% trans "Accessories" %}</a>
+            <a href="{% url 'listings:shop_page' %}?tags=6">{% trans "Evening dresses" %}</a>
+            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=6">{% trans "Handbags" %}</a>
+            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=7">{% trans "Heels" %}</a>
         </div>                          
     </header>
     <section class="messages">
@@ -144,22 +144,22 @@
                 <div class="footer-logo">
                     <a href="{% url 'listings:main_page' %}"> <img src="{% static 'icon.png' %}" alt="Upupam Logo"></a>
                 </div>
-                <p><a href="{% url 'listings:about_us' %}">About UPUPAM</a></p>
+                <p><a href="{% url 'listings:about_us' %}">{% trans "About UPUPAM" %}</a></p>
             </div>
             <div class="footer-collumn">
-                <p><a href="{% url 'listings:how_it_works' %}">How It Works</a></p>
-                <p><a href="{% url 'listings:fashion_rental_tips' %}">Fashion Rental Tips and Guidelines</a></p>
-                <p><a href="{% url 'listings:best_practices_lending' %}">Best Practices | Lending</a></p>
+                <p><a href="{% url 'listings:how_it_works' %}">{% trans "How It Works" %}</a></p>
+                <p><a href="{% url 'listings:fashion_rental_tips' %}">{% trans "Fashion Rental Tips and Guidelines" %}</a></p>
+                <p><a href="{% url 'listings:best_practices_lending' %}">{% trans "Best Practices | Lending" %}</a></p>
             </div>
             <div class="footer-collumn">
                 <p><a href="">Privacy Policy</a></p>
-                <p><a href="{% url 'listings:terms_and_conditions' %}">Terms and Conditions</a></p>
-                <p><a href="{% url 'listings:platform_rules' %}">Platform Rules</a></p>
+                <p><a href="{% url 'listings:terms_and_conditions' %}">{% trans "Terms and Conditions" %}</a></p>
+                <p><a href="{% url 'listings:platform_rules' %}">{% trans "Platform Rules" %}</a></p>
             </div>
         </div>
         <div class="footer-extra-bar">
             <p>Copyright &copy; Upupam. All rights reserved. 2024</p>
-            {% comment %} <form action="{% url 'set_language' %}" method="post">
+            <form action="{% url 'set_language' %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ redirect_to }}">
                 <select class="language" name="language" onchange="this.form.submit();">
@@ -169,7 +169,7 @@
                         </option>
                     {% endfor %}
                 </select>
-            </form> {% endcomment %}
+            </form>
         </div>
     </footer>    
     <script>

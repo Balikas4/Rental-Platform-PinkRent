@@ -1,0 +1,1888 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-18 13:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lithuanian <LL@li.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: listings/apps.py:9 listings/models.py:167
+msgid "listings"
+msgstr "skelbimai"
+
+#: listings/models.py:9 listings/models.py:27 listings/models.py:37
+#: listings/models.py:115
+msgid "name"
+msgstr "vardas"
+
+#: listings/models.py:10
+msgid "slug"
+msgstr "trumpinys"
+
+#: listings/models.py:15 listings/models.py:139
+msgid "category"
+msgstr "kategorija"
+
+#: listings/models.py:16
+msgid "categories"
+msgstr "kategorijos"
+
+#: listings/models.py:30
+msgid "tag"
+msgstr "žyma"
+
+#: listings/models.py:31
+msgid "tags"
+msgstr "žymos"
+
+#: listings/models.py:40
+msgid "brand"
+msgstr "prekinis ženklas"
+
+#: listings/models.py:41
+msgid "brands"
+msgstr "prekiniai ženklai"
+
+#: listings/models.py:62
+msgid "Black"
+msgstr "Juoda"
+
+#: listings/models.py:63
+msgid "White"
+msgstr "Balta"
+
+#: listings/models.py:64
+msgid "Grey"
+msgstr "Pilka"
+
+#: listings/models.py:65
+msgid "Silver"
+msgstr "Sidabrinė"
+
+#: listings/models.py:66
+msgid "Golden"
+msgstr "Auksinė"
+
+#: listings/models.py:67
+msgid "Beige"
+msgstr "Smėlio spalva"
+
+#: listings/models.py:68
+msgid "Brown"
+msgstr "Ruda"
+
+#: listings/models.py:69
+msgid "Dark Blue"
+msgstr "Tamsiai mėlyna"
+
+#: listings/models.py:70 listings/models.py:72
+msgid "Blue"
+msgstr "Mėlyna"
+
+#: listings/models.py:71
+msgid "Light Blue"
+msgstr "Šviesiai mėlyna"
+
+#: listings/models.py:73
+msgid "Green"
+msgstr "Žalia"
+
+#: listings/models.py:74
+msgid "Khaki"
+msgstr "Chaki"
+
+#: listings/models.py:75
+msgid "Yellow"
+msgstr "Geltona"
+
+#: listings/models.py:76
+msgid "Mustard"
+msgstr "Garstyčių spalva"
+
+#: listings/models.py:77
+msgid "Orange"
+msgstr "Oranžinė"
+
+#: listings/models.py:78
+msgid "Coral"
+msgstr "Koralo spalva"
+
+#: listings/models.py:79
+msgid "Red"
+msgstr "Raudona"
+
+#: listings/models.py:80 listings/models.py:88
+msgid "Burgundy"
+msgstr "Bordo"
+
+#: listings/models.py:81
+msgid "Light Pink"
+msgstr "Šviesiai rožinė"
+
+#: listings/models.py:82 listings/models.py:94
+msgid "Pink"
+msgstr "Rožinė"
+
+#: listings/models.py:83
+msgid "Bright Pink"
+msgstr "Ryškiai rožinė"
+
+#: listings/models.py:84 listings/models.py:97
+msgid "Purple"
+msgstr "Violetinė"
+
+#: listings/models.py:85
+msgid "Lavender"
+msgstr "Levandų spalva"
+
+#: listings/models.py:86
+msgid "Mint"
+msgstr "Mėtinė"
+
+#: listings/models.py:87
+msgid "Turquoise"
+msgstr "Turkio spalva"
+
+#: listings/models.py:89
+msgid "Peach"
+msgstr "Persikų spalva"
+
+#: listings/models.py:90
+msgid "Ivory"
+msgstr "Dramblio kaulo spalva"
+
+#: listings/models.py:91
+msgid "Champagne"
+msgstr "Šampano spalva"
+
+#: listings/models.py:92
+msgid "Rose Gold"
+msgstr "Rožinis auksas"
+
+#: listings/models.py:93
+msgid "Bronze"
+msgstr "Bronzinė"
+
+#: listings/models.py:95
+msgid "Cobalt Blue"
+msgstr "Kobalto mėlyna"
+
+#: listings/models.py:96
+msgid "Emerald"
+msgstr "Smaragdinė"
+
+#: listings/models.py:98
+msgid "Fuchsia"
+msgstr "Fuksijų spalva"
+
+#: listings/models.py:116
+msgid "description"
+msgstr "aprašymas"
+
+#: listings/models.py:117
+msgid "price"
+msgstr "kaina"
+
+#: listings/models.py:118
+msgid "created at"
+msgstr "sukurta"
+
+#: listings/models.py:119
+msgid "updated at"
+msgstr "atnaujinta"
+
+#: listings/models.py:120
+msgid "is available"
+msgstr "yra prieinama"
+
+#: listings/models.py:121
+msgid "is for sale"
+msgstr "parduodama"
+
+#: listings/models.py:127
+msgid "size"
+msgstr "dydis"
+
+#: listings/models.py:129
+msgid "color"
+msgstr "spalva"
+
+#: listings/models.py:130
+msgid "value"
+msgstr "vertė"
+
+#: listings/models.py:133
+msgid "owner"
+msgstr "savininkas"
+
+#: listings/models.py:166 listings/views.py:286
+msgid "listing"
+msgstr "skelbimas"
+
+#: listings/models.py:177
+msgid "favorited_by"
+msgstr "pamėgta"
+
+#: listings/models.py:178 listings/models.py:182
+msgid "favorite listing"
+msgstr "mėgstamiausias skelbimas"
+
+#: listings/models.py:183
+msgid "favorite listings"
+msgstr "mėgstamiausi skelbimai"
+
+#: listings/models.py:192 user_profiles/models.py:58
+msgid "review_by"
+msgstr "apžvalga pateikta"
+
+#: listings/models.py:193
+msgid "reviewed_listing"
+msgstr "apžvelgtas skelbimas"
+
+#: listings/models.py:199
+msgid "listing_review"
+msgstr "skelbimo apžvalga"
+
+#: listings/models.py:200
+msgid "listing_reviews"
+msgstr "skelbimo apžvalgos"
+
+#: listings/templates/base.html:41
+msgid "Search"
+msgstr "Paieška"
+
+#: listings/templates/base.html:49
+msgid "Rent"
+msgstr "Nuoma"
+
+#: listings/templates/base.html:50
+msgid "Lend"
+msgstr "Paskolinti"
+
+#: listings/templates/base.html:54
+#: user_profiles/templates/favorite/my_favorite_users.html:16
+#: user_profiles/templates/user_profile/user_detail.html:13
+msgid "Profile Picture"
+msgstr "Profilio nuotrauka"
+
+#: listings/templates/base.html:64 listings/templates/base.html:105
+#: user_profiles/templates/user_profile/user_detail.html:6
+msgid "My Profile"
+msgstr "Mano profilis"
+
+#: listings/templates/base.html:66 listings/templates/base.html:107
+#, fuzzy
+#| msgid "Create a Profile Review"
+msgid "Create Profile"
+msgstr "Sukurti profilį"
+
+#: listings/templates/base.html:68 listings/templates/base.html:109
+#, fuzzy
+#| msgid "My Favorite Users"
+msgid "My Favorite users"
+msgstr "Mano mėgstami naudotojai"
+
+#: listings/templates/base.html:69 listings/templates/base.html:110
+#, fuzzy
+#| msgid "My Favorite Listings"
+msgid "My Favorite listings"
+msgstr "Mano mėgstamiausi skelbimai"
+
+#: listings/templates/base.html:71 listings/templates/base.html:112
+msgid "admin"
+msgstr "administratorius"
+
+#: listings/templates/base.html:75 listings/templates/base.html:116
+msgid "log out"
+msgstr "atsijungti"
+
+#: listings/templates/base.html:79 listings/templates/base.html:120
+#: user_profiles/templates/registration/logged_out.html:6
+#: user_profiles/templates/registration/password_reset_complete.html:6
+msgid "log in"
+msgstr "prisijungti"
+
+#: listings/templates/base.html:80 listings/templates/base.html:121
+#: user_profiles/templates/registration/login.html:30
+msgid "sign up"
+msgstr "užsiregistruoti"
+
+#: listings/templates/base.html:86
+msgid "Menu"
+msgstr "Meniu"
+
+#: listings/templates/base.html:96 listings/templates/base.html:128
+#, fuzzy
+#| msgid "Top Trending Dresses"
+msgid "Wedding dresses"
+msgstr "Populiariausios suknelės"
+
+#: listings/templates/base.html:97 listings/templates/base.html:129
+#, fuzzy
+#| msgid "categories"
+msgid "Accessories"
+msgstr "kategorijos"
+
+#: listings/templates/base.html:98 listings/templates/base.html:130
+#, fuzzy
+#| msgid "Top Trending Dresses"
+msgid "Evening dresses"
+msgstr "Populiariausios suknelės"
+
+#: listings/templates/base.html:99 listings/templates/base.html:131
+msgid "Handbags"
+msgstr "Rankinukai"
+
+#: listings/templates/base.html:100 listings/templates/base.html:132
+msgid "Heels"
+msgstr "Aukštakulniai"
+
+#: listings/templates/base.html:101
+msgid "Upload item for rent"
+msgstr "Įkelti nuomojamą daiktą"
+
+#: listings/templates/base.html:102
+msgid "Rent from others"
+msgstr "Nuomotis iš kitų"
+
+#: listings/templates/base.html:148
+#, fuzzy
+#| msgid "About Us"
+msgid "About UPUPAM"
+msgstr "Apie mus"
+
+#: listings/templates/base.html:151
+#, fuzzy
+#| msgid "How it works"
+msgid "How It Works"
+msgstr "Kaip tai veikia"
+
+#: listings/templates/base.html:152
+#: listings/templates/pages/fashion_rental_tips.html:3
+msgid "Fashion Rental Tips and Guidelines"
+msgstr "Mados nuomos patarimai ir gairės"
+
+#: listings/templates/base.html:153
+#: listings/templates/pages/best_practices_lending.html:3
+#: listings/templates/pages/best_practices_lending.html:6
+msgid "Best Practices | Lending"
+msgstr "Geriausia praktika | Skolinimas"
+
+#: listings/templates/base.html:157
+#: listings/templates/pages/terms_and_conditions.html:3
+#: listings/templates/pages/terms_and_conditions.html:6
+msgid "Terms and Conditions"
+msgstr "Sąlygos ir taisyklės"
+
+#: listings/templates/base.html:158
+#: listings/templates/pages/platform_rules.html:3
+#: listings/templates/pages/platform_rules.html:6
+msgid "Platform Rules"
+msgstr "Platformos taisyklės"
+
+#: listings/templates/category_page.html:4
+msgid "Category Page"
+msgstr "Kategorijos puslapis"
+
+#: listings/templates/category_page.html:21
+msgid "Size"
+msgstr "Dydis"
+
+#: listings/templates/category_page.html:22
+msgid "Value"
+msgstr "Vertė"
+
+#: listings/templates/category_page.html:23
+msgid "For 4 days"
+msgstr "4 dienoms"
+
+#: listings/templates/category_page.html:31
+#: listings/templates/favorite/my_favorite_listings.html:36
+#: listings/templates/listings/listing_details.html:55
+#: listings/templates/main.html:71 listings/templates/shop.html:149
+#: user_profiles/templates/favorite/my_favorite_users.html:44
+#: user_profiles/templates/user_profile/user_detail.html:51
+msgid "Unlike"
+msgstr "Nepatinka"
+
+#: listings/templates/favorite/my_favorite_listings.html:8
+msgid "My Favorite Listings"
+msgstr "Mano mėgstamiausi skelbimai"
+
+#: listings/templates/favorite/my_favorite_listings.html:26
+#: listings/templates/main.html:59 listings/templates/shop.html:137
+#: user_profiles/templates/user_profile/user_detail.html:83
+msgid " &#8364;/4 days"
+msgstr " &#8364;/4 dienoms"
+
+#: listings/templates/favorite/my_favorite_listings.html:28
+#: listings/templates/main.html:61 listings/templates/shop.html:139
+#: user_profiles/templates/user_profile/user_detail.html:85
+msgid "Buy now"
+msgstr "Pirkti dabar"
+
+#: listings/templates/favorite/my_favorite_listings.html:48
+msgid "No favorite listings found."
+msgstr "Nerasta mėgstamų skelbimų."
+
+#: listings/templates/listings/listing_create.html:3
+msgid "create a listing at"
+msgstr "sukurti skelbimą"
+
+#: listings/templates/listings/listing_create.html:14
+msgid "Category"
+msgstr "Kategorija"
+
+#: listings/templates/listings/listing_create.html:16
+msgid "Select Category"
+msgstr "Pasirinkti kategoriją"
+
+#: listings/templates/listings/listing_create.html:23
+#: listings/templates/listings/listing_update.html:30
+msgid "Sub Category"
+msgstr "Subkategorija"
+
+#: listings/templates/listings/listing_create.html:25
+#: listings/templates/listings/listing_create.html:129
+#: listings/templates/listings/listing_create.html:138
+#: listings/templates/listings/listing_update.html:32
+#: listings/templates/listings/listing_update.html:133
+#: listings/templates/listings/listing_update.html:143
+msgid "Select Sub-Category"
+msgstr "Pasirinkti subkategoriją"
+
+#: listings/templates/listings/listing_create.html:165
+#: listings/templates/listings/listing_update.html:170
+msgid "Select Size"
+msgstr "Pasirinkti dydį"
+
+#: listings/templates/listings/listing_delete.html:2
+msgid "deleting"
+msgstr "trynimas"
+
+#: listings/templates/listings/listing_delete.html:4
+msgid "deleting listing"
+msgstr "trinti skelbimą"
+
+#: listings/templates/listings/listing_delete.html:9
+msgid "are you sure you want to delete listing"
+msgstr "ar tikrai norite ištrinti skelbimą"
+
+#: listings/templates/listings/listing_delete.html:11
+msgid "listing will be deleted permamently"
+msgstr "skelbimas bus visam laikui ištrintas"
+
+#: listings/templates/listings/listing_delete.html:14
+#: listings/templates/listings/listing_update.html:122
+msgid "confirm"
+msgstr "patvirtinti"
+
+#: listings/templates/listings/listing_delete.html:15
+msgid "cancel"
+msgstr "atšaukti"
+
+#: listings/templates/listings/listing_details.html:40
+msgid "Listing details"
+msgstr "Skelbimo detalės"
+
+#: listings/templates/listings/listing_details.html:41
+msgid "Category:"
+msgstr "Kategorija:"
+
+#: listings/templates/listings/listing_details.html:42
+msgid "Brand:"
+msgstr "Prekės ženklas:"
+
+#: listings/templates/listings/listing_details.html:43
+msgid "Size:"
+msgstr "Dydis:"
+
+#: listings/templates/listings/listing_details.html:44
+msgid "Quality:"
+msgstr "Kokybė:"
+
+#: listings/templates/listings/listing_details.html:45
+msgid "Listing Owner:"
+msgstr "Skelbimo savininkas:"
+
+#: listings/templates/listings/listing_details.html:46
+msgid "Description:"
+msgstr "Aprašymas:"
+
+#: listings/templates/listings/listing_details.html:48
+msgid "Value:"
+msgstr "Vertė:"
+
+#: listings/templates/listings/listing_details.html:49
+msgid "Price:"
+msgstr "Kaina:"
+
+#: listings/templates/listings/listing_details.html:49
+#: listings/templates/listings/my_listings.html:12
+msgid "for 4 days"
+msgstr "4 dienoms"
+
+#: listings/templates/listings/listing_details.html:59
+#: user_profiles/templates/user_profile/user_detail.html:56
+msgid "Like"
+msgstr "Patinka"
+
+#: listings/templates/listings/listing_details.html:68
+msgid "Listing reviews"
+msgstr "Skelbimo apžvalgos"
+
+#: listings/templates/listings/listing_details.html:69
+#: listings/templates/listings/listing_details.html:84
+#: user_profiles/templates/user_profile/user_detail.html:122
+msgid "Review average"
+msgstr "Vidutinis įvertinimas"
+
+#: listings/templates/listings/listing_details.html:75
+#: listings/templates/listings/listing_details.html:90
+#: user_profiles/templates/user_profile/user_detail.html:128
+msgid "No reviews"
+msgstr "Apžvalgų nėra"
+
+#: listings/templates/listings/listing_details.html:78
+#: listings/templates/listings/listing_details.html:95
+#: user_profiles/templates/user_profile/user_detail.html:133
+msgid "Leave a review"
+msgstr "Palikti apžvalgą"
+
+#: listings/templates/listings/listing_details.html:83
+msgid "User Reviews"
+msgstr "Vartotojų apžvalgos"
+
+#: listings/templates/listings/listing_details.html:104
+msgid "Create listing"
+msgstr "Sukurti skelbimą"
+
+#: listings/templates/listings/listing_details.html:108
+msgid "Edit"
+msgstr "Redaguoti"
+
+#: listings/templates/listings/listing_details.html:111
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: listings/templates/listings/listing_list.html:5
+#: user_profiles/templates/user_profile/user_detail.html:64
+msgid "Listings"
+msgstr "Skelbimai"
+
+#: listings/templates/listings/listing_list.html:14
+msgid "No listings found"
+msgstr "Skelbimų nerasta"
+
+#: listings/templates/listings/listing_list.html:18
+#: listings/templates/listings/my_listings.html:17
+msgid "Create new"
+msgstr "Sukurti naują"
+
+#: listings/templates/listings/listing_update.html:5
+#: user_profiles/templates/user_profile/user_update.html:2
+#: user_profiles/templates/user_profile/user_update.html:4
+msgid "editing"
+msgstr "redagavimas"
+
+#: listings/templates/listings/listing_update.html:9
+msgid "editing listing"
+msgstr "redaguojamas skelbimas"
+
+#: listings/templates/listings/listing_update.html:21
+msgid "Parent Category"
+msgstr "Pagrindinė kategorija"
+
+#: listings/templates/listings/listing_update.html:23
+msgid "Select Parent Category"
+msgstr "Pasirinkite pagrindinę kategoriją"
+
+#: listings/templates/listings/my_listings.html:5
+#: user_profiles/templates/user_profile/user_detail.html:62
+msgid "My Listings"
+msgstr "Mano skelbimai"
+
+#: listings/templates/main.html:9
+msgid "Rent, Earn, Discover - all without leaving your neighborhood!"
+msgstr "Nuomok, uždirbk, atrask – viską nepaliekant savo kaimynystės!"
+
+#: listings/templates/main.html:10
+msgid ""
+"Enjoy easy fashion rentals, no fees. Earn while sharing your wardrobe. Join "
+"our platform and start your journey today!"
+msgstr ""
+"Mėgaukitės lengva mados nuoma be jokių mokesčių. Uždirbkite dalindamiesi "
+"savo spinta. Prisijunkite prie mūsų platformos ir pradėkite savo kelionę jau "
+"šiandien!"
+
+#: listings/templates/main.html:14
+msgid "Earn now"
+msgstr "Uždirbk dabar"
+
+#: listings/templates/main.html:19
+msgid "Explore"
+msgstr "Atraskite"
+
+#: listings/templates/main.html:39
+msgid "Top Trending Dresses"
+msgstr "Populiariausios suknelės"
+
+#: listings/templates/main.html:128
+msgid "How to Lend"
+msgstr "Kaip skolinti"
+
+#: listings/templates/main.html:129
+msgid "How to Rent"
+msgstr "Kaip nuomotis"
+
+#: listings/templates/main.html:134
+msgid "Share & Earn"
+msgstr "Dalinkis ir uždirbk"
+
+#: listings/templates/main.html:138
+msgid "Foster Circularity"
+msgstr "Skatink cikliškumą"
+
+#: listings/templates/main.html:142
+msgid "Seamless Connection"
+msgstr "Sklandi jungtis"
+
+#: listings/templates/main.html:148
+msgid "Find Unique Pieces"
+msgstr "Raskite unikalių drabužių"
+
+#: listings/templates/main.html:152
+msgid "Rent with Ease"
+msgstr "Nuomokis be rūpesčių"
+
+#: listings/templates/main.html:156
+msgid "Support Sustainability"
+msgstr "Palaikyk tvarumą"
+
+#: listings/templates/main.html:163
+msgid "Start Lending Now"
+msgstr "Pradėkite skolinti dabar"
+
+#: listings/templates/main.html:201
+msgid "Complete Your Look"
+msgstr "Papildyk savo išvaizdą"
+
+#: listings/templates/main.html:206
+msgid "Rent Bags"
+msgstr "Nuomokis rankines"
+
+#: listings/templates/main.html:210
+msgid "Rent Shoes"
+msgstr "Nuomokis batus"
+
+#: listings/templates/main.html:216
+msgid "Feedback"
+msgstr "Atsiliepimai"
+
+#: listings/templates/pages/about_us.html:3
+#: listings/templates/pages/about_us.html:6
+msgid "About Us"
+msgstr "Apie mus"
+
+#: listings/templates/pages/about_us.html:8
+msgid "Fashion Rental"
+msgstr "Mados nuoma"
+
+#: listings/templates/pages/about_us.html:9
+#: listings/templates/pages/platform_rules.html:8
+msgid ""
+"Upupam platform is a place to transform consumerism choices. Here, we wish "
+"to create a safe and friendly place for all customers to contribute to "
+"circular items' life. Due to this, we ask all members to adhere to the "
+"Upupam Platform Catalog Rules below when uploading their items."
+msgstr ""
+"Upupam platforma yra vieta keisti vartotojiškumo pasirinkimus. Čia norime "
+"sukurti saugią ir draugišką vietą, kurioje visi klientai galėtų prisidėti "
+"prie cikliško daiktų gyvenimo. Todėl prašome visų narių laikytis žemiau "
+"pateiktų Upupam katalogo taisyklių, kai įkeliate savo prekes."
+
+#: listings/templates/pages/best_practices_lending.html:8
+#: listings/templates/pages/fashion_rental_tips.html:8
+msgid "Establish Communication"
+msgstr "Užmegzkite ryšį"
+
+#: listings/templates/pages/best_practices_lending.html:9
+msgid ""
+"Renters will connect with you through social media, phone number, or email. "
+"Make sure to respond promptly, clearly, and friendly."
+msgstr ""
+"Nuomininkai susisieks su jumis per socialinius tinklus, telefoną ar el. "
+"paštą. Įsitikinkite, kad atsakote laiku, aiškiai ir draugiškai."
+
+#: listings/templates/pages/best_practices_lending.html:11
+msgid "Insurance/Deposit Terms"
+msgstr "Draudimo/užstato sąlygos"
+
+#: listings/templates/pages/best_practices_lending.html:12
+msgid ""
+"If you decide to charge for a non-refundable insurance fee to cover minor "
+"damages (e.g., a broken zipper or loose stitch), clearly state it to the "
+"renter before renting an item. You may also consider requesting a refundable "
+"deposit. Clearly communicate to the renter that the deposit will be returned "
+"after the item is given back in good condition."
+msgstr ""
+"Jei nuspręsite imti negrąžinamą draudimo mokestį už nedidelius pažeidimus "
+"(pvz., sugadintą užtrauktuką ar atsipalaidavusią siūlę), aiškiai "
+"informuokite apie tai nuomininką prieš daikto nuomą. Taip pat galite prašyti "
+"grąžinamo užstato. Aiškiai nurodykite, kad užstatas bus grąžintas, kai "
+"daiktas bus grąžintas geros būklės."
+
+#: listings/templates/pages/best_practices_lending.html:14
+msgid "Rental Conditions"
+msgstr "Nuomos sąlygos"
+
+#: listings/templates/pages/best_practices_lending.html:15
+msgid ""
+"Clearly outline all rental conditions, including how the item should be used "
+"and cared for (e.g., you may ask the renter not to do any dry cleaning after "
+"wearing it). Define the start and end dates of the rental period. If the "
+"same item is booked for rental with a short time gap, remember that you need "
+"to clean and prepare it in time. Always consider whether you will have "
+"enough time to receive the item, clean it, and rent it out to another person."
+msgstr ""
+"Aiškiai nurodykite visas nuomos sąlygas, įskaitant, kaip daiktas turi būti "
+"naudojamas ir prižiūrimas (pvz., galite paprašyti nuomininko nenaudoti sauso "
+"valymo po daikto dėvėjimo). Nurodykite nuomos laikotarpio pradžios ir "
+"pabaigos datas. Jei tas pats daiktas užsakytas trumpu laiko tarpu, "
+"nepamirškite, kad turite spėti jį išvalyti ir paruošti. Visada įvertinkite, "
+"ar turėsite pakankamai laiko gauti daiktą, jį išvalyti ir išnuomoti kitam "
+"asmeniui."
+
+#: listings/templates/pages/best_practices_lending.html:17
+msgid "Delivery Process"
+msgstr "Pristatymo procesas"
+
+#: listings/templates/pages/best_practices_lending.html:18
+msgid ""
+"If you decide to choose a parcel carrier service, make sure to use a "
+"reliable parcel carrier service for shipping the item. You may also consider "
+"using same-day dispatch services available in Lithuania, such as bus "
+"shipping. If the renter lives nearby, you can also arrange to meet and hand "
+"over the item in person. Ensure the delivery method is agreed upon and "
+"clearly communicated to avoid misunderstandings."
+msgstr ""
+"Jei nuspręsite naudotis siuntų pervežimo paslaugomis, būtinai pasirinkite "
+"patikimą paslaugų teikėją. Taip pat galite svarstyti naudotis tą pačią dieną "
+"Lietuvoje galimomis"
+
+#: listings/templates/pages/best_practices_lending.html:20
+msgid "Repair and Reuse"
+msgstr "Remontas ir pakartotinis naudojimas"
+
+#: listings/templates/pages/best_practices_lending.html:21
+msgid ""
+"If your item is damaged, don’t throw it away. Use fixing services by "
+"seamstresses to repair the item and get it back into the rental world. "
+"Promote the concept of fashion circularity by keeping your items in good "
+"condition and available for future rentals."
+msgstr ""
+"Jei jūsų daiktas yra sugadintas, nešalinkite jo. Naudokitės siuvėjų "
+"paslaugomis daiktui suremontuoti ir grąžinti į nuomos pasaulį. Skatinkite "
+"mados cikliškumo konceptą, laikydami savo daiktus geros būklės ir prieinamus "
+"būsimoms nuomoms."
+
+#: listings/templates/pages/best_practices_lending.html:23
+#: listings/templates/pages/fashion_rental_tips.html:29
+#: user_profiles/templates/user_profile/user_detail.html:118
+#: user_profiles/templates/user_profile/user_detail.html:121
+msgid "Reviews"
+msgstr "Atsiliepimai"
+
+#: listings/templates/pages/best_practices_lending.html:24
+msgid ""
+"We encourage lenders to follow best practices by utilizing our platform’s "
+"review feature. After successfully lending an item to another user, consider "
+"leaving a 5-star review along with a sincere comment. This helps inspire "
+"confidence in other members, signaling that the borrower is reliable and "
+"friendly. Conversely, if any issues arise with a renter, feel free to leave "
+"a 1-5 star review addressing the concerns for the benefit of others. Let’s "
+"prioritize sincerity and fairness in our reviews to foster a safe and "
+"friendly platform environment for all."
+msgstr ""
+"Skatiname skolintojus laikytis geriausios praktikos, naudojantis mūsų "
+"platformos atsiliepimų funkcija. Po sėkmingo daikto skolinimo kitam "
+"vartotojui, apsvarstykite galimybę palikti 5 žvaigždučių įvertinimą kartu su "
+"nuoširdžiu komentarų. Tai padeda įkvėpti pasitikėjimą kitiems nariams, "
+"signalizuojant, kad skolininkas yra patikimas ir draugiškas. Jei kyla "
+"problemų su nuomininku, nedvejodami palikite 1–5 žvaigždučių atsiliepimą, "
+"sprendžiant problemas kitų naudai. Prioritetu turėtų būti nuoširdumas ir "
+"sąžiningumas mūsų atsiliepimuose, kad sukurtume saugią ir draugišką "
+"platformos aplinką visiems."
+
+#: listings/templates/pages/fashion_rental_tips.html:6
+msgid "BEST PRACTICES | RENTING"
+msgstr "GERIAUSIA PRAKTIKA | NUOMA"
+
+#: listings/templates/pages/fashion_rental_tips.html:9
+msgid ""
+"Connect with the lender through email, social media, or phone number. Ensure "
+"your communication is clear and friendly."
+msgstr ""
+"Susisiekite su skolintoju per el. paštą, socialinius tinklus ar telefoną. "
+"Įsitikinkite, kad jūsų komunikacija yra aiški ir draugiška."
+
+#: listings/templates/pages/fashion_rental_tips.html:11
+msgid "Specify Rental Period"
+msgstr "Nurodykite nuomos laikotarpį"
+
+#: listings/templates/pages/fashion_rental_tips.html:12
+msgid ""
+"Clearly mention the required rental period. Confirm that the lender can hand "
+"over or ship the item in time for your occasion."
+msgstr ""
+"Aiškiai nurodykite reikiamą nuomos laikotarpį. Patikrinkite, ar skolintojas "
+"gali perduoti arba išsiųsti daiktą laiku jūsų renginiui."
+
+#: listings/templates/pages/fashion_rental_tips.html:14
+msgid "Discuss Costs"
+msgstr "Aptarkite išlaidas"
+
+#: listings/templates/pages/fashion_rental_tips.html:15
+msgid ""
+"Ask the lender to outline all costs, including the rental price, deposit, "
+"and any insurance fees. Carefully read through the terms and ask questions "
+"if anything is unclear."
+msgstr ""
+"Paklauskite skolintojo apie visas išlaidas, įskaitant nuomos kainą, užstatą "
+"ir bet kokius draudimo mokesčius. Atidžiai perskaitykite sąlygas ir "
+"užduokite klausimus, jei kas nors yra neaišku."
+
+#: listings/templates/pages/fashion_rental_tips.html:17
+msgid "Item Fit Concerns"
+msgstr "Daikto tinkamumo klausimai"
+
+#: listings/templates/pages/fashion_rental_tips.html:18
+msgid ""
+"If you are concerned about the fit, discuss possible solutions with the "
+"lender. You may request a fitting option, such as a 24-hour try-on period, "
+"where you receive the item, try it on, and send it back immediately under "
+"agreed conditions."
+msgstr ""
+"Jei nerimaujate dėl tinkamumo, aptarkite galimus sprendimus su skolintoju. "
+"Galite paprašyti bandymo galimybės, pavyzdžiui, 24 valandų bandymo "
+"laikotarpio, per kurį gaunate daiktą, išbandote jį ir nedelsdami grąžinate "
+"pagal sutartas sąlygas."
+
+#: listings/templates/pages/fashion_rental_tips.html:20
+msgid "Clarify Additional Costs"
+msgstr "Paaiškinkite papildomas išlaidas"
+
+#: listings/templates/pages/fashion_rental_tips.html:21
+msgid ""
+"Ask if there are any extra costs included in the rental period, such as "
+"shipping and cleaning. Make sure all costs are transparent before finalizing "
+"the rental."
+msgstr ""
+"Paklauskite, ar nuomos laikotarpyje yra papildomų išlaidų, tokių kaip "
+"pristatymas ir valymas. Įsitikinkite, kad visos išlaidos yra aiškios prieš "
+"galutinį nuomos patvirtinimą."
+
+#: listings/templates/pages/fashion_rental_tips.html:23
+msgid "Handle the Item with Care"
+msgstr "Elkitės su daiktu atsargiai"
+
+#: listings/templates/pages/fashion_rental_tips.html:24
+msgid ""
+"Once you receive the item, treat it with utmost care. If any issues arise "
+"during the rental period (e.g., loose stitch or broken zipper), inform the "
+"lender immediately."
+msgstr ""
+"Priėmę daiktą, elkitės su juo labai atsargiai. Jei nuomos laikotarpiu kyla "
+"kokių nors problemų (pvz., atsipalaidavusi siūlė ar sulūžusi užtrauktukas), "
+"nedelsdami informuokite skolintoją."
+
+#: listings/templates/pages/fashion_rental_tips.html:26
+msgid "Discuss Wear and Tear"
+msgstr "Aptarkite nusidėvėjimą"
+
+#: listings/templates/pages/fashion_rental_tips.html:27
+msgid ""
+"Before the rental period, discuss potential outcomes for wear and tear "
+"situations with the lender to avoid misunderstandings."
+msgstr ""
+"Prieš nuomos laikotarpį aptarkite galimus nusidėvėjimo atvejus su "
+"skolintoju, kad išvengtumėte nesusipratimų."
+
+#: listings/templates/pages/fashion_rental_tips.html:30
+#, fuzzy
+#| msgid ""
+#| "When leaving a review, whether for the lender or the rented item, aim to "
+#| "provide valuable insights. For the lender, highlight their reliability, "
+#| "communication, and the overall borrowing experience. Similarly, when "
+#| "reviewing the item, include a picture of yourself wearing it to help "
+#| "others visualize and mention any size discrepancies or styling tips. Your "
+#| "detailed reviews contribute to a safer and more informed community on our "
+#| "platform."
+msgid ""
+"When leaving a review, whether for the lender or the rented item, aim to "
+"provide valuable insights. For the lender, highlight their reliability, "
+"communication, and the overall borrowing experience. Similarly, when "
+"reviewing the  item, include a picture of yourself wearing it to help others "
+"visualize and mention any size discrepancies or styling tips. Your detailed "
+"reviews contribute to a safer and more informed community on our platform."
+msgstr ""
+"Palikdami atsiliepimą, tiek apie skolintoją, tiek apie nuomojamą daiktą, "
+"siekite teikti vertingų įžvalgų. Aprašykite skolintojo patikimumą, "
+"komunikaciją ir bendrą skolinimosi patirtį. Taip pat, peržiūrėdami daiktą, "
+"pridėkite nuotrauką, kurioje dėvite daiktą, kad padėtumėte kitiems "
+"įsivaizduoti ir paminėtumėte bet kokius dydžio neatitikimus ar stiliaus "
+"patarimus. Jūsų išsamūs atsiliepimai prisideda prie saugesnės ir labiau "
+"informuotos bendruomenės mūsų platformoje."
+
+#: listings/templates/pages/how_it_works.html:3
+msgid "How it works"
+msgstr "Kaip tai veikia"
+
+#: listings/templates/pages/listing_upload_guidelines.html:3
+#: listings/templates/pages/listing_upload_guidelines.html:6
+msgid "Listing Upload Guidelines"
+msgstr "Skelbimo įkėlimo gairės"
+
+#: listings/templates/pages/listing_upload_guidelines.html:8
+msgid "Setting Prices"
+msgstr "Kainų nustatymas"
+
+#: listings/templates/pages/listing_upload_guidelines.html:9
+msgid ""
+"Consider Cleaning Costs: for example, in Lithuania, cleaning an occasion "
+"dress costs approximately 20 EUR. Factor this into your rental price to "
+"cover these expenses;"
+msgstr ""
+"Apsvarstykite valymo išlaidas: pavyzdžiui, Lietuvoje šventinio suknelės "
+"valymas nákią apie 20 EUR. Įtraukite tai į nuomos kainą, kad padengtumėte "
+"šias išlaidas;"
+
+#: listings/templates/pages/listing_upload_guidelines.html:10
+msgid ""
+"Lenders have full control over setting the rental price for their items. On "
+"our platform, the listing form requires you to set a rental price for a 4-"
+"day rental period. However, once a renter contacts you, you can adjust the "
+"price based on the agreed rental period. Below are relevant considerations "
+"and recommendations for setting your item's price:"
+msgstr ""
+"Skolintojai turi visišką kontrolę nustatydami nuomos kainą už savo daiktus. "
+"Mūsų platformoje skelbimo formoje reikia nustatyti nuomos kainą 4 dienų "
+"laikotarpiui. Tačiau, kai nuomininkas susisieks su jumis, galite koreguoti "
+"kainą pagal sutartą nuomos laikotarpį. Žemiau pateikiamos svarbios "
+"apsvarstyti ir rekomendacijos nustatant daikto kainą:"
+
+#: listings/templates/pages/listing_upload_guidelines.html:12
+msgid ""
+"Shipping Costs: Consider the item shipping costs if you and the renter agree "
+"this as a delivery method. It’s up to you to decide whether the shipping "
+"costs are on you or the buyer. If you plan to charge for the shipping "
+"expenses, we recommend including it in the item description rather than 4-"
+"Day Rental Price."
+msgstr ""
+"Pristatymo išlaidos: apsvarstykite daikto pristatymo išlaidas, jei jūs ir "
+"nuomininkas sutinkate, kad tai būtų pristatymo metodas. Jūsų nuožiūra, ar "
+"pristatymo išlaidos bus ant jūsų, ar pirkėjo. Jei planuojate imti mokestį už "
+"pristatymą, rekomenduojame įtraukti tai į daikto aprašymą, o ne į 4 dienų "
+"nuomos kainą."
+
+#: listings/templates/pages/listing_upload_guidelines.html:13
+#, python-format
+msgid ""
+"4-Day Rental Price: Have in mind that in the listing upload form, you are "
+"putting a 4-day rental price. We recommend setting the rental price at "
+"10-15%% of the item’s retail price for a day rental period. If your item is "
+"high in demand, you may want to increase the rental price to maximize your "
+"earnings."
+msgstr ""
+"4 dienų nuomos kaina: turėkite omenyje, kad skelbimo įkėlimo formoje "
+"nustatote 4 dienų nuomos kainą. Rekomenduojame nustatyti nuomos kainą "
+"10-15%% daikto mažmeninės kainos už dieną. Jei jūsų daiktas yra didelio "
+"paklausos, galite padidinti nuomos kainą, kad maksimaliai padidintumėte savo "
+"uždarbį."
+
+#: listings/templates/pages/listing_upload_guidelines.html:14
+msgid ""
+"Security Deposit: You may ask the renter to pay a 4-Day Rental fee plus a "
+"deposit determined by you, which you’ll refund once the item is returned in "
+"good condition. If you do so, include this in the listing description or in "
+"the messages once you connect with the renter. Do not add deposit in the 4-"
+"Day Rent Price tab."
+msgstr ""
+"Užstatas: galite paprašyti nuomininko sumokėti 4 dienų nuomos mokestį plius "
+"užstatą, kurį nustatote jūs, ir kurį grąžinsite, kai daiktas bus grąžintas "
+"geros būklės. Jei tai padarysite, įtraukite tai į skelbimo aprašymą arba į "
+"žinutes, kai susisieksite su nuomininku. Nepridėkite užstato prie 4 dienų "
+"nuomos kainos skilties."
+
+#: listings/templates/pages/listing_upload_guidelines.html:15
+msgid ""
+"Insurance Fee: You can consider including a non-refundable insurance fee to "
+"cover small “wear and tear” cases, such as a broken zipper or a loose "
+"stitch. We recommend including the insurance fee in the listing description "
+"rather than adding it in the 4-Day Rental Price tab. It’s up to you to "
+"decide on the insurance fee, but we recommend an optimal 3-10 EUR cost "
+"depending on the item’s retail value."
+msgstr ""
+"Draudimo mokestis: galite apsvarstyti galimybę įtraukti nedraudžiamą "
+"draudimo mokestį, kad padengtumėte mažus „nusidėvėjimo“ atvejus, tokius kaip "
+"sulūžęs užtrauktukas ar atsipalaidavusi siūlė. Rekomenduojame įtraukti "
+"draudimo mokestį į skelbimo aprašymą, o ne pridėti jį prie 4 dienų nuomos "
+"kainos skilties. Jūsų nuožiūra, bet rekomenduojame optimalų 3-10 EUR "
+"mokestį, priklausomai nuo daikto mažmeninės vertės."
+
+#: listings/templates/pages/listing_upload_guidelines.html:16
+msgid ""
+"Market Comparison: Compare your pricing with similar items listed on the "
+"platform. Adjust your rental price based on item or item’s size demand."
+msgstr ""
+"Rinkos palyginimas: palyginkite savo kainas su panašiais daiktais, "
+"paskelbtais platformoje. Pakoreguokite nuomos kainą pagal daikto ar daikto "
+"dydžio paklausą."
+
+#: listings/templates/pages/listing_upload_guidelines.html:19
+msgid "Item Description"
+msgstr "Daikto aprašymas"
+
+#: listings/templates/pages/listing_upload_guidelines.html:20
+msgid "Details you should consider including in the listing description:"
+msgstr "Detalės, kurias turėtumėte apsvarstyti įtraukti į skelbimo aprašymą:"
+
+#: listings/templates/pages/listing_upload_guidelines.html:22
+#, fuzzy
+#| msgid ""
+#| "Size: Specify if the item is true to size or if it appears to be smaller/ "
+#| "larger than the size label indicated. It’s beneficial to include specific "
+#| "measurements (e.g., bust, waist, hips, length) to help renters ensure a "
+#| "proper fit."
+msgid ""
+"Size: Specify if the item is true to size or if it appears to be smaller/"
+"larger than the size label indicated. It’s beneficial to include specific "
+"measurements (e.g., bust, waist, hips, length) to help renters ensure a "
+"proper fit."
+msgstr ""
+"Dydis: nurodykite, ar daiktas atitinka dydį, ar jis atrodo mažesnis/arba "
+"didesnis nei nurodytas dydžio etiketėje. Naudinga įtraukti specifinius "
+"matmenis (pvz., krūtinę, liemenį, klubus, ilgį), kad padėtumėte nuomininkams "
+"užtikrinti tinkamą tinkamumą."
+
+#: listings/templates/pages/listing_upload_guidelines.html:23
+msgid ""
+"Wearability: Mention if the item is comfortable to wear, particularly for "
+"long periods or special occasions."
+msgstr ""
+"Nešiojimo patogumas: paminėkite, ar daiktas yra patogus dėvėti, ypač ilgą "
+"laiką ar specialioms progoms."
+
+#: listings/templates/pages/listing_upload_guidelines.html:24
+msgid ""
+"Defects: Clearly state if there are any defects, such as stains, tears, or "
+"missing buttons, to set accurate expectations."
+msgstr ""
+"Defektai: aiškiai nurodykite, jei yra kokių nors defektų, tokių kaip dėmės, "
+"skylės ar trūkstami mygtukai, kad nustatytumėte tikslius lūkesčius."
+
+#: listings/templates/pages/listing_upload_guidelines.html:27
+msgid "Item Pictures"
+msgstr "Daikto nuotraukos"
+
+#: listings/templates/pages/listing_upload_guidelines.html:28
+msgid ""
+"We highly recommend uploading at least 3 clear pictures of your item. Here "
+"are more tips to follow for listing pictures:"
+msgstr ""
+"Rekomenduojame įkelti bent 3 aiškias daikto nuotraukas. Štai dar keletas "
+"patarimų, kaip pateikti nuotraukas skelbimui:"
+
+#: listings/templates/pages/listing_upload_guidelines.html:30
+msgid ""
+"Item Representation: Ensure the pictures accurately represent what the item "
+"looks like. Include pictures of yourself/someone else wearing the item at a "
+"celebration or at home if no event photos are available."
+msgstr ""
+"Daikto atvaizdavimas: įsitikinkite, kad nuotraukos tiksliai atspindi daikto "
+"išvaizdą. Įtraukite nuotraukas, kuriose jūs/arba kas nors kitas dėvi daiktą "
+"šventėje arba namuose, jei nėra renginių nuotraukų."
+
+#: listings/templates/pages/listing_upload_guidelines.html:31
+msgid ""
+"Color Accuracy: Show the item’s true color. If the color varies in different "
+"lighting, include photos showing the item in various lighting conditions."
+msgstr ""
+"Spalvų tikslumas: parodykite tikrą daikto spalvą. Jei spalva skiriasi "
+"įvairiuose apšvietimuose, įtraukite nuotraukas, kuriose daiktas matomas "
+"įvairiomis apšvietimo sąlygomis."
+
+#: listings/templates/pages/listing_upload_guidelines.html:32
+msgid ""
+"Condition of the Item: Highlight any defects, such as tears or stains, by "
+"clearly showing them in the photos."
+msgstr ""
+"Daikto būklė: išryškinkite bet kokius defektus, tokius kaip skylės ar dėmės, "
+"aiškiai rodykite juos nuotraukose."
+
+#: listings/templates/pages/listing_upload_guidelines.html:33
+msgid ""
+"Background Removal (Optional): If you want to remove the background from "
+"your item pictures, use this tool: https://www.remove.bg/"
+msgstr ""
+"Fono pašalinimas (neprivaloma): jei norite pašalinti foną iš savo daikto "
+"nuotraukų, naudokite šį įrankį: https://www.remove.bg/"
+
+#: listings/templates/pages/listing_upload_guidelines.html:36
+msgid "Listing Tags"
+msgstr "Skelbimo žymos"
+
+#: listings/templates/pages/listing_upload_guidelines.html:37
+msgid ""
+"Tags help increase your item’s visibility on the platform and make it easier "
+"to find it. Consider the traits and occasions your item is suitable for; for "
+"example: if your item’s a bride’s dress, veil, or shoes, mark it with the "
+"“Bride” tag. If your item fits multiple occasions, mark all relevant tags; "
+"for example: if the item is suitable for baptism, is bump-friendly, and "
+"perfect for a birthday party, select all these tags."
+msgstr ""
+"Žymos padeda padidinti jūsų daikto matomumą platformoje ir palengvina jo "
+"suradimą. Apsvarstykite daikto savybes ir progų, kurioms jis tinkamas; "
+"pavyzdžiui: jei daiktas yra nuotakos suknelė, šydas ar batai, pažymėkite jį "
+"„Nuotaka“ žyma. Jei jūsų daiktas tinka kelioms progoms, pažymėkite visas "
+"atitinkamas žymas; pavyzdžiui: jei daiktas tinka krikštynoms, yra draugiškas "
+"nėštumo metu ir puikus gimtadienio vakarėliui, pasirinkite visas šias žymas."
+
+#: listings/templates/pages/platform_rules.html:10
+msgid "On Upupam, you can rent/sell the following items:"
+msgstr "Upupam platformoje galite nuomoti/parduoti šiuos daiktus:"
+
+#: listings/templates/pages/platform_rules.html:12
+msgid "Women’s, men’s clothes, shoes, and accessories."
+msgstr "Moters, vyro drabužiai, batai ir aksesuarai."
+
+#: listings/templates/pages/platform_rules.html:15
+msgid "On Upupam, you can’t rent/sell the following items:"
+msgstr "Upupam platformoje negalite nuomoti/parduoti šių daiktų:"
+
+#: listings/templates/pages/platform_rules.html:17
+msgid "Items that are counterfeits;"
+msgstr "Prekės, kurios yra padirbtos;"
+
+#: listings/templates/pages/platform_rules.html:18
+msgid "Items with real animal fur or leather."
+msgstr "Daiktai su tikru gyvūnų kailiu ar oda."
+
+#: listings/templates/pages/terms_and_conditions.html:8
+msgid "Introduction"
+msgstr "Įvadas"
+
+#: listings/templates/pages/terms_and_conditions.html:9
+msgid ""
+"These Terms and Conditions govern your use of Rentzies, an online C2C "
+"fashion rental platform (hereinafter referred to as 'the Platform'). By "
+"accessing or using the Platform, you agree to be bound by these Terms and "
+"Conditions and our Privacy Policy."
+msgstr ""
+"Šios sąlygos ir taisyklės reglamentuoja jūsų naudojimąsi Rentzies, "
+"internetine C2C mados nuomos platforma (toliau – „Platforma“). Prisijungę "
+"prie Platformos arba ją naudodamiesi, sutinkate laikytis šių sąlygų ir "
+"taisyklių bei mūsų Privatumo politikos."
+
+#: listings/templates/pages/terms_and_conditions.html:11
+msgid "User Eligibility"
+msgstr "Naudotojų tinkamumas"
+
+#: listings/templates/pages/terms_and_conditions.html:12
+msgid "You must be at least 18 years old to use the Platform."
+msgstr "Norint naudotis Platforma, jums turi būti ne mažiau kaip 18 metų."
+
+#: listings/templates/pages/terms_and_conditions.html:13
+msgid ""
+"By using the Platform, you warrant that you have the legal capacity to enter "
+"into this agreement and abide by its terms."
+msgstr ""
+"Naudodamiesi Platforma, jūs patvirtinate, kad turite teisę sudaryti šį "
+"susitarimą ir laikytis jo sąlygų."
+
+#: listings/templates/pages/terms_and_conditions.html:15
+msgid "User Accounts"
+msgstr "Naudotojų paskyros"
+
+#: listings/templates/pages/terms_and_conditions.html:16
+msgid ""
+"To access certain features of the Platform, you may be required to create an "
+"account."
+msgstr ""
+"Norint pasiekti tam tikras Platformos funkcijas, gali tekti sukurti paskyrą."
+
+#: listings/templates/pages/terms_and_conditions.html:17
+msgid ""
+"You agree to provide accurate, current, and complete information during the "
+"registration process and to update such information to keep it accurate, "
+"current, and complete."
+msgstr ""
+"Sutinkate pateikti tikslią, aktualią ir išsamią informaciją registracijos "
+"proceso metu ir atnaujinti ją, kad ji išliktų tiksli, aktuali ir išsami."
+
+#: listings/templates/pages/terms_and_conditions.html:18
+msgid ""
+"You are responsible for maintaining the confidentiality of your account "
+"credentials and for all activities that occur under your account."
+msgstr ""
+"Esate atsakingi už savo paskyros prisijungimo duomenų saugumą ir visas "
+"veiklas, vykstančias pagal jūsų paskyrą."
+
+#: listings/templates/pages/terms_and_conditions.html:20
+msgid "Listings and Transactions"
+msgstr "Skelbimai ir sandoriai"
+
+#: listings/templates/pages/terms_and_conditions.html:21
+msgid "Users may create listings for fashion items available for rent."
+msgstr ""
+"Naudotojai gali kurti skelbimus apie mados daiktus, kurie yra prieinami "
+"nuomai."
+
+#: listings/templates/pages/terms_and_conditions.html:22
+msgid ""
+"The Platform does not facilitate transactions between users and does not own "
+"or guarantee the quality, safety, legality, or availability of the items "
+"listed."
+msgstr ""
+"Platforma nesuteikia sandorių tarp naudotojų ir nesukuria ar negarantuoja "
+"daiktų kokybės, saugumo, teisėtumo ar prieinamumo."
+
+#: listings/templates/pages/terms_and_conditions.html:23
+msgid ""
+"Users agree to accurately represent the condition, size, and other relevant "
+"details of listed items."
+msgstr ""
+"Naudotojai sutinka tiksliai atspindėti skelbiamų daiktų būklę, dydį ir kitus "
+"reikšmingus duomenis."
+
+#: listings/templates/pages/terms_and_conditions.html:24
+msgid ""
+"Users are in full control of their items and rental transactions. The "
+"Platform does not take ownership of or responsibility for any items listed "
+"on the Platform."
+msgstr ""
+"Naudotojai visiškai kontroliuoja savo daiktus ir nuomos sandorius. Platforma "
+"nepriima nuosavybės teisių ar atsakomybės už bet kokius skelbiamus daiktus."
+
+#: listings/templates/pages/terms_and_conditions.html:26
+msgid "Rental Agreements"
+msgstr "Nuomos sutartys"
+
+#: listings/templates/pages/terms_and_conditions.html:27
+msgid ""
+"By renting an item through the Platform, users do not enter into a legally "
+"binding agreement with the item’s owner."
+msgstr ""
+"Nuomodami daiktą per Platformą, naudotojai nesudaro teisiškai "
+"įpareigojančios sutarties su daikto savininku."
+
+#: listings/templates/pages/terms_and_conditions.html:28
+msgid ""
+"Users agree to comply with the terms specified in the rental agreement, "
+"including but not limited to rental duration, rental fee, and return "
+"conditions."
+msgstr ""
+"Naudotojai sutinka laikytis nuomos sutartyje nurodytų sąlygų, įskaitant, bet "
+"ne apsiribojant, nuomos trukme, nuomos mokesčiu ir grąžinimo sąlygomis."
+
+#: listings/templates/pages/terms_and_conditions.html:30
+msgid "Prohibited Conduct"
+msgstr "Draudžiama elgsena"
+
+#: listings/templates/pages/terms_and_conditions.html:31
+msgid ""
+"Users agree not to engage in any conduct that violates these Terms and "
+"Conditions, our Community Guidelines, or applicable laws and regulations."
+msgstr ""
+"Naudotojai sutinka nesikreipti į jokią elgseną, kuri pažeidžia šias sąlygas "
+"ir taisykles, mūsų Bendruomenės gaires arba taikomas teisės aktus ir "
+"reglamentus."
+
+#: listings/templates/pages/terms_and_conditions.html:32
+msgid ""
+"Prohibited conduct includes but is not limited to fraud, harassment, "
+"infringement of intellectual property rights, and illegal activities."
+msgstr ""
+"Draudžiama elgsena apima, bet neapsiriboja, sukčiavimu, priekabiavimu, "
+"intelektinės nuosavybės teisių pažeidimais ir neteisėtomis veiklomis."
+
+#: listings/templates/pages/terms_and_conditions.html:34
+msgid "Intellectual Property"
+msgstr "Intelektinė nuosavybė"
+
+#: listings/templates/pages/terms_and_conditions.html:35
+msgid ""
+"All content and materials available on the Platform, including but not "
+"limited to text, graphics, logos, images, and software, are the property of "
+"Rentzies or its licensors and are protected by copyright, trademark, and "
+"other intellectual property laws."
+msgstr ""
+"Visas Platformoje prieinamas turinys ir medžiagos, įskaitant, bet "
+"neapsiribojant, tekstais, grafika, logotipais, nuotraukomis ir programine "
+"įranga, yra Rentzies ar jos licencijų turėtojų nuosavybė ir yra apsaugoti "
+"autorių teisių, prekių ženklų ir kitų intelektinės nuosavybės teisės aktų."
+
+#: listings/templates/pages/terms_and_conditions.html:36
+msgid ""
+"Users agree not to reproduce, distribute, modify, or create derivative works "
+"of any content on the Platform without prior written consent."
+msgstr ""
+"Naudotojai sutinka nesikopijuoti, neplatinti, nemodifikuoti ar nesukurti "
+"išvestinių darinių iš jokio Platformos turinio be išankstinio raštiško "
+"sutikimo."
+
+#: listings/templates/pages/terms_and_conditions.html:38
+msgid "Disclaimer of Warranties"
+msgstr "Garantijų atsisakymas"
+
+#: listings/templates/pages/terms_and_conditions.html:39
+msgid ""
+"The Platform is provided on an 'as is' and 'as available' basis, without any "
+"warranties of any kind, express or implied."
+msgstr ""
+"Platforma teikiama „kaip yra“ ir „kaip prieinama“ pagrindu, be jokių "
+"garantijų, reiškiamų ar numanomas."
+
+#: listings/templates/pages/terms_and_conditions.html:40
+msgid ""
+"Rentzies does not warrant that the Platform will be uninterrupted or error-"
+"free, or that defects will be corrected."
+msgstr ""
+"Rentzies negarantuoja, kad Platforma bus nenutrūkstama arba be klaidų, arba "
+"kad defektai bus pašalinti."
+
+#: listings/templates/pages/terms_and_conditions.html:42
+msgid "Limitation of Liability"
+msgstr "Atsakomybės ribojimas"
+
+#: listings/templates/pages/terms_and_conditions.html:43
+msgid ""
+"In no event shall Rentzies be liable for any indirect, incidental, special, "
+"consequential, or punitive damages, or any loss of profits or revenues, "
+"whether incurred directly or indirectly, arising out of your use of the "
+"Platform."
+msgstr ""
+"Jokiu atveju Rentzies nebus atsakinga už jokią netiesioginę, atsitiktinę, "
+"specialią, konsekventinę ar baudžiamąją žalą, arba bet kokį pelno ar pajamų "
+"nuostolį, nesvarbu, ar jis buvo patirtas tiesiogiai ar netiesiogiai, "
+"atsirandantį dėl jūsų naudojimosi Platforma."
+
+#: listings/templates/pages/terms_and_conditions.html:44
+msgid ""
+"Rentzies's total liability arising out of or relating to these Terms and "
+"Conditions shall not exceed the total amount paid by you to Rentzies in the "
+"twelve months preceding the event giving rise to the liability."
+msgstr ""
+"Rentzies bendra atsakomybė, kylanti iš šių sąlygų ir taisyklių arba su jomis "
+"susijusi neviršys sumos, kurią jūs sumokėjote Rentzies per dvylika mėnesių "
+"prieš įvykį, kuris sukėlė atsakomybę."
+
+#: listings/templates/pages/terms_and_conditions.html:46
+msgid "Payments and Fees"
+msgstr "Mokėjimai ir mokesčiai"
+
+#: listings/templates/pages/terms_and_conditions.html:47
+msgid ""
+"The Platform does not issue refunds for any fees or charges paid to the "
+"other users."
+msgstr ""
+"Platforma neišduoda grąžinimų už jokius mokesčius ar įmokas, sumokėtas "
+"kitiems naudotojams."
+
+#: listings/templates/pages/terms_and_conditions.html:49
+msgid "No Guarantee of Successful Transactions"
+msgstr "Nėra sėkmingų sandorių garantijos"
+
+#: listings/templates/pages/terms_and_conditions.html:50
+msgid ""
+"The Platform does not guarantee the successful completion of rental "
+"transactions. Users acknowledge that rentals are conducted at their own risk."
+msgstr ""
+"Platforma negarantuoja sėkmingo nuomos sandorių užbaigimo. Naudotojai "
+"pripažįsta, kad nuomos sandoriai vykdomi jų pačių rizika."
+
+#: listings/templates/pages/terms_and_conditions.html:51
+msgid ""
+"The Platform is not responsible for ensuring that renters pay for items or "
+"that lenders send items as described."
+msgstr ""
+"Platforma neatsako už tai, kad nuomotojai sumokėtų už daiktus ar kad "
+"paskolintojai išsiųstų daiktus pagal aprašymą."
+
+#: listings/templates/pages/terms_and_conditions.html:52
+msgid ""
+"In the event a renter does not pay, or an item is not as described, the "
+"Platform is not liable for any resulting damages or losses."
+msgstr ""
+"Jei nuomininkas nesumoka, arba daiktas neatitinka aprašymo, Platforma nėra "
+"atsakinga už bet kokius atsirandančius nuostolius ar žalą."
+
+#: listings/templates/pages/terms_and_conditions.html:54
+msgid "Modifications to Terms and Conditions"
+msgstr "Sąlygų ir taisyklių pakeitimai"
+
+#: listings/templates/pages/terms_and_conditions.html:55
+msgid ""
+"Rentzies reserves the right to modify or amend these Terms and Conditions at "
+"any time. Any changes will be effective immediately upon posting on the "
+"Platform."
+msgstr ""
+"Rentzies pasilieka teisę bet kada keisti arba papildyti šias sąlygas ir "
+"taisykles. Bet kokie pakeitimai įsigalios nedelsiant, paskelbus Platformoje."
+
+#: listings/templates/pages/terms_and_conditions.html:56
+msgid ""
+"Your continued use of the Platform after the posting of any changes "
+"constitutes acceptance of those changes."
+msgstr ""
+"Jūsų tolesnis naudojimasis Platforma po bet kokių pakeitimų paskelbimo "
+"reiškia, kad priimate šiuos pakeitimus."
+
+#: listings/templates/pages/terms_and_conditions.html:57
+msgid ""
+"Upon termination, your right to use the Platform will immediately cease, and "
+"you must cease all use of the Platform and delete any downloaded or printed "
+"materials obtained from the Platform."
+msgstr ""
+"Pasibaigus galiojimo laikui, jūsų teisė naudotis Platforma nedelsiant "
+"pasibaigs, ir jūs turite nustoti naudotis Platforma ir ištrinti visus "
+"atsisiųstus ar atspausdintus medžiagos, gautus iš Platformos."
+
+#: listings/templates/pages/terms_and_conditions.html:59
+msgid "Contact Information"
+msgstr "Kontaktinė informacija"
+
+#: listings/templates/pages/terms_and_conditions.html:60
+msgid ""
+"If you have any questions or concerns about these Terms and Conditions, "
+"please contact us at (email)."
+msgstr ""
+"Jei turite kokių nors klausimų ar abejonių dėl šių sąlygų ir taisyklių, "
+"prašome susisiekti su mumis el. paštu (el. paštas)."
+
+#: listings/templates/reviews/create_listing_review.html:5
+#: listings/templates/reviews/create_listing_review.html:9
+msgid "Create a Listing Review"
+msgstr "Sukurti skelbimo apžvalgą"
+
+#: listings/templates/reviews/create_listing_review.html:14
+#: user_profiles/templates/reviews/create_profile_review.html:14
+msgid "Comment"
+msgstr "Komentaras"
+
+#: listings/templates/reviews/create_listing_review.html:18
+#: user_profiles/templates/reviews/create_profile_review.html:18
+msgid "Rating"
+msgstr "Įvertinimas"
+
+#: listings/templates/reviews/create_listing_review.html:21
+#: user_profiles/templates/reviews/create_profile_review.html:21
+msgid "Submit"
+msgstr "Pateikti"
+
+#: listings/templates/reviews/listing_review_success.html:5
+#: user_profiles/templates/reviews/profile_review_success.html:5
+msgid "Review successfull"
+msgstr "Apžvalga sėkminga"
+
+#: listings/templates/reviews/listing_review_success.html:9
+#: user_profiles/templates/reviews/profile_review_success.html:9
+msgid "Congratulations, you left a review"
+msgstr "Sveikiname, palikote apžvalgą"
+
+#: listings/templates/shop.html:3 listings/templates/teaser.html:3
+msgid "Main Page"
+msgstr "Pagrindinis puslapis"
+
+#: listings/templates/shop.html:29
+msgid "For Sale"
+msgstr "Parduodama"
+
+#: listings/templates/shop.html:33
+msgid "Price: Low to High"
+msgstr "Kaina: Mažiausia iki didžiausios"
+
+#: listings/templates/shop.html:37
+msgid "Price: High to Low"
+msgstr "Kaina: Didžiausia iki mažiausios"
+
+#: listings/templates/shop.html:57
+msgid "Filter by Color:"
+msgstr "Filtruoti pagal spalvą:"
+
+#: listings/templates/shop.html:59
+msgid "All Colors"
+msgstr "Visos spalvos"
+
+#: listings/templates/shop.html:70
+msgid "Filter by Size:"
+msgstr "Filtruoti pagal dydį:"
+
+#: listings/templates/shop.html:72
+msgid "All Sizes"
+msgstr "Visi dydžiai"
+
+#: listings/templates/shop.html:85
+msgid "Parent Category:"
+msgstr "Pagrindinė kategorija:"
+
+#: listings/templates/shop.html:87
+msgid "All Parent Categories"
+msgstr "Visos pagrindinės kategorijos"
+
+#: listings/templates/shop.html:94
+msgid "Subcategory:"
+msgstr "Pogrupis:"
+
+#: listings/templates/shop.html:96
+msgid "All Categories"
+msgstr "Visos kategorijos"
+
+#: listings/templates/shop.html:113
+msgid "Apply Filters"
+msgstr "Taikyti filtrus"
+
+#: listings/templates/shop.html:114
+msgid "View all"
+msgstr "Peržiūrėti visus"
+
+#: listings/templates/shop.html:226 listings/templates/shop.html:238
+msgid "All Sub-Categories"
+msgstr "Visi pogrupiai"
+
+#: listings/views.py:288
+msgid "marked as"
+msgstr "pažymėta kaip"
+
+#: listings/views.py:289
+msgid "available"
+msgstr "pasiekiama"
+
+#: listings/views.py:289
+msgid "unavailable"
+msgstr "nepasiekiama"
+
+#: listings/views.py:292
+msgid "permission error"
+msgstr "leidimo klaida"
+
+#: listings/views.py:292
+msgid "you must be the owner of listing"
+msgstr "turite būti skelbimo savininkas"
+
+#: listings/views.py:309
+msgid "listing created successfully"
+msgstr "skelbimas sėkmingai sukurtas"
+
+#: listings/views.py:331
+msgid "listing updated successfully"
+msgstr "skelbimas sėkmingai atnaujintas"
+
+#: listings/views.py:352
+msgid "listing deleted successfully"
+msgstr "skelbimas sėkmingai ištrintas"
+
+#: user_profiles/forms.py:28
+msgid "Show Instagram"
+msgstr "Rodyti Instagram"
+
+#: user_profiles/forms.py:29
+msgid "Instagram URL"
+msgstr "Instagram URL"
+
+#: user_profiles/forms.py:31
+msgid "Show Facebook"
+msgstr "Rodyti Facebook"
+
+#: user_profiles/forms.py:32
+msgid "Facebook URL"
+msgstr "Facebook URL"
+
+#: user_profiles/forms.py:34
+msgid "Show Phone Number"
+msgstr "Rodyti telefono numerį"
+
+#: user_profiles/forms.py:35
+#: user_profiles/templates/favorite/my_favorite_users.html:34
+#: user_profiles/templates/user_profile/user_detail.html:34
+msgid "Phone Number"
+msgstr "Telefono numeris"
+
+#: user_profiles/forms.py:37
+msgid "Show Email"
+msgstr "Rodyti el. paštą"
+
+#: user_profiles/forms.py:38
+#: user_profiles/templates/favorite/my_favorite_users.html:37
+#: user_profiles/templates/user_profile/user_detail.html:37
+msgid "Email"
+msgstr "El. paštas"
+
+#: user_profiles/models.py:10
+#: user_profiles/templates/user_profile/user_detail.html:21
+msgid "user"
+msgstr "naudotojas"
+
+#: user_profiles/models.py:11
+msgid "picture"
+msgstr "nuotrauka"
+
+#: user_profiles/models.py:12
+msgid "city"
+msgstr "miestas"
+
+#: user_profiles/models.py:21
+msgid "contact options"
+msgstr "kontaktai"
+
+#: user_profiles/models.py:24
+#: user_profiles/templates/user_profile/user_update.html:4
+msgid "profile"
+msgstr "profilis"
+
+#: user_profiles/models.py:25
+msgid "profiles"
+msgstr "profiliai"
+
+#: user_profiles/models.py:43
+msgid "favorited by"
+msgstr "patinka"
+
+#: user_profiles/models.py:44 user_profiles/models.py:48
+msgid "favorite user"
+msgstr "mėgstamas naudotojas"
+
+#: user_profiles/models.py:49
+msgid "favorite users"
+msgstr "mėgstami naudotojai"
+
+#: user_profiles/models.py:59
+msgid "reviewed_profile"
+msgstr "peržiūrėtas profilis"
+
+#: user_profiles/models.py:65
+msgid "profile_review"
+msgstr "profilio apžvalga"
+
+#: user_profiles/models.py:66
+msgid "profile_reviews"
+msgstr "profilio apžvalgos"
+
+#: user_profiles/templates/favorite/my_favorite_users.html:8
+msgid "My Favorite Users"
+msgstr "Mano mėgstami naudotojai"
+
+#: user_profiles/templates/favorite/my_favorite_users.html:19
+#: user_profiles/templates/user_profile/user_detail.html:16
+msgid "No profile picture available"
+msgstr "Profilio nuotrauka neprieinama"
+
+#: user_profiles/templates/favorite/my_favorite_users.html:26
+#: user_profiles/templates/user_profile/user_detail.html:24
+msgid "Number of Listings"
+msgstr "Skelbimų skaičius"
+
+#: user_profiles/templates/favorite/my_favorite_users.html:28
+#: user_profiles/templates/user_profile/user_detail.html:28
+msgid "Instagram"
+msgstr "Instagram"
+
+#: user_profiles/templates/favorite/my_favorite_users.html:31
+#: user_profiles/templates/user_profile/user_detail.html:31
+msgid "Facebook"
+msgstr "Facebook"
+
+#: user_profiles/templates/favorite/my_favorite_users.html:51
+msgid "You have no favorite users."
+msgstr "Neturite mėgstamų naudotojų."
+
+#: user_profiles/templates/registration/logged_out.html:2
+#: user_profiles/templates/registration/logged_out.html:4
+msgid "See you later at"
+msgstr "Iki pasimatymo"
+
+#: user_profiles/templates/registration/logged_out.html:5
+msgid "You are always welcome back"
+msgstr "Visada esate laukiami"
+
+#: user_profiles/templates/registration/logged_out.html:6
+msgid "again"
+msgstr "vėl"
+
+#: user_profiles/templates/registration/login.html:6
+#: user_profiles/templates/registration/login.html:10
+msgid "Log in to"
+msgstr "Prisijunkite prie"
+
+#: user_profiles/templates/registration/login.html:13
+msgid "Log in error. Please try again."
+msgstr "Prisijungimo klaida. Bandykite dar kartą."
+
+#: user_profiles/templates/registration/login.html:24
+msgid "Log in"
+msgstr "Prisijungti"
+
+#: user_profiles/templates/registration/login.html:27
+msgid "Forgot password?"
+msgstr "Pamiršote slaptažodį?"
+
+#: user_profiles/templates/registration/login.html:29
+msgid "If you do not have an account, please"
+msgstr "Jei neturite paskyros, prašome"
+
+#: user_profiles/templates/registration/login.html:33
+msgid "Log in with Google"
+msgstr "Prisijungti su Google"
+
+#: user_profiles/templates/registration/password_reset_complete.html:3
+msgid "Password Changed"
+msgstr "Slaptažodis pakeistas"
+
+#: user_profiles/templates/registration/password_reset_complete.html:5
+msgid "Password Has Been Changed Successfully"
+msgstr "Slaptažodis sėkmingai pakeistas"
+
+#: user_profiles/templates/registration/password_reset_complete.html:6
+msgid "You can now"
+msgstr "Dabar galite"
+
+#: user_profiles/templates/registration/password_reset_complete.html:6
+msgid "with your new password."
+msgstr "prisijungti su savo nauju slaptažodžiu."
+
+#: user_profiles/templates/registration/password_reset_confirm.html:3
+#: user_profiles/templates/registration/password_reset_confirm.html:5
+#: user_profiles/templates/registration/password_reset_confirm.html:10
+msgid "Reset Password"
+msgstr "Atstatyti slaptažodį"
+
+#: user_profiles/templates/registration/password_reset_confirm.html:13
+msgid "Password Reset Failed: The link has expired and is no longer valid."
+msgstr ""
+"Slaptažodžio atstatymas nepavyko: nuoroda pasibaigė ir nebėra galiojanti."
+
+#: user_profiles/templates/registration/password_reset_done.html:3
+#: user_profiles/templates/registration/password_reset_done.html:5
+msgid "Please Check Your Email"
+msgstr "Patikrinkite savo el. paštą"
+
+#: user_profiles/templates/registration/password_reset_done.html:6
+msgid "We have sent further instructions to your email."
+msgstr "Mes išsiuntėme tolesnes instrukcijas į jūsų el. paštą."
+
+#: user_profiles/templates/registration/password_reset_email.html:2
+msgid ""
+"Hello,\n"
+"\n"
+"Someone has requested a password change for your account at UPUPAM. If this "
+"was not you, please ignore this email.\n"
+"\n"
+"You can change your password by following this link:"
+msgstr ""
+"Sveiki,\n"
+"\n"
+"Kas nors paprašė pakeisti slaptažodį jūsų paskyrai UPUPAM. Jei tai nebuvote "
+"jūs, prašome ignoruoti šį el. laišką.\n"
+"\n"
+"Slaptažodį galite pakeisti sekdami šią nuorodą:"
+
+#: user_profiles/templates/registration/password_reset_email.html:9
+msgid ""
+"Best regards,\n"
+"UPUPAM Team"
+msgstr ""
+"Su geriausiais linkėjimais,\n"
+"UPUPAM komanda"
+
+#: user_profiles/templates/registration/password_reset_form.html:3
+#: user_profiles/templates/registration/password_reset_form.html:5
+msgid "Password Reset"
+msgstr "Slaptažodžio atstatymas"
+
+#: user_profiles/templates/registration/password_reset_form.html:9
+#: user_profiles/templates/user_profile/user_update.html:29
+msgid "Confirm"
+msgstr "Patvirtinti"
+
+#: user_profiles/templates/reviews/create_profile_review.html:5
+#: user_profiles/templates/reviews/create_profile_review.html:9
+msgid "Create a Profile Review"
+msgstr "Sukurti profilio apžvalgą"
+
+#: user_profiles/templates/user_profile/signup.html:2
+#: user_profiles/templates/user_profile/signup.html:4
+msgid "signup for"
+msgstr "užsiregistruoti"
+
+#: user_profiles/templates/user_profile/signup.html:8
+msgid "register"
+msgstr "registracija"
+
+#: user_profiles/templates/user_profile/user_detail.html:3
+msgid "at"
+msgstr "prie"
+
+#: user_profiles/templates/user_profile/user_detail.html:8
+msgid "Profile"
+msgstr "Profilis"
+
+#: user_profiles/templates/user_profile/user_detail.html:43
+msgid "edit profile data"
+msgstr "redaguoti profilio duomenis"
+
+#: user_profiles/templates/user_profile/user_detail.html:89
+msgid "Waiting for admin approval"
+msgstr "Laukiama administratoriaus patvirtinimo"
+
+#: user_profiles/templates/user_profile/user_detail.html:116
+msgid "My Reviews"
+msgstr "Mano apžvalgos"
+
+#: user_profiles/templates/user_profile/user_update.html:2
+msgid "profile at"
+msgstr "profilis prie"
+
+#: user_profiles/views.py:31
+msgid "Thank you! You can log in now with your credentials."
+msgstr "Ačiū! Dabar galite prisijungti su savo duomenimis."
+
+#: user_profiles/views.py:35
+msgid "Welcome to UPUPAM!"
+msgstr "Sveiki atvykę į UPUPAM!"
+
+#: user_profiles/views.py:36
+#, python-brace-format
+msgid ""
+"Hi {username},\n"
+"\n"
+"Thank you for signing up! We're excited to have you on board.\n"
+"\n"
+"Best regards,\n"
+"The UPUPAM Team"
+msgstr ""
+"Sveiki {username},\n"
+"\n"
+"Ačiū, kad užsiregistravote! Džiaugiamės, kad esate su mumis.\n"
+"\n"
+"Su geriausiais linkėjimais,\n"
+"UPUPAM komanda"
+
+#: user_profiles/views.py:103
+#, fuzzy
+#| msgid "listing created successfully"
+msgid "Profile edited successfully"
+msgstr "skelbimas sėkmingai sukurtas"
