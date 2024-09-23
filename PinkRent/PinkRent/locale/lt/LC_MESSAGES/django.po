@@ -349,20 +349,14 @@ msgid "Rent from others"
 msgstr "Nuomotis iš kitų"
 
 #: listings/templates/base.html:149 listings/templates/pages/about_us.html:6
-#, fuzzy
-#| msgid "About Us"
 msgid "About Upupam"
-msgstr "Apie mus"
+msgstr "Apie Upupam"
 
 #: listings/templates/base.html:154
-#, fuzzy
-#| msgid "How to Rent"
 msgid "How to rent?"
 msgstr "Kaip nuomotis"
 
 #: listings/templates/base.html:155
-#, fuzzy
-#| msgid "How to Lend"
 msgid "How to lend?"
 msgstr "Kaip skolinti"
 
@@ -373,8 +367,6 @@ msgid "Platform Rules"
 msgstr "Platformos taisyklės"
 
 #: listings/templates/base.html:159
-#, fuzzy
-#| msgid "Terms and Conditions"
 msgid "Terms & Conditions"
 msgstr "Sąlygos ir taisyklės"
 
