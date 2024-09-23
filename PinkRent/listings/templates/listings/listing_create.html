@@ -3,8 +3,8 @@
 {% block title %}{% trans "create a listing at"|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
 <div class="seperator-text">
-    <h1>Create a New Listing</h1>
-    <p><a href="{% url 'listings:listing_upload_guidelines' %}">Maximise Your Success - Click Here to Review Our Upload Tips</a></p>
+    <h1>{% trans "Create a New Listing" %}</h1>
+    <p><a href="{% url 'listings:listing_upload_guidelines' %}">{% trans "Maximise Your Success - Click Here to Review Our Upload Tips" %}</a></p>
 </div>
 <div class="form-fields">
     <form method="post" enctype="multipart/form-data">
@@ -27,27 +27,27 @@
     </div>
     <div class="fieldWrapper">
         {{ form.picture.errors }}
-        <label for="{{ form.picture.id_for_label }}">Picture:</label>
+        <label for="{{ form.picture.id_for_label }}">{% trans "Picture:" %}</label>
         {{ form.picture }}
     </div>
     <div class="fieldWrapper">
         {{ form.picture_1.errors }}
-        <label for="{{ form.picture_1.id_for_label }}">Picture 2:</label>
+        <label for="{{ form.picture_1.id_for_label }}">{% trans "Picture 2:" %}</label>
         {{ form.picture_1 }}
     </div>
     <div class="fieldWrapper">
         {{ form.picture_2.errors }}
-        <label for="{{ form.picture_2.id_for_label }}">Picture 3:</label>
+        <label for="{{ form.picture_2.id_for_label }}">{% trans "Picture 3:" %}</label>
         {{ form.picture_2 }}
     </div>
     <div class="fieldWrapper">
         {{ form.picture_3.errors }}
-        <label for="{{ form.picture_3.id_for_label }}">Picture 4:</label>
+        <label for="{{ form.picture_3.id_for_label }}">{% trans "Picture 4:" %}</label>
         {{ form.picture_3 }}
     </div>
     <div class="fieldWrapper">
         {{ form.name.errors }}
-        <label for="{{ form.name.id_for_label }}">Name:</label>
+        <label for="{{ form.name.id_for_label }}">{% trans "Name:" %}</label>
         {{ form.name }}
     </div>
     <div class="fieldWrapper">
@@ -59,27 +59,27 @@
     </div>
     <div class="fieldWrapper">
         {{ form.size.errors }}
-        <label for="{{ form.size.id_for_label }}">Size:</label>
+        <label for="{{ form.size.id_for_label }}">{% trans "Size:" %}</label>
         {{ form.size }}
     </div>
     <div class="fieldWrapper">
         {{ form.quality.errors }}
-        <label for="{{ form.quality.id_for_label }}">Quality:</label>
+        <label for="{{ form.quality.id_for_label }}">{% trans "Quality:" %}</label>
         {{ form.quality }}
     </div>
     <div class="fieldWrapper">
         {{ form.color.errors }}
-        <label for="{{ form.color.id_for_label }}">Color:</label>
+        <label for="{{ form.color.id_for_label }}">{% trans "Color:" %}</label>
         {{ form.color }}
     </div>
     <div class="fieldWrapper">
         {{ form.value.errors }}
-        <label for="{{ form.value.id_for_label }}">Value:</label>
+        <label for="{{ form.value.id_for_label }}">{% trans "Value:" %}</label>
         {{ form.value }}
     </div>
     <div class="fieldWrapper">
         {{ form.is_for_sale.errors }}
-        <label for="{{ form.is_for_sale.id_for_label }}">Receive buy offers:</label>
+        <label for="{{ form.is_for_sale.id_for_label }}">{% trans "Receive buy offers:" %}</label>
         <div class="switch">
             <input type="checkbox" id="{{ form.is_for_sale.id_for_label }}" name="{{ form.is_for_sale.name }}" {% if form.is_for_sale.value %}checked{% endif %}>
             <label for="{{ form.is_for_sale.id_for_label }}" class="switch-slider"></label>
@@ -87,12 +87,12 @@
     </div>
     <div class="fieldWrapper">
         {{ form.price.errors }}
-        <label for="{{ form.price.id_for_label }}">4 day rent price:</label>
+        <label for="{{ form.price.id_for_label }}">{% trans "4 day rent price:" %}</label>
         {{ form.price }}
     </div>
     <div class="fieldWrapper">
         {{ form.description.errors }}
-        <label for="{{ form.description.id_for_label }}">Description:</label>
+        <label for="{{ form.description.id_for_label }}">{% trans "Description:" %}</label>
         {{ form.description }}
     </div>
     <input type="hidden" id="id_category" name="category" value="{{ form.category.value }}">
@@ -115,7 +115,7 @@
             {% endfor %}
         </div>
     </div>
-    <button type="submit" style="margin: 10px 0;">Create Listing</button>
+    <button type="submit" style="margin: 10px 0;">{% trans "Create Listing" %}</button>
     </form>
 </div>
 <script>

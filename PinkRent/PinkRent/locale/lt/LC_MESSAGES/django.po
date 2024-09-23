@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 11:55+0000\n"
+"POT-Creation-Date: 2024-09-23 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -435,6 +435,14 @@ msgstr "Nerasta mėgstamų skelbimų."
 msgid "create a listing at"
 msgstr "sukurti skelbimą"
 
+#: listings/templates/listings/listing_create.html:6
+msgid "Create a New Listing"
+msgstr "Sukurti skelbimą"
+
+#: listings/templates/listings/listing_create.html:7
+msgid "Maximise Your Success - Click Here to Review Our Upload Tips"
+msgstr "Didink savo sėkmę - spausk čia, kad peržiūrėtum mūsų įkėlimo patarimus"
+
 #: listings/templates/listings/listing_create.html:14
 #: listings/templates/shop.html:83
 msgid "Category"
@@ -457,6 +465,74 @@ msgstr "Subkategorija"
 #: listings/templates/listings/listing_update.html:143
 msgid "Select Sub-Category"
 msgstr "Pasirinkti subkategoriją"
+
+#: listings/templates/listings/listing_create.html:30
+#: listings/templates/listings/listing_update.html:37
+msgid "Picture:"
+msgstr "Nuotrauka"
+
+#: listings/templates/listings/listing_create.html:35
+#: listings/templates/listings/listing_update.html:42
+msgid "Picture 2:"
+msgstr "Nuotrauka 2"
+
+#: listings/templates/listings/listing_create.html:40
+#: listings/templates/listings/listing_update.html:47
+msgid "Picture 3:"
+msgstr "Nuotrauka 3"
+
+#: listings/templates/listings/listing_create.html:45
+#: listings/templates/listings/listing_update.html:52
+msgid "Picture 4:"
+msgstr "Nuotrauka 4"
+
+#: listings/templates/listings/listing_create.html:50
+#: listings/templates/listings/listing_update.html:57
+msgid "Name:"
+msgstr "Vardas:"
+
+#: listings/templates/listings/listing_create.html:62
+#: listings/templates/listings/listing_details.html:43
+#: listings/templates/listings/listing_update.html:69
+msgid "Size:"
+msgstr "Dydis:"
+
+#: listings/templates/listings/listing_create.html:67
+#: listings/templates/listings/listing_details.html:44
+#: listings/templates/listings/listing_update.html:74
+msgid "Quality:"
+msgstr "Kokybė:"
+
+#: listings/templates/listings/listing_create.html:72
+#: listings/templates/listings/listing_update.html:79
+msgid "Color:"
+msgstr "Spalva"
+
+#: listings/templates/listings/listing_create.html:77
+#: listings/templates/listings/listing_details.html:48
+#: listings/templates/listings/listing_update.html:84
+msgid "Value:"
+msgstr "Vertė:"
+
+#: listings/templates/listings/listing_create.html:82
+#: listings/templates/listings/listing_update.html:89
+msgid "Receive buy offers:"
+msgstr "Gauti pirkimo pasiūlymus:"
+
+#: listings/templates/listings/listing_create.html:90
+#: listings/templates/listings/listing_update.html:97
+msgid "4 day rent price:"
+msgstr "4 dienų nuomos kaina:"
+
+#: listings/templates/listings/listing_create.html:95
+#: listings/templates/listings/listing_details.html:46
+#: listings/templates/listings/listing_update.html:102
+msgid "Description:"
+msgstr "Aprašymas:"
+
+#: listings/templates/listings/listing_create.html:118
+msgid "Create Listing"
+msgstr "Sukurti skelbimą"
 
 #: listings/templates/listings/listing_create.html:165
 #: listings/templates/listings/listing_update.html:170
@@ -497,28 +573,13 @@ msgid "Category:"
 msgstr "Kategorija:"
 
 #: listings/templates/listings/listing_details.html:42
+#: listings/templates/listings/listing_update.html:62
 msgid "Brand:"
 msgstr "Prekės ženklas:"
-
-#: listings/templates/listings/listing_details.html:43
-msgid "Size:"
-msgstr "Dydis:"
-
-#: listings/templates/listings/listing_details.html:44
-msgid "Quality:"
-msgstr "Kokybė:"
 
 #: listings/templates/listings/listing_details.html:45
 msgid "Listing Owner:"
 msgstr "Skelbimo savininkas:"
-
-#: listings/templates/listings/listing_details.html:46
-msgid "Description:"
-msgstr "Aprašymas:"
-
-#: listings/templates/listings/listing_details.html:48
-msgid "Value:"
-msgstr "Vertė:"
 
 #: listings/templates/listings/listing_details.html:49
 msgid "Price:"
@@ -755,7 +816,8 @@ msgid ""
 "Upupam is the first online peer-to-peer fashion rental platform in "
 "Lithuania. We created this platform to drive a fashion revolution, reducing "
 "the consumption of new items and promoting a sharing economy."
-msgstr ""
+msgstr "Upupam – tai pirmoji internetinė vartotojų tarpusavio mados nuomos platforma Lietuvoje. Šią platformą sukūrėme, siekdami kurti mados revoliuciją, mažinant naujų daiktų vartojimą ir skatinant daiktų dalinimosi ekonomiką."
+
 
 #: listings/templates/pages/about_us.html:8
 msgid ""
@@ -765,14 +827,16 @@ msgid ""
 "aim to create a space where you can find the perfect look for your special "
 "occasion and rent it out, while also putting your own special items to use "
 "by renting them to others."
-msgstr ""
+msgstr "Mūsų misija yra keisti tradicinį mados vartojimą per nuomą. Proginė apranga yra viena rečiausiai vilkimų drabužių kategorijų, tačiau žmonės dažnai pasirenka pirkti naują derinį kiekvienam renginiui. Šioje platformoje siekiame sukurti erdvę, kurioje galėsite rasti tobulą įvaizdį savo ypatingai progai ir išsinuomoti jį, tuo pačiu įdarbindami savo ypatingus daiktus, išnuomojant juos kitiems."
+
 
 #: listings/templates/pages/about_us.html:9
 msgid ""
 "The vision of the Upupam fashion rental platform is to be the place where "
 "fashion lovers can enjoy special and luxurious outfits at an affordable "
 "price, without contributing to harm to our climate."
-msgstr ""
+msgstr "Upupam mados nuomos platformos vizija yra būti ta vieta, kur mados mylėtojai gali mėgautis progine ir prabangią apranga už prieinamą kainą, neprisidedant prie žalos mūsų klimatui."
+
 
 #: listings/templates/pages/best_practices_lending.html:3
 #: listings/templates/pages/best_practices_lending.html:6
@@ -1014,8 +1078,6 @@ msgid "How it works"
 msgstr "Kaip tai veikia"
 
 #: listings/templates/pages/how_to_lend.html:6
-#, fuzzy
-#| msgid "How to Lend"
 msgid "How to Lend?"
 msgstr "Kaip skolinti"
 
@@ -1026,7 +1088,8 @@ msgid ""
 "contact information provided in their profile or next to the listing. "
 "Specify the duration for which you need the item. Don’t forget to consider "
 "that you need to receive the item before your event takes place."
-msgstr ""
+msgstr "Ieškok proginių drabužių, aksesuarų ar batelių Upupam platformos kataloge. Norint išsinuomoti tam tikrą daiktą, susisiek su daikto savininku jo profilyje arba šalia skelbimo nurodytais kontaktais. Nurodyk dienų laikotarpį, kuriuo tau reikalinga daikto nuoma. Nepamiršk apgalvoti, kad daiktą reikia gauti anksčiau nei vyks tavo šventė."
+
 
 #: listings/templates/pages/how_to_lend.html:10
 msgid ""
@@ -1034,18 +1097,18 @@ msgid ""
 "situations if the item is damaged, who is responsible for cleaning and "
 "shipping costs. Decide on the shipping method (e.g., via parcel locker or "
 "bus delivery), or whether the item will be handed over to you in person."
-msgstr ""
+msgstr "Susisiekus su nuomotoju, išsiaiškink nuomos sąlygas: kaip spręsi situacijas, jeigu daiktas bus sugadintas, kas atsakingas už valymo ir siuntimo išlaidas. Nutarkite siuntimo būdą (pvz., paštomatu arba autobusų siuntomis), arba ar daiktą tau perduos gyvai."
+
 
 #: listings/templates/pages/how_to_lend.html:12
 msgid ""
 "Pay for the rental order directly to the bank account specified by the "
 "renter. The Upupam platform does not impose any additional fees; the entire "
 "rental order amount goes solely to the renter."
-msgstr ""
+msgstr "Užsakymą apmokėk tiesiai į nuomotojo nurodytą banko sąskaitą. Upupam platforma netaiko jokių papildomų mokesčių; visa nuomos užsakymo suma priklauso tik nuomotojui."
+
 
 #: listings/templates/pages/how_to_rent.html:6
-#, fuzzy
-#| msgid "How to Rent"
 msgid "How to Rent?"
 msgstr "Kaip nuomotis"
 
@@ -1331,10 +1394,9 @@ msgstr "Įvadas"
 
 #: listings/templates/pages/terms_and_conditions.html:9
 msgid ""
-"These Terms and Conditions govern your use of Rentzies, an online C2C "
-"fashion rental platform (hereinafter referred to as 'the Platform'). By "
-"accessing or using the Platform, you agree to be bound by these Terms and "
-"Conditions and our Privacy Policy."
+"These terms and conditions govern your use of Upupam, an online C2C fashion "
+"rental platform (the 'Platform'). By accessing or using the Platform, you "
+"agree to be bound by these terms and conditions and our Privacy Policy."
 msgstr ""
 "Šios sąlygos ir taisyklės reglamentuoja jūsų naudojimąsi Rentzies, "
 "internetine C2C mados nuomos platforma (toliau – „Platforma“). Prisijungę "
@@ -1351,8 +1413,8 @@ msgstr "Norint naudotis Platforma, jums turi būti ne mažiau kaip 18 metų."
 
 #: listings/templates/pages/terms_and_conditions.html:13
 msgid ""
-"By using the Platform, you warrant that you have the legal capacity to enter "
-"into this agreement and abide by its terms."
+"By using the Platform, you confirm that you have the right to enter into "
+"this Agreement and to be bound by its terms."
 msgstr ""
 "Naudodamiesi Platforma, jūs patvirtinate, kad turite teisę sudaryti šį "
 "susitarimą ir laikytis jo sąlygų."
@@ -1363,7 +1425,7 @@ msgstr "Naudotojų paskyros"
 
 #: listings/templates/pages/terms_and_conditions.html:16
 msgid ""
-"To access certain features of the Platform, you may be required to create an "
+"To access certain features of the Platform, you may need to create an "
 "account."
 msgstr ""
 "Norint pasiekti tam tikras Platformos funkcijas, gali tekti sukurti paskyrą."
@@ -1371,16 +1433,16 @@ msgstr ""
 #: listings/templates/pages/terms_and_conditions.html:17
 msgid ""
 "You agree to provide accurate, current, and complete information during the "
-"registration process and to update such information to keep it accurate, "
-"current, and complete."
+"registration process and to update it to keep it accurate, current, and "
+"complete."
 msgstr ""
 "Sutinkate pateikti tikslią, aktualią ir išsamią informaciją registracijos "
 "proceso metu ir atnaujinti ją, kad ji išliktų tiksli, aktuali ir išsami."
 
 #: listings/templates/pages/terms_and_conditions.html:18
 msgid ""
-"You are responsible for maintaining the confidentiality of your account "
-"credentials and for all activities that occur under your account."
+"You are responsible for the security of your account login information and "
+"all activities that occur under your account."
 msgstr ""
 "Esate atsakingi už savo paskyros prisijungimo duomenų saugumą ir visas "
 "veiklas, vykstančias pagal jūsų paskyrą."
@@ -1390,33 +1452,31 @@ msgid "Listings and Transactions"
 msgstr "Skelbimai ir sandoriai"
 
 #: listings/templates/pages/terms_and_conditions.html:21
-msgid "Users may create listings for fashion items available for rent."
+msgid "Users can create ads for fashion items that are available for rent."
 msgstr ""
 "Naudotojai gali kurti skelbimus apie mados daiktus, kurie yra prieinami "
 "nuomai."
 
 #: listings/templates/pages/terms_and_conditions.html:22
 msgid ""
-"The Platform does not facilitate transactions between users and does not own "
-"or guarantee the quality, safety, legality, or availability of the items "
-"listed."
+"The Platform does not facilitate transactions between users and does not "
+"create or guarantee the quality, safety, legality, or availability of items."
 msgstr ""
 "Platforma nesuteikia sandorių tarp naudotojų ir nesukuria ar negarantuoja "
 "daiktų kokybės, saugumo, teisėtumo ar prieinamumo."
 
 #: listings/templates/pages/terms_and_conditions.html:23
 msgid ""
-"Users agree to accurately represent the condition, size, and other relevant "
-"details of listed items."
+"Users agree to accurately reflect the condition, size, and other relevant "
+"data of the posted items."
 msgstr ""
 "Naudotojai sutinka tiksliai atspindėti skelbiamų daiktų būklę, dydį ir kitus "
 "reikšmingus duomenis."
 
 #: listings/templates/pages/terms_and_conditions.html:24
 msgid ""
-"Users are in full control of their items and rental transactions. The "
-"Platform does not take ownership of or responsibility for any items listed "
-"on the Platform."
+"Users are in full control of their items and rentals. The Platform does not "
+"assume ownership or responsibility for any posted items."
 msgstr ""
 "Naudotojai visiškai kontroliuoja savo daiktus ir nuomos sandorius. Platforma "
 "nepriima nuosavybės teisių ar atsakomybės už bet kokius skelbiamus daiktus."
@@ -1428,16 +1488,16 @@ msgstr "Nuomos sutartys"
 #: listings/templates/pages/terms_and_conditions.html:27
 msgid ""
 "By renting an item through the Platform, users do not enter into a legally "
-"binding agreement with the item’s owner."
+"binding contract with the owner of the item."
 msgstr ""
 "Nuomodami daiktą per Platformą, naudotojai nesudaro teisiškai "
 "įpareigojančios sutarties su daikto savininku."
 
 #: listings/templates/pages/terms_and_conditions.html:28
 msgid ""
-"Users agree to comply with the terms specified in the rental agreement, "
-"including but not limited to rental duration, rental fee, and return "
-"conditions."
+"Users agree to be bound by the terms and conditions set out in the rental "
+"agreement, including, but not limited to, the duration of the rental, the "
+"rental fee, and the repayment terms."
 msgstr ""
 "Naudotojai sutinka laikytis nuomos sutartyje nurodytų sąlygų, įskaitant, bet "
 "ne apsiribojant, nuomos trukme, nuomos mokesčiu ir grąžinimo sąlygomis."
@@ -1448,171 +1508,121 @@ msgstr "Draudžiama elgsena"
 
 #: listings/templates/pages/terms_and_conditions.html:31
 msgid ""
-"Users agree not to engage in any conduct that violates these Terms and "
-"Conditions, our Community Guidelines, or applicable laws and regulations."
-msgstr ""
-"Naudotojai sutinka nesikreipti į jokią elgseną, kuri pažeidžia šias sąlygas "
-"ir taisykles, mūsų Bendruomenės gaires arba taikomas teisės aktus ir "
-"reglamentus."
-
-#: listings/templates/pages/terms_and_conditions.html:32
-msgid ""
-"Prohibited conduct includes but is not limited to fraud, harassment, "
+"Prohibited conduct includes, but is not limited to, fraud, harassment, "
 "infringement of intellectual property rights, and illegal activities."
 msgstr ""
 "Draudžiama elgsena apima, bet neapsiriboja, sukčiavimu, priekabiavimu, "
 "intelektinės nuosavybės teisių pažeidimais ir neteisėtomis veiklomis."
 
-#: listings/templates/pages/terms_and_conditions.html:34
+#: listings/templates/pages/terms_and_conditions.html:33
 msgid "Intellectual Property"
 msgstr "Intelektinė nuosavybė"
 
-#: listings/templates/pages/terms_and_conditions.html:35
+#: listings/templates/pages/terms_and_conditions.html:34
 msgid ""
 "All content and materials available on the Platform, including but not "
-"limited to text, graphics, logos, images, and software, are the property of "
-"Rentzies or its licensors and are protected by copyright, trademark, and "
-"other intellectual property laws."
+"limited to text, graphics, logos, photographs, and software, are the "
+"property of Upupam or its licensors and are protected by copyright, "
+"trademark, and other intellectual property laws."
 msgstr ""
 "Visas Platformoje prieinamas turinys ir medžiagos, įskaitant, bet "
 "neapsiribojant, tekstais, grafika, logotipais, nuotraukomis ir programine "
 "įranga, yra Rentzies ar jos licencijų turėtojų nuosavybė ir yra apsaugoti "
 "autorių teisių, prekių ženklų ir kitų intelektinės nuosavybės teisės aktų."
 
-#: listings/templates/pages/terms_and_conditions.html:36
+#: listings/templates/pages/terms_and_conditions.html:35
 msgid ""
-"Users agree not to reproduce, distribute, modify, or create derivative works "
-"of any content on the Platform without prior written consent."
+"Users agree not to copy, distribute, modify, or create derivative works from "
+"any content on the Platform without prior written consent."
 msgstr ""
 "Naudotojai sutinka nesikopijuoti, neplatinti, nemodifikuoti ar nesukurti "
 "išvestinių darinių iš jokio Platformos turinio be išankstinio raštiško "
 "sutikimo."
 
-#: listings/templates/pages/terms_and_conditions.html:38
-msgid "Disclaimer of Warranties"
-msgstr "Garantijų atsisakymas"
-
-#: listings/templates/pages/terms_and_conditions.html:39
-msgid ""
-"The Platform is provided on an 'as is' and 'as available' basis, without any "
-"warranties of any kind, express or implied."
-msgstr ""
-"Platforma teikiama „kaip yra“ ir „kaip prieinama“ pagrindu, be jokių "
-"garantijų, reiškiamų ar numanomas."
-
-#: listings/templates/pages/terms_and_conditions.html:40
-msgid ""
-"Rentzies does not warrant that the Platform will be uninterrupted or error-"
-"free, or that defects will be corrected."
-msgstr ""
-"Rentzies negarantuoja, kad Platforma bus nenutrūkstama arba be klaidų, arba "
-"kad defektai bus pašalinti."
-
-#: listings/templates/pages/terms_and_conditions.html:42
+#: listings/templates/pages/terms_and_conditions.html:37
 msgid "Limitation of Liability"
 msgstr "Atsakomybės ribojimas"
 
-#: listings/templates/pages/terms_and_conditions.html:43
+#: listings/templates/pages/terms_and_conditions.html:38
 msgid ""
-"In no event shall Rentzies be liable for any indirect, incidental, special, "
-"consequential, or punitive damages, or any loss of profits or revenues, "
-"whether incurred directly or indirectly, arising out of your use of the "
-"Platform."
+"In no event shall Upupam be liable for any indirect, incidental, special, "
+"consequential, or punitive damages, or any loss of profits or revenue, "
+"whether directly or indirectly, arising out of your use of the Platform."
 msgstr ""
 "Jokiu atveju Rentzies nebus atsakinga už jokią netiesioginę, atsitiktinę, "
 "specialią, konsekventinę ar baudžiamąją žalą, arba bet kokį pelno ar pajamų "
 "nuostolį, nesvarbu, ar jis buvo patirtas tiesiogiai ar netiesiogiai, "
 "atsirandantį dėl jūsų naudojimosi Platforma."
 
-#: listings/templates/pages/terms_and_conditions.html:44
-msgid ""
-"Rentzies's total liability arising out of or relating to these Terms and "
-"Conditions shall not exceed the total amount paid by you to Rentzies in the "
-"twelve months preceding the event giving rise to the liability."
-msgstr ""
-"Rentzies bendra atsakomybė, kylanti iš šių sąlygų ir taisyklių arba su jomis "
-"susijusi neviršys sumos, kurią jūs sumokėjote Rentzies per dvylika mėnesių "
-"prieš įvykį, kuris sukėlė atsakomybę."
-
-#: listings/templates/pages/terms_and_conditions.html:46
+#: listings/templates/pages/terms_and_conditions.html:40
 msgid "Payments and Fees"
 msgstr "Mokėjimai ir mokesčiai"
 
-#: listings/templates/pages/terms_and_conditions.html:47
+#: listings/templates/pages/terms_and_conditions.html:41
 msgid ""
-"The Platform does not issue refunds for any fees or charges paid to the "
-"other users."
+"The Platform does not issue refunds for any fees or charges paid to other "
+"users."
 msgstr ""
 "Platforma neišduoda grąžinimų už jokius mokesčius ar įmokas, sumokėtas "
 "kitiems naudotojams."
 
-#: listings/templates/pages/terms_and_conditions.html:49
+#: listings/templates/pages/terms_and_conditions.html:43
 msgid "No Guarantee of Successful Transactions"
 msgstr "Nėra sėkmingų sandorių garantijos"
 
-#: listings/templates/pages/terms_and_conditions.html:50
+#: listings/templates/pages/terms_and_conditions.html:44
 msgid ""
 "The Platform does not guarantee the successful completion of rental "
-"transactions. Users acknowledge that rentals are conducted at their own risk."
+"transactions. Users agree that rental transactions are at their own risk."
 msgstr ""
 "Platforma negarantuoja sėkmingo nuomos sandorių užbaigimo. Naudotojai "
 "pripažįsta, kad nuomos sandoriai vykdomi jų pačių rizika."
 
-#: listings/templates/pages/terms_and_conditions.html:51
+#: listings/templates/pages/terms_and_conditions.html:45
 msgid ""
-"The Platform is not responsible for ensuring that renters pay for items or "
-"that lenders send items as described."
+"The Platform is not responsible for the payment of the items by the renters "
+"or for the shipment of the items by the renters as described."
 msgstr ""
 "Platforma neatsako už tai, kad nuomotojai sumokėtų už daiktus ar kad "
 "paskolintojai išsiųstų daiktus pagal aprašymą."
 
-#: listings/templates/pages/terms_and_conditions.html:52
+#: listings/templates/pages/terms_and_conditions.html:46
 msgid ""
-"In the event a renter does not pay, or an item is not as described, the "
-"Platform is not liable for any resulting damages or losses."
+"If the renter fails to pay, or the item is not as described, the Platform "
+"shall not be liable for any resulting loss or damage."
 msgstr ""
 "Jei nuomininkas nesumoka, arba daiktas neatitinka aprašymo, Platforma nėra "
 "atsakinga už bet kokius atsirandančius nuostolius ar žalą."
 
-#: listings/templates/pages/terms_and_conditions.html:54
+#: listings/templates/pages/terms_and_conditions.html:48
 msgid "Modifications to Terms and Conditions"
 msgstr "Sąlygų ir taisyklių pakeitimai"
 
-#: listings/templates/pages/terms_and_conditions.html:55
+#: listings/templates/pages/terms_and_conditions.html:49
 msgid ""
-"Rentzies reserves the right to modify or amend these Terms and Conditions at "
-"any time. Any changes will be effective immediately upon posting on the "
+"Upupam reserves the right to amend or supplement these Terms and Conditions "
+"at any time. Any changes will be effective immediately upon posting on the "
 "Platform."
 msgstr ""
 "Rentzies pasilieka teisę bet kada keisti arba papildyti šias sąlygas ir "
 "taisykles. Bet kokie pakeitimai įsigalios nedelsiant, paskelbus Platformoje."
 
-#: listings/templates/pages/terms_and_conditions.html:56
+#: listings/templates/pages/terms_and_conditions.html:50
 msgid ""
-"Your continued use of the Platform after the posting of any changes "
-"constitutes acceptance of those changes."
+"Your continued use of the Platform following the posting of any changes "
+"shall constitute your acceptance of such changes."
 msgstr ""
 "Jūsų tolesnis naudojimasis Platforma po bet kokių pakeitimų paskelbimo "
 "reiškia, kad priimate šiuos pakeitimus."
 
-#: listings/templates/pages/terms_and_conditions.html:57
-msgid ""
-"Upon termination, your right to use the Platform will immediately cease, and "
-"you must cease all use of the Platform and delete any downloaded or printed "
-"materials obtained from the Platform."
-msgstr ""
-"Pasibaigus galiojimo laikui, jūsų teisė naudotis Platforma nedelsiant "
-"pasibaigs, ir jūs turite nustoti naudotis Platforma ir ištrinti visus "
-"atsisiųstus ar atspausdintus medžiagos, gautus iš Platformos."
-
-#: listings/templates/pages/terms_and_conditions.html:59
+#: listings/templates/pages/terms_and_conditions.html:52
 msgid "Contact Information"
 msgstr "Kontaktinė informacija"
 
-#: listings/templates/pages/terms_and_conditions.html:60
+#: listings/templates/pages/terms_and_conditions.html:53
 msgid ""
-"If you have any questions or concerns about these Terms and Conditions, "
-"please contact us at (email)."
+"If you have any questions or concerns about these terms and conditions, "
+"please contact us at upupam.official@gmail.com."
 msgstr ""
 "Jei turite kokių nors klausimų ar abejonių dėl šių sąlygų ir taisyklių, "
 "prašome susisiekti su mumis el. paštu (el. paštas)."
@@ -2051,6 +2061,49 @@ msgstr ""
 #: user_profiles/views.py:103
 msgid "Profile edited successfully"
 msgstr "Profilis sėkmingai pakeistas"
+
+#~ msgid ""
+#~ "Users agree not to engage in any conduct that violates these Terms and "
+#~ "Conditions, our Community Guidelines, or applicable laws and regulations."
+#~ msgstr ""
+#~ "Naudotojai sutinka nesikreipti į jokią elgseną, kuri pažeidžia šias "
+#~ "sąlygas ir taisykles, mūsų Bendruomenės gaires arba taikomas teisės aktus "
+#~ "ir reglamentus."
+
+#~ msgid "Disclaimer of Warranties"
+#~ msgstr "Garantijų atsisakymas"
+
+#~ msgid ""
+#~ "The Platform is provided on an 'as is' and 'as available' basis, without "
+#~ "any warranties of any kind, express or implied."
+#~ msgstr ""
+#~ "Platforma teikiama „kaip yra“ ir „kaip prieinama“ pagrindu, be jokių "
+#~ "garantijų, reiškiamų ar numanomas."
+
+#~ msgid ""
+#~ "Rentzies does not warrant that the Platform will be uninterrupted or "
+#~ "error-free, or that defects will be corrected."
+#~ msgstr ""
+#~ "Rentzies negarantuoja, kad Platforma bus nenutrūkstama arba be klaidų, "
+#~ "arba kad defektai bus pašalinti."
+
+#~ msgid ""
+#~ "Rentzies's total liability arising out of or relating to these Terms and "
+#~ "Conditions shall not exceed the total amount paid by you to Rentzies in "
+#~ "the twelve months preceding the event giving rise to the liability."
+#~ msgstr ""
+#~ "Rentzies bendra atsakomybė, kylanti iš šių sąlygų ir taisyklių arba su "
+#~ "jomis susijusi neviršys sumos, kurią jūs sumokėjote Rentzies per dvylika "
+#~ "mėnesių prieš įvykį, kuris sukėlė atsakomybę."
+
+#~ msgid ""
+#~ "Upon termination, your right to use the Platform will immediately cease, "
+#~ "and you must cease all use of the Platform and delete any downloaded or "
+#~ "printed materials obtained from the Platform."
+#~ msgstr ""
+#~ "Pasibaigus galiojimo laikui, jūsų teisė naudotis Platforma nedelsiant "
+#~ "pasibaigs, ir jūs turite nustoti naudotis Platforma ir ištrinti visus "
+#~ "atsisiųstus ar atspausdintus medžiagos, gautus iš Platformos."
 
 #~ msgid "About UPUPAM"
 #~ msgstr "Apie UPUPAM"
