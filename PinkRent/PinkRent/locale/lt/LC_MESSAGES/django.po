@@ -1663,7 +1663,7 @@ msgstr "Pagrindinis puslapis"
 
 #: listings/templates/shop.html:8 listings/templates/shop.html:13
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTRAI"
 
 #: listings/templates/shop.html:25
 msgid "Sale and Price"
