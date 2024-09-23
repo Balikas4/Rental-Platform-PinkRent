@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 13:42+0000\n"
+"POT-Creation-Date: 2024-09-23 10:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -261,7 +261,7 @@ msgstr "skelbimo apžvalga"
 msgid "listing_reviews"
 msgstr "skelbimo apžvalgos"
 
-#: listings/templates/base.html:41
+#: listings/templates/base.html:41 listings/templates/shop.html:17
 msgid "Search"
 msgstr "Paieška"
 
@@ -285,20 +285,14 @@ msgid "My Profile"
 msgstr "Mano profilis"
 
 #: listings/templates/base.html:66 listings/templates/base.html:107
-#, fuzzy
-#| msgid "Create a Profile Review"
 msgid "Create Profile"
 msgstr "Sukurti profilį"
 
 #: listings/templates/base.html:68 listings/templates/base.html:109
-#, fuzzy
-#| msgid "My Favorite Users"
 msgid "My Favorite users"
 msgstr "Mano mėgstami naudotojai"
 
 #: listings/templates/base.html:69 listings/templates/base.html:110
-#, fuzzy
-#| msgid "My Favorite Listings"
 msgid "My Favorite listings"
 msgstr "Mano mėgstamiausi skelbimai"
 
@@ -326,22 +320,17 @@ msgid "Menu"
 msgstr "Meniu"
 
 #: listings/templates/base.html:96 listings/templates/base.html:128
-#, fuzzy
-#| msgid "Top Trending Dresses"
 msgid "Wedding dresses"
-msgstr "Populiariausios suknelės"
+msgstr "Vestuvių suknelės"
 
 #: listings/templates/base.html:97 listings/templates/base.html:129
-#, fuzzy
-#| msgid "categories"
 msgid "Accessories"
-msgstr "kategorijos"
+msgstr "Aksesuarai"
 
 #: listings/templates/base.html:98 listings/templates/base.html:130
-#, fuzzy
-#| msgid "Top Trending Dresses"
+#: listings/templates/main.html:106
 msgid "Evening dresses"
-msgstr "Populiariausios suknelės"
+msgstr "Vakarinės suknelės"
 
 #: listings/templates/base.html:99 listings/templates/base.html:131
 msgid "Handbags"
@@ -360,14 +349,10 @@ msgid "Rent from others"
 msgstr "Nuomotis iš kitų"
 
 #: listings/templates/base.html:148
-#, fuzzy
-#| msgid "About Us"
 msgid "About UPUPAM"
-msgstr "Apie mus"
+msgstr "Apie UPUPAM"
 
 #: listings/templates/base.html:151
-#, fuzzy
-#| msgid "How it works"
 msgid "How It Works"
 msgstr "Kaip tai veikia"
 
@@ -381,6 +366,10 @@ msgstr "Mados nuomos patarimai ir gairės"
 #: listings/templates/pages/best_practices_lending.html:6
 msgid "Best Practices | Lending"
 msgstr "Geriausia praktika | Skolinimas"
+
+#: listings/templates/base.html:156
+msgid "Privacy Policy"
+msgstr "Privatumo politika"
 
 #: listings/templates/base.html:157
 #: listings/templates/pages/terms_and_conditions.html:3
@@ -398,7 +387,7 @@ msgstr "Platformos taisyklės"
 msgid "Category Page"
 msgstr "Kategorijos puslapis"
 
-#: listings/templates/category_page.html:21
+#: listings/templates/category_page.html:21 listings/templates/shop.html:68
 msgid "Size"
 msgstr "Dydis"
 
@@ -418,6 +407,22 @@ msgstr "4 dienoms"
 #: user_profiles/templates/user_profile/user_detail.html:51
 msgid "Unlike"
 msgstr "Nepatinka"
+
+#: listings/templates/category_page.html:52
+msgid "First"
+msgstr "Pirmas"
+
+#: listings/templates/category_page.html:53
+msgid "Previous"
+msgstr "Atgal"
+
+#: listings/templates/category_page.html:65
+msgid "Next"
+msgstr "Sekantis"
+
+#: listings/templates/category_page.html:66
+msgid "Last"
+msgstr "Paskutinis"
 
 #: listings/templates/favorite/my_favorite_listings.html:8
 msgid "My Favorite Listings"
@@ -444,6 +449,7 @@ msgid "create a listing at"
 msgstr "sukurti skelbimą"
 
 #: listings/templates/listings/listing_create.html:14
+#: listings/templates/shop.html:83
 msgid "Category"
 msgstr "Kategorija"
 
@@ -641,6 +647,26 @@ msgstr "Atraskite"
 msgid "Top Trending Dresses"
 msgstr "Populiariausios suknelės"
 
+#: listings/templates/main.html:94
+msgid "Dresses for Every Occasion"
+msgstr "Suknelės kiekvienai progai"
+
+#: listings/templates/main.html:100
+msgid "Wedding guest"
+msgstr "Vestuvių svečias"
+
+#: listings/templates/main.html:112
+msgid "Cocktail party"
+msgstr "Kokteilių vakarėlis"
+
+#: listings/templates/main.html:118
+msgid "Bachelorette party"
+msgstr "Mergvakaris"
+
+#: listings/templates/main.html:124
+msgid "How Upupam Platform Works"
+msgstr "Kaip veikia UPUPAM platfoma"
+
 #: listings/templates/main.html:128
 msgid "How to Lend"
 msgstr "Kaip skolinti"
@@ -653,25 +679,66 @@ msgstr "Kaip nuomotis"
 msgid "Share & Earn"
 msgstr "Dalinkis ir uždirbk"
 
+#: listings/templates/main.html:135
+msgid ""
+"List your items for free, set your prices, and start earning from rentals "
+"without leaving your home."
+msgstr ""
+"Nemokamai įkelkite savo daiktus, nustatykite kainas ir pradėkite uždirbti iš "
+"nuomos neišeidami iš namų."
+
 #: listings/templates/main.html:138
 msgid "Foster Circularity"
 msgstr "Skatink cikliškumą"
+
+#: listings/templates/main.html:139
+msgid ""
+"By lending your items, you contribute to extending the life of garments and "
+"reducing waste."
+msgstr ""
+"Skolindami savo daiktus, prisidedate prie drabužių ilgaamžiškumo ir mažinate "
+"atliekų kiekį."
 
 #: listings/templates/main.html:142
 msgid "Seamless Connection"
 msgstr "Sklandi jungtis"
 
+#: listings/templates/main.html:143
+msgid ""
+"Connect with renters through social media, phone, or email to finalise "
+"rental details."
+msgstr ""
+"Susisiekite su nuomininkais per socialinius tinklus, telefoną ar el. paštą, "
+"kad suderintumėte nuomos detales."
+
 #: listings/templates/main.html:148
 msgid "Find Unique Pieces"
-msgstr "Raskite unikalių drabužių"
+msgstr "Raskite unikalių gaminių"
+
+#: listings/templates/main.html:149
+msgid ""
+"Explore a wide variety of unique garments and accessories for your special "
+"occasions."
+msgstr ""
+"Naršykite įvairius unikalius drabužius ir aksesuarus savo ypatingoms progoms."
 
 #: listings/templates/main.html:152
 msgid "Rent with Ease"
-msgstr "Nuomokis be rūpesčių"
+msgstr "Nuomokis be vargo"
+
+#: listings/templates/main.html:153
+msgid "Book your chosen items easily and have them delivered to your doorstep."
+msgstr ""
+"Lengvai užsisakykite pasirinktus daiktus ir gaukite juos tiesiai į namus."
 
 #: listings/templates/main.html:156
 msgid "Support Sustainability"
 msgstr "Palaikyk tvarumą"
+
+#: listings/templates/main.html:157
+msgid "By renting, you are supporting sustainable fashion and reducing waste."
+msgstr ""
+"Nuomodamiesi, remiate tvarią madą ir mažinate atliekų kiekį."
 
 #: listings/templates/main.html:163
 msgid "Start Lending Now"
@@ -923,15 +990,6 @@ msgstr ""
 "skolintoju, kad išvengtumėte nesusipratimų."
 
 #: listings/templates/pages/fashion_rental_tips.html:30
-#, fuzzy
-#| msgid ""
-#| "When leaving a review, whether for the lender or the rented item, aim to "
-#| "provide valuable insights. For the lender, highlight their reliability, "
-#| "communication, and the overall borrowing experience. Similarly, when "
-#| "reviewing the item, include a picture of yourself wearing it to help "
-#| "others visualize and mention any size discrepancies or styling tips. Your "
-#| "detailed reviews contribute to a safer and more informed community on our "
-#| "platform."
 msgid ""
 "When leaving a review, whether for the lender or the rented item, aim to "
 "provide valuable insights. For the lender, highlight their reliability, "
@@ -1062,12 +1120,6 @@ msgid "Details you should consider including in the listing description:"
 msgstr "Detalės, kurias turėtumėte apsvarstyti įtraukti į skelbimo aprašymą:"
 
 #: listings/templates/pages/listing_upload_guidelines.html:22
-#, fuzzy
-#| msgid ""
-#| "Size: Specify if the item is true to size or if it appears to be smaller/ "
-#| "larger than the size label indicated. It’s beneficial to include specific "
-#| "measurements (e.g., bust, waist, hips, length) to help renters ensure a "
-#| "proper fit."
 msgid ""
 "Size: Specify if the item is true to size or if it appears to be smaller/"
 "larger than the size label indicated. It’s beneficial to include specific "
@@ -1508,6 +1560,14 @@ msgstr "Sveikiname, palikote apžvalgą"
 msgid "Main Page"
 msgstr "Pagrindinis puslapis"
 
+#: listings/templates/shop.html:8 listings/templates/shop.html:13
+msgid "FILTERS"
+msgstr ""
+
+#: listings/templates/shop.html:25
+msgid "Sale and Price"
+msgstr "Kainų nustatymas"
+
 #: listings/templates/shop.html:29
 msgid "For Sale"
 msgstr "Parduodama"
@@ -1519,6 +1579,14 @@ msgstr "Kaina: Mažiausia iki didžiausios"
 #: listings/templates/shop.html:37
 msgid "Price: High to Low"
 msgstr "Kaina: Didžiausia iki mažiausios"
+
+#: listings/templates/shop.html:43
+msgid "Tags"
+msgstr "Žymos"
+
+#: listings/templates/shop.html:55
+msgid "Color"
+msgstr "Spalva"
 
 #: listings/templates/shop.html:57
 msgid "Filter by Color:"
@@ -1552,6 +1620,10 @@ msgstr "Pogrupis:"
 msgid "All Categories"
 msgstr "Visos kategorijos"
 
+#: listings/templates/shop.html:107
+msgid "Brand"
+msgstr "Prekės ženklas"
+
 #: listings/templates/shop.html:113
 msgid "Apply Filters"
 msgstr "Taikyti filtrus"
@@ -1559,6 +1631,10 @@ msgstr "Taikyti filtrus"
 #: listings/templates/shop.html:114
 msgid "View all"
 msgstr "Peržiūrėti visus"
+
+#: listings/templates/shop.html:118
+msgid "RESULTS"
+msgstr "REZULTATAI"
 
 #: listings/templates/shop.html:226 listings/templates/shop.html:238
 msgid "All Sub-Categories"
@@ -1882,7 +1958,5 @@ msgstr ""
 "UPUPAM komanda"
 
 #: user_profiles/views.py:103
-#, fuzzy
-#| msgid "listing created successfully"
 msgid "Profile edited successfully"
-msgstr "skelbimas sėkmingai sukurtas"
+msgstr "Profilis sėkmingai pakeistas"

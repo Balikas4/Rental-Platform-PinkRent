@@ -5,16 +5,16 @@
 <div class="shop-content">
     <div class="mobile-filters">
         <button type="button" id="filters-button">
-            <h2>FILTERS ({{ total_filters }})</h2>
+            <h2>{% trans "FILTERS" %} ({{ total_filters }})</h2>
         </button>
     </div>
     <!-- FILTER MENU -->
     <div class="filter-menu">
-        <h2>FILTERS ({{ total_filters }})</h2>
+        <h2>{% trans "FILTERS" %} ({{ total_filters }})</h2>
         <form method="GET" action="{% url 'listings:shop_page' %}">
             <!-- Search Bar -->
             <div class="filter-item">
-                <button type="button" class="filter-toggle">Search</button>
+                <button type="button" class="filter-toggle">{% trans "Search" %}</button>
                 <div class="filter-content">
                     <input type="text" name="q" placeholder="Search by listing name" value="{{ request.GET.q }}">
                     <input type="text" name="city" placeholder="Search by city" value="{{ request.GET.city }}">
@@ -22,7 +22,7 @@
             </div>
             <!-- For Sale and Sort by Price -->
             <div class="filter-item">
-                <button type="button" class="filter-toggle">Sale and Price</button>
+                <button type="button" class="filter-toggle">{% trans "Sale and Price" %}</button>
                 <div class="filter-content">
                     <label class="toggle-button{% if request.GET.is_for_sale == 'true' %} active{% endif %}">
                         <input type="checkbox" name="is_for_sale" value="true" {% if request.GET.is_for_sale == 'true' %}checked{% endif %}>
@@ -40,7 +40,7 @@
             </div>
             <!-- Tag Checkboxes -->
             <div class="filter-item">
-                <button type="button" class="filter-toggle">Tags</button>
+                <button type="button" class="filter-toggle">{% trans "Tags" %}</button>
                 <div class="filter-content">
                     {% for tag in tags %}
                         <label class="toggle-button{% if tag.id|stringformat:"s" in request.GET.tags %} active{% endif %}">
@@ -52,7 +52,7 @@
             </div>
             <!-- Color Filter -->
             <div class="filter-item">
-                <button type="button" class="filter-toggle">Color</button>
+                <button type="button" class="filter-toggle">{% trans "Color" %}</button>
                 <div class="filter-content">
                     <label for="color-filter">{% trans "Filter by Color:" %}</label>
                     <select id="color-filter" name="color">
@@ -65,7 +65,7 @@
             </div>
             <!-- Size Filter -->
             <div class="filter-item">
-                <button type="button" class="filter-toggle">Size</button>
+                <button type="button" class="filter-toggle">{% trans "Size" %}</button>
                 <div class="filter-content">
                     <label for="size-filter">{% trans "Filter by Size:" %}</label>
                     <select id="size-filter" name="size">
@@ -80,7 +80,7 @@
             </div>
             <!-- Category Filters -->
             <div class="filter-item">
-                <button type="button" class="filter-toggle">Category</button>
+                <button type="button" class="filter-toggle">{% trans "Category" %}</button>
                 <div class="filter-content">
                     <label for="parent-category-filter">{% trans "Parent Category:" %}</label>
                     <select id="parent-category-filter" name="parent_category" onchange="fetchSubcategories(this.value)">
@@ -104,7 +104,7 @@
             </div>
             <!-- Brand Filter -->
             <div class="filter-item">
-                <button type="button" class="filter-toggle">Brand</button>
+                <button type="button" class="filter-toggle">{% trans "Brand" %}</button>
                 <div class="filter-content">
                     <input type="text" id="brand-input" name="brand" placeholder="Search for a brand..." value="{{ request.GET.brand }}">
                     <select id="brand-dropdown" size="5" style="display:none; position:absolute;"></select>
@@ -115,7 +115,7 @@
         </form>
     </div>
     <div>
-        <p>{{ listings.paginator.count }} RESULTS</p>    
+        <p>{{ listings.paginator.count }} {% trans "RESULTS" %}</p>    
         <div class="grid-wrapper">
             {% for listing in listings|slice:":16" %}
                 {% if listing.is_available %}

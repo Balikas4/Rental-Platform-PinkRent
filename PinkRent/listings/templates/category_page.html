@@ -49,8 +49,8 @@
     </div>
     <div class="pagination">
         {% if listings.has_previous %}
-            <a href="?page=1">&laquo; First</a>
-            <a href="?page={{ listings.previous_page_number }}">Previous</a>
+            <a href="?page=1">&laquo; {% trans "First" %}</a>
+            <a href="?page={{ listings.previous_page_number }}">{% trans "Previous" %}</a>
         {% endif %}
 
         {% for num in listings.paginator.page_range %}
@@ -62,8 +62,8 @@
         {% endfor %}
 
         {% if listings.has_next %}
-            <a href="?page={{ listings.next_page_number }}">Next</a>
-            <a href="?page={{ listings.paginator.num_pages }}">Last &raquo;</a>
+            <a href="?page={{ listings.next_page_number }}">{% trans "Next" %}</a>
+            <a href="?page={{ listings.paginator.num_pages }}">{% trans "Last" %} &raquo;</a>
         {% endif %}
         </div>
 {% endblock content %}
