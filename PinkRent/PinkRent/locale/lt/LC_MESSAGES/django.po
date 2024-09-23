@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 10:52+0000\n"
+"POT-Creation-Date: 2024-09-23 11:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -348,40 +348,35 @@ msgstr "Įkelti nuomojamą daiktą"
 msgid "Rent from others"
 msgstr "Nuomotis iš kitų"
 
-#: listings/templates/base.html:148
-msgid "About UPUPAM"
-msgstr "Apie UPUPAM"
+#: listings/templates/base.html:149 listings/templates/pages/about_us.html:6
+#, fuzzy
+#| msgid "About Us"
+msgid "About Upupam"
+msgstr "Apie mus"
 
-#: listings/templates/base.html:151
-msgid "How It Works"
-msgstr "Kaip tai veikia"
+#: listings/templates/base.html:154
+#, fuzzy
+#| msgid "How to Rent"
+msgid "How to rent?"
+msgstr "Kaip nuomotis"
 
-#: listings/templates/base.html:152
-#: listings/templates/pages/fashion_rental_tips.html:3
-msgid "Fashion Rental Tips and Guidelines"
-msgstr "Mados nuomos patarimai ir gairės"
-
-#: listings/templates/base.html:153
-#: listings/templates/pages/best_practices_lending.html:3
-#: listings/templates/pages/best_practices_lending.html:6
-msgid "Best Practices | Lending"
-msgstr "Geriausia praktika | Skolinimas"
-
-#: listings/templates/base.html:156
-msgid "Privacy Policy"
-msgstr "Privatumo politika"
-
-#: listings/templates/base.html:157
-#: listings/templates/pages/terms_and_conditions.html:3
-#: listings/templates/pages/terms_and_conditions.html:6
-msgid "Terms and Conditions"
-msgstr "Sąlygos ir taisyklės"
+#: listings/templates/base.html:155
+#, fuzzy
+#| msgid "How to Lend"
+msgid "How to lend?"
+msgstr "Kaip skolinti"
 
 #: listings/templates/base.html:158
 #: listings/templates/pages/platform_rules.html:3
 #: listings/templates/pages/platform_rules.html:6
 msgid "Platform Rules"
 msgstr "Platformos taisyklės"
+
+#: listings/templates/base.html:159
+#, fuzzy
+#| msgid "Terms and Conditions"
+msgid "Terms & Conditions"
+msgstr "Sąlygos ir taisyklės"
 
 #: listings/templates/category_page.html:4
 msgid "Category Page"
@@ -737,8 +732,7 @@ msgstr "Palaikyk tvarumą"
 
 #: listings/templates/main.html:157
 msgid "By renting, you are supporting sustainable fashion and reducing waste."
-msgstr ""
-"Nuomodamiesi, remiate tvarią madą ir mažinate atliekų kiekį."
+msgstr "Nuomodamiesi, remiate tvarią madą ir mažinate atliekų kiekį."
 
 #: listings/templates/main.html:163
 msgid "Start Lending Now"
@@ -761,26 +755,37 @@ msgid "Feedback"
 msgstr "Atsiliepimai"
 
 #: listings/templates/pages/about_us.html:3
-#: listings/templates/pages/about_us.html:6
 msgid "About Us"
 msgstr "Apie mus"
 
+#: listings/templates/pages/about_us.html:7
+msgid ""
+"Upupam is the first online peer-to-peer fashion rental platform in "
+"Lithuania. We created this platform to drive a fashion revolution, reducing "
+"the consumption of new items and promoting a sharing economy."
+msgstr ""
+
 #: listings/templates/pages/about_us.html:8
-msgid "Fashion Rental"
-msgstr "Mados nuoma"
+msgid ""
+"Our mission is to change traditional fashion consumption through rental. "
+"Special occasion wear is one of the least worn categories of clothing, yet "
+"people often choose to buy a new outfit for each event. On this platform, we "
+"aim to create a space where you can find the perfect look for your special "
+"occasion and rent it out, while also putting your own special items to use "
+"by renting them to others."
+msgstr ""
 
 #: listings/templates/pages/about_us.html:9
-#: listings/templates/pages/platform_rules.html:8
 msgid ""
-"Upupam platform is a place to transform consumerism choices. Here, we wish "
-"to create a safe and friendly place for all customers to contribute to "
-"circular items' life. Due to this, we ask all members to adhere to the "
-"Upupam Platform Catalog Rules below when uploading their items."
+"The vision of the Upupam fashion rental platform is to be the place where "
+"fashion lovers can enjoy special and luxurious outfits at an affordable "
+"price, without contributing to harm to our climate."
 msgstr ""
-"Upupam platforma yra vieta keisti vartotojiškumo pasirinkimus. Čia norime "
-"sukurti saugią ir draugišką vietą, kurioje visi klientai galėtų prisidėti "
-"prie cikliško daiktų gyvenimo. Todėl prašome visų narių laikytis žemiau "
-"pateiktų Upupam katalogo taisyklių, kai įkeliate savo prekes."
+
+#: listings/templates/pages/best_practices_lending.html:3
+#: listings/templates/pages/best_practices_lending.html:6
+msgid "Best Practices | Lending"
+msgstr "Geriausia praktika | Skolinimas"
 
 #: listings/templates/pages/best_practices_lending.html:8
 #: listings/templates/pages/fashion_rental_tips.html:8
@@ -894,6 +899,12 @@ msgstr ""
 "sprendžiant problemas kitų naudai. Prioritetu turėtų būti nuoširdumas ir "
 "sąžiningumas mūsų atsiliepimuose, kad sukurtume saugią ir draugišką "
 "platformos aplinką visiems."
+
+#: listings/templates/pages/fashion_rental_tips.html:3
+#: listings/templates/pages/how_to_lend.html:3
+#: listings/templates/pages/how_to_rent.html:3
+msgid "Fashion Rental Tips and Guidelines"
+msgstr "Mados nuomos patarimai ir gairės"
 
 #: listings/templates/pages/fashion_rental_tips.html:6
 msgid "BEST PRACTICES | RENTING"
@@ -1009,6 +1020,77 @@ msgstr ""
 #: listings/templates/pages/how_it_works.html:3
 msgid "How it works"
 msgstr "Kaip tai veikia"
+
+#: listings/templates/pages/how_to_lend.html:6
+#, fuzzy
+#| msgid "How to Lend"
+msgid "How to Lend?"
+msgstr "Kaip skolinti"
+
+#: listings/templates/pages/how_to_lend.html:8
+msgid ""
+"Search for special occasion clothing, accessories, or shoes in the Upupam "
+"platform catalog. To rent a specific item, contact the item owner using the "
+"contact information provided in their profile or next to the listing. "
+"Specify the duration for which you need the item. Don’t forget to consider "
+"that you need to receive the item before your event takes place."
+msgstr ""
+
+#: listings/templates/pages/how_to_lend.html:10
+msgid ""
+"Once you contact the renter, clarify the rental terms: how you will handle "
+"situations if the item is damaged, who is responsible for cleaning and "
+"shipping costs. Decide on the shipping method (e.g., via parcel locker or "
+"bus delivery), or whether the item will be handed over to you in person."
+msgstr ""
+
+#: listings/templates/pages/how_to_lend.html:12
+msgid ""
+"Pay for the rental order directly to the bank account specified by the "
+"renter. The Upupam platform does not impose any additional fees; the entire "
+"rental order amount goes solely to the renter."
+msgstr ""
+
+#: listings/templates/pages/how_to_rent.html:6
+#, fuzzy
+#| msgid "How to Rent"
+msgid "How to Rent?"
+msgstr "Kaip nuomotis"
+
+#: listings/templates/pages/how_to_rent.html:8
+msgid ""
+"You are the owner of the item you are renting out, and the rental price and "
+"rules are your decision. You control to whom you rent your items and specify "
+"the rental conditions."
+msgstr ""
+
+#: listings/templates/pages/how_to_rent.html:10
+msgid ""
+"Carefully photograph your rental item or use photos you already have, such "
+"as from an event where you wore it. Provide a description in the listing "
+"that includes size, color, condition, and other relevant details."
+msgstr ""
+
+#: listings/templates/pages/how_to_rent.html:12
+msgid ""
+"Include all important information in the description, such as whether the "
+"item runs small or is very fitted, making it less comfortable to wear. You "
+"might recommend it only for photoshoots or similar occasions. Also, specify "
+"whether you will require the renter to pay a refundable deposit or a non-"
+"refundable insurance fee and for what purpose these will be applied."
+msgstr ""
+
+#: listings/templates/pages/how_to_rent.html:14
+msgid ""
+"The renter will contact you using the contact information specified in your "
+"profile. Clearly provide all terms regarding the rental period, rental fee, "
+"how you will handle situations if the item is damaged, options for ironing "
+"the item, who is responsible for cleaning costs, how you will send the item, "
+"and who pays for shipping, or whether you will arrange a live handover of "
+"the item. To receive payment for the order, provide the renter with your "
+"bank account details. The Upupam platform does not charge any fees. All "
+"profits you earn belong to you."
+msgstr ""
 
 #: listings/templates/pages/listing_upload_guidelines.html:3
 #: listings/templates/pages/listing_upload_guidelines.html:6
@@ -1214,6 +1296,18 @@ msgstr ""
 "atitinkamas žymas; pavyzdžiui: jei daiktas tinka krikštynoms, yra draugiškas "
 "nėštumo metu ir puikus gimtadienio vakarėliui, pasirinkite visas šias žymas."
 
+#: listings/templates/pages/platform_rules.html:8
+msgid ""
+"Upupam platform is a place to transform consumerism choices. Here, we wish "
+"to create a safe and friendly place for all customers to contribute to "
+"circular items' life. Due to this, we ask all members to adhere to the "
+"Upupam Platform Catalog Rules below when uploading their items."
+msgstr ""
+"Upupam platforma yra vieta keisti vartotojiškumo pasirinkimus. Čia norime "
+"sukurti saugią ir draugišką vietą, kurioje visi klientai galėtų prisidėti "
+"prie cikliško daiktų gyvenimo. Todėl prašome visų narių laikytis žemiau "
+"pateiktų Upupam katalogo taisyklių, kai įkeliate savo prekes."
+
 #: listings/templates/pages/platform_rules.html:10
 msgid "On Upupam, you can rent/sell the following items:"
 msgstr "Upupam platformoje galite nuomoti/parduoti šiuos daiktus:"
@@ -1233,6 +1327,11 @@ msgstr "Prekės, kurios yra padirbtos;"
 #: listings/templates/pages/platform_rules.html:18
 msgid "Items with real animal fur or leather."
 msgstr "Daiktai su tikru gyvūnų kailiu ar oda."
+
+#: listings/templates/pages/terms_and_conditions.html:3
+#: listings/templates/pages/terms_and_conditions.html:6
+msgid "Terms and Conditions"
+msgstr "Sąlygos ir taisyklės"
 
 #: listings/templates/pages/terms_and_conditions.html:8
 msgid "Introduction"
@@ -1960,3 +2059,15 @@ msgstr ""
 #: user_profiles/views.py:103
 msgid "Profile edited successfully"
 msgstr "Profilis sėkmingai pakeistas"
+
+#~ msgid "About UPUPAM"
+#~ msgstr "Apie UPUPAM"
+
+#~ msgid "How It Works"
+#~ msgstr "Kaip tai veikia"
+
+#~ msgid "Privacy Policy"
+#~ msgstr "Privatumo politika"
+
+#~ msgid "Fashion Rental"
+#~ msgstr "Mados nuoma"

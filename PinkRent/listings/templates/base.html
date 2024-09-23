@@ -144,17 +144,17 @@
                 <div class="footer-logo">
                     <a href="{% url 'listings:main_page' %}"> <img src="{% static 'icon.png' %}" alt="Upupam Logo"></a>
                 </div>
-                <p><a href="{% url 'listings:about_us' %}">{% trans "About UPUPAM" %}</a></p>
+                <p><a href="mailto:upupam.official@gmail.com">upupam.official@gmail.com</a></p>
+                <p><a href="{% url 'listings:about_us' %}">{% trans "About Upupam" %}</a></p>
             </div>
             <div class="footer-collumn">
-                <p><a href="{% url 'listings:how_it_works' %}">{% trans "How It Works" %}</a></p>
-                <p><a href="{% url 'listings:fashion_rental_tips' %}">{% trans "Fashion Rental Tips and Guidelines" %}</a></p>
-                <p><a href="{% url 'listings:best_practices_lending' %}">{% trans "Best Practices | Lending" %}</a></p>
+                {% comment %} <p><a href="{% url 'listings:how_it_works' %}">{% trans "How It Works" %}</a></p> {% endcomment %}
+                <p><a href="{% url 'listings:fashion_rental_tips' %}">{% trans "How to rent?" %}</a></p>
+                <p><a href="{% url 'listings:best_practices_lending' %}">{% trans "How to lend?" %}</a></p>
             </div>
             <div class="footer-collumn">
-                <p><a href="">{% trans "Privacy Policy" %}</a></p>
-                <p><a href="{% url 'listings:terms_and_conditions' %}">{% trans "Terms and Conditions" %}</a></p>
                 <p><a href="{% url 'listings:platform_rules' %}">{% trans "Platform Rules" %}</a></p>
+                <p><a href="{% url 'listings:terms_and_conditions' %}">{% trans "Terms & Conditions" %}</a></p>
             </div>
         </div>
         <div class="footer-extra-bar">

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %} {% load static %}
+{% block title %}{% trans "Fashion Rental Tips and Guidelines" %}{% endblock title %}
+{% block content %}
+<div class="about-us">
+    <h1>{% trans "How to Lend?" %}</h1>
+
+    <p>{% trans "Search for special occasion clothing, accessories, or shoes in the Upupam platform catalog. To rent a specific item, contact the item owner using the contact information provided in their profile or next to the listing. Specify the duration for which you need the item. Don’t forget to consider that you need to receive the item before your event takes place." %}</p>
+
+    <p>{% trans "Once you contact the renter, clarify the rental terms: how you will handle situations if the item is damaged, who is responsible for cleaning and shipping costs. Decide on the shipping method (e.g., via parcel locker or bus delivery), or whether the item will be handed over to you in person." %}</p>
+
+    <p>{% trans "Pay for the rental order directly to the bank account specified by the renter. The Upupam platform does not impose any additional fees; the entire rental order amount goes solely to the renter." %}</p>
+</div>
+{% endblock content %}

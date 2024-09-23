@@ -105,7 +105,7 @@ body {
 }
 
 header .main-line {
-    padding: 0px 20px;
+    padding: 20px 40px;
     min-height: 80px;
     text-decoration: none;
     background-color: #ffffff;
@@ -168,7 +168,8 @@ header .category-navbar a{
 }
 
 .header-logo {
-    padding: 32px;
+    padding-right: 20px;
+    margin: auto 0px;
 }
 
 .header-logo img {
@@ -261,7 +262,7 @@ footer {
 }
 
 .footer-collumn {
-    vertical-align: auto;
+    text-align: left;
 }
 
 .footer-extra-bar {
@@ -269,7 +270,8 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 40px;
+    font-size: 16px;
 }
 
 .language-form {
@@ -732,6 +734,19 @@ ul.dashboard li .stat {
     max-width: 300px;
 }
 
+.about-us {
+    padding: 20px 48px;
+    text-align: left;
+}
+
+.about-us h1 {
+    padding: 20px 0px;
+}
+
+.about-us p {
+    padding-bottom: 20px;
+}
+
 /* Hide the default checkbox */
 .toggle-button input[type="checkbox"] {
     display: none;
@@ -999,6 +1014,11 @@ ul.dashboard li .stat {
     font-weight: bold;
 }
 
+.platform-rules , .terms-conditions{
+    padding: 20px 40px;
+    text-align: start;
+}
+
 .listing-form input,
 .listing-form select,
 .listing-form textarea {
@@ -1177,7 +1197,7 @@ main div .product-container {
 }
 
 .profile-picture-icon {
-    margin: 0px 20px 0px 50px;
+    margin-left: 20px;
     width: 50px; /* Adjust as needed */
     height: 50px; /* Adjust as needed */
     border-radius: 50%; /* Make it circular */

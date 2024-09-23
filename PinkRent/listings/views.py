@@ -218,13 +218,13 @@ def terms_and_conditions(request):
     return render(request, 'pages/terms_and_conditions.html')
 
 def best_practices_lending(request):
-    return render(request, 'pages/best_practices_lending.html')
+    return render(request, 'pages/how_to_lend.html')
 
 def listing_upload_guidelines(request):
     return render(request, 'pages/listing_upload_guidelines.html')
 
 def fashion_rental_tips(request):
-    return render(request, 'pages/fashion_rental_tips.html')
+    return render(request, 'pages/how_to_rent.html')
 
 def about_us(request):
     return render(request, 'pages/about_us.html')
