@@ -333,11 +333,10 @@ a {
     text-decoration: none;
 }
 
-a:-webkit-any-link {
+.grid-wrapper-occasion a {
     text-decoration: none;
     color: inherit;
 }
-
 
 a:hover {
     text-decoration: none;
@@ -931,6 +930,7 @@ ul.dashboard li .stat {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    align-items: center;
 }
 
 .choice-container {
@@ -1576,7 +1576,6 @@ input#id_picture {
         width: 600px;
     }
     .review-div {
-        width: 90%;
         gap: 4px;
     }
     .product-description {

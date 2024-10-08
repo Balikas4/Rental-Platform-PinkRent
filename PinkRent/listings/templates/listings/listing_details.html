@@ -38,15 +38,14 @@
     <div class="product-description">
       <div class="description-box-items">
         <h2>{% trans "Listing details"|capfirst %}</h2>
+        <div class= "inline-items"><p class="text-bold">{% trans "Value:" %} </p><p> {{ listing.value|floatformat:0 }} €</p></div>
+        <div class= "inline-items"><p class="text-bold">{% trans "Price:" %} </p><p> {{ listing.price|floatformat:0 }} € {% trans "for 4 days" %}</p></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Category:" %} </p><a href="{% url 'listings:shop_page' %}?parent_category=all&category={{ listing.category.id }}"><p class="button">{{ listing.category }}</p></a></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Brand:" %} </p><a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p class="button">{{ listing.brand }}</p></a></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Size:" %} </p><a href="{% url 'listings:shop_page' %}?size={{ listing.size }}"><p class="button"> {{ listing.size }}</p></a></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Quality:" %} </p><p> {{ listing.quality }}</p></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Listing Owner:" %} </p><p class="button"><a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Description:" %} </p><p> {{ listing.description }}</p></div>
-      </div>
-        <div class= "inline-items"><p class="text-bold">{% trans "Value:" %} </p><p> {{ listing.value }}</p></div>
-        <div class= "inline-items"><p class="text-bold">{% trans "Price:" %} </p><p> {{ listing.price }} {% trans "for 4 days" %}</p></div>
         <div class= "action-buttons">
           {% if user.is_authenticated %}
             {% if user_favorites %}
@@ -61,6 +60,7 @@
             {% endif %}
           {% endif %}
         </div>
+      </div>
   </div>
 </div>
 <div class="product-details">
