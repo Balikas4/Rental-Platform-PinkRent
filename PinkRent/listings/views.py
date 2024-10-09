@@ -14,10 +14,6 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Avg, Count
 from user_profiles.models import UserProfile, UserProfileReview, FavoriteUser
-from django.template.loader import render_to_string
-from django.utils import translation
-from django.conf import settings
-
 
 
 class JoinWaitlistView(generic.View):
