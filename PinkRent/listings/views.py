@@ -15,6 +15,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Avg, Count
 from user_profiles.models import UserProfile, UserProfileReview, FavoriteUser
 from django.template.loader import render_to_string
+from django.utils import translation
+from django.conf import settings
+
+
 
 class JoinWaitlistView(generic.View):
     def get(self, request, *args, **kwargs):
@@ -32,16 +36,24 @@ def waitlist_thank_you_view(request):
     return render(request, 'waitlist_thank_you.html')
 
 def main_page(request: HttpRequest) -> HttpResponse:
+    # Check if the language is already set in the session
+    if request.session.get(settings.LANGUAGE_SESSION_KEY) is None:
+        translation.activate('lt')  # Set to Lithuanian
+        request.LANGUAGE_CODE = 'lt'
+        request.session[settings.LANGUAGE_SESSION_KEY] = 'lt'  # Save in the session
+
     listings = Listing.objects.filter(is_available=True)  # Filter only available listings
     context = {
         'listing_count': listings.count(),
         'users_count': models.get_user_model().objects.count(),
         'listings': listings,
     }
+
     if request.user.is_authenticated:
         user_favorites = FavoriteListing.objects.filter(user=request.user, favorite_listing__in=listings)
         favorite_listing_ids = set(user_favorites.values_list('favorite_listing__id', flat=True))
         context['favorite_listing_ids'] = favorite_listing_ids
+
     return render(request, 'main.html', context)
 
 def shop_page(request):
