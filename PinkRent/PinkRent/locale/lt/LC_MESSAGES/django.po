@@ -207,7 +207,7 @@ msgstr "atnaujinta"
 
 #: listings/models.py:120
 msgid "is available"
-msgstr "yra prieinama"
+msgstr "prieinama"
 
 #: listings/models.py:121
 msgid "is for sale"
@@ -247,19 +247,19 @@ msgstr "mėgstamiausi skelbimai"
 
 #: listings/models.py:192 user_profiles/models.py:58
 msgid "review_by"
-msgstr "apžvalga pateikta"
+msgstr "atsiliepimas paliktas"
 
 #: listings/models.py:193
 msgid "reviewed_listing"
-msgstr "apžvelgtas skelbimas"
+msgstr  "atsiliepimas paliktas skelbimui"
 
 #: listings/models.py:199
 msgid "listing_review"
-msgstr "skelbimo apžvalga"
+msgstr "skelbimo atsiliepimas"
 
 #: listings/models.py:200
 msgid "listing_reviews"
-msgstr "skelbimo apžvalgos"
+msgstr "skelbimo atsiliepimai"
 
 #: listings/templates/base.html:41 listings/templates/shop.html:17
 msgid "Search"
@@ -271,7 +271,7 @@ msgstr "Nuoma"
 
 #: listings/templates/base.html:50
 msgid "Lend"
-msgstr "Paskolinti"
+msgstr "Išnuomoti"
 
 #: listings/templates/base.html:54
 #: user_profiles/templates/favorite/my_favorite_users.html:16
@@ -290,7 +290,7 @@ msgstr "Sukurti profilį"
 
 #: listings/templates/base.html:68 listings/templates/base.html:109
 msgid "My Favorite users"
-msgstr "Mano mėgstami naudotojai"
+msgstr "Mano mėgstami vartotojai"
 
 #: listings/templates/base.html:69 listings/templates/base.html:110
 msgid "My Favorite listings"
@@ -360,7 +360,7 @@ msgstr "Kaip nuomotis"
 
 #: listings/templates/base.html:155
 msgid "How to lend?"
-msgstr "Kaip skolinti"
+msgstr "Kaip nuomuoti"
 
 #: listings/templates/base.html:158
 #: listings/templates/pages/platform_rules.html:3
@@ -443,7 +443,7 @@ msgstr "Sukurti skelbimą"
 
 #: listings/templates/listings/listing_create.html:7
 msgid "Maximise Your Success - Click Here to Review Our Upload Tips"
-msgstr "Didink savo sėkmę - spausk čia, kad peržiūrėtum mūsų įkėlimo patarimus"
+msgstr "Nuomok kaip profesionalas - spausk čia, kad peržiūrėtum mūsų įkėlimo patarimus"
 
 #: listings/templates/listings/listing_create.html:14
 #: listings/templates/shop.html:83
@@ -519,7 +519,7 @@ msgstr "Vertė:"
 #: listings/templates/listings/listing_create.html:82
 #: listings/templates/listings/listing_update.html:89
 msgid "Receive buy offers:"
-msgstr "Gauti pirkimo pasiūlymus:"
+msgstr "Siūlyti daiktą ir pardavimui:"
 
 #: listings/templates/listings/listing_create.html:90
 #: listings/templates/listings/listing_update.html:97
@@ -599,29 +599,29 @@ msgstr "Patinka"
 
 #: listings/templates/listings/listing_details.html:68
 msgid "Listing reviews"
-msgstr "Skelbimo apžvalgos"
+msgstr "Skelbimo atsiliepimai"
 
 #: listings/templates/listings/listing_details.html:69
 #: listings/templates/listings/listing_details.html:84
 #: user_profiles/templates/user_profile/user_detail.html:122
 msgid "Review average"
-msgstr "Vidutinis įvertinimas"
+msgstr "Atsiliepimų vidurkis"
 
 #: listings/templates/listings/listing_details.html:75
 #: listings/templates/listings/listing_details.html:90
 #: user_profiles/templates/user_profile/user_detail.html:128
 msgid "No reviews"
-msgstr "Apžvalgų nėra"
+msgstr "Atsiliepimų nėra"
 
 #: listings/templates/listings/listing_details.html:78
 #: listings/templates/listings/listing_details.html:95
 #: user_profiles/templates/user_profile/user_detail.html:133
 msgid "Leave a review"
-msgstr "Palikti apžvalgą"
+msgstr "Palikti atsiliepimą"
 
 #: listings/templates/listings/listing_details.html:83
 msgid "User Reviews"
-msgstr "Vartotojų apžvalgos"
+msgstr "Atsiliepimai apie vartotoją"
 
 #: listings/templates/listings/listing_details.html:104
 msgid "Create listing"
@@ -674,15 +674,15 @@ msgstr "Mano skelbimai"
 
 #: listings/templates/main.html:9
 msgid "Rent, Earn, Discover - all without leaving your neighborhood!"
-msgstr "Nuomok, uždirbk, atrask – viską nepaliekant savo kaimynystės!"
+msgstr "Nuomok, uždirbk, atrask – mados nuoma nepaliekant namų!"
 
 #: listings/templates/main.html:10
 msgid ""
 "Enjoy easy fashion rentals, no fees. Earn while sharing your wardrobe. Join "
 "our platform and start your journey today!"
 msgstr ""
-"Mėgaukitės lengva mados nuoma be jokių mokesčių. Uždirbkite dalindamiesi "
-"savo spinta. Prisijunkite prie mūsų platformos ir pradėkite savo kelionę jau "
+"Mados nuomos platforma be jokių mokesčių. Uždirbkite dalindamiesi "
+"savo spinta. Prisijunkite prie Upupam platformos ir pradėkite jau "
 "šiandien!"
 
 #: listings/templates/main.html:14
@@ -691,7 +691,7 @@ msgstr "Uždirbk dabar"
 
 #: listings/templates/main.html:19
 msgid "Explore"
-msgstr "Atraskite"
+msgstr "Atraskite katalogą"
 
 #: listings/templates/main.html:39
 msgid "Top Trending Dresses"
@@ -707,7 +707,7 @@ msgstr "Vestuvių svečias"
 
 #: listings/templates/main.html:112
 msgid "Cocktail party"
-msgstr "Kokteilių vakarėlis"
+msgstr "Aprangos kodas - kokteilis"
 
 #: listings/templates/main.html:118
 msgid "Bachelorette party"
@@ -715,11 +715,11 @@ msgstr "Mergvakaris"
 
 #: listings/templates/main.html:124
 msgid "How Upupam Platform Works"
-msgstr "Kaip veikia UPUPAM platfoma"
+msgstr  "Kaip veikia Upupam platfoma"
 
 #: listings/templates/main.html:128
 msgid "How to Lend"
-msgstr "Kaip skolinti"
+msgstr "Kaip išnuomoti"
 
 #: listings/templates/main.html:129
 msgid "How to Rent"
@@ -727,46 +727,42 @@ msgstr "Kaip nuomotis"
 
 #: listings/templates/main.html:134
 msgid "No Fees"
-msgstr ""
+msgstr "Jokių mokesčių"
 
 #: listings/templates/main.html:135
 msgid ""
 "List your items for rent for free. You have full control to set the rental "
 "price, rules, insurance fee, or deposit. The renter will pay directly into "
 "your account. All profits are yours."
-msgstr ""
+msgstr "Įkelkite savo daiktus nuomai nemokamai. Daiktų savininkai turi pilną kontrolę nustatyti nuomos kainas, taisykles, draudimo mokestį ar depozitą. Nuomininkas apmoka užsakymą tiesiogiai į jūsų nurodytą sąskaitą. Visas pelnas yra jūsų."
 
 #: listings/templates/main.html:138
 msgid "Communicate Directly with the Renter"
-msgstr ""
+msgstr "Bendraukite tiesiogiai su nuomininku"
 
 #: listings/templates/main.html:139
 msgid ""
 "The renter will contact you directly using the contact details you provided. "
 "Inform them about the rental conditions, agree on the method of delivery or "
 "pickup, and finalize the rental period."
-msgstr ""
+msgstr "Nuomininkas, norėdamas pateikti užsakymą, susisieks tiesiogiai per jūsų nurodytus kontaktus. Praneškite apie nuomos sąlygas, susitarkite dėl daikto pristatymo, - siuntimas paštomatu/autobusų siunta ar perduosite gyvai, išsiaiškinkite nuomos laikotarpį."
 
 #: listings/templates/main.html:142
 msgid "Rent Out and Ship"
-msgstr ""
+msgstr "Išnuomokite ir išsiųskite"
 
 #: listings/templates/main.html:143
 msgid ""
 "Once the rental order is confirmed with the renter, pack and ship the item "
 "via a parcel locker/bus shipment or hand it over in person during a meeting "
 "with the renter."
-msgstr ""
+msgstr "Kai užbaigsite derinti nuomos užsakymą su nuomininku, supakuokite daiktą ir išsiųskite paštomatu/autobusų siunta arba perduokite susitikę gyvai."
 
 #: listings/templates/main.html:148
 msgid "Choose Items from the Catalog"
-msgstr ""
+msgstr  "Rinkitės daiktus iš katalogo"
 
 #: listings/templates/main.html:149
-#, fuzzy
-#| msgid ""
-#| "Explore a wide variety of unique garments and accessories for your "
-#| "special occasions."
 msgid ""
 "Discover what other users are renting and pick a dress, suit, shoes, or "
 "accessories for your special occasion."
@@ -775,13 +771,13 @@ msgstr ""
 
 #: listings/templates/main.html:152
 msgid "Contact the Lender"
-msgstr ""
+msgstr "Susisiekti su nuomotoju"
 
 #: listings/templates/main.html:153
 msgid ""
 "Get in touch directly with the lender using the provided contact details to "
 "discuss the rental terms, rules, shipping/transfer method, and final price."
-msgstr ""
+msgstr "Susisiekite tiesiogiai su nuomotoju jo nurodytais kontaktais, susitarkite nuomos sąlygas, taisykles, daikto siuntimo/perdavimo būdą ir galutinę kainą."
 
 #: listings/templates/main.html:156
 #, fuzzy
@@ -793,15 +789,15 @@ msgstr "Platformos taisyklės"
 msgid ""
 "Pay the rental order directly into the lender's account. No additional fees "
 "to the platform."
-msgstr ""
+msgstr "Apmokėkite užsakymą tiesiogiai į nuomotojo banko sąskaita. Jokių platformos mokesčių."
 
 #: listings/templates/main.html:163
 msgid "Start Lending Now"
-msgstr "Pradėkite skolinti dabar"
+msgstr  "Pradėkite nuomoti dabar"
 
 #: listings/templates/main.html:201
 msgid "Complete Your Look"
-msgstr "Papildyk savo išvaizdą"
+msgstr "Papildyk savo derinį"
 
 #: listings/templates/main.html:206
 msgid "Rent Bags"
@@ -813,7 +809,7 @@ msgstr "Nuomokis batus"
 
 #: listings/templates/main.html:216
 msgid "Feedback"
-msgstr "Atsiliepimai"
+msgstr "Atsiliepimai apie platformą"
 
 #: listings/templates/pages/about_us.html:3
 msgid "About Us"
@@ -838,7 +834,7 @@ msgid ""
 "occasion and rent it out, while also putting your own special items to use "
 "by renting them to others."
 msgstr ""
-"Mūsų misija yra keisti tradicinį mados vartojimą per nuomą. Proginė apranga "
+"Mūsų misija yra keisti tradicinį mados vartojimą su nuoma. Proginė apranga "
 "yra viena rečiausiai vilkimų drabužių kategorijų, tačiau žmonės dažnai "
 "pasirenka pirkti naują derinį kiekvienam renginiui. Šioje platformoje "
 "siekiame sukurti erdvę, kurioje galėsite rasti tobulą įvaizdį savo ypatingai "
@@ -852,13 +848,13 @@ msgid ""
 "price, without contributing to harm to our climate."
 msgstr ""
 "Upupam mados nuomos platformos vizija yra būti ta vieta, kur mados mylėtojai "
-"gali mėgautis progine ir prabangią apranga už prieinamą kainą, neprisidedant "
-"prie žalos mūsų klimatui."
+"gali mėgautis progine ir prabangia apranga už prieinamą kainą, nedarant "
+"žalos mūsų klimatui."
 
 #: listings/templates/pages/best_practices_lending.html:3
 #: listings/templates/pages/best_practices_lending.html:6
 msgid "Best Practices | Lending"
-msgstr "Geriausia praktika | Skolinimas"
+msgstr "Geriausios praktikos | Nuomotojams"
 
 #: listings/templates/pages/best_practices_lending.html:8
 #: listings/templates/pages/fashion_rental_tips.html:8
@@ -907,7 +903,7 @@ msgstr ""
 "Aiškiai nurodykite visas nuomos sąlygas, įskaitant, kaip daiktas turi būti "
 "naudojamas ir prižiūrimas (pvz., galite paprašyti nuomininko nenaudoti sauso "
 "valymo po daikto dėvėjimo). Nurodykite nuomos laikotarpio pradžios ir "
-"pabaigos datas. Jei tas pats daiktas užsakytas trumpu laiko tarpu, "
+"pabaigos datas. Jei tas pats daiktas užsakytas kelis kartus su trumpa pertrauka, "
 "nepamirškite, kad turite spėti jį išvalyti ir paruošti. Visada įvertinkite, "
 "ar turėsite pakankamai laiko gauti daiktą, jį išvalyti ir išnuomoti kitam "
 "asmeniui."
@@ -926,12 +922,12 @@ msgid ""
 "clearly communicated to avoid misunderstandings."
 msgstr ""
 "Jei nuspręsite naudotis siuntų pervežimo paslaugomis, būtinai pasirinkite "
-"patikimą paslaugų teikėją. Taip pat galite svarstyti naudotis tą pačią dieną "
-"Lietuvoje galimomis"
+"patikimą paslaugų teikėją. Taip pat galite svarstyti naudotis autobusų siuntomis arba perduoti daiktą gyvai, jeigu užsakovas gyvena netoli. "
+""
 
 #: listings/templates/pages/best_practices_lending.html:20
 msgid "Repair and Reuse"
-msgstr "Remontas ir pakartotinis naudojimas"
+msgstr "Taisymas ir pakartotinis naudojimas"
 
 #: listings/templates/pages/best_practices_lending.html:21
 msgid ""
@@ -940,8 +936,8 @@ msgid ""
 "Promote the concept of fashion circularity by keeping your items in good "
 "condition and available for future rentals."
 msgstr ""
-"Jei jūsų daiktas yra sugadintas, nešalinkite jo. Naudokitės siuvėjų "
-"paslaugomis daiktui suremontuoti ir grąžinti į nuomos pasaulį. Skatinkite "
+"Jei jūsų daiktas yra sugadintas, neišmeskite jo. Naudokitės siuvėjų "
+"paslaugomis daiktui pataisyti ir grąžinti į nuomos procesą. Skatinkite "
 "mados cikliškumo konceptą, laikydami savo daiktus geros būklės ir prieinamus "
 "būsimoms nuomoms."
 
@@ -963,11 +959,11 @@ msgid ""
 "prioritize sincerity and fairness in our reviews to foster a safe and "
 "friendly platform environment for all."
 msgstr ""
-"Skatiname skolintojus laikytis geriausios praktikos, naudojantis mūsų "
-"platformos atsiliepimų funkcija. Po sėkmingo daikto skolinimo kitam "
+"Skatiname nuomotojus laikytis geriausios praktikos, naudojantis mūsų "
+"platformos atsiliepimų funkcija. Po sėkmingo daikto išnuomavimo kitam "
 "vartotojui, apsvarstykite galimybę palikti 5 žvaigždučių įvertinimą kartu su "
-"nuoširdžiu komentarų. Tai padeda įkvėpti pasitikėjimą kitiems nariams, "
-"signalizuojant, kad skolininkas yra patikimas ir draugiškas. Jei kyla "
+"nuoširdžiu komentaru. Tai padeda įkvėpti pasitikėjimą kitiems nariams, "
+"signalizuojant, kad nuomininkas yra patikimas ir draugiškas. Jei kyla "
 "problemų su nuomininku, nedvejodami palikite 1–5 žvaigždučių atsiliepimą, "
 "sprendžiant problemas kitų naudai. Prioritetu turėtų būti nuoširdumas ir "
 "sąžiningumas mūsų atsiliepimuose, kad sukurtume saugią ir draugišką "
@@ -981,19 +977,19 @@ msgstr "Mados nuomos patarimai ir gairės"
 
 #: listings/templates/pages/fashion_rental_tips.html:6
 msgid "BEST PRACTICES | RENTING"
-msgstr "GERIAUSIA PRAKTIKA | NUOMA"
+msgstr "Geriausios praktikos | Nuomininkams"
 
 #: listings/templates/pages/fashion_rental_tips.html:9
 msgid ""
 "Connect with the lender through email, social media, or phone number. Ensure "
 "your communication is clear and friendly."
 msgstr ""
-"Susisiekite su skolintoju per el. paštą, socialinius tinklus ar telefoną. "
+"Susisiekite su nuomotoju per el. paštą, socialinius tinklus ar telefono numeriu. "
 "Įsitikinkite, kad jūsų komunikacija yra aiški ir draugiška."
 
 #: listings/templates/pages/fashion_rental_tips.html:11
 msgid "Specify Rental Period"
-msgstr "Nurodykite nuomos laikotarpį"
+msgstr "Nurodykite norimą daikto nuomos laikotarpį"
 
 #: listings/templates/pages/fashion_rental_tips.html:12
 msgid ""
@@ -1013,8 +1009,8 @@ msgid ""
 "and any insurance fees. Carefully read through the terms and ask questions "
 "if anything is unclear."
 msgstr ""
-"Paklauskite skolintojo apie visas išlaidas, įskaitant nuomos kainą, užstatą "
-"ir bet kokius draudimo mokesčius. Atidžiai perskaitykite sąlygas ir "
+"Paklauskite nuomtojo apie visas išlaidas, įskaitant nuomos kainą, užstatą "
+"ar draudimo mokesčius. Atidžiai perskaitykite sąlygas ir "
 "užduokite klausimus, jei kas nors yra neaišku."
 
 #: listings/templates/pages/fashion_rental_tips.html:17
@@ -1028,14 +1024,14 @@ msgid ""
 "where you receive the item, try it on, and send it back immediately under "
 "agreed conditions."
 msgstr ""
-"Jei nerimaujate dėl tinkamumo, aptarkite galimus sprendimus su skolintoju. "
-"Galite paprašyti bandymo galimybės, pavyzdžiui, 24 valandų bandymo "
-"laikotarpio, per kurį gaunate daiktą, išbandote jį ir nedelsdami grąžinate "
+"Jei nerimaujate dėl tinkamumo, aptarkite galimus sprendimus su nuomotoju. "
+"Galite paprašyti pasimatavimo galimybės, pavyzdžiui, 24 valandų pasimatavimo "
+"laikotarpio, per kurį gaunate daiktą, pasimatuojate jį ir nedelsdami grąžinate "
 "pagal sutartas sąlygas."
 
 #: listings/templates/pages/fashion_rental_tips.html:20
 msgid "Clarify Additional Costs"
-msgstr "Paaiškinkite papildomas išlaidas"
+msgstr "Išsiaiškinkite papildomas išlaidas"
 
 #: listings/templates/pages/fashion_rental_tips.html:21
 msgid ""
@@ -1057,21 +1053,21 @@ msgid ""
 "during the rental period (e.g., loose stitch or broken zipper), inform the "
 "lender immediately."
 msgstr ""
-"Priėmę daiktą, elkitės su juo labai atsargiai. Jei nuomos laikotarpiu kyla "
-"kokių nors problemų (pvz., atsipalaidavusi siūlė ar sulūžusi užtrauktukas), "
-"nedelsdami informuokite skolintoją."
+"Gavę daiktą, elkitės su juo labai atsargiai. Jei nuomos laikotarpiu kyla "
+"kokių nors problemų (pvz., iširusi siūlė ar sugedęs užtrauktukas), "
+"nedelsdami informuokite nuomtoją."
 
 #: listings/templates/pages/fashion_rental_tips.html:26
 msgid "Discuss Wear and Tear"
-msgstr "Aptarkite nusidėvėjimą"
+msgstr "Aptarkite galimus defektus"
 
 #: listings/templates/pages/fashion_rental_tips.html:27
 msgid ""
 "Before the rental period, discuss potential outcomes for wear and tear "
 "situations with the lender to avoid misunderstandings."
 msgstr ""
-"Prieš nuomos laikotarpį aptarkite galimus nusidėvėjimo atvejus su "
-"skolintoju, kad išvengtumėte nesusipratimų."
+"Prieš nuomos laikotarpį aptarkite galimus defektų atvejus su "
+"nuomotoju, kad išvengtumėte nesusipratimų."
 
 #: listings/templates/pages/fashion_rental_tips.html:30
 msgid ""
@@ -1082,11 +1078,11 @@ msgid ""
 "visualize and mention any size discrepancies or styling tips. Your detailed "
 "reviews contribute to a safer and more informed community on our platform."
 msgstr ""
-"Palikdami atsiliepimą, tiek apie skolintoją, tiek apie nuomojamą daiktą, "
-"siekite teikti vertingų įžvalgų. Aprašykite skolintojo patikimumą, "
-"komunikaciją ir bendrą skolinimosi patirtį. Taip pat, peržiūrėdami daiktą, "
-"pridėkite nuotrauką, kurioje dėvite daiktą, kad padėtumėte kitiems "
-"įsivaizduoti ir paminėtumėte bet kokius dydžio neatitikimus ar stiliaus "
+"Palikdami atsiliepimą, tiek apie nuomotoją, tiek apie nuomojamą daiktą, "
+"siekite teikti vertingas įžvalgas. Aprašykite nuomtojo patikimumą, "
+"komunikaciją ir bendrą nuomavimosi patirtį. Taip pat, palikdami atsiliepimą, "
+"Galite pridėti nuotrauką, kurioje dėvite išsinuomotą daiktą, kad padėtumėte kitiems vartotojams "
+"matyti kaip atrodo daiktas ir paminėtumėte bet kokius dydžio neatitikimus ar stiliaus "
 "patarimus. Jūsų išsamūs atsiliepimai prisideda prie saugesnės ir labiau "
 "informuotos bendruomenės mūsų platformoje."
 
@@ -1096,7 +1092,7 @@ msgstr "Kaip tai veikia"
 
 #: listings/templates/pages/how_to_lend.html:6
 msgid "How to Lend?"
-msgstr "Kaip skolinti"
+msgstr "Kaip nuomoti"
 
 #: listings/templates/pages/how_to_lend.html:8
 msgid ""
@@ -1206,8 +1202,8 @@ msgid ""
 "dress costs approximately 20 EUR. Factor this into your rental price to "
 "cover these expenses;"
 msgstr ""
-"Apsvarstykite valymo išlaidas: pavyzdžiui, Lietuvoje šventinio suknelės "
-"valymas nákią apie 20 EUR. Įtraukite tai į nuomos kainą, kad padengtumėte "
+"Apsvarstykite valymo išlaidas: pavyzdžiui, Lietuvoje proginės suknelės "
+"valymas siekia apie 20-30 EUR. Įvertinkite ar įtraukti dalį/visą šią sumą į nuomos kainą, kad padengtumėte "
 "šias išlaidas;"
 
 #: listings/templates/pages/listing_upload_guidelines.html:10
@@ -1233,13 +1229,12 @@ msgid ""
 "Day Rental Price."
 msgstr ""
 "Pristatymo išlaidos: apsvarstykite daikto pristatymo išlaidas, jei jūs ir "
-"nuomininkas sutinkate, kad tai būtų pristatymo metodas. Jūsų nuožiūra, ar "
-"pristatymo išlaidos bus ant jūsų, ar pirkėjo. Jei planuojate imti mokestį už "
+"nuomininkas sutinkate, kad tai būtų pristatymo metodas. Nuspreskite, kas "
+"padengs pristatymo ir daikto grąžinimo išlaidas. Jei planuojate imti mokestį už "
 "pristatymą, rekomenduojame įtraukti tai į daikto aprašymą, o ne į 4 dienų "
 "nuomos kainą."
 
 #: listings/templates/pages/listing_upload_guidelines.html:13
-#, python-format
 msgid ""
 "4-Day Rental Price: Have in mind that in the listing upload form, you are "
 "putting a 4-day rental price. We recommend setting the rental price at "
@@ -1249,7 +1244,7 @@ msgid ""
 msgstr ""
 "4 dienų nuomos kaina: turėkite omenyje, kad skelbimo įkėlimo formoje "
 "nustatote 4 dienų nuomos kainą. Rekomenduojame nustatyti nuomos kainą "
-"10-15%% daikto mažmeninės kainos už dieną. Jei jūsų daiktas yra didelio "
+"10-15% nuo daikto vertės kainos už dieną. Jei jūsų daiktas turi didelę paklausą "
 "paklausos, galite padidinti nuomos kainą, kad maksimaliai padidintumėte savo "
 "uždarbį."
 
@@ -1276,11 +1271,11 @@ msgid ""
 "decide on the insurance fee, but we recommend an optimal 3-10 EUR cost "
 "depending on the item’s retail value."
 msgstr ""
-"Draudimo mokestis: galite apsvarstyti galimybę įtraukti nedraudžiamą "
+"Draudimo mokestis: galite apsvarstyti galimybę įtraukti "
 "draudimo mokestį, kad padengtumėte mažus „nusidėvėjimo“ atvejus, tokius kaip "
-"sulūžęs užtrauktukas ar atsipalaidavusi siūlė. Rekomenduojame įtraukti "
+"sulūžęs užtrauktukas ar iširusi siūlė. Rekomenduojame įtraukti "
 "draudimo mokestį į skelbimo aprašymą, o ne pridėti jį prie 4 dienų nuomos "
-"kainos skilties. Jūsų nuožiūra, bet rekomenduojame optimalų 3-10 EUR "
+"kainos skilties. Draudimo suma jūsų sprendimas, bet rekomenduojame optimalų 3-10 EUR "
 "mokestį, priklausomai nuo daikto mažmeninės vertės."
 
 #: listings/templates/pages/listing_upload_guidelines.html:16
@@ -1288,9 +1283,8 @@ msgid ""
 "Market Comparison: Compare your pricing with similar items listed on the "
 "platform. Adjust your rental price based on item or item’s size demand."
 msgstr ""
-"Rinkos palyginimas: palyginkite savo kainas su panašiais daiktais, "
-"paskelbtais platformoje. Pakoreguokite nuomos kainą pagal daikto ar daikto "
-"dydžio paklausą."
+"Panašių daiktų kainų palyginimas: palyginkite savo kainas su panašiais daiktais, "
+"paskelbtais platformoje. Pakoreguokite nuomos kainą pagal daikto nuomos kainos vidurkį."
 
 #: listings/templates/pages/listing_upload_guidelines.html:19
 msgid "Item Description"
@@ -1307,10 +1301,10 @@ msgid ""
 "measurements (e.g., bust, waist, hips, length) to help renters ensure a "
 "proper fit."
 msgstr ""
-"Dydis: nurodykite, ar daiktas atitinka dydį, ar jis atrodo mažesnis/arba "
+"Dydis: nurodykite, ar daiktas atitinka dydį, ar jis yra mažesnis/arba "
 "didesnis nei nurodytas dydžio etiketėje. Naudinga įtraukti specifinius "
 "matmenis (pvz., krūtinę, liemenį, klubus, ilgį), kad padėtumėte nuomininkams "
-"užtikrinti tinkamą tinkamumą."
+"užtikrinti tinkamą dydį."
 
 #: listings/templates/pages/listing_upload_guidelines.html:23
 msgid ""
@@ -1326,7 +1320,7 @@ msgid ""
 "missing buttons, to set accurate expectations."
 msgstr ""
 "Defektai: aiškiai nurodykite, jei yra kokių nors defektų, tokių kaip dėmės, "
-"skylės ar trūkstami mygtukai, kad nustatytumėte tikslius lūkesčius."
+"skylės ar trūkstamos sagos, užtrauktukas."
 
 #: listings/templates/pages/listing_upload_guidelines.html:27
 msgid "Item Pictures"
@@ -1338,7 +1332,7 @@ msgid ""
 "are more tips to follow for listing pictures:"
 msgstr ""
 "Rekomenduojame įkelti bent 3 aiškias daikto nuotraukas. Štai dar keletas "
-"patarimų, kaip pateikti nuotraukas skelbimui:"
+"patarimų, kaip pateikti nuotraukas skelbime:"
 
 #: listings/templates/pages/listing_upload_guidelines.html:30
 msgid ""
@@ -1348,7 +1342,7 @@ msgid ""
 msgstr ""
 "Daikto atvaizdavimas: įsitikinkite, kad nuotraukos tiksliai atspindi daikto "
 "išvaizdą. Įtraukite nuotraukas, kuriose jūs/arba kas nors kitas dėvi daiktą "
-"šventėje arba namuose, jei nėra renginių nuotraukų."
+"šventėje arba namuose, jei neturite nuotraukų iš šventės."
 
 #: listings/templates/pages/listing_upload_guidelines.html:31
 msgid ""
@@ -1365,7 +1359,7 @@ msgid ""
 "clearly showing them in the photos."
 msgstr ""
 "Daikto būklė: išryškinkite bet kokius defektus, tokius kaip skylės ar dėmės, "
-"aiškiai rodykite juos nuotraukose."
+"aiškiai rodykite tai nuotraukose."
 
 #: listings/templates/pages/listing_upload_guidelines.html:33
 msgid ""
@@ -1390,10 +1384,10 @@ msgid ""
 msgstr ""
 "Žymos padeda padidinti jūsų daikto matomumą platformoje ir palengvina jo "
 "suradimą. Apsvarstykite daikto savybes ir progų, kurioms jis tinkamas; "
-"pavyzdžiui: jei daiktas yra nuotakos suknelė, šydas ar batai, pažymėkite jį "
+"pavyzdžiui: jei daiktas yra nuotakos suknelė, veliumas ar batai, pažymėkite jį "
 "„Nuotaka“ žyma. Jei jūsų daiktas tinka kelioms progoms, pažymėkite visas "
-"atitinkamas žymas; pavyzdžiui: jei daiktas tinka krikštynoms, yra draugiškas "
-"nėštumo metu ir puikus gimtadienio vakarėliui, pasirinkite visas šias žymas."
+"atitinkamas žymas; pavyzdžiui: jei daiktas tinka krikštynoms, yra tinkamas "
+"Nėščiosioms ir puikus gimtadienio vakarėliui, pasirinkite visas šias žymas."
 
 #: listings/templates/pages/platform_rules.html:8
 msgid ""
@@ -1402,7 +1396,7 @@ msgid ""
 "circular items' life. Due to this, we ask all members to adhere to the "
 "Upupam Platform Catalog Rules below when uploading their items."
 msgstr ""
-"Upupam platforma yra vieta keisti vartotojiškumo pasirinkimus. Čia norime "
+"Upupam platforma yra vieta keisti vartotojiškumą. Čia norime "
 "sukurti saugią ir draugišką vietą, kurioje visi klientai galėtų prisidėti "
 "prie cikliško daiktų gyvenimo. Todėl prašome visų narių laikytis žemiau "
 "pateiktų Upupam katalogo taisyklių, kai įkeliate savo prekes."
@@ -1421,7 +1415,7 @@ msgstr "Upupam platformoje negalite nuomoti/parduoti šių daiktų:"
 
 #: listings/templates/pages/platform_rules.html:17
 msgid "Items that are counterfeits;"
-msgstr "Prekės, kurios yra padirbtos;"
+msgstr "Prekės, kurios yra padirbiniai;"
 
 #: listings/templates/pages/platform_rules.html:18
 msgid "Items with real animal fur or leather."
@@ -1449,7 +1443,7 @@ msgstr ""
 
 #: listings/templates/pages/terms_and_conditions.html:11
 msgid "User Eligibility"
-msgstr "Naudotojų tinkamumas"
+msgstr "Vartotojų tinkamumas"
 
 #: listings/templates/pages/terms_and_conditions.html:12
 msgid "You must be at least 18 years old to use the Platform."
@@ -1465,7 +1459,7 @@ msgstr ""
 
 #: listings/templates/pages/terms_and_conditions.html:15
 msgid "User Accounts"
-msgstr "Naudotojų paskyros"
+msgstr "Vartotojų paskyros"
 
 #: listings/templates/pages/terms_and_conditions.html:16
 msgid ""
@@ -1498,7 +1492,7 @@ msgstr "Skelbimai ir sandoriai"
 #: listings/templates/pages/terms_and_conditions.html:21
 msgid "Users can create ads for fashion items that are available for rent."
 msgstr ""
-"Naudotojai gali kurti skelbimus apie mados daiktus, kurie yra prieinami "
+"Vartotojai gali kurti skelbimus apie mados daiktus, kurie yra prieinami "
 "nuomai."
 
 #: listings/templates/pages/terms_and_conditions.html:22
@@ -1514,7 +1508,7 @@ msgid ""
 "Users agree to accurately reflect the condition, size, and other relevant "
 "data of the posted items."
 msgstr ""
-"Naudotojai sutinka tiksliai atspindėti skelbiamų daiktų būklę, dydį ir kitus "
+"Naudotojai sutinka tiksliai aprašyti skelbiamų daiktų būklę, dydį ir kitus "
 "reikšmingus duomenis."
 
 #: listings/templates/pages/terms_and_conditions.html:24
@@ -1523,7 +1517,7 @@ msgid ""
 "assume ownership or responsibility for any posted items."
 msgstr ""
 "Naudotojai visiškai kontroliuoja savo daiktus ir nuomos sandorius. Platforma "
-"nepriima nuosavybės teisių ar atsakomybės už bet kokius skelbiamus daiktus."
+"neprisiima nuosavybės teisių ar atsakomybės už bet kokius skelbiamus daiktus."
 
 #: listings/templates/pages/terms_and_conditions.html:26
 msgid "Rental Agreements"
@@ -1543,7 +1537,7 @@ msgid ""
 "agreement, including, but not limited to, the duration of the rental, the "
 "rental fee, and the repayment terms."
 msgstr ""
-"Naudotojai sutinka laikytis nuomos sutartyje nurodytų sąlygų, įskaitant, bet "
+"Naudotojai sutinka laikytis nuomos sutarime nurodytų sąlygų, įskaitant, bet "
 "ne apsiribojant, nuomos trukme, nuomos mokesčiu ir grąžinimo sąlygomis."
 
 #: listings/templates/pages/terms_and_conditions.html:30
@@ -1579,7 +1573,7 @@ msgid ""
 "Users agree not to copy, distribute, modify, or create derivative works from "
 "any content on the Platform without prior written consent."
 msgstr ""
-"Naudotojai sutinka nesikopijuoti, neplatinti, nemodifikuoti ar nesukurti "
+"Naudotojai sutinka nekopijuoti, neplatinti, nemodifikuoti ar nesukurti "
 "išvestinių darinių iš jokio Platformos turinio be išankstinio raštiško "
 "sutikimo."
 
@@ -1627,8 +1621,8 @@ msgid ""
 "The Platform is not responsible for the payment of the items by the renters "
 "or for the shipment of the items by the renters as described."
 msgstr ""
-"Platforma neatsako už tai, kad nuomotojai sumokėtų už daiktus ar kad "
-"paskolintojai išsiųstų daiktus pagal aprašymą."
+"Platforma neatsako už tai, kad nuomininkai sumokėtų už daiktus ar kad "
+"nuomotojai išsiųstų daiktus pagal aprašymą."
 
 #: listings/templates/pages/terms_and_conditions.html:46
 msgid ""
@@ -1669,12 +1663,12 @@ msgid ""
 "please contact us at upupam.official@gmail.com."
 msgstr ""
 "Jei turite kokių nors klausimų ar abejonių dėl šių sąlygų ir taisyklių, "
-"prašome susisiekti su mumis el. paštu (el. paštas)."
+"prašome susisiekti su mumis el. paštu upupam.official@gmail.com."
 
 #: listings/templates/reviews/create_listing_review.html:5
 #: listings/templates/reviews/create_listing_review.html:9
 msgid "Create a Listing Review"
-msgstr "Sukurti skelbimo apžvalgą"
+msgstr "Sukurti atsiliepimą apie skelbimą"
 
 #: listings/templates/reviews/create_listing_review.html:14
 #: user_profiles/templates/reviews/create_profile_review.html:14
@@ -1694,12 +1688,12 @@ msgstr "Pateikti"
 #: listings/templates/reviews/listing_review_success.html:5
 #: user_profiles/templates/reviews/profile_review_success.html:5
 msgid "Review successfull"
-msgstr "Apžvalga sėkminga"
+msgstr "Atsliepimas paliktas sėkmingai"
 
 #: listings/templates/reviews/listing_review_success.html:9
 #: user_profiles/templates/reviews/profile_review_success.html:9
 msgid "Congratulations, you left a review"
-msgstr "Sveikiname, palikote apžvalgą"
+msgstr "Sveikiname, palikote atsiliepimą"
 
 #: listings/templates/shop.html:3 listings/templates/teaser.html:3
 msgid "Main Page"
