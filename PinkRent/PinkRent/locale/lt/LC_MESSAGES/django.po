@@ -337,10 +337,8 @@ msgid "Handbags"
 msgstr "Rankinukai"
 
 #: listings/templates/base.html:100 listings/templates/base.html:132
-#, fuzzy
-#| msgid "Rent Shoes"
 msgid "Shoes"
-msgstr "Nuomokis batus"
+msgstr "Batai"
 
 #: listings/templates/base.html:101
 msgid "Upload item for rent"
