@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'listings.middleware.LanguageMiddleware',  # custom language forcer
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware', 

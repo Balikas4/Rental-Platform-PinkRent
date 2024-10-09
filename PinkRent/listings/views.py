@@ -36,11 +36,6 @@ def waitlist_thank_you_view(request):
     return render(request, 'waitlist_thank_you.html')
 
 def main_page(request: HttpRequest) -> HttpResponse:
-    # Check if the language is already set in the session
-    if request.session.get(settings.LANGUAGE_SESSION_KEY) is None:
-        translation.activate('lt')  # Set to Lithuanian
-        request.LANGUAGE_CODE = 'lt'
-        request.session[settings.LANGUAGE_SESSION_KEY] = 'lt'  # Save in the session
 
     listings = Listing.objects.filter(is_available=True)  # Filter only available listings
     context = {
