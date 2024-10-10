@@ -1103,7 +1103,7 @@ msgstr "Kaip tai veikia"
 
 #: listings/templates/pages/how_to_lend.html:6
 msgid "How to Lend?"
-msgstr "Kaip nuomoti"
+msgstr "Kaip nuomotis"
 
 #: listings/templates/pages/how_to_lend.html:8
 msgid ""
