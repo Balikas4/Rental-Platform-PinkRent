@@ -1597,6 +1597,7 @@ input#id_picture {
     .hero-buttons {
         min-width: max-content;
         justify-content: center;
+        flex-direction: column;
     }
     .user-profile {
         flex-direction: column;

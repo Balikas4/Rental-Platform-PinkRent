@@ -48,18 +48,38 @@ def signup(request: HttpRequest) -> HttpResponse:
 
 User = get_user_model()
 
-@login_required
-def user_detail(request: HttpRequest, username: str | None = None)  -> HttpResponse:
+def user_detail(request: HttpRequest, username: str | None = None) -> HttpResponse:
+    # If a username is provided, fetch that user, otherwise default to the currently logged-in user
     if username:
         user = get_object_or_404(User, username=username)
     else:
         user = request.user
+    
+    # Get the user's listings count (including unavailable ones)
     unavailable_listings_count = user.listings.filter(is_available=False).count()
-    user_favorites = FavoriteUser.objects.filter(user=request.user, favorite_user=user)
+    
+    # Initialize context with basic user data
+    context = {
+        'user': user,
+        'unavailable_listings_count': unavailable_listings_count,
+    }
+    
+    # If the current user is authenticated, allow user-specific operations like favorites
+    if request.user.is_authenticated:
+        user_favorites = FavoriteUser.objects.filter(user=request.user, favorite_user=user)
+        context['user_favorites'] = user_favorites
+    else:
+        context['user_favorites'] = None  # No favorites if user is not logged in
+
+    # Fetch current user's profile or get 404 if it doesn't exist
     current_profile = get_object_or_404(UserProfile, user=user)
+    context['current_profile'] = current_profile
+    
+    # Fetch all listings of this profile's owner
     profile_listings = Listing.objects.filter(owner=user)
-    # Pagination
-    paginator = Paginator(profile_listings, 4)  # 4 listings per page
+    
+    # Pagination for the profile listings
+    paginator = Paginator(profile_listings, 12)  # 4 listings per page
     page = request.GET.get('page')
     try:
         profile_listings = paginator.page(page)
@@ -67,21 +87,17 @@ def user_detail(request: HttpRequest, username: str | None = None)  -> HttpRespo
         profile_listings = paginator.page(1)
     except EmptyPage:
         profile_listings = paginator.page(paginator.num_pages)
+    
+    context['profile_listings'] = profile_listings
 
-    context = {
-        'user': user,
-        'unavailable_listings_count': unavailable_listings_count,
-        'user_favorites': user_favorites,
-        'current_profile': current_profile,
-        'profile_listings': profile_listings,
-    }
+    # Fetch all reviews for the user's profile
     reviews = UserProfileReview.objects.filter(profile=current_profile)
 
-    # Calculate average rating
+    # Calculate average rating from the reviews
     average_rating = reviews.aggregate(Avg('rate'))['rate__avg']
     context['average_rating'] = average_rating if average_rating is not None else 0
-
     context['reviews'] = reviews
+
     return render(request, 'user_profile/user_detail.html', context)
 
 @login_required
