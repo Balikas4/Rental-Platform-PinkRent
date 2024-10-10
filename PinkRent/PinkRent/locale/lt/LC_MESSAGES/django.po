@@ -27,7 +27,7 @@ msgstr "skelbimai"
 #: listings/models.py:9 listings/models.py:27 listings/models.py:37
 #: listings/models.py:115
 msgid "name"
-msgstr "vardas"
+msgstr "pavadinimas"
 
 #: listings/models.py:10
 msgid "slug"
@@ -791,10 +791,8 @@ msgstr ""
 "nuomos sąlygas, taisykles, daikto siuntimo/perdavimo būdą ir galutinę kainą."
 
 #: listings/templates/main.html:156
-#, fuzzy
-#| msgid "Platform Rules"
 msgid "No Platform Fees"
-msgstr "Platformos taisyklės"
+msgstr "Jokių platformos mokesčių"
 
 #: listings/templates/main.html:157
 msgid ""
@@ -1227,11 +1225,11 @@ msgid ""
 "price based on the agreed rental period. Below are relevant considerations "
 "and recommendations for setting your item's price:"
 msgstr ""
-"Skolintojai turi visišką kontrolę nustatydami nuomos kainą už savo daiktus. "
-"Mūsų platformoje skelbimo formoje reikia nustatyti nuomos kainą 4 dienų "
+"Nuomotojai turi visišką kontrolę nustatydami nuomos kainą už savo daiktus. "
+"Mūsų platformos skelbimo formoje reikia nustatyti nuomos kainą 4 dienų "
 "laikotarpiui. Tačiau, kai nuomininkas susisieks su jumis, galite koreguoti "
-"kainą pagal sutartą nuomos laikotarpį. Žemiau pateikiamos svarbios "
-"apsvarstyti ir rekomendacijos nustatant daikto kainą:"
+"kainą pagal sutartą nuomos laikotarpį. Žemiau pateikiamos detalės, kurias "
+"Rekomenduojame apsvarstyti nustatant daikto kainą:"
 
 #: listings/templates/pages/listing_upload_guidelines.html:12
 msgid ""
@@ -1248,13 +1246,6 @@ msgstr ""
 "nuomos kainą."
 
 #: listings/templates/pages/listing_upload_guidelines.html:13
-#, fuzzy, python-format
-#| msgid ""
-#| "4-Day Rental Price: Have in mind that in the listing upload form, you are "
-#| "putting a 4-day rental price. We recommend setting the rental price at "
-#| "10-15%% of the item’s retail price for a day rental period. If your item "
-#| "is high in demand, you may want to increase the rental price to maximize "
-#| "your earnings."
 msgid ""
 "4-Day Rental Price: Have in mind that in the listing upload form, you are "
 "putting a 4-day rental price. We recommend setting the rental price at "
@@ -1263,10 +1254,9 @@ msgid ""
 "earnings."
 msgstr ""
 "4 dienų nuomos kaina: turėkite omenyje, kad skelbimo įkėlimo formoje "
-"nustatote 4 dienų nuomos kainą. Rekomenduojame nustatyti nuomos kainą 10-15% "
-"nuo daikto vertės kainos už dieną. Jei jūsų daiktas turi didelę paklausą "
-"paklausos, galite padidinti nuomos kainą, kad maksimaliai padidintumėte savo "
-"uždarbį."
+"nustatote 4 dienų nuomos kainą. Rekomenduojame nustatyti nuomos kainą "
+"10-15% nuo daikto vertės kainos už dieną. Jei jūsų daiktas turi didelę paklausą, galite padidinti nuomos kainą, kad maksimaliai padidintumėte savo "
+"Uždarbį."
 
 #: listings/templates/pages/listing_upload_guidelines.html:14
 msgid ""
@@ -1291,12 +1281,12 @@ msgid ""
 "decide on the insurance fee, but we recommend an optimal 3-10 EUR cost "
 "depending on the item’s retail value."
 msgstr ""
-"Draudimo mokestis: galite apsvarstyti galimybę įtraukti draudimo mokestį, "
-"kad padengtumėte mažus „nusidėvėjimo“ atvejus, tokius kaip sulūžęs "
-"užtrauktukas ar iširusi siūlė. Rekomenduojame įtraukti draudimo mokestį į "
-"skelbimo aprašymą, o ne pridėti jį prie 4 dienų nuomos kainos skilties. "
-"Draudimo suma jūsų sprendimas, bet rekomenduojame optimalų 3-10 EUR mokestį, "
-"priklausomai nuo daikto mažmeninės vertės."
+"Draudimo mokestis: galite apsvarstyti galimybę įtraukti "
+"draudimo mokestį, kad padengtumėte mažus „nusidėvėjimo“ atvejus, tokius kaip "
+"sulūžęs užtrauktukas ar iširusi siūlė. Rekomenduojame įtraukti "
+"draudimo mokestį į skelbimo aprašymą, o ne pridėti jį prie 4 dienų nuomos "
+"kainos skilties. Draudimo suma jūsų sprendimas, bet rekomenduojame optimalų 3-10 EUR "
+"mokestį, priklausomai nuo daikto vertės."
 
 #: listings/templates/pages/listing_upload_guidelines.html:16
 msgid ""
@@ -1404,9 +1394,9 @@ msgid ""
 "perfect for a birthday party, select all these tags."
 msgstr ""
 "Žymos padeda padidinti jūsų daikto matomumą platformoje ir palengvina jo "
-"suradimą. Apsvarstykite daikto savybes ir progų, kurioms jis tinkamas; "
-"pavyzdžiui: jei daiktas yra nuotakos suknelė, veliumas ar batai, pažymėkite "
-"jį „Nuotaka“ žyma. Jei jūsų daiktas tinka kelioms progoms, pažymėkite visas "
+"suradimą. Apsvarstykite daikto savybes ir progas, kurioms jis tinkamas; "
+"pavyzdžiui: jei daiktas yra nuotakos suknelė, veliumas ar batai, pažymėkite jį su "
+"„Nuotaka“ žyma. Jei jūsų daiktas tinka kelioms progoms, pažymėkite visas "
 "atitinkamas žymas; pavyzdžiui: jei daiktas tinka krikštynoms, yra tinkamas "
 "Nėščiosioms ir puikus gimtadienio vakarėliui, pasirinkite visas šias žymas."
 
