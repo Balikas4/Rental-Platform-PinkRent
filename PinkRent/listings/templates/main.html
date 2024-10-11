@@ -202,11 +202,11 @@
 <div class="complete-your-look">
   <div class="container-choice">
     <img src="{% static 'rent-handbags.png' %}" alt="rent-handbags">
-    <button><a href="{% url "listings:shop_page" %}">{% trans "Rent Bags" %}</a></button>
+    <button><a href="{% url 'listings:shop_page' %}?parent_category=1&category=9">{% trans "Rent Bags" %}</a></button>
   </div>
   <div class="container-choice">
     <img src="{% static 'rent-shoes.png' %}" alt="rent-shoes">
-    <button><a href="{% url "listings:shop_page" %}">{% trans "Rent Shoes" %}</a></button>
+    <button><a href="{% url 'listings:shop_page' %}?parent_category=1&category=10">{% trans "Rent Shoes" %}</a></button>
   </div>
 </div>
 <div class="seperator-div">

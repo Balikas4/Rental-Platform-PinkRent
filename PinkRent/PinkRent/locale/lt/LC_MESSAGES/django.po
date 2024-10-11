@@ -802,7 +802,7 @@ msgid ""
 "Pay the rental order directly into the lender's account. No additional fees "
 "to the platform."
 msgstr ""
-"Apmokėkite užsakymą tiesiogiai į nuomotojo banko sąskaita. Jokių platformos "
+"Apmokėkite užsakymą tiesiogiai į nuomotojo banko sąskaitą. Jokių platformos "
 "mokesčių."
 
 #: listings/templates/main.html:163
@@ -1460,7 +1460,7 @@ msgid ""
 msgstr ""
 "Šios sąlygos ir taisyklės reglamentuoja jūsų naudojimąsi Upupam, internetine "
 "C2C mados nuomos platforma (toliau – „Platforma“). Prisijungę prie "
-"Platformos arba ją naudodamiesi, sutinkate laikytis šių sąlygų ir taisyklių "
+"Platformos arba ja naudodamiesi, sutinkate laikytis šių sąlygų ir taisyklių "
 "bei mūsų Privatumo politikos."
 
 #: listings/templates/pages/terms_and_conditions.html:11
