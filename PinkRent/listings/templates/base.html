@@ -92,9 +92,9 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=3">{% trans "Wedding dresses" %}</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=3&tags=1">{% trans "Wedding dresses" %}</a></li>
                         <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=11">{% trans "Accessories" %}</a></li>
-                        <li><a href="{% url 'listings:shop_page' %}?tags=6">{% trans "Evening dresses" %}</a></li>
+                        <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=3">{% trans "Occasional dresses" %}</a></li>
                         <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=9">{% trans "Handbags" %}</a></li>
                         <li><a href="{% url 'listings:shop_page' %}?parent_category=1&category=10">{% trans "Shoes" %}</a></li>
                         <li><a href="{% url 'listings:listing_create' %}"> {% trans "Upload item for rent" %}</a></li>
@@ -124,9 +124,9 @@
             </div>
         </div>
         <div class="category-navbar">
-            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=3">{% trans "Wedding dresses" %}</a>
+            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=3&tags=1">{% trans "Wedding dresses" %}</a>
             <a href="{% url 'listings:shop_page' %}?parent_category=1&category=11">{% trans "Accessories" %}</a>
-            <a href="{% url 'listings:shop_page' %}?tags=6">{% trans "Evening dresses" %}</a>
+            <a href="{% url 'listings:shop_page' %}?parent_category=1&category=3">{% trans "Occasional dresses" %}</a>
             <a href="{% url 'listings:shop_page' %}?parent_category=1&category=9">{% trans "Handbags" %}</a>
             <a href="{% url 'listings:shop_page' %}?parent_category=1&category=10">{% trans "Shoes" %}</a>
         </div>                          

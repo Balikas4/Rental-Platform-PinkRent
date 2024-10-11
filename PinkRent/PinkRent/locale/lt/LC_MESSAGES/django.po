@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-09 09:05+0000\n"
+"POT-Creation-Date: 2024-10-11 10:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -229,7 +229,7 @@ msgstr "vertė"
 msgid "owner"
 msgstr "savininkas"
 
-#: listings/models.py:166 listings/views.py:286
+#: listings/models.py:166 listings/views.py:289
 msgid "listing"
 msgstr "skelbimas"
 
@@ -321,16 +321,15 @@ msgstr "Meniu"
 
 #: listings/templates/base.html:96 listings/templates/base.html:128
 msgid "Wedding dresses"
-msgstr "Vestuvių suknelės"
+msgstr "Vestuvinės suknelės"
 
 #: listings/templates/base.html:97 listings/templates/base.html:129
 msgid "Accessories"
 msgstr "Aksesuarai"
 
 #: listings/templates/base.html:98 listings/templates/base.html:130
-#: listings/templates/main.html:106
-msgid "Evening dresses"
-msgstr "Vakarinės suknelės"
+msgid "Occasional dresses"
+msgstr "Proginės suknelės"
 
 #: listings/templates/base.html:99 listings/templates/base.html:131
 msgid "Handbags"
@@ -703,6 +702,10 @@ msgstr "Suknelės kiekvienai progai"
 #: listings/templates/main.html:100
 msgid "Wedding guest"
 msgstr "Vestuvių svečias"
+
+#: listings/templates/main.html:106
+msgid "Evening dresses"
+msgstr "Vakarinės suknelės"
 
 #: listings/templates/main.html:112
 msgid "Cocktail party"
@@ -1102,50 +1105,10 @@ msgid "How it works"
 msgstr "Kaip tai veikia"
 
 #: listings/templates/pages/how_to_lend.html:6
-msgid "How to Lend?"
-msgstr "Kaip nuomotis"
-
-#: listings/templates/pages/how_to_lend.html:8
-msgid ""
-"Search for special occasion clothing, accessories, or shoes in the Upupam "
-"platform catalog. To rent a specific item, contact the item owner using the "
-"contact information provided in their profile or next to the listing. "
-"Specify the duration for which you need the item. Don’t forget to consider "
-"that you need to receive the item before your event takes place."
-msgstr ""
-"Ieškok proginių drabužių, aksesuarų ar batelių Upupam platformos kataloge. "
-"Norint išsinuomoti tam tikrą daiktą, susisiek su daikto savininku jo "
-"profilyje arba šalia skelbimo nurodytais kontaktais. Nurodyk dienų "
-"laikotarpį, kuriuo tau reikalinga daikto nuoma. Nepamiršk apgalvoti, kad "
-"daiktą reikia gauti anksčiau nei vyks tavo šventė."
-
-#: listings/templates/pages/how_to_lend.html:10
-msgid ""
-"Once you contact the renter, clarify the rental terms: how you will handle "
-"situations if the item is damaged, who is responsible for cleaning and "
-"shipping costs. Decide on the shipping method (e.g., via parcel locker or "
-"bus delivery), or whether the item will be handed over to you in person."
-msgstr ""
-"Susisiekus su nuomotoju, išsiaiškink nuomos sąlygas: kaip spręsi situacijas, "
-"jeigu daiktas bus sugadintas, kas atsakingas už valymo ir siuntimo išlaidas. "
-"Nutarkite siuntimo būdą (pvz., paštomatu arba autobusų siuntomis), arba ar "
-"daiktą tau perduos gyvai."
-
-#: listings/templates/pages/how_to_lend.html:12
-msgid ""
-"Pay for the rental order directly to the bank account specified by the "
-"renter. The Upupam platform does not impose any additional fees; the entire "
-"rental order amount goes solely to the renter."
-msgstr ""
-"Užsakymą apmokėk tiesiai į nuomotojo nurodytą banko sąskaitą. Upupam "
-"platforma netaiko jokių papildomų mokesčių; visa nuomos užsakymo suma "
-"priklauso tik nuomotojui."
-
-#: listings/templates/pages/how_to_rent.html:6
 msgid "How to Rent?"
 msgstr "Kaip išnuomoti?"
 
-#: listings/templates/pages/how_to_rent.html:8
+#: listings/templates/pages/how_to_lend.html:8
 msgid ""
 "You are the owner of the item you are renting out, and the rental price and "
 "rules are your decision. You control to whom you rent your items and specify "
@@ -1155,7 +1118,7 @@ msgstr ""
 "sprendimas. Tu kontroliuoji kam išnuomoti savo daiktus ir nurodai nuomos "
 "sąlygas."
 
-#: listings/templates/pages/how_to_rent.html:10
+#: listings/templates/pages/how_to_lend.html:10
 msgid ""
 "Carefully photograph your rental item or use photos you already have, such "
 "as from an event where you wore it. Provide a description in the listing "
@@ -1170,7 +1133,7 @@ msgstr ""
 "prašysi, jog nuomininkas sumokėtų grąžinamą depozitą, negrąžinamą draudimo "
 "mokestį, už ką jį taikytum ir panašiai."
 
-#: listings/templates/pages/how_to_rent.html:12
+#: listings/templates/pages/how_to_lend.html:12
 msgid ""
 "Include all important information in the description, such as whether the "
 "item runs small or is very fitted, making it less comfortable to wear. You "
@@ -1184,7 +1147,7 @@ msgstr ""
 "kas atsakingas už daikto valymo išlaidas, kokiu būdu daiktą siųsi ir, kas "
 "apmoka siuntimą, o gal susitarsi daikto perdavimą gyvai. "
 
-#: listings/templates/pages/how_to_rent.html:14
+#: listings/templates/pages/how_to_lend.html:14
 msgid ""
 "The renter will contact you using the contact information specified in your "
 "profile. Clearly provide all terms regarding the rental period, rental fee, "
@@ -1197,6 +1160,46 @@ msgid ""
 msgstr ""
 "Užsakymui apmokėti nuomininkui nurodyk savo banko sąskaitą. Upupam platforma "
 "netaiko jokių mokesčių. Visas uždirbtas pelnas priklauso tau. "
+
+#: listings/templates/pages/how_to_rent.html:6
+msgid "How to Lend?"
+msgstr "Kaip nuomotis"
+
+#: listings/templates/pages/how_to_rent.html:8
+msgid ""
+"Search for special occasion clothing, accessories, or shoes in the Upupam "
+"platform catalog. To rent a specific item, contact the item owner using the "
+"contact information provided in their profile or next to the listing. "
+"Specify the duration for which you need the item. Don’t forget to consider "
+"that you need to receive the item before your event takes place."
+msgstr ""
+"Ieškok proginių drabužių, aksesuarų ar batelių Upupam platformos kataloge. "
+"Norint išsinuomoti tam tikrą daiktą, susisiek su daikto savininku jo "
+"profilyje arba šalia skelbimo nurodytais kontaktais. Nurodyk dienų "
+"laikotarpį, kuriuo tau reikalinga daikto nuoma. Nepamiršk apgalvoti, kad "
+"daiktą reikia gauti anksčiau nei vyks tavo šventė."
+
+#: listings/templates/pages/how_to_rent.html:10
+msgid ""
+"Once you contact the renter, clarify the rental terms: how you will handle "
+"situations if the item is damaged, who is responsible for cleaning and "
+"shipping costs. Decide on the shipping method (e.g., via parcel locker or "
+"bus delivery), or whether the item will be handed over to you in person."
+msgstr ""
+"Susisiekus su nuomotoju, išsiaiškink nuomos sąlygas: kaip spręsi situacijas, "
+"jeigu daiktas bus sugadintas, kas atsakingas už valymo ir siuntimo išlaidas. "
+"Nutarkite siuntimo būdą (pvz., paštomatu arba autobusų siuntomis), arba ar "
+"daiktą tau perduos gyvai."
+
+#: listings/templates/pages/how_to_rent.html:12
+msgid ""
+"Pay for the rental order directly to the bank account specified by the "
+"renter. The Upupam platform does not impose any additional fees; the entire "
+"rental order amount goes solely to the renter."
+msgstr ""
+"Užsakymą apmokėk tiesiai į nuomotojo nurodytą banko sąskaitą. Upupam "
+"platforma netaiko jokių papildomų mokesčių; visa nuomos užsakymo suma "
+"priklauso tik nuomotojui."
 
 #: listings/templates/pages/listing_upload_guidelines.html:3
 #: listings/templates/pages/listing_upload_guidelines.html:6
@@ -1246,6 +1249,13 @@ msgstr ""
 "nuomos kainą."
 
 #: listings/templates/pages/listing_upload_guidelines.html:13
+#, fuzzy, python-format
+#| msgid ""
+#| "4-Day Rental Price: Have in mind that in the listing upload form, you are "
+#| "putting a 4-day rental price. We recommend setting the rental price at "
+#| "10-15%% of the item’s retail price for a day rental period. If your item "
+#| "is high in demand, you may want to increase the rental price to maximize "
+#| "your earnings."
 msgid ""
 "4-Day Rental Price: Have in mind that in the listing upload form, you are "
 "putting a 4-day rental price. We recommend setting the rental price at "
@@ -1254,9 +1264,9 @@ msgid ""
 "earnings."
 msgstr ""
 "4 dienų nuomos kaina: turėkite omenyje, kad skelbimo įkėlimo formoje "
-"nustatote 4 dienų nuomos kainą. Rekomenduojame nustatyti nuomos kainą "
-"10-15% nuo daikto vertės kainos už dieną. Jei jūsų daiktas turi didelę paklausą, galite padidinti nuomos kainą, kad maksimaliai padidintumėte savo "
-"Uždarbį."
+"nustatote 4 dienų nuomos kainą. Rekomenduojame nustatyti nuomos kainą 10-15% "
+"nuo daikto vertės kainos už dieną. Jei jūsų daiktas turi didelę paklausą, "
+"galite padidinti nuomos kainą, kad maksimaliai padidintumėte savo Uždarbį."
 
 #: listings/templates/pages/listing_upload_guidelines.html:14
 msgid ""
@@ -1281,12 +1291,12 @@ msgid ""
 "decide on the insurance fee, but we recommend an optimal 3-10 EUR cost "
 "depending on the item’s retail value."
 msgstr ""
-"Draudimo mokestis: galite apsvarstyti galimybę įtraukti "
-"draudimo mokestį, kad padengtumėte mažus „nusidėvėjimo“ atvejus, tokius kaip "
-"sulūžęs užtrauktukas ar iširusi siūlė. Rekomenduojame įtraukti "
-"draudimo mokestį į skelbimo aprašymą, o ne pridėti jį prie 4 dienų nuomos "
-"kainos skilties. Draudimo suma jūsų sprendimas, bet rekomenduojame optimalų 3-10 EUR "
-"mokestį, priklausomai nuo daikto vertės."
+"Draudimo mokestis: galite apsvarstyti galimybę įtraukti draudimo mokestį, "
+"kad padengtumėte mažus „nusidėvėjimo“ atvejus, tokius kaip sulūžęs "
+"užtrauktukas ar iširusi siūlė. Rekomenduojame įtraukti draudimo mokestį į "
+"skelbimo aprašymą, o ne pridėti jį prie 4 dienų nuomos kainos skilties. "
+"Draudimo suma jūsų sprendimas, bet rekomenduojame optimalų 3-10 EUR mokestį, "
+"priklausomai nuo daikto vertės."
 
 #: listings/templates/pages/listing_upload_guidelines.html:16
 msgid ""
@@ -1395,10 +1405,11 @@ msgid ""
 msgstr ""
 "Žymos padeda padidinti jūsų daikto matomumą platformoje ir palengvina jo "
 "suradimą. Apsvarstykite daikto savybes ir progas, kurioms jis tinkamas; "
-"pavyzdžiui: jei daiktas yra nuotakos suknelė, veliumas ar batai, pažymėkite jį su "
-"„Nuotaka“ žyma. Jei jūsų daiktas tinka kelioms progoms, pažymėkite visas "
-"atitinkamas žymas; pavyzdžiui: jei daiktas tinka krikštynoms, yra tinkamas "
-"Nėščiosioms ir puikus gimtadienio vakarėliui, pasirinkite visas šias žymas."
+"pavyzdžiui: jei daiktas yra nuotakos suknelė, veliumas ar batai, pažymėkite "
+"jį su „Nuotaka“ žyma. Jei jūsų daiktas tinka kelioms progoms, pažymėkite "
+"visas atitinkamas žymas; pavyzdžiui: jei daiktas tinka krikštynoms, yra "
+"tinkamas Nėščiosioms ir puikus gimtadienio vakarėliui, pasirinkite visas "
+"šias žymas."
 
 #: listings/templates/pages/platform_rules.html:8
 msgid ""
@@ -1790,35 +1801,35 @@ msgstr "REZULTATAI"
 msgid "All Sub-Categories"
 msgstr "Visi pogrupiai"
 
-#: listings/views.py:288
+#: listings/views.py:291
 msgid "marked as"
 msgstr "pažymėta kaip"
 
-#: listings/views.py:289
+#: listings/views.py:292
 msgid "available"
 msgstr "pasiekiama"
 
-#: listings/views.py:289
+#: listings/views.py:292
 msgid "unavailable"
 msgstr "nepasiekiama"
 
-#: listings/views.py:292
+#: listings/views.py:295
 msgid "permission error"
 msgstr "leidimo klaida"
 
-#: listings/views.py:292
+#: listings/views.py:295
 msgid "you must be the owner of listing"
 msgstr "turite būti skelbimo savininkas"
 
-#: listings/views.py:309
+#: listings/views.py:312
 msgid "listing created successfully"
 msgstr "skelbimas sėkmingai sukurtas"
 
-#: listings/views.py:331
+#: listings/views.py:334
 msgid "listing updated successfully"
 msgstr "skelbimas sėkmingai atnaujintas"
 
-#: listings/views.py:352
+#: listings/views.py:355
 msgid "listing deleted successfully"
 msgstr "skelbimas sėkmingai ištrintas"
 
@@ -2107,7 +2118,7 @@ msgstr ""
 "Su geriausiais linkėjimais,\n"
 "UPUPAM komanda"
 
-#: user_profiles/views.py:103
+#: user_profiles/views.py:119
 msgid "Profile edited successfully"
 msgstr "Profilis sėkmingai pakeistas"
 
