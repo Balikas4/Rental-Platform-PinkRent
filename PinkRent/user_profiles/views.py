@@ -28,6 +28,10 @@ def signup(request: HttpRequest) -> HttpResponse:
         form = forms.CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
+
+            # Automatically create a UserProfile after the user is created
+            UserProfile.objects.create(user=user)
+
             messages.success(request, _("Thank you! You can log in now with your credentials."))
 
             # Send a welcome email

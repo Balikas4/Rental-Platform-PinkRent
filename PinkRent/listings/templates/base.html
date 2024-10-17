@@ -59,7 +59,7 @@
                 <nav id="menu-desktop" class="menu">
                     <ul>
                         {% if request.user.is_authenticated %}
-                            {% if request.user.userprofile.picture %}
+                            {% if request.user.userprofile.user %}
                                 <li><a href="{% url 'user_detail_current' %}">{% trans "My Profile" %}</a></li>
                             {% else %}
                                 <li><a href="{% url 'user_update' %}">{% trans "Create Profile" %}</a></li>
@@ -100,7 +100,7 @@
                         <li><a href="{% url 'listings:listing_create' %}"> {% trans "Upload item for rent" %}</a></li>
                         <li><a href="{% url 'listings:shop_page' %}"> {% trans "Rent from others" %}</a></li>
                         {% if request.user.is_authenticated %}
-                            {% if request.user.userprofile.picture %}
+                            {% if request.user.userprofile.user %}
                                 <li><a href="{% url 'user_detail_current' %}">{% trans "My Profile" %}</a></li>
                             {% else %}
                                 <li><a href="{% url 'user_update' %}">{% trans "Create Profile" %}</a></li>
