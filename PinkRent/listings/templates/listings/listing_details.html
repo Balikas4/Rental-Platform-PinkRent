@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block title %}{{ block.super }} | {{ listing.name }}{% endblock title %}
 {% block content %}
-<div clas="listing-container">
+<div class="listing-container">
   <div class="seperator-text">
     <h1>{{ listing.name }}</h1>
   </div>
@@ -11,22 +11,22 @@
       <div class="carousel">
           {% if listing.picture %}
               <div class="carousel-item active">
-                  <img src="{{ listing.picture.url }}" alt="{{ listing.name }}">
+                  <img src="{{ listing.picture.url }}" alt="{{ listing.name }}" onclick="openModal('{{ listing.picture.url }}')">
               </div>
           {% endif %}
           {% if listing.picture_1 %}
               <div class="carousel-item">
-                  <img src="{{ listing.picture_1.url }}" alt="{{ listing.name }}">
+                  <img src="{{ listing.picture_1.url }}" alt="{{ listing.name }}" onclick="openModal('{{ listing.picture_1.url }}')">
               </div>
           {% endif %}
           {% if listing.picture_2 %}
               <div class="carousel-item">
-                  <img src="{{ listing.picture_2.url }}" alt="{{ listing.name }}">
+                  <img src="{{ listing.picture_2.url }}" alt="{{ listing.name }}" onclick="openModal('{{ listing.picture_2.url }}')">
               </div>
           {% endif %}
           {% if listing.picture_3 %}
               <div class="carousel-item">
-                  <img src="{{ listing.picture_3.url }}" alt="{{ listing.name }}">
+                  <img src="{{ listing.picture_3.url }}" alt="{{ listing.name }}" onclick="openModal('{{ listing.picture_3.url }}')">
               </div>
           {% endif %}
       </div>
@@ -34,7 +34,14 @@
           <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
           <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
       {% endif %}
-  </div>  
+    </div>
+    
+    <!-- Modal for fullscreen image -->
+    <div id="imageModal" class="image-modal" onclick="closeModal(event)">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="fullImage">
+    </div>
+     
     <div class="product-description">
       <div class="description-box-items">
         <h2>{% trans "Listing details"|capfirst %}</h2>
@@ -114,32 +121,56 @@
     </div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-      const carousel = document.querySelector('.carousel');
-      const items = document.querySelectorAll('.carousel-item');
-      const totalItems = items.length;
-      let currentIndex = 0;
-  
-      function updateCarousel() {
-          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-  
-      window.nextSlide = function() {
-          if (currentIndex < totalItems - 1) {
-              currentIndex++;
-          } else {
-              currentIndex = 0;
-          }
-          updateCarousel();
-      };
-  
-      window.prevSlide = function() {
-          if (currentIndex > 0) {
-              currentIndex--;
-          } else {
-              currentIndex = totalItems - 1;
-          }
-          updateCarousel();
-      };
-  });
+    const carousel = document.querySelector('.carousel');
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    window.openModal = function(imageUrl) {
+        var modal = document.getElementById("imageModal");
+        var fullImage = document.getElementById("fullImage");
+        modal.style.display = "block";
+        fullImage.src = imageUrl;
+    };
+
+    window.closeModal = function(event) {
+        if (event) {
+            event.stopPropagation(); // Prevents triggering click on the modal background
+        }
+        var modal = document.getElementById("imageModal");
+        modal.style.display = "none";
+        var fullImage = document.getElementById("fullImage");
+        fullImage.src = ""; // Optional: clear the image source
+    };
+
+    window.nextSlide = function() {
+        if (currentIndex < totalItems - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateCarousel();
+    };
+
+    window.prevSlide = function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = totalItems - 1;
+        }
+        updateCarousel();
+    };
+
+    // Add click event listeners for the images in the carousel
+    document.querySelectorAll('.carousel-item img').forEach(img => {
+        img.addEventListener('click', function() {
+            openModal(this.src);
+        });
+    });
+});
   </script>
 {% endblock content %}
