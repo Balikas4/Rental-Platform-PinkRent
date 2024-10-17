@@ -1098,7 +1098,7 @@ main div .product-container {
 .carousel-item {
     min-width: 100%;
     box-sizing: border-box;
-    align-content: center;
+    align-self: center;
 }
 
 .carousel-item img {
