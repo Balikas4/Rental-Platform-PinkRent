@@ -1,5 +1,6 @@
 from django.contrib import admin
 from . import models
+from .forms import FeedbackForm
 
 
 class ListingAdmin(admin.ModelAdmin):
@@ -25,9 +26,15 @@ class WaitlistEntryAdmin(admin.ModelAdmin):
     list_display = ('id', 'email', 'created_at')
     search_fields = ('email',)
 
+class FeedbackAdmin(admin.ModelAdmin):
+    form = FeedbackForm  # Link the form to the admin
+    list_display = ['id', 'comment', 'rating']  # Adjust fields as necessary
+    search_fields = ['comment', 'rating', 'id']
+
 admin.site.register(models.ListingReview, ReviewAdmin)
 admin.site.register(models.Listing, ListingAdmin)
 admin.site.register(models.Category, CategoryAdmin)
 admin.site.register(models.Tag, TagAdmin)
 admin.site.register(models.Brand, BrandAdmin)
 admin.site.register(models.WaitlistEntry, WaitlistEntryAdmin)
+admin.site.register(models.Feedback, FeedbackAdmin)

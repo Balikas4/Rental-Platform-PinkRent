@@ -115,6 +115,7 @@ class Listing(models.Model):
     name = models.CharField(_("name"), max_length=100, db_index = True)
     description = models.TextField(_("description"), blank=True, max_length = 100000)
     price = models.DecimalField(_("price"), max_digits=10, decimal_places=2)
+    sell_price = models.DecimalField(_("sell_price"), default=0, max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(_("created at"), auto_now_add=True, db_index = True)
     updated_at = models.DateTimeField(_("updated at"), auto_now=True, db_index = True)
     is_available = models.BooleanField(_("is available"), db_index = True, default = False)

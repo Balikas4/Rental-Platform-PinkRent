@@ -55,9 +55,11 @@
               <a href="{% url 'listings:shop_page' %}?brand={{ listing.brand.name }}"><p>{{ listing.brand }}</p></a>
             </div>
             <div class="grid-text">
-              <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
-              {% if listing.is_for_sale %}
-                <p2>{% trans "Buy now" %}: {{ listing.value|floatformat:0 }} &#8364;</p2>
+              {% if listing.price %}
+                  <p>{{ listing.price|floatformat:0 }} {% trans " &#8364;/4 days" %}</p>
+              {% endif %}
+              {% if listing.sell_price %}
+                  <p2>{% trans "Buy now" %}: {{ listing.sell_price|floatformat:0 }} &#8364;</p2>
               {% endif %}
             </div>
             <div class="like-unlike">
@@ -209,14 +211,15 @@
     <button><a href="{% url 'listings:shop_page' %}?parent_category=1&category=10">{% trans "Rent Shoes" %}</a></button>
   </div>
 </div>
-<div class="seperator-div">
-  <button>
-    <a href="{% url 'listings:feedback' %}">
-        {% trans "Feedback" %}
-    </a>
-  </button>
-</div>
-</div>
+{% if user.is_authenticated %}
+  <div class="seperator-div">
+    <button>
+      <a href="{% url 'listings:feedback' %}">
+          {% trans "Feedback" %}
+      </a>
+    </button>
+  </div>
+{% endif %}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const lendButton = document.getElementById('lend-button');
