@@ -51,11 +51,11 @@ class Listing(models.Model):
     WORN = 'worn'
 
     QUALITY_CHOICES = [
-        (NEWWITHTAGS, 'New with tags'),
-        (NEWWITHOUTTAGS, 'New without tags'),
-        (GREAT, 'Great'),
-        (GOOD, 'Good'),
-        (WORN, 'Worn'),
+        (NEWWITHTAGS, _('New with tags')),
+        (NEWWITHOUTTAGS, _('New without tags')),
+        (GREAT, _('Great')),
+        (GOOD, _('Good')),
+        (WORN, _('Worn')),
     ]
 
     COLOR_CHOICES = [
@@ -143,7 +143,7 @@ class Listing(models.Model):
         blank=True,
         related_name='listing',
     )
-    tags = models.ManyToManyField(Tag, related_name='listings')
+    tags = models.ManyToManyField(Tag, related_name='listings', blank=True)
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

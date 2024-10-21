@@ -250,7 +250,6 @@ main {
 footer {
     background-color: #f3f3f3;
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
 }
 
 .footer-content {
@@ -415,6 +414,10 @@ button, .button {
 
 .button-black a {
     color: #000000;
+}
+
+.pagination .button-black {
+    padding: 2px 10px;
 }
 
 button a, .button a {
@@ -1367,7 +1370,7 @@ main div .product-container {
     margin: 10px 20%;
 }
 
-div .pagination {
+.pagination {
     font-family: 'Inter', sans-serif;
     margin-top: 20px;
     display: flex;
@@ -1376,6 +1379,11 @@ div .pagination {
     align-items: center;
     justify-content: center;
     gap: 6px;
+}
+
+.pagination .current {
+    color: #DF4E40;
+    outline: 1px solid #DF4E40;
 }
 
 .fieldWrapper {

@@ -166,26 +166,28 @@
                     </div>
                 {% endif %}
             {% endfor %}
-        </div>        
-        <div class="pagination">
-            {% if listings.has_previous %}
-                <a class="button" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page=1">&laquo; First</a>
-                <a class="button" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ listings.previous_page_number }}">&laquo; Previous</a>
-            {% endif %}
-        
-            {% for num in listings.paginator.page_range %}
-                {% if listings.number == num %}
-                    <span class="current">{{ num }}</span>
-                {% else %}
-                    <a class="button" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ num }}">{{ num }}</a>
+        </div>
+        {% if listings.paginator.num_pages > 1 %}        
+            <div class="pagination">
+                {% if listings.has_previous %}
+                    <a class="button-black" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page=1">&laquo; First</a>
+                    <a class="button-black" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ listings.previous_page_number }}">&laquo; Previous</a>
                 {% endif %}
-            {% endfor %}
-        
-            {% if listings.has_next %}
-                <a class="button" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ listings.next_page_number }}">Next &raquo;</a>
-                <a class="button" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ listings.paginator.num_pages }}">Last &raquo;</a>
-            {% endif %}
-        </div>        
+            
+                {% for num in listings.paginator.page_range %}
+                    {% if listings.number == num %}
+                        <span class="current button-black">{{ num }}</span>
+                    {% else %}
+                        <a class="button-black" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+            
+                {% if listings.has_next %}
+                    <a class="button-black" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ listings.next_page_number }}">Next &raquo;</a>
+                    <a class="button-black" href="?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ listings.paginator.num_pages }}">Last &raquo;</a>
+                {% endif %}
+            </div>
+        {% endif %}        
     </div>
 </div>
 <script>

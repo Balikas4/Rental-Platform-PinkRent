@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['localhost', 'postgres', 'www.upupam.world', 'upupam.world']
 INSTALLED_APPS = [
     'listings',
     'user_profiles',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     # log in with google

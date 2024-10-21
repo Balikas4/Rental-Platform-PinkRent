@@ -1,6 +1,7 @@
 from django.contrib import admin
 from . import models
 from .forms import FeedbackForm
+from modeltranslation.admin import TranslationAdmin
 
 
 class ListingAdmin(admin.ModelAdmin):
@@ -14,7 +15,7 @@ class BrandAdmin(admin.ModelAdmin):
     list_display = ('id', 'name',)
     search_fields = ('id', 'name',)
 
-class TagAdmin(admin.ModelAdmin):
+class TagAdmin(TranslationAdmin):
     list_display = ('id', 'name',)
     search_fields = ('id', 'name',)
 
