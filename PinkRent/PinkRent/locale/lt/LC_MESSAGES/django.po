@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-21 12:46+0000\n"
+"POT-Creation-Date: 2024-10-22 08:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -20,12 +20,12 @@ msgstr ""
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
 
-#: listings/apps.py:9 listings/models.py:168
+#: listings/apps.py:9 listings/models.py:171
 msgid "listings"
 msgstr "skelbimai"
 
 #: listings/models.py:9 listings/models.py:27 listings/models.py:37
-#: listings/models.py:115
+#: listings/models.py:118
 msgid "name"
 msgstr "pavadinimas"
 
@@ -33,7 +33,7 @@ msgstr "pavadinimas"
 msgid "slug"
 msgstr "trumpinys"
 
-#: listings/models.py:15 listings/models.py:140
+#: listings/models.py:15 listings/models.py:143
 msgid "category"
 msgstr "kategorija"
 
@@ -57,231 +57,211 @@ msgstr "prekinis ženklas"
 msgid "brands"
 msgstr "prekiniai ženklai"
 
-#: listings/models.py:54
-msgid "New with tags"
-msgstr "Nauja su etiketėmis"
-
-#: listings/models.py:55
-msgid "New without tags"
-msgstr "Nauja be etikečių"
-
-#: listings/models.py:56
-msgid "Great"
-msgstr "Puiki"
-
-#: listings/models.py:57
-msgid "Good"
-msgstr "Gera"
-
-#: listings/models.py:58
-msgid "Worn"
-msgstr "Vidutinė"
-
-#: listings/models.py:62
+#: listings/models.py:65
 msgid "Black"
 msgstr "Juoda"
 
-#: listings/models.py:63
+#: listings/models.py:66
 msgid "White"
 msgstr "Balta"
 
-#: listings/models.py:64
+#: listings/models.py:67
 msgid "Grey"
 msgstr "Pilka"
 
-#: listings/models.py:65
+#: listings/models.py:68
 msgid "Silver"
 msgstr "Sidabrinė"
 
-#: listings/models.py:66
+#: listings/models.py:69
 msgid "Golden"
 msgstr "Auksinė"
 
-#: listings/models.py:67
+#: listings/models.py:70
 msgid "Beige"
 msgstr "Smėlio spalva"
 
-#: listings/models.py:68
+#: listings/models.py:71
 msgid "Brown"
 msgstr "Ruda"
 
-#: listings/models.py:69
+#: listings/models.py:72
 msgid "Dark Blue"
 msgstr "Tamsiai mėlyna"
 
-#: listings/models.py:70 listings/models.py:72
+#: listings/models.py:73 listings/models.py:75
 msgid "Blue"
 msgstr "Mėlyna"
 
-#: listings/models.py:71
+#: listings/models.py:74
 msgid "Light Blue"
 msgstr "Šviesiai mėlyna"
 
-#: listings/models.py:73
+#: listings/models.py:76
 msgid "Green"
 msgstr "Žalia"
 
-#: listings/models.py:74
+#: listings/models.py:77
 msgid "Khaki"
 msgstr "Chaki"
 
-#: listings/models.py:75
+#: listings/models.py:78
 msgid "Yellow"
 msgstr "Geltona"
 
-#: listings/models.py:76
+#: listings/models.py:79
 msgid "Mustard"
 msgstr "Garstyčių spalva"
 
-#: listings/models.py:77
+#: listings/models.py:80
 msgid "Orange"
 msgstr "Oranžinė"
 
-#: listings/models.py:78
+#: listings/models.py:81
 msgid "Coral"
 msgstr "Koralo spalva"
 
-#: listings/models.py:79
+#: listings/models.py:82
 msgid "Red"
 msgstr "Raudona"
 
-#: listings/models.py:80 listings/models.py:88
+#: listings/models.py:83 listings/models.py:91
 msgid "Burgundy"
 msgstr "Bordo"
 
-#: listings/models.py:81
+#: listings/models.py:84
 msgid "Light Pink"
 msgstr "Šviesiai rožinė"
 
-#: listings/models.py:82 listings/models.py:94
+#: listings/models.py:85 listings/models.py:97
 msgid "Pink"
 msgstr "Rožinė"
 
-#: listings/models.py:83
+#: listings/models.py:86
 msgid "Bright Pink"
 msgstr "Ryškiai rožinė"
 
-#: listings/models.py:84 listings/models.py:97
+#: listings/models.py:87 listings/models.py:100
 msgid "Purple"
 msgstr "Violetinė"
 
-#: listings/models.py:85
+#: listings/models.py:88
 msgid "Lavender"
 msgstr "Levandų spalva"
 
-#: listings/models.py:86
+#: listings/models.py:89
 msgid "Mint"
 msgstr "Mėtinė"
 
-#: listings/models.py:87
+#: listings/models.py:90
 msgid "Turquoise"
 msgstr "Turkio spalva"
 
-#: listings/models.py:89
+#: listings/models.py:92
 msgid "Peach"
 msgstr "Persikų spalva"
 
-#: listings/models.py:90
+#: listings/models.py:93
 msgid "Ivory"
 msgstr "Dramblio kaulo spalva"
 
-#: listings/models.py:91
+#: listings/models.py:94
 msgid "Champagne"
 msgstr "Šampano spalva"
 
-#: listings/models.py:92
+#: listings/models.py:95
 msgid "Rose Gold"
 msgstr "Rožinis auksas"
 
-#: listings/models.py:93
+#: listings/models.py:96
 msgid "Bronze"
 msgstr "Bronzinė"
 
-#: listings/models.py:95
+#: listings/models.py:98
 msgid "Cobalt Blue"
 msgstr "Kobalto mėlyna"
 
-#: listings/models.py:96
+#: listings/models.py:99
 msgid "Emerald"
 msgstr "Smaragdinė"
 
-#: listings/models.py:98
+#: listings/models.py:101
 msgid "Fuchsia"
 msgstr "Fuksijų spalva"
 
-#: listings/models.py:116
+#: listings/models.py:119
 msgid "description"
 msgstr "aprašymas"
 
-#: listings/models.py:117
+#: listings/models.py:120
 msgid "price"
 msgstr "kaina"
 
-#: listings/models.py:118
+#: listings/models.py:121
 msgid "sell_price"
 msgstr "pardavimo kaina"
 
-#: listings/models.py:119
+#: listings/models.py:122
 msgid "created at"
 msgstr "sukurta"
 
-#: listings/models.py:120
+#: listings/models.py:123
 msgid "updated at"
 msgstr "atnaujinta"
 
-#: listings/models.py:121
+#: listings/models.py:124
 msgid "is available"
 msgstr "prieinama"
 
-#: listings/models.py:122
+#: listings/models.py:125
 msgid "is for sale"
 msgstr "parduodama"
 
-#: listings/models.py:128
+#: listings/models.py:131
 msgid "size"
 msgstr "dydis"
 
-#: listings/models.py:130
+#: listings/models.py:133
 msgid "color"
 msgstr "spalva"
 
-#: listings/models.py:131
+#: listings/models.py:134
 msgid "value"
 msgstr "vertė"
 
-#: listings/models.py:134
+#: listings/models.py:137
 msgid "owner"
 msgstr "savininkas"
 
-#: listings/models.py:167 listings/views.py:289
+#: listings/models.py:170 listings/views.py:289
 msgid "listing"
 msgstr "skelbimas"
 
-#: listings/models.py:178
+#: listings/models.py:197
 msgid "favorited_by"
 msgstr "pamėgta"
 
-#: listings/models.py:179 listings/models.py:183
+#: listings/models.py:198 listings/models.py:202
 msgid "favorite listing"
 msgstr "mėgstamiausias skelbimas"
 
-#: listings/models.py:184
+#: listings/models.py:203
 msgid "favorite listings"
 msgstr "mėgstamiausi skelbimai"
 
-#: listings/models.py:193 user_profiles/models.py:58
+#: listings/models.py:212 user_profiles/models.py:58
 msgid "review_by"
 msgstr "atsiliepimas paliktas"
 
-#: listings/models.py:194
+#: listings/models.py:213
 msgid "reviewed_listing"
 msgstr "atsiliepimas paliktas skelbimui"
 
-#: listings/models.py:200
+#: listings/models.py:219
 msgid "listing_review"
 msgstr "skelbimo atsiliepimas"
 
-#: listings/models.py:201
+#: listings/models.py:220
 msgid "listing_reviews"
 msgstr "skelbimo atsiliepimai"
 
@@ -2151,6 +2131,21 @@ msgstr ""
 #: user_profiles/views.py:123
 msgid "Profile edited successfully"
 msgstr "Profilis sėkmingai pakeistas"
+
+#~ msgid "New with tags"
+#~ msgstr "Nauja su etiketėmis"
+
+#~ msgid "New without tags"
+#~ msgstr "Nauja be etikečių"
+
+#~ msgid "Great"
+#~ msgstr "Puiki"
+
+#~ msgid "Good"
+#~ msgstr "Gera"
+
+#~ msgid "Worn"
+#~ msgstr "Vidutinė"
 
 #, fuzzy, python-format
 #~| msgid "categories"

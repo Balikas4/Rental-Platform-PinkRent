@@ -57,10 +57,12 @@
                     <label for="color-filter">{% trans "Filter by Color:" %}</label>
                     <select id="color-filter" name="color">
                         <option value="all">{% trans "All Colors" %}</option>
-                        {% for color, display in colors %}
-                            <option value="{{ color }}" {% if request.GET.color == color %}selected{% endif %}>{{ display }}</option>
+                        {% for color_key, color_display in unique_colors %}
+                            <option value="{{ color_key }}" {% if request.GET.color == color_key %}selected{% endif %}>
+                                {{ color_display }}
+                            </option>
                         {% endfor %}
-                    </select>
+                    </select>                    
                 </div>
             </div>
             <!-- Size Filter -->

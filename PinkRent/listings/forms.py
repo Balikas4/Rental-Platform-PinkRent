@@ -32,8 +32,11 @@ class ListingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ListingForm, self).__init__(*args, **kwargs)
-        # Add a blank choice
+
+        # Add a blank choice to tags
         self.fields['tags'].widget.choices = [('')] + list(self.fields['tags'].widget.choices)
+
+        # Update queryset for category based on instance
         if self.instance and self.instance.pk:
             category = self.instance.category
             if category and category.parent:
@@ -42,6 +45,16 @@ class ListingForm(forms.ModelForm):
                 self.fields['category'].queryset = Category.objects.all()
         else:
             self.fields['category'].queryset = Category.objects.all()
+
+        # Set dynamic quality and color choices based on the instance's language
+        if self.instance:
+            self.fields['quality'].choices = self.instance.get_quality_choices()
+            self.fields['color'].choices = self.instance.get_color_choices()
+        else:
+            # Default to the choices based on the current language
+            self.fields['quality'].choices = Listing().get_quality_choices()
+            self.fields['color'].choices = Listing().get_color_choices()
+
 
 class ListingReviewForm(forms.ModelForm):
     class Meta:
