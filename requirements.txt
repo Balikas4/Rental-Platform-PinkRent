@@ -3,7 +3,7 @@ certifi==2024.6.2
 cffi==1.16.0
 charset-normalizer==3.3.2
 cryptography==42.0.8
-Django>=4.2.13
+Django>=5.0.2
 django-allauth==0.63.3
 django-modeltranslation==0.19.10
 gunicorn==22.0.0
