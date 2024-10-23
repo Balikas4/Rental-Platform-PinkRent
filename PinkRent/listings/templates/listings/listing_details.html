@@ -84,6 +84,9 @@
                 </a>
             {% endif %}
           {% endif %}
+          {% if request.user.is_superuser %}
+            <a href="{% url 'messenger:create_conversation' listing.pk %}">Start a Conversation</a>
+          {% endif %}
         </div>
       </div>
   </div>

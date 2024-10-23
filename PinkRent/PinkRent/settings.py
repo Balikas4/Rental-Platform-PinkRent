@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['localhost', 'postgres', 'www.upupam.world', 'upupam.world']
 INSTALLED_APPS = [
     'listings',
     'user_profiles',
+    'messenger',
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -80,6 +81,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
                 'PinkRent.context_processors.google_analytics',
+                'PinkRent.context_processors.unread_messages_count',
             ],
         },
     },

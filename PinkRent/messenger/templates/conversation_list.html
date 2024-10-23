@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Your Conversations</h1>
+<ul>
+  {% for conversation in conversations %}
+    <div>
+        <h2>
+            <a href="{% url 'messenger:conversation_detail' conversation.id %}">{{ conversation.listing.name }}</a>
+        </h2>
+        <p>Participants: {{ conversation.sender.username }} & {{ conversation.receiver.username }}</p>
+        
+        {% if conversation.last_message %}
+            <p>
+                Last Message: 
+                <strong {% if not conversation.last_message.read %}style="font-weight: bold;"{% endif %}>
+                    {{ conversation.last_message.content }}
+                </strong>
+                {% if not conversation.last_message.read %}
+                    <span style="color: red;">(Unread)</span>
+                {% else %}
+                    <span style="color: green;">(Read)</span>
+                {% endif %}
+            </p>
+            <p>Sent at: {{ conversation.last_message.timestamp }}</p>
+        {% else %}
+            <p>No messages yet.</p>
+        {% endif %}
+    </div>
+  {% endfor %}
+</ul>
+{% endblock %}

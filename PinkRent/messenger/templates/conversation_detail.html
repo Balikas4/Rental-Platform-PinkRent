@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Conversation with {{ conversation.receiver.username }}</h1>
+
+  <div>
+    {% for message in messages %}
+      <div style="margin-bottom: 10px;">  <!-- Add some spacing between messages -->
+        <strong>{{ message.sender.username }}</strong> ({{ message.timestamp }}):
+        <p {% if not message.read %}style="font-weight: bold; color: red;"{% endif %}>  <!-- Highlight unread messages -->
+          {{ message.content }}
+          {% if not message.read %}
+            <span style="color: red;">(Unread)</span>  <!-- Show 'Unread' label -->
+          {% else %}
+            <span style="color: green;">(Read)</span>   <!-- Show 'Read' label -->
+          {% endif %}
+        </p>
+      </div>
+    {% empty %}
+      <p>No messages in this conversation yet.</p>
+    {% endfor %}
+  </div>
+
+  <h2>Send a New Message</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+  </form>
+
+  <a href="{% url 'messenger:conversation_list' %}">Back to Conversations</a>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Access Denied</h2>
+    <p>{{ message }}</p>
+    <a href="{% url 'messenger:conversation_list' %}">Go back to conversations</a>
+{% endblock %}

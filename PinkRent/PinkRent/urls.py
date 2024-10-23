@@ -26,6 +26,7 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),    
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('messenger/', include('messenger.urls')),
 ]
 
 urlpatterns.extend(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
