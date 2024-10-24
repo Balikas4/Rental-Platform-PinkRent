@@ -95,8 +95,8 @@
 {% if profile_listings.paginator.num_pages > 1 %}
     <div class="pagination">
             {% if profile_listings.has_previous %}
-                <a class="button-black" href="?page=1">&laquo; First</a>
-                <a class="button-black" href="?page={{ profile_listings.previous_page_number }}">Previous</a>
+                <a class="button-black" href="?page=1">&laquo; {% trans "First" %}</a>
+                <a class="button-black" href="?page={{ profile_listings.previous_page_number }}">{% trans "Previous" %}</a>
             {% endif %}
 
             {% for num in profile_listings.paginator.page_range %}
@@ -108,8 +108,8 @@
             {% endfor %}
 
             {% if profile_listings.has_next %}
-                <a class="button-black" href="?page={{ profile_listings.next_page_number }}">Next</a>
-                <a class="button-black" href="?page={{ profile_listings.paginator.num_pages }}">Last &raquo;</a>
+                <a class="button-black" href="?page={{ profile_listings.next_page_number }}">{% trans "Next" %}</a>
+                <a class="button-black" href="?page={{ profile_listings.paginator.num_pages }}">{% trans "Last" %} &raquo;</a>
             {% endif %}
     </div>
 {% endif %}

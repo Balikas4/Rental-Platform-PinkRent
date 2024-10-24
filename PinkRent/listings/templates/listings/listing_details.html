@@ -5,6 +5,9 @@
 <div class="listing-container">
   <div class="seperator-text">
     <h1>{{ listing.name }}</h1>
+    {% if not listing.is_available %}
+    <p style="font-weight: bold; font-size: 20px;">{% trans "Waiting for admin approval" %}</p>
+{% endif %}
   </div>
   <div class="product-container">
     <div class="carousel-container">
