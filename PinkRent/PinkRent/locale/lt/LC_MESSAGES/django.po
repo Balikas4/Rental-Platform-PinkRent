@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 10:40+0000\n"
+"POT-Creation-Date: 2024-10-24 11:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -480,6 +480,10 @@ msgstr "Skelbimo savininkas:"
 msgid "Like"
 msgstr "Patinka"
 
+#: listings/templates/listings/listing_details.html:86
+msgid "Start a Conversation"
+msgstr "Susisiekti"
+
 #: listings/templates/listings/listing_details.html:94
 msgid "Listing reviews"
 msgstr "Skelbimo atsiliepimai"
@@ -636,7 +640,10 @@ msgid ""
 "feature. You can discuss rental conditions, agree on the delivery or pickup "
 "method, and finalize the rental period."
 msgstr ""
-"Nuomininkas, norėdamas pateikti užsakymą, susisieks tiesiogiai, parašydamas jums žinutę per mūsų platformą. Praneškite apie nuomos sąlygas, susitarkite dėl daikto pristatymo, - siuntimas paštomatu/autobusų siunta ar perduosite gyvai, išsiaiškinkite nuomos laikotarpį. "
+"Nuomininkas, norėdamas pateikti užsakymą, susisieks tiesiogiai, parašydamas "
+"jums žinutę per mūsų platformą. Praneškite apie nuomos sąlygas, susitarkite "
+"dėl daikto pristatymo, - siuntimas paštomatu/autobusų siunta ar perduosite "
+"gyvai, išsiaiškinkite nuomos laikotarpį. "
 
 #: listings/templates/main.html:144
 msgid "Rent Out and Ship"
@@ -672,7 +679,9 @@ msgid ""
 "to discuss the rental terms, rules, shipping/transfer method, and final "
 "prices."
 msgstr ""
-"Susisiekite tiesiogiai su nuomotoju, parašydami žinutę per mūsų platformą ir susitarkite nuomos sąlygas, taisykles, daikto siuntimo/perdavimo būdą ir galutinę kainą."
+"Susisiekite tiesiogiai su nuomotoju, parašydami žinutę per mūsų platformą ir "
+"susitarkite nuomos sąlygas, taisykles, daikto siuntimo/perdavimo būdą ir "
+"galutinę kainą."
 
 #: listings/templates/main.html:158
 msgid "No Platform Fees"
@@ -1016,20 +1025,6 @@ msgstr ""
 
 #: listings/templates/pages/how_to_lend.html:12
 msgid ""
-"Include all important information in the description, such as whether the "
-"item runs small or is very fitted, making it less comfortable to wear. You "
-"might recommend it only for photoshoots or similar occasions. Also, specify "
-"whether you will require the renter to pay a refundable deposit or a non-"
-"refundable insurance fee and for what purpose these will be applied."
-msgstr ""
-"Nuomininkas su tavimi susisieks tavo profilyje nurodytais kontaktais. "
-"Tiksliai pateik visas sąlygas dėl nuomos laikotarpio, nuomos mokesčio, kaip "
-"spręsi situaciją, jeigu daiktas bus sugadintas, daikto lyginimo galimybes, "
-"kas atsakingas už daikto valymo išlaidas, kokiu būdu daiktą siųsi ir, kas "
-"apmoka siuntimą, o gal susitarsi daikto perdavimą gyvai. "
-
-#: listings/templates/pages/how_to_lend.html:14
-msgid ""
 "The renter will contact you through our platform. You can access your "
 "messages by clicking the hamburger menu in the top-right corner and "
 "selecting 'My Messages'. Clearly provide all terms regarding the rental "
@@ -1040,7 +1035,12 @@ msgid ""
 "renter with your bank account details. The Upupam platform does not charge "
 "any fees. All profits you earn belong to you."
 msgstr ""
-"Nuomininkas su tavimi susisieks žinute per mūsų platformą. Savo žinutes rasi, paspaudus ant meniu ikonos, esančios viršuje, dešinėje, pasirinkus ‘Mano žinutės’. Tiksliai pateik visas sąlygas dėl nuomos laikotarpio, nuomos mokesčio, kaip spręsi situaciją, jeigu daiktas bus sugadintas, daikto lyginimo galimybes, kas atsakingas už daikto valymo išlaidas, kokiu būdu daiktą siųsi ir, kas apmoka siuntimą, o gal susitarsi daikto perdavimą gyvai."
+"Nuomininkas su tavimi susisieks žinute per mūsų platformą. Savo žinutes "
+"rasi, paspaudus ant meniu ikonos, esančios viršuje, dešinėje, pasirinkus "
+"‘Mano žinutės’. Tiksliai pateik visas sąlygas dėl nuomos laikotarpio, nuomos "
+"mokesčio, kaip spręsi situaciją, jeigu daiktas bus sugadintas, daikto "
+"lyginimo galimybes, kas atsakingas už daikto valymo išlaidas, kokiu būdu "
+"daiktą siųsi ir, kas apmoka siuntimą, o gal susitarsi daikto perdavimą gyvai."
 
 #: listings/templates/pages/how_to_rent.html:6
 msgid "How to Lend?"
@@ -1054,7 +1054,11 @@ msgid ""
 "the duration for which you need the item. Don’t forget to consider that you "
 "need to receive the item before your event takes place."
 msgstr ""
-"Ieškok proginių drabužių, aksesuarų ar batelių Upupam platformos kataloge. Norint išsinuomoti tam tikrą daiktą, paspausk ant mygtuko “Susisiekti” po daikto skelbimu ir parašyk nuomotojui žinutę. Nurodyk dienų laikotarpį, kuriuo tau reikalinga daikto nuoma. Nepamiršk apgalvoti, kad daiktą reikia gauti anksčiau nei vyks tavo šventė."
+"Ieškok proginių drabužių, aksesuarų ar batelių Upupam platformos kataloge. "
+"Norint išsinuomoti tam tikrą daiktą, paspausk ant mygtuko “Susisiekti” po "
+"daikto skelbimu ir parašyk nuomotojui žinutę. Nurodyk dienų laikotarpį, "
+"kuriuo tau reikalinga daikto nuoma. Nepamiršk apgalvoti, kad daiktą reikia "
+"gauti anksčiau nei vyks tavo šventė."
 
 #: listings/templates/pages/how_to_rent.html:10
 msgid ""
@@ -1734,11 +1738,11 @@ msgstr "Pardavimo Kaina:"
 msgid "Listing value"
 msgstr "Skelbimo vertė"
 
-#: messenger/templates/conversation_detail.html:54
+#: messenger/templates/conversation_detail.html:55
 msgid "No messages in this conversation yet."
 msgstr "Susirašinėjime dar nėra žinučių"
 
-#: messenger/templates/conversation_detail.html:63
+#: messenger/templates/conversation_detail.html:64
 msgid "Send"
 msgstr "Siūsti"
 
@@ -1746,19 +1750,19 @@ msgstr "Siūsti"
 msgid "My Messages"
 msgstr "Mano žinutės"
 
-#: messenger/templates/conversation_list.html:34
+#: messenger/templates/conversation_list.html:38
 msgid "(Unseen)"
 msgstr "(Neperskaityta)"
 
-#: messenger/templates/conversation_list.html:36
+#: messenger/templates/conversation_list.html:40
 msgid "(Seen)"
 msgstr "(Perskaityta)"
 
-#: messenger/templates/conversation_list.html:41
+#: messenger/templates/conversation_list.html:45
 msgid "No messages yet."
 msgstr "Žinučių nėra"
 
-#: messenger/templates/conversation_list.html:48
+#: messenger/templates/conversation_list.html:52
 msgid "ago"
 msgstr "ago"
 
@@ -2058,6 +2062,20 @@ msgstr ""
 #: user_profiles/views.py:123
 msgid "Profile edited successfully"
 msgstr "Profilis sėkmingai pakeistas"
+
+#~ msgid ""
+#~ "Include all important information in the description, such as whether the "
+#~ "item runs small or is very fitted, making it less comfortable to wear. "
+#~ "You might recommend it only for photoshoots or similar occasions. Also, "
+#~ "specify whether you will require the renter to pay a refundable deposit "
+#~ "or a non-refundable insurance fee and for what purpose these will be "
+#~ "applied."
+#~ msgstr ""
+#~ "Nuomininkas su tavimi susisieks tavo profilyje nurodytais kontaktais. "
+#~ "Tiksliai pateik visas sąlygas dėl nuomos laikotarpio, nuomos mokesčio, "
+#~ "kaip spręsi situaciją, jeigu daiktas bus sugadintas, daikto lyginimo "
+#~ "galimybes, kas atsakingas už daikto valymo išlaidas, kokiu būdu daiktą "
+#~ "siųsi ir, kas apmoka siuntimą, o gal susitarsi daikto perdavimą gyvai. "
 
 #~ msgid "Black"
 #~ msgstr "Juoda"

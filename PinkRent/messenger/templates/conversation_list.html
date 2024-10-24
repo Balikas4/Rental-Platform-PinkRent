@@ -10,12 +10,16 @@
             <!-- Determine which user is the other participant -->
             {% if conversation.sender == request.user %}
                 <!-- The receiver is the other participant -->
-                <img src="{{ conversation.receiver.userprofile.picture.url }}" alt="{{ conversation.receiver.username }}">
+                {% if conversation.receiver.userprofile.picture %}
+                    <img src="{{ conversation.receiver.userprofile.picture.url }}" alt="{{ conversation.receiver.username }}">
+                {% endif %}
             {% else %}
                 <!-- The sender is the other participant -->
-                <img src="{{ conversation.sender.userprofile.picture.url }}" alt="{{ conversation.sender.username }}">
+                {% if conversation.sender.userprofile.picture %}
+                    <img src="{{ conversation.sender.userprofile.picture.url }}" alt="{{ conversation.sender.username }}">
+                {% endif %}
             {% endif %}
-        </div>
+        </div>        
         <div class="conversation-content">
             {% if conversation.sender == request.user %}
             <!-- The receiver is the other participant -->

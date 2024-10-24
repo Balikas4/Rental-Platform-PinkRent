@@ -39,8 +39,9 @@
       {% for message in chat_messages %}
         <div class="message {% if message.sender == request.user %}sent{% else %}received{% endif %}">
           <!-- Sender's profile picture -->
-          <img class="profile-picture-icon" src="{{ message.sender.userprofile.picture.url }}" alt="{{ message.sender.username }}">
-          
+          {% if message.sender.userprofile.picture %}
+            <img class="profile-picture-icon" src="{{ message.sender.userprofile.picture.url }}" alt="{{ message.sender.username }}">
+          {% endif %}
           <!-- Message content -->
           <div class="message-content">
             <strong>{{ message.sender.username }}</strong> 

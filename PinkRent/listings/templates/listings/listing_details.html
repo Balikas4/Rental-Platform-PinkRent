@@ -83,7 +83,7 @@
                   {% trans "Like"|capfirst %}
                 </a>
             {% endif %}
-            <a class="button" href="{% url 'messenger:create_conversation' listing.pk %}">Start a Conversation</a>
+            <a class="button" href="{% url 'messenger:create_conversation' listing.pk %}">{% trans "Start a Conversation" %}</a>
           {% endif %}
         </div>
       </div>
