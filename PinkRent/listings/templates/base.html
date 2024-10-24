@@ -68,15 +68,15 @@
                             <li><a href="{% url "listings:my_favorites" %}">{% trans "My Favorite listings" %}</a></li>
                             {% if request.user.is_superuser or request.user.is_staff %}
                                 <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
-                                <li>
-                                    <a href="{% url 'messenger:conversation_list' %}">
-                                        {% trans "Messages" %} 
-                                        {% if unread_count > 0 %}
-                                            <span class="badge">{{ unread_count }}</span>
-                                        {% endif %}
-                                    </a>
-                                </li>
                             {% endif %}
+                            <li>
+                                <a href="{% url 'messenger:conversation_list' %}">
+                                    {% trans "Messages" %} 
+                                    {% if unread_count > 0 %}
+                                        <span class="badge">{{ unread_count }}</span>
+                                    {% endif %}
+                                </a>
+                            </li>
                             <li>
                                 <form method="post" action="{% url "logout" %}">{% csrf_token %}
                                     <button type="submit">{% trans "log out"|capfirst %}</button>
@@ -117,8 +117,15 @@
                             <li><a href="{% url "listings:my_favorites" %}">{% trans "My Favorite listings" %}</a></li>
                             {% if request.user.is_superuser or request.user.is_staff %}
                                 <li><a href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a></li>
-                                <li><a href="{% url 'messenger:conversation_list' %}">{% trans "Messages" %}</a></li>
                             {% endif %}
+                            <li>
+                                <a href="{% url 'messenger:conversation_list' %}">
+                                    {% trans "Messages" %} 
+                                    {% if unread_count > 0 %}
+                                        <span class="badge">{{ unread_count }}</span>
+                                    {% endif %}
+                                </a>
+                            </li>
                             <li>
                                 <form method="post" action="{% url "logout" %}">{% csrf_token %}
                                     <button type="submit">{% trans "log out"|capfirst %}</button>
