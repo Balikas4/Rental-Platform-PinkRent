@@ -35,10 +35,10 @@ def conversation_detail(request, conversation_id):
         return render(request, 'error.html', {'message': "You are not authorized to view this conversation."})
 
     # Fetch messages
-    messages = conversation.messages.all()
+    chat_messages = conversation.messages.all()
 
     # Only mark messages as read if the current user is the receiver of those specific messages
-    for message in messages:
+    for message in chat_messages:
         if message.receiver == request.user and not message.read:
             message.read = True  # Mark the message as read
             message.save()
@@ -70,7 +70,7 @@ def conversation_detail(request, conversation_id):
 
     return render(request, 'conversation_detail.html', {
         'conversation': conversation,
-        'messages': messages,
+        'chat_messages': chat_messages,
         'form': form,
     })
 

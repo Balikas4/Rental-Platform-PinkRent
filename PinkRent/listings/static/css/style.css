@@ -1427,50 +1427,50 @@ input#id_picture {
     display: inline-block;
     width: 60px;
     height: 34px;
-  }
+}
+
+/* Hide the default checkbox */
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+/* Slider */
+.switch-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 34px;
+}
+
+/* Slider before element */
+.switch-slider:before {
+position: absolute;
+content: "";
+height: 26px;
+width: 26px;
+border-radius: 50%;
+left: 4px;
+bottom: 4px;
+background-color: white;
+transition: .4s;
+}
   
-  /* Hide the default checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* Slider */
-  .switch-slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-  }
-  
-  /* Slider before element */
-  .switch-slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    border-radius: 50%;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-  }
-  
-  /* When the checkbox is checked, change the slider background */
-  input:checked + .switch-slider {
-    background-color: #DF4E40;
-  }
-  
-  /* When the checkbox is checked, move the slider */
-  input:checked + .switch-slider:before {
-    transform: translateX(26px);
-  }
+/* When the checkbox is checked, change the slider background */
+input:checked + .switch-slider {
+background-color: #DF4E40;
+}
+
+/* When the checkbox is checked, move the slider */
+input:checked + .switch-slider:before {
+transform: translateX(26px);
+}
 /* SWITCH END   */
 
 /* TAGS CHECKBOX */
@@ -1573,6 +1573,173 @@ input#id_picture {
     padding-left: 20px;
   }
   
+
+
+.conversation-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-top: 2px solid #D2D2D2;
+    border-bottom: 2px solid #D2D2D2;
+    width: 360px;
+    margin-bottom: -1px;
+    justify-content: space-between;
+}
+
+.conversation-card:hover {
+    background-color: #d2d2d213;
+    cursor: pointer;
+}
+
+.listing-picture-mini {
+    height: 50px;
+}
+
+.profile-picture-conv {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    align-self: center;
+}
+
+.conversation-content {
+    text-align: left;
+    min-width: 240px;
+}
+
+.conversation-list {
+    place-items: center;
+}
+
+.conversation-last-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.chat-top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.chat-top-bar a {
+    align-content: center;
+}
+
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: auto;
+}
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.listing-picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.chat-header-listing-info h1{
+    font-size: 20px;
+}
+
+.chat-header-listing-info p {
+    font-size: 20px;
+}
+
+.participant-info {
+    text-align: right;
+    font-size: 24px;
+}
+.chat-messages {
+    padding: 20px;
+    background-color: #f9f9f9;
+    height: 400px;
+    overflow-y: scroll;
+}
+.message {
+    display: flex;
+    margin-bottom: 10px;
+}
+.message.sent {
+    flex-direction: row-reverse;
+    text-align: right;
+    gap: 5px;
+}
+
+.message.received {
+    text-align: left;
+    gap: 4px;
+}
+
+.message-content {
+    max-width: 80%;
+    padding: 10px;
+    background-color: #e1e1e1;
+    border-radius: 5px;
+    position: relative;
+}
+.message-timestamp {
+    font-size: 0.8em;
+    color: #666;
+    display: block;
+}
+.unread {
+    color: #202020;
+}
+.send-message-form {
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.participant-info h2 {
+    margin: 0px;
+}
+
+.send-message-form {
+    padding: 0px;
+}
+
+.send-message-form p {
+    margin: 0px;
+}
+
+.send-message-form label{
+    display: none;
+}
+
+.send-message-form textarea{
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0px;
+}
+
+.action-buttons-user {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.badge {
+    color: #FFFFFF;
+    background-color: #DF4E40;
+    border-radius: 10px;
+    padding: 2px 6px;
+}
 
 /* Media query for tablets */
 @media screen and (max-width: 1324px) {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-22 08:33+0000\n"
+"POT-Creation-Date: 2024-10-24 10:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -20,12 +20,12 @@ msgstr ""
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
 
-#: listings/apps.py:9 listings/models.py:171
+#: listings/apps.py:9 listings/models.py:212
 msgid "listings"
 msgstr "skelbimai"
 
 #: listings/models.py:9 listings/models.py:27 listings/models.py:37
-#: listings/models.py:118
+#: listings/models.py:159
 msgid "name"
 msgstr "pavadinimas"
 
@@ -33,7 +33,7 @@ msgstr "pavadinimas"
 msgid "slug"
 msgstr "trumpinys"
 
-#: listings/models.py:15 listings/models.py:143
+#: listings/models.py:15 listings/models.py:184
 msgid "category"
 msgstr "kategorija"
 
@@ -57,211 +57,79 @@ msgstr "prekinis ženklas"
 msgid "brands"
 msgstr "prekiniai ženklai"
 
-#: listings/models.py:65
-msgid "Black"
-msgstr "Juoda"
-
-#: listings/models.py:66
-msgid "White"
-msgstr "Balta"
-
-#: listings/models.py:67
-msgid "Grey"
-msgstr "Pilka"
-
-#: listings/models.py:68
-msgid "Silver"
-msgstr "Sidabrinė"
-
-#: listings/models.py:69
-msgid "Golden"
-msgstr "Auksinė"
-
-#: listings/models.py:70
-msgid "Beige"
-msgstr "Smėlio spalva"
-
-#: listings/models.py:71
-msgid "Brown"
-msgstr "Ruda"
-
-#: listings/models.py:72
-msgid "Dark Blue"
-msgstr "Tamsiai mėlyna"
-
-#: listings/models.py:73 listings/models.py:75
-msgid "Blue"
-msgstr "Mėlyna"
-
-#: listings/models.py:74
-msgid "Light Blue"
-msgstr "Šviesiai mėlyna"
-
-#: listings/models.py:76
-msgid "Green"
-msgstr "Žalia"
-
-#: listings/models.py:77
-msgid "Khaki"
-msgstr "Chaki"
-
-#: listings/models.py:78
-msgid "Yellow"
-msgstr "Geltona"
-
-#: listings/models.py:79
-msgid "Mustard"
-msgstr "Garstyčių spalva"
-
-#: listings/models.py:80
-msgid "Orange"
-msgstr "Oranžinė"
-
-#: listings/models.py:81
-msgid "Coral"
-msgstr "Koralo spalva"
-
-#: listings/models.py:82
-msgid "Red"
-msgstr "Raudona"
-
-#: listings/models.py:83 listings/models.py:91
-msgid "Burgundy"
-msgstr "Bordo"
-
-#: listings/models.py:84
-msgid "Light Pink"
-msgstr "Šviesiai rožinė"
-
-#: listings/models.py:85 listings/models.py:97
-msgid "Pink"
-msgstr "Rožinė"
-
-#: listings/models.py:86
-msgid "Bright Pink"
-msgstr "Ryškiai rožinė"
-
-#: listings/models.py:87 listings/models.py:100
-msgid "Purple"
-msgstr "Violetinė"
-
-#: listings/models.py:88
-msgid "Lavender"
-msgstr "Levandų spalva"
-
-#: listings/models.py:89
-msgid "Mint"
-msgstr "Mėtinė"
-
-#: listings/models.py:90
-msgid "Turquoise"
-msgstr "Turkio spalva"
-
-#: listings/models.py:92
-msgid "Peach"
-msgstr "Persikų spalva"
-
-#: listings/models.py:93
-msgid "Ivory"
-msgstr "Dramblio kaulo spalva"
-
-#: listings/models.py:94
-msgid "Champagne"
-msgstr "Šampano spalva"
-
-#: listings/models.py:95
-msgid "Rose Gold"
-msgstr "Rožinis auksas"
-
-#: listings/models.py:96
-msgid "Bronze"
-msgstr "Bronzinė"
-
-#: listings/models.py:98
-msgid "Cobalt Blue"
-msgstr "Kobalto mėlyna"
-
-#: listings/models.py:99
-msgid "Emerald"
-msgstr "Smaragdinė"
-
-#: listings/models.py:101
-msgid "Fuchsia"
-msgstr "Fuksijų spalva"
-
-#: listings/models.py:119
+#: listings/models.py:160
 msgid "description"
 msgstr "aprašymas"
 
-#: listings/models.py:120
+#: listings/models.py:161
 msgid "price"
 msgstr "kaina"
 
-#: listings/models.py:121
+#: listings/models.py:162
 msgid "sell_price"
 msgstr "pardavimo kaina"
 
-#: listings/models.py:122
+#: listings/models.py:163
 msgid "created at"
 msgstr "sukurta"
 
-#: listings/models.py:123
+#: listings/models.py:164
 msgid "updated at"
 msgstr "atnaujinta"
 
-#: listings/models.py:124
+#: listings/models.py:165
 msgid "is available"
 msgstr "prieinama"
 
-#: listings/models.py:125
+#: listings/models.py:166
 msgid "is for sale"
 msgstr "parduodama"
 
-#: listings/models.py:131
+#: listings/models.py:172
 msgid "size"
 msgstr "dydis"
 
-#: listings/models.py:133
+#: listings/models.py:174
 msgid "color"
 msgstr "spalva"
 
-#: listings/models.py:134
+#: listings/models.py:175
 msgid "value"
 msgstr "vertė"
 
-#: listings/models.py:137
+#: listings/models.py:178
 msgid "owner"
 msgstr "savininkas"
 
-#: listings/models.py:170 listings/views.py:289
+#: listings/models.py:211 listings/views.py:373
 msgid "listing"
 msgstr "skelbimas"
 
-#: listings/models.py:197
+#: listings/models.py:243
 msgid "favorited_by"
 msgstr "pamėgta"
 
-#: listings/models.py:198 listings/models.py:202
+#: listings/models.py:244 listings/models.py:248
 msgid "favorite listing"
 msgstr "mėgstamiausias skelbimas"
 
-#: listings/models.py:203
+#: listings/models.py:249
 msgid "favorite listings"
 msgstr "mėgstamiausi skelbimai"
 
-#: listings/models.py:212 user_profiles/models.py:58
+#: listings/models.py:258 user_profiles/models.py:58
 msgid "review_by"
 msgstr "atsiliepimas paliktas"
 
-#: listings/models.py:213
+#: listings/models.py:259
 msgid "reviewed_listing"
 msgstr "atsiliepimas paliktas skelbimui"
 
-#: listings/models.py:219
+#: listings/models.py:265
 msgid "listing_review"
 msgstr "skelbimo atsiliepimas"
 
-#: listings/models.py:220
+#: listings/models.py:266
 msgid "listing_reviews"
 msgstr "skelbimo atsiliepimai"
 
@@ -283,93 +151,98 @@ msgstr "Išnuomoti"
 msgid "Profile Picture"
 msgstr "Profilio nuotrauka"
 
-#: listings/templates/base.html:64 listings/templates/base.html:105
+#: listings/templates/base.html:64 listings/templates/base.html:113
 #: user_profiles/templates/user_profile/user_detail.html:6
 msgid "My Profile"
 msgstr "Mano profilis"
 
-#: listings/templates/base.html:66 listings/templates/base.html:107
+#: listings/templates/base.html:66 listings/templates/base.html:115
 msgid "Create Profile"
 msgstr "Sukurti profilį"
 
-#: listings/templates/base.html:68 listings/templates/base.html:109
+#: listings/templates/base.html:68 listings/templates/base.html:117
 msgid "My Favorite users"
 msgstr "Mano mėgstami vartotojai"
 
-#: listings/templates/base.html:69 listings/templates/base.html:110
+#: listings/templates/base.html:69 listings/templates/base.html:118
 msgid "My Favorite listings"
 msgstr "Mano mėgstamiausi skelbimai"
 
-#: listings/templates/base.html:71 listings/templates/base.html:112
+#: listings/templates/base.html:71 listings/templates/base.html:120
 msgid "admin"
 msgstr "administratorius"
 
-#: listings/templates/base.html:75 listings/templates/base.html:116
+#: listings/templates/base.html:74 listings/templates/base.html:121
+#: messenger/models.py:37
+msgid "Messages"
+msgstr "Žinutės"
+
+#: listings/templates/base.html:83 listings/templates/base.html:125
 msgid "log out"
 msgstr "atsijungti"
 
-#: listings/templates/base.html:79 listings/templates/base.html:120
+#: listings/templates/base.html:87 listings/templates/base.html:129
 #: user_profiles/templates/registration/logged_out.html:6
 #: user_profiles/templates/registration/password_reset_complete.html:6
 msgid "log in"
 msgstr "prisijungti"
 
-#: listings/templates/base.html:80 listings/templates/base.html:121
+#: listings/templates/base.html:88 listings/templates/base.html:130
 #: user_profiles/templates/registration/login.html:30
 msgid "sign up"
 msgstr "užsiregistruoti"
 
-#: listings/templates/base.html:86
+#: listings/templates/base.html:94
 msgid "Menu"
 msgstr "Meniu"
 
-#: listings/templates/base.html:96 listings/templates/base.html:128
+#: listings/templates/base.html:104 listings/templates/base.html:137
 msgid "Wedding dresses"
 msgstr "Vestuvinės suknelės"
 
-#: listings/templates/base.html:97 listings/templates/base.html:129
+#: listings/templates/base.html:105 listings/templates/base.html:138
 msgid "Accessories"
 msgstr "Aksesuarai"
 
-#: listings/templates/base.html:98 listings/templates/base.html:130
+#: listings/templates/base.html:106 listings/templates/base.html:139
 msgid "Occasional dresses"
 msgstr "Proginės suknelės"
 
-#: listings/templates/base.html:99 listings/templates/base.html:131
+#: listings/templates/base.html:107 listings/templates/base.html:140
 msgid "Handbags"
 msgstr "Rankinukai"
 
-#: listings/templates/base.html:100 listings/templates/base.html:132
+#: listings/templates/base.html:108 listings/templates/base.html:141
 msgid "Shoes"
 msgstr "Batai"
 
-#: listings/templates/base.html:101
+#: listings/templates/base.html:109
 msgid "Upload item for rent"
 msgstr "Įkelti nuomojamą daiktą"
 
-#: listings/templates/base.html:102
+#: listings/templates/base.html:110
 msgid "Rent from others"
 msgstr "Nuomotis iš kitų"
 
-#: listings/templates/base.html:149 listings/templates/pages/about_us.html:6
+#: listings/templates/base.html:158 listings/templates/pages/about_us.html:6
 msgid "About Upupam"
 msgstr "Apie Upupam"
 
-#: listings/templates/base.html:154
+#: listings/templates/base.html:163
 msgid "How to rent?"
 msgstr "Kaip nuomotis"
 
-#: listings/templates/base.html:155
+#: listings/templates/base.html:164
 msgid "How to lend?"
 msgstr "Kaip nuomuoti"
 
-#: listings/templates/base.html:158
+#: listings/templates/base.html:167
 #: listings/templates/pages/platform_rules.html:3
 #: listings/templates/pages/platform_rules.html:6
 msgid "Platform Rules"
 msgstr "Platformos taisyklės"
 
-#: listings/templates/base.html:159
+#: listings/templates/base.html:168
 msgid "Terms & Conditions"
 msgstr "Sąlygos ir taisyklės"
 
@@ -377,7 +250,7 @@ msgstr "Sąlygos ir taisyklės"
 msgid "Category Page"
 msgstr "Kategorijos puslapis"
 
-#: listings/templates/category_page.html:21 listings/templates/shop.html:68
+#: listings/templates/category_page.html:21 listings/templates/shop.html:70
 msgid "Size"
 msgstr "Dydis"
 
@@ -392,7 +265,7 @@ msgstr "4 dienoms"
 #: listings/templates/category_page.html:31
 #: listings/templates/favorite/my_favorite_listings.html:36
 #: listings/templates/listings/listing_details.html:79
-#: listings/templates/main.html:73 listings/templates/shop.html:151
+#: listings/templates/main.html:73 listings/templates/shop.html:153
 #: user_profiles/templates/favorite/my_favorite_users.html:44
 #: user_profiles/templates/user_profile/user_detail.html:51
 msgid "Unlike"
@@ -419,13 +292,13 @@ msgid "My Favorite Listings"
 msgstr "Mano mėgstamiausi skelbimai"
 
 #: listings/templates/favorite/my_favorite_listings.html:26
-#: listings/templates/main.html:60 listings/templates/shop.html:138
+#: listings/templates/main.html:60 listings/templates/shop.html:140
 #: user_profiles/templates/user_profile/user_detail.html:83
 msgid " &#8364;/4 days"
 msgstr " &#8364;/4 dienoms"
 
 #: listings/templates/favorite/my_favorite_listings.html:28
-#: listings/templates/main.html:63 listings/templates/shop.html:141
+#: listings/templates/main.html:63 listings/templates/shop.html:143
 #: user_profiles/templates/user_profile/user_detail.html:85
 msgid "Buy now"
 msgstr "Pirkti dabar"
@@ -449,7 +322,7 @@ msgstr ""
 "patarimus"
 
 #: listings/templates/listings/listing_create.html:14
-#: listings/templates/shop.html:83
+#: listings/templates/shop.html:85
 msgid "Category"
 msgstr "Kategorija"
 
@@ -585,6 +458,7 @@ msgstr "Kaina:"
 
 #: listings/templates/listings/listing_details.html:58
 #: listings/templates/listings/my_listings.html:12
+#: messenger/templates/conversation_detail.html:27
 msgid "for 4 days"
 msgstr "4 dienoms"
 
@@ -606,41 +480,41 @@ msgstr "Skelbimo savininkas:"
 msgid "Like"
 msgstr "Patinka"
 
-#: listings/templates/listings/listing_details.html:93
+#: listings/templates/listings/listing_details.html:94
 msgid "Listing reviews"
 msgstr "Skelbimo atsiliepimai"
 
-#: listings/templates/listings/listing_details.html:94
-#: listings/templates/listings/listing_details.html:109
+#: listings/templates/listings/listing_details.html:95
+#: listings/templates/listings/listing_details.html:110
 #: user_profiles/templates/user_profile/user_detail.html:124
 msgid "Review average"
 msgstr "Atsiliepimų vidurkis"
 
-#: listings/templates/listings/listing_details.html:100
-#: listings/templates/listings/listing_details.html:115
+#: listings/templates/listings/listing_details.html:101
+#: listings/templates/listings/listing_details.html:116
 #: user_profiles/templates/user_profile/user_detail.html:130
 msgid "No reviews"
 msgstr "Atsiliepimų nėra"
 
-#: listings/templates/listings/listing_details.html:103
-#: listings/templates/listings/listing_details.html:120
+#: listings/templates/listings/listing_details.html:104
+#: listings/templates/listings/listing_details.html:121
 #: user_profiles/templates/user_profile/user_detail.html:135
 msgid "Leave a review"
 msgstr "Palikti atsiliepimą"
 
-#: listings/templates/listings/listing_details.html:108
+#: listings/templates/listings/listing_details.html:109
 msgid "User Reviews"
 msgstr "Atsiliepimai apie vartotoją"
 
-#: listings/templates/listings/listing_details.html:129
+#: listings/templates/listings/listing_details.html:130
 msgid "Create listing"
 msgstr "Sukurti skelbimą"
 
-#: listings/templates/listings/listing_details.html:133
+#: listings/templates/listings/listing_details.html:134
 msgid "Edit"
 msgstr "Redaguoti"
 
-#: listings/templates/listings/listing_details.html:136
+#: listings/templates/listings/listing_details.html:137
 msgid "Delete"
 msgstr "Ištrinti"
 
@@ -758,14 +632,11 @@ msgstr "Bendraukite tiesiogiai su nuomininku"
 
 #: listings/templates/main.html:141
 msgid ""
-"The renter will contact you directly using the contact details you provided. "
-"Inform them about the rental conditions, agree on the method of delivery or "
-"pickup, and finalize the rental period."
+"The renter will reach out to you directly through our platform’s messaging "
+"feature. You can discuss rental conditions, agree on the delivery or pickup "
+"method, and finalize the rental period."
 msgstr ""
-"Nuomininkas, norėdamas pateikti užsakymą, susisieks tiesiogiai per jūsų "
-"nurodytus kontaktus. Praneškite apie nuomos sąlygas, susitarkite dėl daikto "
-"pristatymo, - siuntimas paštomatu/autobusų siunta ar perduosite gyvai, "
-"išsiaiškinkite nuomos laikotarpį."
+"Nuomininkas, norėdamas pateikti užsakymą, susisieks tiesiogiai, parašydamas jums žinutę per mūsų platformą. Praneškite apie nuomos sąlygas, susitarkite dėl daikto pristatymo, - siuntimas paštomatu/autobusų siunta ar perduosite gyvai, išsiaiškinkite nuomos laikotarpį. "
 
 #: listings/templates/main.html:144
 msgid "Rent Out and Ship"
@@ -797,11 +668,11 @@ msgstr "Susisiekti su nuomotoju"
 
 #: listings/templates/main.html:155
 msgid ""
-"Get in touch directly with the lender using the provided contact details to "
-"discuss the rental terms, rules, shipping/transfer method, and final price."
+"Get in touch directly with the lender using our platform’s messaging feature "
+"to discuss the rental terms, rules, shipping/transfer method, and final "
+"prices."
 msgstr ""
-"Susisiekite tiesiogiai su nuomotoju jo nurodytais kontaktais, susitarkite "
-"nuomos sąlygas, taisykles, daikto siuntimo/perdavimo būdą ir galutinę kainą."
+"Susisiekite tiesiogiai su nuomotoju, parašydami žinutę per mūsų platformą ir susitarkite nuomos sąlygas, taisykles, daikto siuntimo/perdavimo būdą ir galutinę kainą."
 
 #: listings/templates/main.html:158
 msgid "No Platform Fees"
@@ -1159,17 +1030,17 @@ msgstr ""
 
 #: listings/templates/pages/how_to_lend.html:14
 msgid ""
-"The renter will contact you using the contact information specified in your "
-"profile. Clearly provide all terms regarding the rental period, rental fee, "
-"how you will handle situations if the item is damaged, options for ironing "
-"the item, who is responsible for cleaning costs, how you will send the item, "
-"and who pays for shipping, or whether you will arrange a live handover of "
-"the item. To receive payment for the order, provide the renter with your "
-"bank account details. The Upupam platform does not charge any fees. All "
-"profits you earn belong to you."
+"The renter will contact you through our platform. You can access your "
+"messages by clicking the hamburger menu in the top-right corner and "
+"selecting 'My Messages'. Clearly provide all terms regarding the rental "
+"period, rental fee, how you will handle situations if the item is damaged, "
+"options for ironing the item, who is responsible for cleaning costs, how you "
+"will send the item, and who pays for shipping, or whether you will arrange a "
+"live handover of the item. To receive payment for the order, provide the "
+"renter with your bank account details. The Upupam platform does not charge "
+"any fees. All profits you earn belong to you."
 msgstr ""
-"Užsakymui apmokėti nuomininkui nurodyk savo banko sąskaitą. Upupam platforma "
-"netaiko jokių mokesčių. Visas uždirbtas pelnas priklauso tau. "
+"Nuomininkas su tavimi susisieks žinute per mūsų platformą. Savo žinutes rasi, paspaudus ant meniu ikonos, esančios viršuje, dešinėje, pasirinkus ‘Mano žinutės’. Tiksliai pateik visas sąlygas dėl nuomos laikotarpio, nuomos mokesčio, kaip spręsi situaciją, jeigu daiktas bus sugadintas, daikto lyginimo galimybes, kas atsakingas už daikto valymo išlaidas, kokiu būdu daiktą siųsi ir, kas apmoka siuntimą, o gal susitarsi daikto perdavimą gyvai."
 
 #: listings/templates/pages/how_to_rent.html:6
 msgid "How to Lend?"
@@ -1178,16 +1049,12 @@ msgstr "Kaip nuomotis"
 #: listings/templates/pages/how_to_rent.html:8
 msgid ""
 "Search for special occasion clothing, accessories, or shoes in the Upupam "
-"platform catalog. To rent a specific item, contact the item owner using the "
-"contact information provided in their profile or next to the listing. "
-"Specify the duration for which you need the item. Don’t forget to consider "
-"that you need to receive the item before your event takes place."
+"platform catalog. To rent a specific item, simply click on the button “Start "
+"a conversation” under the listing and write a message to the lender. Specify "
+"the duration for which you need the item. Don’t forget to consider that you "
+"need to receive the item before your event takes place."
 msgstr ""
-"Ieškok proginių drabužių, aksesuarų ar batelių Upupam platformos kataloge. "
-"Norint išsinuomoti tam tikrą daiktą, susisiek su daikto savininku jo "
-"profilyje arba šalia skelbimo nurodytais kontaktais. Nurodyk dienų "
-"laikotarpį, kuriuo tau reikalinga daikto nuoma. Nepamiršk apgalvoti, kad "
-"daiktą reikia gauti anksčiau nei vyks tavo šventė."
+"Ieškok proginių drabužių, aksesuarų ar batelių Upupam platformos kataloge. Norint išsinuomoti tam tikrą daiktą, paspausk ant mygtuko “Susisiekti” po daikto skelbimu ir parašyk nuomotojui žinutę. Nurodyk dienų laikotarpį, kuriuo tau reikalinga daikto nuoma. Nepamiršk apgalvoti, kad daiktą reikia gauti anksčiau nei vyks tavo šventė."
 
 #: listings/templates/pages/how_to_rent.html:10
 msgid ""
@@ -1767,81 +1634,141 @@ msgstr "Filtruoti pagal spalvą:"
 msgid "All Colors"
 msgstr "Visos spalvos"
 
-#: listings/templates/shop.html:70
+#: listings/templates/shop.html:72
 msgid "Filter by Size:"
 msgstr "Filtruoti pagal dydį:"
 
-#: listings/templates/shop.html:72
+#: listings/templates/shop.html:74
 msgid "All Sizes"
 msgstr "Visi dydžiai"
 
-#: listings/templates/shop.html:85
+#: listings/templates/shop.html:87
 msgid "Parent Category:"
 msgstr "Pagrindinė kategorija:"
 
-#: listings/templates/shop.html:87
+#: listings/templates/shop.html:89
 msgid "All Parent Categories"
 msgstr "Visos pagrindinės kategorijos"
 
-#: listings/templates/shop.html:94
+#: listings/templates/shop.html:96
 msgid "Subcategory:"
 msgstr "Pogrupis:"
 
-#: listings/templates/shop.html:96
+#: listings/templates/shop.html:98
 msgid "All Categories"
 msgstr "Visos kategorijos"
 
-#: listings/templates/shop.html:107
+#: listings/templates/shop.html:109
 msgid "Brand"
 msgstr "Prekės ženklas"
 
-#: listings/templates/shop.html:113
+#: listings/templates/shop.html:115
 msgid "Apply Filters"
 msgstr "Taikyti filtrus"
 
-#: listings/templates/shop.html:114
+#: listings/templates/shop.html:116
 msgid "View all"
 msgstr "Peržiūrėti visus"
 
-#: listings/templates/shop.html:118
+#: listings/templates/shop.html:120
 msgid "RESULTS"
 msgstr "REZULTATAI"
 
-#: listings/templates/shop.html:230 listings/templates/shop.html:242
+#: listings/templates/shop.html:232 listings/templates/shop.html:244
 msgid "All Sub-Categories"
 msgstr "Visi pogrupiai"
 
-#: listings/views.py:291
+#: listings/views.py:375
 msgid "marked as"
 msgstr "pažymėta kaip"
 
-#: listings/views.py:292
+#: listings/views.py:376
 msgid "available"
 msgstr "pasiekiama"
 
-#: listings/views.py:292
+#: listings/views.py:376
 msgid "unavailable"
 msgstr "nepasiekiama"
 
-#: listings/views.py:295
+#: listings/views.py:379
 msgid "permission error"
 msgstr "leidimo klaida"
 
-#: listings/views.py:295
+#: listings/views.py:379
 msgid "you must be the owner of listing"
 msgstr "turite būti skelbimo savininkas"
 
-#: listings/views.py:312
+#: listings/views.py:396
 msgid "listing created successfully"
 msgstr "skelbimas sėkmingai sukurtas"
 
-#: listings/views.py:334
+#: listings/views.py:418
 msgid "listing updated successfully"
 msgstr "skelbimas sėkmingai atnaujintas"
 
-#: listings/views.py:355
+#: listings/views.py:439
 msgid "listing deleted successfully"
 msgstr "skelbimas sėkmingai ištrintas"
+
+#: messenger/models.py:27
+msgid "Content"
+msgstr "Turinys"
+
+#: messenger/models.py:36
+msgid "Message"
+msgstr "Žinutė"
+
+#: messenger/templates/conversation_detail.html:8
+msgid "Back"
+msgstr "Atgal"
+
+#: messenger/templates/conversation_detail.html:27
+msgid "Price"
+msgstr "Kaina:"
+
+#: messenger/templates/conversation_detail.html:29
+msgid "Sell price"
+msgstr "Pardavimo Kaina:"
+
+#: messenger/templates/conversation_detail.html:31
+msgid "Listing value"
+msgstr "Skelbimo vertė"
+
+#: messenger/templates/conversation_detail.html:54
+msgid "No messages in this conversation yet."
+msgstr "Susirašinėjime dar nėra žinučių"
+
+#: messenger/templates/conversation_detail.html:63
+msgid "Send"
+msgstr "Siūsti"
+
+#: messenger/templates/conversation_list.html:5
+msgid "My Messages"
+msgstr "Mano žinutės"
+
+#: messenger/templates/conversation_list.html:34
+msgid "(Unseen)"
+msgstr "(Neperskaityta)"
+
+#: messenger/templates/conversation_list.html:36
+msgid "(Seen)"
+msgstr "(Perskaityta)"
+
+#: messenger/templates/conversation_list.html:41
+msgid "No messages yet."
+msgstr "Žinučių nėra"
+
+#: messenger/templates/conversation_list.html:48
+msgid "ago"
+msgstr "ago"
+
+#: messenger/templates/error.html:4
+msgid "Access Denied"
+msgstr "Draudžiama prieiga"
+
+#: messenger/templates/error.html:6
+msgid "Go back to conversations"
+msgstr "Grįžti į susirašinėjimus"
 
 #: user_profiles/forms.py:28
 msgid "Show Instagram"
@@ -2131,6 +2058,105 @@ msgstr ""
 #: user_profiles/views.py:123
 msgid "Profile edited successfully"
 msgstr "Profilis sėkmingai pakeistas"
+
+#~ msgid "Black"
+#~ msgstr "Juoda"
+
+#~ msgid "White"
+#~ msgstr "Balta"
+
+#~ msgid "Grey"
+#~ msgstr "Pilka"
+
+#~ msgid "Silver"
+#~ msgstr "Sidabrinė"
+
+#~ msgid "Golden"
+#~ msgstr "Auksinė"
+
+#~ msgid "Beige"
+#~ msgstr "Smėlio spalva"
+
+#~ msgid "Brown"
+#~ msgstr "Ruda"
+
+#~ msgid "Dark Blue"
+#~ msgstr "Tamsiai mėlyna"
+
+#~ msgid "Blue"
+#~ msgstr "Mėlyna"
+
+#~ msgid "Light Blue"
+#~ msgstr "Šviesiai mėlyna"
+
+#~ msgid "Green"
+#~ msgstr "Žalia"
+
+#~ msgid "Khaki"
+#~ msgstr "Chaki"
+
+#~ msgid "Yellow"
+#~ msgstr "Geltona"
+
+#~ msgid "Mustard"
+#~ msgstr "Garstyčių spalva"
+
+#~ msgid "Orange"
+#~ msgstr "Oranžinė"
+
+#~ msgid "Coral"
+#~ msgstr "Koralo spalva"
+
+#~ msgid "Red"
+#~ msgstr "Raudona"
+
+#~ msgid "Burgundy"
+#~ msgstr "Bordo"
+
+#~ msgid "Light Pink"
+#~ msgstr "Šviesiai rožinė"
+
+#~ msgid "Pink"
+#~ msgstr "Rožinė"
+
+#~ msgid "Bright Pink"
+#~ msgstr "Ryškiai rožinė"
+
+#~ msgid "Purple"
+#~ msgstr "Violetinė"
+
+#~ msgid "Lavender"
+#~ msgstr "Levandų spalva"
+
+#~ msgid "Mint"
+#~ msgstr "Mėtinė"
+
+#~ msgid "Turquoise"
+#~ msgstr "Turkio spalva"
+
+#~ msgid "Peach"
+#~ msgstr "Persikų spalva"
+
+#~ msgid "Ivory"
+#~ msgstr "Dramblio kaulo spalva"
+
+#~ msgid "Champagne"
+#~ msgstr "Šampano spalva"
+
+#~ msgid "Rose Gold"
+#~ msgstr "Rožinis auksas"
+
+#~ msgid "Bronze"
+#~ msgstr "Bronzinė"
+
+#~ msgid "Cobalt Blue"
+#~ msgstr "Kobalto mėlyna"
+
+#~ msgid "Emerald"
+#~ msgstr "Smaragdinė"
+
+#~ msgid "Fuchsia"
+#~ msgstr "Fuksijų spalva"
 
 #~ msgid "New with tags"
 #~ msgstr "Nauja su etiketėmis"

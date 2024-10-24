@@ -71,7 +71,7 @@
         <div class= "inline-items"><p class="text-bold">{% trans "Quality:" %} </p><p>{{ listing.get_quality_display }}</p></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Listing Owner:" %} </p><p class="button"><a href="{% url 'user_detail' username=listing.owner.username %}">{{ listing.owner.username }}</a></p></div>
         <div class= "inline-items"><p class="text-bold">{% trans "Description:" %} </p><p> {{ listing.description }}</p></div>
-        <div class= "action-buttons">
+        <div class= "action-buttons-user">
           {% if user.is_authenticated %}
             {% if user_favorites %}
             <form action="{% url 'listings:remove_favorite_listing' listing.pk %}?next={{ request.path }}" method="post">
@@ -83,9 +83,7 @@
                   {% trans "Like"|capfirst %}
                 </a>
             {% endif %}
-          {% endif %}
-          {% if request.user.is_superuser %}
-            <a href="{% url 'messenger:create_conversation' listing.pk %}">Start a Conversation</a>
+            <a class="button" href="{% url 'messenger:create_conversation' listing.pk %}">Start a Conversation</a>
           {% endif %}
         </div>
       </div>

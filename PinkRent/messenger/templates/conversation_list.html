@@ -1,32 +1,54 @@
 {% extends "base.html" %}
+{% load i18n %}{% load static %}
 
 {% block content %}
-<h1>Your Conversations</h1>
-<ul>
+<h1>{% trans "My Messages" %}</h1>
+<div class="conversation-list">
   {% for conversation in conversations %}
-    <div>
-        <h2>
-            <a href="{% url 'messenger:conversation_detail' conversation.id %}">{{ conversation.listing.name }}</a>
-        </h2>
-        <p>Participants: {{ conversation.sender.username }} & {{ conversation.receiver.username }}</p>
-        
-        {% if conversation.last_message %}
-            <p>
-                Last Message: 
-                <strong {% if not conversation.last_message.read %}style="font-weight: bold;"{% endif %}>
-                    {{ conversation.last_message.content }}
-                </strong>
-                {% if not conversation.last_message.read %}
-                    <span style="color: red;">(Unread)</span>
+    <div class="conversation-card" onclick="window.location.href='{% url 'messenger:conversation_detail' conversation.id %}'">
+        <div class="conversation-header profile-picture profile-picture-conv">
+            <!-- Determine which user is the other participant -->
+            {% if conversation.sender == request.user %}
+                <!-- The receiver is the other participant -->
+                <img src="{{ conversation.receiver.userprofile.picture.url }}" alt="{{ conversation.receiver.username }}">
+            {% else %}
+                <!-- The sender is the other participant -->
+                <img src="{{ conversation.sender.userprofile.picture.url }}" alt="{{ conversation.sender.username }}">
+            {% endif %}
+        </div>
+        <div class="conversation-content">
+            {% if conversation.sender == request.user %}
+            <!-- The receiver is the other participant -->
+                <p>{{ conversation.receiver.username }}</p>
+            {% else %}
+                <!-- The sender is the other participant -->
+                <p>{{ conversation.sender.username }}</p>
+            {% endif %}
+            <div class="message-details">
+                {% if conversation.last_message %}
+                    <p>
+                        <strong {% if not conversation.last_message.read %}style="font-weight: bold;"{% endif %}>
+                            {{ conversation.last_message.content|slice:"-10:" }}{% if conversation.last_message.content|length > 10 %}...{% endif %}
+                        </strong>                        
+                        {% if not conversation.last_message.read %}
+                            <span class="unread">{% trans "(Unseen)" %}</span>
+                        {% else %}
+                            <span class="read">{% trans "(Seen)" %}</span>
+                        {% endif %}
+                    </p>
+
                 {% else %}
-                    <span style="color: green;">(Read)</span>
+                    <p>{% trans "No messages yet." %}</p>
                 {% endif %}
-            </p>
-            <p>Sent at: {{ conversation.last_message.timestamp }}</p>
-        {% else %}
-            <p>No messages yet.</p>
-        {% endif %}
+            </div>
+            <div class="conversation-last-row">
+                <!-- Listing Photo -->
+                <img class="listing-picture-mini" src="{{ conversation.listing.picture.url }}" alt="{{ conversation.listing.name }}">
+                <!-- Display how long ago the last message was sent -->
+                <p>{{ conversation.last_message.timestamp|timesince }} {% trans "ago" %}</p>
+            </div>
+        </div>
     </div>
   {% endfor %}
-</ul>
+</div>
 {% endblock %}

@@ -1,32 +1,73 @@
 {% extends "base.html" %}
+{% load i18n %}{% load static %}
 
 {% block content %}
-  <h1>Conversation with {{ conversation.receiver.username }}</h1>
-
-  <div>
-    {% for message in messages %}
-      <div style="margin-bottom: 10px;">  <!-- Add some spacing between messages -->
-        <strong>{{ message.sender.username }}</strong> ({{ message.timestamp }}):
-        <p {% if not message.read %}style="font-weight: bold; color: red;"{% endif %}>  <!-- Highlight unread messages -->
-          {{ message.content }}
-          {% if not message.read %}
-            <span style="color: red;">(Unread)</span>  <!-- Show 'Unread' label -->
+  <div class="chat-container">
+    <div class="chat-top-bar">
+      <!-- Back to conversations button -->
+      <a href="{% url 'messenger:conversation_list' %}" class="button-black">{% trans "Back" %}</a>
+      <!-- Participant Name and Profile Picture (the other user) -->
+      <div class="participant-info">
+        {% if conversation.sender == request.user %}
+          <h2>{{ conversation.receiver.username }}</h2>
+        {% else %}
+          <h2>{{ conversation.sender.username }}</h2>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Chat header with listing and participant information -->
+    <div class="chat-header">
+      <!-- Listing Picture -->
+      <img class="listing-picture" src="{{ conversation.listing.picture.url }}" alt="{{ conversation.listing.name }}">
+      
+      <!-- Listing Name and Price -->
+      <div class="chat-header-listing-info">
+        <h1>{{ conversation.listing.name }}</h1>
+          {% if conversation.listing.price %}
+            <p>{% trans "Price" %} {{ conversation.listing.price|floatformat:0 }}€ {% trans "for 4 days" %}</p>
+          {% elif conversation.listing.sell_price %}
+          <p>{% trans "Sell price" %} {{ conversation.listing.sell_price }}€ </p>
           {% else %}
-            <span style="color: green;">(Read)</span>   <!-- Show 'Read' label -->
+          <p>{% trans "Listing value" %} {{ conversation.listing.value }}€ </p>
           {% endif %}
         </p>
       </div>
-    {% empty %}
-      <p>No messages in this conversation yet.</p>
-    {% endfor %}
+    </div>
+
+    <!-- Chat messages -->
+    <div class="chat-messages" id="chatMessages">
+      {% for message in chat_messages %}
+        <div class="message {% if message.sender == request.user %}sent{% else %}received{% endif %}">
+          <!-- Sender's profile picture -->
+          <img class="profile-picture-icon" src="{{ message.sender.userprofile.picture.url }}" alt="{{ message.sender.username }}">
+          
+          <!-- Message content -->
+          <div class="message-content">
+            <strong>{{ message.sender.username }}</strong> 
+            <p class="{% if not message.read %}unread{% endif %}">
+              {{ message.content }}
+            </p>
+            <span class="message-timestamp">{{ message.timestamp|date:"M d, Y H:i" }}</span>
+          </div>
+        </div>
+      {% empty %}
+        <p>{% trans "No messages in this conversation yet." %}</p>
+      {% endfor %}
+    </div>
+
+    <!-- Message form -->
+    <div class="send-message-form">
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% trans "Send" %}</button>
+      </form>
+    </div>
   </div>
-
-  <h2>Send a New Message</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Send</button>
-  </form>
-
-  <a href="{% url 'messenger:conversation_list' %}">Back to Conversations</a>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var chatMessages = document.getElementById("chatMessages");
+    chatMessages.scrollTop = chatMessages.scrollHeight;  // Scroll to the bottom
+  });
+</script>
 {% endblock %}
