@@ -32,7 +32,7 @@
                 {% if conversation.last_message %}
                     <p>
                         <strong {% if not conversation.last_message.read %}style="font-weight: bold;"{% endif %}>
-                            {{ conversation.last_message.content|slice:"-10:" }}{% if conversation.last_message.content|length > 10 %}...{% endif %}
+                            {{ conversation.last_message.content|slice:":10" }}{% if conversation.last_message.content|length > 10 %}...{% endif %}
                         </strong>                        
                         {% if not conversation.last_message.read %}
                             <span class="unread">{% trans "(Unseen)" %}</span>
