@@ -1744,7 +1744,7 @@ msgstr "Susirašinėjime dar nėra žinučių"
 
 #: messenger/templates/conversation_detail.html:64
 msgid "Send"
-msgstr "Siūsti"
+msgstr "Siųsti"
 
 #: messenger/templates/conversation_list.html:5
 msgid "My Messages"
