@@ -2,12 +2,12 @@
 {% load static %}{% load i18n %}
 {% block title %}{{ block.super }} Feedback {% endblock title %}
 {% block content %}
-<h1>Leave Feedback</h1>
+<h1>{% trans "Leave Feedback" %}</h1>
 <div class="feedback-form">
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Submit</button>
+        <button type="submit">{% trans "Submit" %}</button>
     </form>
 </div>
 {% endblock content %}

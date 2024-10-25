@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 11:08+0000\n"
+"POT-Creation-Date: 2024-10-25 09:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -172,22 +172,22 @@ msgstr "Mano mėgstamiausi skelbimai"
 msgid "admin"
 msgstr "administratorius"
 
-#: listings/templates/base.html:74 listings/templates/base.html:121
+#: listings/templates/base.html:75 listings/templates/base.html:124
 #: messenger/models.py:37
 msgid "Messages"
 msgstr "Žinutės"
 
-#: listings/templates/base.html:83 listings/templates/base.html:125
+#: listings/templates/base.html:83 listings/templates/base.html:132
 msgid "log out"
 msgstr "atsijungti"
 
-#: listings/templates/base.html:87 listings/templates/base.html:129
+#: listings/templates/base.html:87 listings/templates/base.html:136
 #: user_profiles/templates/registration/logged_out.html:6
 #: user_profiles/templates/registration/password_reset_complete.html:6
 msgid "log in"
 msgstr "prisijungti"
 
-#: listings/templates/base.html:88 listings/templates/base.html:130
+#: listings/templates/base.html:88 listings/templates/base.html:137
 #: user_profiles/templates/registration/login.html:30
 msgid "sign up"
 msgstr "užsiregistruoti"
@@ -196,23 +196,23 @@ msgstr "užsiregistruoti"
 msgid "Menu"
 msgstr "Meniu"
 
-#: listings/templates/base.html:104 listings/templates/base.html:137
+#: listings/templates/base.html:104 listings/templates/base.html:144
 msgid "Wedding dresses"
 msgstr "Vestuvinės suknelės"
 
-#: listings/templates/base.html:105 listings/templates/base.html:138
+#: listings/templates/base.html:105 listings/templates/base.html:145
 msgid "Accessories"
 msgstr "Aksesuarai"
 
-#: listings/templates/base.html:106 listings/templates/base.html:139
+#: listings/templates/base.html:106 listings/templates/base.html:146
 msgid "Occasional dresses"
 msgstr "Proginės suknelės"
 
-#: listings/templates/base.html:107 listings/templates/base.html:140
+#: listings/templates/base.html:107 listings/templates/base.html:147
 msgid "Handbags"
 msgstr "Rankinukai"
 
-#: listings/templates/base.html:108 listings/templates/base.html:141
+#: listings/templates/base.html:108 listings/templates/base.html:148
 msgid "Shoes"
 msgstr "Batai"
 
@@ -224,25 +224,25 @@ msgstr "Įkelti nuomojamą daiktą"
 msgid "Rent from others"
 msgstr "Nuomotis iš kitų"
 
-#: listings/templates/base.html:158 listings/templates/pages/about_us.html:6
+#: listings/templates/base.html:165 listings/templates/pages/about_us.html:6
 msgid "About Upupam"
 msgstr "Apie Upupam"
 
-#: listings/templates/base.html:163
+#: listings/templates/base.html:170
 msgid "How to rent?"
 msgstr "Kaip nuomotis"
 
-#: listings/templates/base.html:164
+#: listings/templates/base.html:171
 msgid "How to lend?"
 msgstr "Kaip nuomuoti"
 
-#: listings/templates/base.html:167
+#: listings/templates/base.html:174
 #: listings/templates/pages/platform_rules.html:3
 #: listings/templates/pages/platform_rules.html:6
 msgid "Platform Rules"
 msgstr "Platformos taisyklės"
 
-#: listings/templates/base.html:168
+#: listings/templates/base.html:175
 msgid "Terms & Conditions"
 msgstr "Sąlygos ir taisyklės"
 
@@ -264,7 +264,7 @@ msgstr "4 dienoms"
 
 #: listings/templates/category_page.html:31
 #: listings/templates/favorite/my_favorite_listings.html:36
-#: listings/templates/listings/listing_details.html:79
+#: listings/templates/listings/listing_details.html:82
 #: listings/templates/main.html:73 listings/templates/shop.html:153
 #: user_profiles/templates/favorite/my_favorite_users.html:44
 #: user_profiles/templates/user_profile/user_detail.html:51
@@ -272,18 +272,22 @@ msgid "Unlike"
 msgstr "Nepatinka"
 
 #: listings/templates/category_page.html:53
+#: user_profiles/templates/user_profile/user_detail.html:98
 msgid "First"
 msgstr "Pirmas"
 
 #: listings/templates/category_page.html:54
+#: user_profiles/templates/user_profile/user_detail.html:99
 msgid "Previous"
 msgstr "Atgal"
 
 #: listings/templates/category_page.html:66
+#: user_profiles/templates/user_profile/user_detail.html:111
 msgid "Next"
 msgstr "Sekantis"
 
 #: listings/templates/category_page.html:67
+#: user_profiles/templates/user_profile/user_detail.html:112
 msgid "Last"
 msgstr "Paskutinis"
 
@@ -306,6 +310,28 @@ msgstr "Pirkti dabar"
 #: listings/templates/favorite/my_favorite_listings.html:48
 msgid "No favorite listings found."
 msgstr "Nerasta mėgstamų skelbimų."
+
+#: listings/templates/feedback/feedback.html:5
+msgid "Leave Feedback"
+msgstr "Palikti atsiliepimą apie platformą"
+
+#: listings/templates/feedback/feedback.html:10
+#: listings/templates/reviews/create_listing_review.html:21
+#: user_profiles/templates/reviews/create_profile_review.html:21
+msgid "Submit"
+msgstr "Pateikti"
+
+#: listings/templates/feedback/feedback_thank_you.html:3
+msgid "Thank You"
+msgstr "Ačiū"
+
+#: listings/templates/feedback/feedback_thank_you.html:5
+msgid "Thank You for Your Feedback!"
+msgstr "Ačiū už atsiliepimą"
+
+#: listings/templates/feedback/feedback_thank_you.html:6
+msgid "We appreciate your input and will use it to improve our platform."
+msgstr "Ačiū už žinutę, panaudosime ją gerinti platformai"
 
 #: listings/templates/listings/listing_create.html:3
 msgid "create a listing at"
@@ -370,13 +396,13 @@ msgid "Name:"
 msgstr "Pavadinimas:"
 
 #: listings/templates/listings/listing_create.html:62
-#: listings/templates/listings/listing_details.html:70
+#: listings/templates/listings/listing_details.html:73
 #: listings/templates/listings/listing_update.html:69
 msgid "Size:"
 msgstr "Dydis:"
 
 #: listings/templates/listings/listing_create.html:67
-#: listings/templates/listings/listing_details.html:71
+#: listings/templates/listings/listing_details.html:74
 #: listings/templates/listings/listing_update.html:74
 msgid "Quality:"
 msgstr "Kokybė:"
@@ -387,7 +413,7 @@ msgid "Color:"
 msgstr "Spalva"
 
 #: listings/templates/listings/listing_create.html:77
-#: listings/templates/listings/listing_details.html:50
+#: listings/templates/listings/listing_details.html:53
 #: listings/templates/listings/listing_update.html:84
 msgid "Value:"
 msgstr "Vertė:"
@@ -398,7 +424,7 @@ msgid "Receive buy offers:"
 msgstr "Siūlyti daiktą ir pardavimui:"
 
 #: listings/templates/listings/listing_create.html:90
-#: listings/templates/listings/listing_details.html:64
+#: listings/templates/listings/listing_details.html:67
 #: listings/templates/listings/listing_update.html:97
 msgid "Sell Price:"
 msgstr "Pardavimo Kaina:"
@@ -409,7 +435,7 @@ msgid "4 day rent price:"
 msgstr "4 dienų nuomos kaina:"
 
 #: listings/templates/listings/listing_create.html:100
-#: listings/templates/listings/listing_details.html:73
+#: listings/templates/listings/listing_details.html:76
 #: listings/templates/listings/listing_update.html:107
 msgid "Description:"
 msgstr "Aprašymas:"
@@ -448,77 +474,82 @@ msgstr "patvirtinti"
 msgid "cancel"
 msgstr "atšaukti"
 
-#: listings/templates/listings/listing_details.html:47
+#: listings/templates/listings/listing_details.html:9
+#: user_profiles/templates/user_profile/user_detail.html:89
+msgid "Waiting for admin approval"
+msgstr "Laukiama administratoriaus patvirtinimo"
+
+#: listings/templates/listings/listing_details.html:50
 msgid "Listing details"
 msgstr "Skelbimo detalės"
 
-#: listings/templates/listings/listing_details.html:57
+#: listings/templates/listings/listing_details.html:60
 msgid "Price:"
 msgstr "Kaina:"
 
-#: listings/templates/listings/listing_details.html:58
+#: listings/templates/listings/listing_details.html:61
 #: listings/templates/listings/my_listings.html:12
 #: messenger/templates/conversation_detail.html:27
 msgid "for 4 days"
 msgstr "4 dienoms"
 
-#: listings/templates/listings/listing_details.html:68
+#: listings/templates/listings/listing_details.html:71
 msgid "Category:"
 msgstr "Kategorija:"
 
-#: listings/templates/listings/listing_details.html:69
+#: listings/templates/listings/listing_details.html:72
 #: listings/templates/listings/listing_update.html:62
 msgid "Brand:"
 msgstr "Prekės ženklas:"
 
-#: listings/templates/listings/listing_details.html:72
+#: listings/templates/listings/listing_details.html:75
 msgid "Listing Owner:"
 msgstr "Skelbimo savininkas:"
 
-#: listings/templates/listings/listing_details.html:83
+#: listings/templates/listings/listing_details.html:86
 #: user_profiles/templates/user_profile/user_detail.html:56
 msgid "Like"
 msgstr "Patinka"
 
-#: listings/templates/listings/listing_details.html:86
+#: listings/templates/listings/listing_details.html:89
 msgid "Start a Conversation"
 msgstr "Susisiekti"
 
-#: listings/templates/listings/listing_details.html:94
+#: listings/templates/listings/listing_details.html:97
 msgid "Listing reviews"
 msgstr "Skelbimo atsiliepimai"
 
-#: listings/templates/listings/listing_details.html:95
-#: listings/templates/listings/listing_details.html:110
+#: listings/templates/listings/listing_details.html:98
+#: listings/templates/listings/listing_details.html:113
 #: user_profiles/templates/user_profile/user_detail.html:124
 msgid "Review average"
 msgstr "Atsiliepimų vidurkis"
 
-#: listings/templates/listings/listing_details.html:101
-#: listings/templates/listings/listing_details.html:116
+#: listings/templates/listings/listing_details.html:104
+#: listings/templates/listings/listing_details.html:119
 #: user_profiles/templates/user_profile/user_detail.html:130
 msgid "No reviews"
 msgstr "Atsiliepimų nėra"
 
-#: listings/templates/listings/listing_details.html:104
-#: listings/templates/listings/listing_details.html:121
+#: listings/templates/listings/listing_details.html:107
+#: listings/templates/listings/listing_details.html:124
 #: user_profiles/templates/user_profile/user_detail.html:135
 msgid "Leave a review"
 msgstr "Palikti atsiliepimą"
 
-#: listings/templates/listings/listing_details.html:109
+#: listings/templates/listings/listing_details.html:112
 msgid "User Reviews"
 msgstr "Atsiliepimai apie vartotoją"
 
-#: listings/templates/listings/listing_details.html:130
+#: listings/templates/listings/listing_details.html:133
 msgid "Create listing"
 msgstr "Sukurti skelbimą"
 
-#: listings/templates/listings/listing_details.html:134
+#: listings/templates/listings/listing_details.html:137
 msgid "Edit"
 msgstr "Redaguoti"
 
-#: listings/templates/listings/listing_details.html:137
+#: listings/templates/listings/listing_details.html:140
 msgid "Delete"
 msgstr "Ištrinti"
 
@@ -1583,11 +1614,6 @@ msgstr "Komentaras"
 msgid "Rating"
 msgstr "Įvertinimas"
 
-#: listings/templates/reviews/create_listing_review.html:21
-#: user_profiles/templates/reviews/create_profile_review.html:21
-msgid "Submit"
-msgstr "Pateikti"
-
 #: listings/templates/reviews/listing_review_success.html:5
 #: user_profiles/templates/reviews/profile_review_success.html:5
 msgid "Review successfull"
@@ -2021,10 +2047,6 @@ msgstr "Profilis"
 #: user_profiles/templates/user_profile/user_detail.html:43
 msgid "edit profile data"
 msgstr "redaguoti profilio duomenis"
-
-#: user_profiles/templates/user_profile/user_detail.html:89
-msgid "Waiting for admin approval"
-msgstr "Laukiama administratoriaus patvirtinimo"
 
 #: user_profiles/templates/user_profile/user_detail.html:118
 msgid "My Reviews"
