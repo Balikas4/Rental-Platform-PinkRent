@@ -38,7 +38,7 @@
       <h1>{% trans "Top Trending Dresses" %}</h1>
     </div>
     <div class="grid-wrapper">
-      {% for listing in listings|slice:":4" %}
+      {% for listing in listings %}
         {% if listing.is_available %}
           <div class="grid-item">
             {% if listing.picture %}

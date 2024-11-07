@@ -34,7 +34,7 @@ def waitlist_thank_you_view(request):
 
 def main_page(request: HttpRequest) -> HttpResponse:
 
-    listings = Listing.objects.filter(is_available=True)  # Filter only available listings
+    listings = Listing.objects.filter(id__in=[59, 58, 136, 118])
     context = {
         'listing_count': listings.count(),
         'users_count': models.get_user_model().objects.count(),
