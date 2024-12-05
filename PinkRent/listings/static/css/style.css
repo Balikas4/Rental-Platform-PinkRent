@@ -735,7 +735,6 @@ ul.dashboard li .stat {
 
 #brand-dropdown {
     display: none;
-    position: absolute;
     background-color: white;
     border: 1px solid #ccc;
     z-index: 1000; /* Ensure the dropdown appears above other elements */
@@ -2001,6 +2000,7 @@ transform: translateX(26px);
     }
     .footer-collumn {
         max-width: 60%;
+        place-items: center;
     }
     .pagination button {
         font-size: 16px;
