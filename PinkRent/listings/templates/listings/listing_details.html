@@ -89,6 +89,16 @@
             <a class="button" href="{% url 'messenger:create_conversation' listing.pk %}">{% trans "Start a Conversation" %}</a>
           {% endif %}
         </div>
+        <div class="action-buttons-owner">
+          {% if listing.owner == request.user %}
+              <a class="button" href="{% url 'listings:listing_update' listing.pk %}">
+                {% trans "Edit"|capfirst %}
+              </a>
+              <a class="button" href="{% url 'listings:listing_delete' listing.pk %}">
+                {% trans "Delete"|capfirst %}
+              </a>
+          {% endif %}
+        </div>
       </div>
   </div>
 </div>
@@ -128,19 +138,6 @@
     </div>
   </div>
 </div>
-  <div class="action-buttons">
-      <a class="button" href="{% url 'listings:listing_create' %}">
-        {% trans "Create listing"|capfirst %} 
-      </a>
-    {% if listing.owner == request.user %}
-        <a class="button" href="{% url 'listings:listing_update' listing.pk %}">
-          {% trans "Edit"|capfirst %}
-        </a>
-        <a class="button" href="{% url 'listings:listing_delete' listing.pk %}">
-          {% trans "Delete"|capfirst %}
-        </a>
-    {% endif %}
-    </div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.carousel');

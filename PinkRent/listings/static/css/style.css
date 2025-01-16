@@ -1724,7 +1724,7 @@ transform: translateX(26px);
     padding: 0px;
 }
 
-.action-buttons-user {
+.action-buttons-user, .action-buttons-owner {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
