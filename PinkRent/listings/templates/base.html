@@ -166,9 +166,9 @@
                 <p><a href="{% url 'listings:about_us' %}">{% trans "About Upupam" %}</a></p>
             </div>
             <div class="footer-collumn">
-                {% comment %} <p><a href="{% url 'listings:how_it_works' %}">{% trans "How It Works" %}</a></p> {% endcomment %}
                 <p><a href="{% url 'listings:fashion_rental_tips' %}">{% trans "How to rent?" %}</a></p>
                 <p><a href="{% url 'listings:best_practices_lending' %}">{% trans "How to lend?" %}</a></p>
+                <p><a href="{% url 'listings:concierge' %}">{% trans "Concierge" %}</a></p>
             </div>
             <div class="footer-collumn">
                 <p><a href="{% url 'listings:platform_rules' %}">{% trans "Platform Rules" %}</a></p>
@@ -176,7 +176,7 @@
             </div>
         </div>
         <div class="footer-extra-bar">
-            <p>Copyright &copy; Upupam. All rights reserved. 2024</p>
+            <p>Copyright &copy; Upupam. All rights reserved. 2025</p>
             <form action="{% url 'set_language' %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ redirect_to }}">

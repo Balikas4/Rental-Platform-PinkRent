@@ -1024,9 +1024,19 @@ ul.dashboard li .stat {
     font-weight: bold;
 }
 
-.platform-rules , .terms-conditions{
+.platform-rules , .terms-conditions, .concierge-service{
     padding: 20px 40px;
     text-align: start;
+}
+
+.concierge-service h2 {
+    text-align: left;
+}
+
+.container-concierge {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .listing-form input,
@@ -1838,9 +1848,16 @@ transform: translateX(26px);
     .seperator-text h1 {
         margin: 5px;
     }
-    .how-it-works-container .container-content.active, .complete-your-look{
+    .how-it-works-container .container-content.active, .complete-your-look, .container-concierge{
         flex-direction: column;
         gap: 2px;
+    }
+    .container-concierge{
+        align-items: center;
+    }
+    .arrow-icon {
+        max-width: 200px;
+        rotate: 90deg;
     }
     .hiw-grid, .container-choice {
         width: 100%;

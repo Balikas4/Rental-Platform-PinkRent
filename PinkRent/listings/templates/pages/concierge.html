@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load i18n %} {% load static %}
+{% block title %}{% trans "Concierge" %}{% endblock title %}
+{% block content %}
+<div class="concierge-service">
+    <h1>{% trans "Concierge clothing rental service" %}</h1>
+    <p>{% trans "Upupam Fashion Rental Platform offers a convenient service for those who don’t have the time, but want to earn extra income by renting out or selling their clothing." %}</p>
+
+    <h2>{% trans "How does it work?" %}</h2>
+    <ol>
+        <li>{% trans "Fill out this form and provide information about your items." %}</li>
+        <li>{% trans "We’ll contact you to coordinate the next steps." %}</li>
+        <li>{% trans "Hand your items over to a courier in a way that’s convenient for you." %}</li>
+        <li>{% trans "The Upupam team takes care of everything – from professional photography to listing, rental management, and maintenance." %}</li>
+        <li>{% trans "Get paid! You’ll receive profit from rented or sold items (a 20% commission applies to rental profits; for sold items, we take a 5% commission)." %}</li>
+    </ol>
+
+    <h2>{% trans "What kind of items are suitable?" %}</h2>
+    <p>{% trans "Women's occasion wear – dresses, shoes, handbags, accessories – with a minimum item value of €300." %}</p>
+
+    <h2>{% trans "Is it safe?" %}</h2>
+    <ul>
+        <li>{% trans "Yes. Upon request and with your agreement, we can apply protection measures such as deposits or insurance." %}</li>
+        <li>{% trans "All garments are cleaned at a professional dry cleaner." %}</li>
+        <li>{% trans "We’ll sign an official agreement for the handover of your items." %}</li>
+    </ul>
+
+    <h2>{% trans "How much can I earn?" %}</h2>
+    <p>{% trans "For example:" %}</p>
+    <ul>
+        <li>{% trans "Dress value: €300." %}</li>
+        <li>{% trans "Rental price for 4 days: €60." %}</li>
+        <li>{% trans "After about 6–7 rentals, your dress pays for itself!" %}</li>
+    </ul>
+
+    <h2>{% trans "Why is this worth it?" %}</h2>
+    <ul>
+        <li>{% trans "Earn without any extra effort." %}</li>
+        <li>{% trans "Save time – we do all the work for you." %}</li>
+        <li>{% trans "Support sustainable fashion practices." %}</li>
+    </ul>
+
+    <p><strong>{% trans "Easy, fast, and hassle-free! Fill out the form today and let your wardrobe start earning for you." %}</strong></p>
+    <p>{% trans "Please note: After evaluating your items, we may not be able to accept all of them into our concierge service. Thank you for understanding!" %}</p>
+
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfQBnPPOuTctK6e30NbEVfpKtxpr2YkjW70E8pvweCLrilTRg/viewform?usp=preview" class="btn btn-primary" target="_blank" rel="noopener noreferrer">{% trans "Click here to fill out the form" %}</a></p>
+</div>
+{% endblock content %}

@@ -211,6 +211,28 @@
     <button><a href="{% url 'listings:shop_page' %}?parent_category=1&category=10">{% trans "Rent Shoes" %}</a></button>
   </div>
 </div>
+<div class="seperator-text">
+  <h1>{% trans "Concierge service" %}</h1>
+</div>
+<div class="container-concierge">
+  <div class="hiw-grid">
+    <h2>{% trans "We’ll rent it out for you" %}</h2>
+    <p>{% trans "Have items you’d like to rent out but don’t have the time?" %}</p>
+  </div>
+  <img src="{% static 'pepicons-print_arrow-left.svg' %}" alt="arrow" class="arrow-icon">
+  <div class="hiw-grid">
+    <h2>{% trans "We handle the entire process" %}</h2>
+    <p>{% trans "Simply hand your item over to us – we’ll take care of creating the listings, maintenance, rentals, and finding customers." %}</p>
+  </div>
+  <img src="{% static 'pepicons-print_arrow-left.svg' %}" alt="arrow" class="arrow-icon">
+  <div class="hiw-grid">
+    <h2>{% trans "Effortless income" %}</h2>
+    <p>{% trans "You give us the item, and we generate profit for you! The platform keeps a 20% commission – the rest is yours!" %}</p>
+  </div>
+</div>
+<div class="seperator-div">
+  <button><a href="https://docs.google.com/forms/d/e/1FAIpQLSfQBnPPOuTctK6e30NbEVfpKtxpr2YkjW70E8pvweCLrilTRg/viewform?usp=preview">{% trans "Register your item" %}</a></button>
+</div>
 {% if user.is_authenticated %}
   <div class="seperator-div">
     <button>

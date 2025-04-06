@@ -319,6 +319,9 @@ def about_us(request):
 def platform_rules(request):
     return render(request, 'pages/platform_rules.html')
 
+def concierge(request):
+    return render(request, 'pages/concierge.html')
+
 def listing_list(request: HttpRequest) -> HttpResponse:
     queryset = models.Listing.objects
     owner_username = request.GET.get('owner')

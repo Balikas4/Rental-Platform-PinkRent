@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-25 09:55+0000\n"
+"POT-Creation-Date: 2025-04-06 08:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Lithuanian <LL@li.org>\n"
@@ -101,7 +101,7 @@ msgstr "vertė"
 msgid "owner"
 msgstr "savininkas"
 
-#: listings/models.py:211 listings/views.py:373
+#: listings/models.py:211 listings/views.py:376
 msgid "listing"
 msgstr "skelbimas"
 
@@ -133,98 +133,98 @@ msgstr "skelbimo atsiliepimas"
 msgid "listing_reviews"
 msgstr "skelbimo atsiliepimai"
 
-#: listings/templates/base.html:41 listings/templates/shop.html:17
+#: listings/templates/base.html:43 listings/templates/shop.html:17
 msgid "Search"
 msgstr "Paieška"
 
-#: listings/templates/base.html:49
+#: listings/templates/base.html:51
 msgid "Rent"
 msgstr "Nuoma"
 
-#: listings/templates/base.html:50
+#: listings/templates/base.html:52
 msgid "Lend"
 msgstr "Išnuomoti"
 
-#: listings/templates/base.html:54
+#: listings/templates/base.html:56
 #: user_profiles/templates/favorite/my_favorite_users.html:16
 #: user_profiles/templates/user_profile/user_detail.html:13
 msgid "Profile Picture"
 msgstr "Profilio nuotrauka"
 
-#: listings/templates/base.html:64 listings/templates/base.html:113
+#: listings/templates/base.html:66 listings/templates/base.html:115
 #: user_profiles/templates/user_profile/user_detail.html:6
 msgid "My Profile"
 msgstr "Mano profilis"
 
-#: listings/templates/base.html:66 listings/templates/base.html:115
+#: listings/templates/base.html:68 listings/templates/base.html:117
 msgid "Create Profile"
 msgstr "Sukurti profilį"
 
-#: listings/templates/base.html:68 listings/templates/base.html:117
+#: listings/templates/base.html:70 listings/templates/base.html:119
 msgid "My Favorite users"
 msgstr "Mano mėgstami vartotojai"
 
-#: listings/templates/base.html:69 listings/templates/base.html:118
+#: listings/templates/base.html:71 listings/templates/base.html:120
 msgid "My Favorite listings"
 msgstr "Mano mėgstamiausi skelbimai"
 
-#: listings/templates/base.html:71 listings/templates/base.html:120
+#: listings/templates/base.html:73 listings/templates/base.html:122
 msgid "admin"
 msgstr "administratorius"
 
-#: listings/templates/base.html:75 listings/templates/base.html:124
+#: listings/templates/base.html:77 listings/templates/base.html:126
 #: messenger/models.py:37
 msgid "Messages"
 msgstr "Žinutės"
 
-#: listings/templates/base.html:83 listings/templates/base.html:132
+#: listings/templates/base.html:85 listings/templates/base.html:134
 msgid "log out"
 msgstr "atsijungti"
 
-#: listings/templates/base.html:87 listings/templates/base.html:136
+#: listings/templates/base.html:89 listings/templates/base.html:138
 #: user_profiles/templates/registration/logged_out.html:6
 #: user_profiles/templates/registration/password_reset_complete.html:6
 msgid "log in"
 msgstr "prisijungti"
 
-#: listings/templates/base.html:88 listings/templates/base.html:137
+#: listings/templates/base.html:90 listings/templates/base.html:139
 #: user_profiles/templates/registration/login.html:30
 msgid "sign up"
 msgstr "užsiregistruoti"
 
-#: listings/templates/base.html:94
+#: listings/templates/base.html:96
 msgid "Menu"
 msgstr "Meniu"
 
-#: listings/templates/base.html:104 listings/templates/base.html:144
+#: listings/templates/base.html:106 listings/templates/base.html:146
 msgid "Wedding dresses"
 msgstr "Vestuvinės suknelės"
 
-#: listings/templates/base.html:105 listings/templates/base.html:145
+#: listings/templates/base.html:107 listings/templates/base.html:147
 msgid "Accessories"
 msgstr "Aksesuarai"
 
-#: listings/templates/base.html:106 listings/templates/base.html:146
+#: listings/templates/base.html:108 listings/templates/base.html:148
 msgid "Occasional dresses"
 msgstr "Proginės suknelės"
 
-#: listings/templates/base.html:107 listings/templates/base.html:147
+#: listings/templates/base.html:109 listings/templates/base.html:149
 msgid "Handbags"
 msgstr "Rankinukai"
 
-#: listings/templates/base.html:108 listings/templates/base.html:148
+#: listings/templates/base.html:110 listings/templates/base.html:150
 msgid "Shoes"
 msgstr "Batai"
 
-#: listings/templates/base.html:109
+#: listings/templates/base.html:111
 msgid "Upload item for rent"
 msgstr "Įkelti nuomojamą daiktą"
 
-#: listings/templates/base.html:110
+#: listings/templates/base.html:112
 msgid "Rent from others"
 msgstr "Nuomotis iš kitų"
 
-#: listings/templates/base.html:165 listings/templates/pages/about_us.html:6
+#: listings/templates/base.html:167 listings/templates/pages/about_us.html:6
 msgid "About Upupam"
 msgstr "Apie Upupam"
 
@@ -236,13 +236,17 @@ msgstr "Kaip nuomotis"
 msgid "How to lend?"
 msgstr "Kaip nuomuoti"
 
-#: listings/templates/base.html:174
+#: listings/templates/base.html:172 listings/templates/pages/concierge.html:3
+msgid "Concierge"
+msgstr "Concierge"
+
+#: listings/templates/base.html:175
 #: listings/templates/pages/platform_rules.html:3
 #: listings/templates/pages/platform_rules.html:6
 msgid "Platform Rules"
 msgstr "Platformos taisyklės"
 
-#: listings/templates/base.html:175
+#: listings/templates/base.html:176
 msgid "Terms & Conditions"
 msgstr "Sąlygos ir taisyklės"
 
@@ -515,43 +519,39 @@ msgstr "Patinka"
 msgid "Start a Conversation"
 msgstr "Susisiekti"
 
-#: listings/templates/listings/listing_details.html:97
+#: listings/templates/listings/listing_details.html:95
+msgid "Edit"
+msgstr "Redaguoti"
+
+#: listings/templates/listings/listing_details.html:98
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: listings/templates/listings/listing_details.html:107
 msgid "Listing reviews"
 msgstr "Skelbimo atsiliepimai"
 
-#: listings/templates/listings/listing_details.html:98
-#: listings/templates/listings/listing_details.html:113
+#: listings/templates/listings/listing_details.html:108
+#: listings/templates/listings/listing_details.html:123
 #: user_profiles/templates/user_profile/user_detail.html:124
 msgid "Review average"
 msgstr "Atsiliepimų vidurkis"
 
-#: listings/templates/listings/listing_details.html:104
-#: listings/templates/listings/listing_details.html:119
+#: listings/templates/listings/listing_details.html:114
+#: listings/templates/listings/listing_details.html:129
 #: user_profiles/templates/user_profile/user_detail.html:130
 msgid "No reviews"
 msgstr "Atsiliepimų nėra"
 
-#: listings/templates/listings/listing_details.html:107
-#: listings/templates/listings/listing_details.html:124
+#: listings/templates/listings/listing_details.html:117
+#: listings/templates/listings/listing_details.html:134
 #: user_profiles/templates/user_profile/user_detail.html:135
 msgid "Leave a review"
 msgstr "Palikti atsiliepimą"
 
-#: listings/templates/listings/listing_details.html:112
+#: listings/templates/listings/listing_details.html:122
 msgid "User Reviews"
 msgstr "Atsiliepimai apie vartotoją"
-
-#: listings/templates/listings/listing_details.html:133
-msgid "Create listing"
-msgstr "Sukurti skelbimą"
-
-#: listings/templates/listings/listing_details.html:137
-msgid "Edit"
-msgstr "Redaguoti"
-
-#: listings/templates/listings/listing_details.html:140
-msgid "Delete"
-msgstr "Ištrinti"
 
 #: listings/templates/listings/listing_list.html:5
 #: user_profiles/templates/user_profile/user_detail.html:64
@@ -742,7 +742,47 @@ msgstr "Nuomokis rankines"
 msgid "Rent Shoes"
 msgstr "Nuomokis batus"
 
-#: listings/templates/main.html:219
+#: listings/templates/main.html:216
+msgid "Concierge service"
+msgstr "Concierge paslauga"
+
+#: listings/templates/main.html:220
+msgid "We’ll rent it out for you"
+msgstr "Išnuomosime už jus"
+
+#: listings/templates/main.html:221
+msgid "Have items you’d like to rent out but don’t have the time?"
+msgstr "Turite daiktų, kuriuos norėtumėte išnuomoti, bet tam nepakanka laiko?"
+
+#: listings/templates/main.html:225
+msgid "We handle the entire process"
+msgstr "Rūpinamės visu procesu"
+
+#: listings/templates/main.html:226
+msgid ""
+"Simply hand your item over to us – we’ll take care of creating the listings, "
+"maintenance, rentals, and finding customers."
+msgstr ""
+"Perduokite daiktą mums, o mes pasirūpinsime skelbimų kūrimu, daikto "
+"priežiūra,nuoma ir klientų paieška."
+
+#: listings/templates/main.html:230
+msgid "Effortless income"
+msgstr "Uždarbis be pastangų"
+
+#: listings/templates/main.html:231
+msgid ""
+"You give us the item, and we generate profit for you! The platform keeps a "
+"20%% commission – the rest is yours!"
+msgstr ""
+"Perduodate daiktą mums, o mes uždirbame jums! Platforma pasilieka 20% nuo "
+"pelno, likusi dalis jūsų!"
+
+#: listings/templates/main.html:235
+msgid "Register your item"
+msgstr "Užregistruoti daiktą"
+
+#: listings/templates/main.html:241
 msgid "Feedback"
 msgstr "Atsiliepimai apie platformą"
 
@@ -903,6 +943,141 @@ msgstr ""
 "sprendžiant problemas kitų naudai. Prioritetu turėtų būti nuoširdumas ir "
 "sąžiningumas mūsų atsiliepimuose, kad sukurtume saugią ir draugišką "
 "platformos aplinką visiems."
+
+#: listings/templates/pages/concierge.html:6
+msgid "Concierge clothing rental service"
+msgstr "Concierge drabužių išnuomavimo paslauga"
+
+#: listings/templates/pages/concierge.html:7
+msgid ""
+"Upupam Fashion Rental Platform offers a convenient service for those who "
+"don’t have the time, but want to earn extra income by renting out or selling "
+"their clothing."
+msgstr ""
+"Upupam mados nuomos platforma siūlo patogią paslaugą tiems, kurie neturi "
+"laiko, bet nori papildomai uždirbti išnuomodami arba parduodami savo "
+"drabužius."
+
+#: listings/templates/pages/concierge.html:9
+msgid "How does it work?"
+msgstr "Kaip tai veikia?"
+
+#: listings/templates/pages/concierge.html:11
+msgid "Fill out this form and provide information about your items."
+msgstr "Užpildykite šią formą ir nurodykite informaciją apie savo drabužius."
+
+#: listings/templates/pages/concierge.html:12
+msgid "We’ll contact you to coordinate the next steps."
+msgstr "Mes su jumis susisieksime ir suderinsime tolimesnius žingsnius."
+
+#: listings/templates/pages/concierge.html:13
+msgid "Hand your items over to a courier in a way that’s convenient for you."
+msgstr "Perduokite drabužius kurjeriui patogiu jums būdu."
+
+#: listings/templates/pages/concierge.html:14
+msgid ""
+"The Upupam team takes care of everything – from professional photography to "
+"listing, rental management, and maintenance."
+msgstr ""
+"Upupam komanda pasirūpins viskuo – nuo kokybiškų nuotraukų iki skelbimų "
+"įkėlimo, nuomos proceso ir priežiūros."
+
+#: listings/templates/pages/concierge.html:15
+msgid ""
+"Get paid! You’ll receive profit from rented or sold items (a 20%% commission "
+"applies to rental profits; for sold items, we take a 5%% commission)."
+msgstr ""
+"Gaukite uždarbį! Gausite pelną už išnuomotus arba parduotus daiktus "
+"(platforma pasilieka 20% komisinį mokestį nuo pelno nuomojant, jeigu jūsų "
+"daiktą parduosime - 5%)"
+
+#: listings/templates/pages/concierge.html:18
+msgid "What kind of items are suitable?"
+msgstr "Kokie yra Tinkami daiktai?"
+
+#: listings/templates/pages/concierge.html:19
+msgid ""
+"Women's occasion wear – dresses, shoes, handbags, accessories – with a "
+"minimum item value of €300."
+msgstr ""
+"Moteriška proginė apranga (drabužiai, bateliai, rankinės, aksesuarai, kurių "
+"vertė yra bent 300 eur)."
+
+#: listings/templates/pages/concierge.html:21
+msgid "Is it safe?"
+msgstr "Ar tai saugu?"
+
+#: listings/templates/pages/concierge.html:23
+msgid ""
+"Yes. Upon request and with your agreement, we can apply protection measures "
+"such as deposits or insurance."
+msgstr ""
+"Esant poreikiui, su jūsų sutikimu, pritaikysime apsaugos garantijas "
+"(depozitas ar draudimas)."
+
+#: listings/templates/pages/concierge.html:24
+msgid "All garments are cleaned at a professional dry cleaner."
+msgstr "Drabužiai bus valomi profesionalioje valykloje."
+
+#: listings/templates/pages/concierge.html:25
+msgid "We’ll sign an official agreement for the handover of your items."
+msgstr "Pasirašysime oficialią sutartį dėl daiktų perdavimo mums."
+
+#: listings/templates/pages/concierge.html:28
+msgid "How much can I earn?"
+msgstr "Kiek galiu uždirbti?"
+
+#: listings/templates/pages/concierge.html:29
+msgid "For example:"
+msgstr "Pavyzdžiui:"
+
+#: listings/templates/pages/concierge.html:30
+msgid "Dress value: €300."
+msgstr "Suknelės vertė: 300 EUR"
+
+#: listings/templates/pages/concierge.html:31
+msgid "Rental price for 4 days: €60."
+msgstr "Nuomos kaina 4 dienoms: 60 EUR"
+
+#: listings/templates/pages/concierge.html:32
+msgid "After about 6–7 rentals, your dress pays for itself!"
+msgstr "Maždaug po 6-7 nuomos kartų jūsų suknelė atsipirks!"
+
+#: listings/templates/pages/concierge.html:34
+msgid "Why is this worth it?"
+msgstr "Kodėl naudinga?"
+
+#: listings/templates/pages/concierge.html:36
+msgid "Earn without any extra effort."
+msgstr "Uždirbate be papildomų pastangų."
+
+#: listings/templates/pages/concierge.html:37
+msgid "Save time – we do all the work for you."
+msgstr "Sutaupote laiką – mes atliekame visą darbą už jus."
+
+#: listings/templates/pages/concierge.html:38
+msgid "Support sustainable fashion practices."
+msgstr "Prisidedate prie tvarios mados skatinimo."
+
+#: listings/templates/pages/concierge.html:41
+msgid ""
+"Easy, fast, and hassle-free! Fill out the form today and let your wardrobe "
+"start earning for you."
+msgstr ""
+"Lengva, greita ir be rūpesčių! Užpildykite formą jau dabar ir leiskite savo "
+"drabužiams uždirbti už jus. "
+
+#: listings/templates/pages/concierge.html:42
+msgid ""
+"Please note: After evaluating your items, we may not be able to accept all "
+"of them into our concierge service. Thank you for understanding!"
+msgstr ""
+"Informuojame, jog po daikto įvertinimo, gali būti, jog ne visus daiktus "
+"priimsime išnuomavimui su concierge paslauga. Ačiū už supratingumą!"
+
+#: listings/templates/pages/concierge.html:44
+msgid "Click here to fill out the form"
+msgstr "Spauskite čia ir užpildykite formą."
 
 #: listings/templates/pages/fashion_rental_tips.html:3
 #: listings/templates/pages/how_to_lend.html:3
@@ -1161,13 +1336,6 @@ msgstr ""
 "nuomos kainą."
 
 #: listings/templates/pages/listing_upload_guidelines.html:13
-#, fuzzy, python-format
-#| msgid ""
-#| "4-Day Rental Price: Have in mind that in the listing upload form, you are "
-#| "putting a 4-day rental price. We recommend setting the rental price at "
-#| "10-15%% of the item’s retail price for a day rental period. If your item "
-#| "is high in demand, you may want to increase the rental price to maximize "
-#| "your earnings."
 msgid ""
 "4-Day Rental Price: Have in mind that in the listing upload form, you are "
 "putting a 4-day rental price. We recommend setting the rental price at "
@@ -1708,35 +1876,35 @@ msgstr "REZULTATAI"
 msgid "All Sub-Categories"
 msgstr "Visi pogrupiai"
 
-#: listings/views.py:375
+#: listings/views.py:378
 msgid "marked as"
 msgstr "pažymėta kaip"
 
-#: listings/views.py:376
+#: listings/views.py:379
 msgid "available"
 msgstr "pasiekiama"
 
-#: listings/views.py:376
+#: listings/views.py:379
 msgid "unavailable"
 msgstr "nepasiekiama"
 
-#: listings/views.py:379
+#: listings/views.py:382
 msgid "permission error"
 msgstr "leidimo klaida"
 
-#: listings/views.py:379
+#: listings/views.py:382
 msgid "you must be the owner of listing"
 msgstr "turite būti skelbimo savininkas"
 
-#: listings/views.py:396
+#: listings/views.py:399
 msgid "listing created successfully"
 msgstr "skelbimas sėkmingai sukurtas"
 
-#: listings/views.py:418
+#: listings/views.py:421
 msgid "listing updated successfully"
 msgstr "skelbimas sėkmingai atnaujintas"
 
-#: listings/views.py:439
+#: listings/views.py:442
 msgid "listing deleted successfully"
 msgstr "skelbimas sėkmingai ištrintas"
 
@@ -2085,6 +2253,9 @@ msgstr ""
 msgid "Profile edited successfully"
 msgstr "Profilis sėkmingai pakeistas"
 
+#~ msgid "Create listing"
+#~ msgstr "Sukurti skelbimą"
+
 #~ msgid ""
 #~ "Include all important information in the description, such as whether the "
 #~ "item runs small or is very fitted, making it less comfortable to wear. "
@@ -2258,9 +2429,6 @@ msgstr "Profilis sėkmingai pakeistas"
 #~ "Book your chosen items easily and have them delivered to your doorstep."
 #~ msgstr ""
 #~ "Lengvai užsisakykite pasirinktus daiktus ir gaukite juos tiesiai į namus."
-
-#~ msgid "Support Sustainability"
-#~ msgstr "Palaikyk tvarumą"
 
 #~ msgid ""
 #~ "By renting, you are supporting sustainable fashion and reducing waste."
