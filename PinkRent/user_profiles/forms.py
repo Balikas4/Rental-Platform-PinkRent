@@ -7,6 +7,8 @@ from .models import UserProfileReview
 from django.utils.translation import gettext as _
 
 class CreateUserForm(UserCreationForm):
+    honeypot = forms.CharField(required=False, widget=forms.HiddenInput)
+    
     class Meta:
         model = get_user_model()
         fields = ('username', 'email')

@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from . import forms
@@ -27,14 +27,14 @@ def signup(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         form = forms.CreateUserForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            if form.cleaned_data.get('honeypot'):
+                return HttpResponseBadRequest("Bot detected.")
 
-            # Automatically create a UserProfile after the user is created
+            user = form.save()
             UserProfile.objects.create(user=user)
 
             messages.success(request, _("Thank you! You can log in now with your credentials."))
 
-            # Send a welcome email
             send_mail(
                 subject=_("Welcome to UPUPAM!"),
                 message=_("Hi {username},\n\nThank you for signing up! We're excited to have you on board.\n\nBest regards,\nThe UPUPAM Team").format(username=user.username),
@@ -42,13 +42,12 @@ def signup(request: HttpRequest) -> HttpResponse:
                 recipient_list=[user.email],
                 fail_silently=False,
             )
-            
+
             return redirect("login")
     else:
         form = forms.CreateUserForm()
-    return render(request, 'user_profile/signup.html', {
-        'form': form,
-    })
+
+    return render(request, 'user_profile/signup.html', {'form': form})
 
 User = get_user_model()
 
